@@ -1,0 +1,16 @@
+@(course: Course,courseForm:Form[Course])
+
+@import helper._
+
+<h2>Edit course</h2>
+@form(routes.Courses.updateCourse(course.id)){
+<p>
+<input type="text" name="name" placeholder="Name" value="@course.name">
+</p>
+<p>
+<textarea rows="10" cols="30" name="description" placeholder="Description" >@course.description</textarea>
+</p>
+<p>
+<button type="submit">Update</button><a href="@routes.Courses.index">Cancel</button>
+</p>
+}

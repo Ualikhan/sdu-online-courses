@@ -1,0 +1,32 @@
+@(courseId: Long , courseInformations: List[CourseInformation] , courseInformationForm: Form[CourseInformation])
+@import helper._
+
+<table>
+<th>CourseInformation name</th>
+<th>Description</th>
+<th></th>
+@if(courseInformations!=null){
+@for(courseInformation<-courseInformations){
+<tr>
+@form(routes.CourseInformations.deleteCourseInformation(courseInformation.id)){
+<td><a href="@routes.CourseInformations.courseInformationPage(courseInformation.id)">@courseInformation.title</a></td>
+<td>@courseInformation.content</td>
+<td><button type="submit">Delete</button></td>
+}
+</tr>
+}
+}
+</table>
+
+<h2>Add a new courseInformation</h2>
+@form(routes.CourseInformations.newCourseInformation()){
+<p>
+<input type="text" name="title" placeholder="Name">
+</p>
+<p>
+<textarea rows="10" cols="30" name="content" placeholder="Description"></textarea>
+</p>
+<p>
+<button type="submit">Create</button>
+</p>
+}

@@ -1,0 +1,36 @@
+@(courseId: Long , lectures: List[Lecture] , lectureForm: Form[Lecture])
+@import helper._
+
+<table>
+<th>Lecture name</th>
+<th>Description</th>
+<th>File</th>
+<th>Video</th>
+<th></th>
+@if(lectures!=null){
+@for(lecture<-lectures){
+<tr>
+@form(routes.Lectures.deleteLecture(lecture.id)){
+<td><a href="@routes.Lectures.lecturePage(lecture.id)">@lecture.title</a></td>
+<td>@lecture.content</td>
+<td>@lecture.file</td>
+<td>@lecture.video</td>
+<td><button type="submit">Delete</button></td>
+}
+</tr>
+}
+}
+</table>
+
+<h2>Add a new lecture</h2>
+@form(routes.Lectures.newLecture()){
+<p>
+<input type="text" name="title" placeholder="Name">
+</p>
+<p>
+<textarea rows="10" cols="30" name="content" placeholder="Description"></textarea>
+</p>
+<p>
+<button type="submit">Create</button>
+</p>
+}

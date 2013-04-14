@@ -1,0 +1,31 @@
+@(user:User,userForm:Form[User])
+@import helper._
+
+<img src="@routes.Assets.at("uploadImages/"+{user.photo})" width="60px" height="60px" >
+ @form(routes.Users.editUser) {
+<p>
+<input type="text" name="name" placeholder="Name"  value="@user.name">
+</p>
+<p>
+<input type="text" name="company" placeholder="Company"  value="@user.company">
+</p>
+<p>
+<input type="text" name="company" placeholder="Position"  value="@user.position">
+</p>
+<p>
+<input type="submit" placeholder="Save changes" >
+</p>
+}
+@user.email
+
+ @form(routes.Users.changePassword) {
+<p>
+<input type="password" placeholder="Password" name="password" >
+</p>
+<p>
+<input type="password" placeholder="Confirm password" name="password2" >
+</p>
+<p>
+<input type="submit" placeholder="Save changes" >
+</p>
+}

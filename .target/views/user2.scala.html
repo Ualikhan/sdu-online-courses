@@ -1,0 +1,28 @@
+@(courses: List[Course], scourses: List[Course], user:User)
+@import helper._
+
+
+@main(user){
+
+<div class="content">
+ 	<h1>All</h1>
+ 	<ul>
+ 	 @courses.map { task =>
+                           <li>@task.name
+                            @form(routes.Courses.join(task.id)) {
+<p>
+<input type="submit" placeholder="Join" >
+</p>
+}
+                           </li>
+                        }
+ 	</ul>
+ 	<h1>Student</h1>
+ 	<ul>
+ 	 @scourses.map { task =>
+                           <li>@task.name</li>
+                        }
+ 	</ul>
+ 	</div>
+ 	
+ }
