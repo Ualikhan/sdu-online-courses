@@ -114,7 +114,8 @@ public class Application extends Controller {
         response().setContentType("text/javascript");
         return ok(
             Routes.javascriptRouter("myJsRoutes",
-            		controllers.routes.javascript.Lectures.getLecture()
+            		controllers.routes.javascript.Lectures.getLecture(),
+            		controllers.routes.javascript.CourseInformations.getCourseInformation()
             )
         );
     }

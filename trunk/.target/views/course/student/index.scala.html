@@ -32,7 +32,7 @@ By @course.owner.name
      <ul class="nav nav-list sidebar">  
   <li class="nav-header">Course information</li>
   @for(courseInformation<-courseInformations){
-  <li><a href="#">@courseInformation.title</a></li>
+  <li><a class="courseInformations" id="@courseInformation.id" href="#">@courseInformation.title</a></li>
   }
 </ul>
     </div>
@@ -56,3 +56,16 @@ By @course.owner.name
 
 
 }
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.courseInformations').click(function(e) {
+		var lectureId=$(this).attr('id');
+		myJsRoutes.controllers.CourseInformations.getCourseInformation(lectureId).ajax({
+		    success : function(data) {
+			$('.contentBar').html(data);
+		    }
+		});
+		return false;
+	});
+});
+</script>

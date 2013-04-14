@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import play.data.validation.Constraints.Required;
 import play.db.ebean.Model;
 import play.db.ebean.Model.Finder;
 
@@ -15,6 +16,7 @@ public class Course extends Model{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long id;
 	
+	@Required
 	public String name;
 	
 	@Column(columnDefinition="TEXT")

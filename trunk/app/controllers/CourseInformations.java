@@ -49,6 +49,13 @@ public static Result courseInformationPage(Long id) {
 	}
 }
 
+public static Result getCourseInformation(Long id){
+	return ok(views.html.courseinformation.student.item.render(
+			CourseInformation.find.byId(id)
+			)
+			);
+}
+
 public static Result updateCourseInformation(Long id) {
 	courseId=Long.parseLong(session("course"));
 	if(Secured.isTutorOf(courseId)){
