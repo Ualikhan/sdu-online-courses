@@ -1,0 +1,58 @@
+@(user:User,course:Course,announcements: List[Announcement],courseInformations: List[CourseInformation])
+
+@import helper._
+@main(user){
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+     
+    </div>
+    <div class="span8">
+<h3>@course.name</h3>
+By @course.owner.name
+@if(course.owner.company!=null){
+,@course.owner.company
+}
+<div class="menuBar">
+<ul class="nav nav-pills">
+  <li class="active">
+    <a href="@routes.Courses.coursePage(course.id)">Home</a>
+  </li>
+  <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
+  <li><a href="@routes.Application.index">Assignments</a></li>
+  <li><a href="@routes.Application.index">Community</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+     <ul class="nav nav-list sidebar">  
+  <li class="nav-header">Course information</li>
+  @for(courseInformation<-courseInformations){
+  <li><a href="#">@courseInformation.title</a></li>
+  }
+</ul>
+    </div>
+    <div class="span8">
+      <div class="contentBar">
+<div id="announcements">
+@for(annoncement<-announcements){
+<span>
+<dl>
+  <dt>@annoncement.title</dt>
+  <dd>@annoncement.content</dd>
+</dl>
+<p>@annoncement.createdDate</p>
+</span>
+}
+</div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+}

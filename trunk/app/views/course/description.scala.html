@@ -1,0 +1,28 @@
+@(course:Course,courseInformations:List[CourseInformation],enrollment:String,user:User)
+
+@import helper._
+@main(user){
+	<h2>@course.name</h2>
+	<p>@course.description</p>
+	@if(enrollment.equals("ENROLLED")){
+		@form(routes.Courses.coursePage(course.id)) {
+		<button class="btn btn-primary btn-medium" type="submit">Go to class</button>
+		}
+	}else{
+	@if(enrollment.equals("OWNER")){
+		@form(routes.Courses.updateCourse(course.id)) {
+		<button class="btn btn-primary btn-medium" type="submit">Edit course</button>
+		}
+	}else{
+		@form(routes.Courses.join(course.id)){
+		<button class="btn btn-primary btn-medium" type="submit">Sign up</button>
+		}
+	}
+}
+ @courseInformations.map { task =>
+<div class="courseInformation">
+<h3>@task.title</h3>
+<span>@task.content</span>
+</div>
+}
+}

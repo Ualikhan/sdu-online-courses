@@ -1,0 +1,16 @@
+@(lecture: Lecture,lectureForm:Form[Lecture])
+
+@import helper._
+
+<h2>Edit lecture</h2>
+@form(routes.Lectures.updateLecture(lecture.id)){
+<p>
+<input type="text" name="name" placeholder="Name" value="@lecture.title">
+</p>
+<p>
+<textarea rows="10" cols="30" name="description" placeholder="Description" >@lecture.content</textarea>
+</p>
+<p>
+<button type="submit">Update</button><a href="@routes.Lectures.index()">Cancel</button>
+</p>
+}
