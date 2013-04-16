@@ -20,16 +20,16 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object item extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template2[Course,Form[Course],play.api.templates.Html] {
+object item extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template3[Course,Form[Course],User,play.api.templates.Html] {
 
     /**/
-    def apply/*1.2*/(course: Course,courseForm:Form[Course]):play.api.templates.Html = {
+    def apply/*1.2*/(course: Course,courseForm:Form[Course],user:User):play.api.templates.Html = {
         _display_ {import helper._
 
 
-Seq[Any](format.raw/*1.42*/("""
+Seq[Any](format.raw/*1.52*/("""
 
-"""),format.raw/*4.1*/("""
+"""),_display_(Seq[Any](/*4.2*/main(user)/*4.12*/{_display_(Seq[Any](format.raw/*4.13*/("""
 <h2>Edit course</h2>
 """),_display_(Seq[Any](/*6.2*/form(routes.Courses.updateCourse(course.id))/*6.46*/{_display_(Seq[Any](format.raw/*6.47*/("""
 <p>
@@ -41,23 +41,24 @@ Seq[Any](format.raw/*1.42*/("""
 <p>
 <button type="submit">Update</button><a href=""""),_display_(Seq[Any](/*14.48*/routes/*14.54*/.Courses.index)),format.raw/*14.68*/("""">Cancel</button>
 </p>
+""")))})),format.raw/*16.2*/("""
 """)))})))}
     }
     
-    def render(course:Course,courseForm:Form[Course]): play.api.templates.Html = apply(course,courseForm)
+    def render(course:Course,courseForm:Form[Course],user:User): play.api.templates.Html = apply(course,courseForm,user)
     
-    def f:((Course,Form[Course]) => play.api.templates.Html) = (course,courseForm) => apply(course,courseForm)
+    def f:((Course,Form[Course],User) => play.api.templates.Html) = (course,courseForm,user) => apply(course,courseForm,user)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 00:24:08 ALMT 2013
+                    DATE: Mon Apr 15 20:54:14 ALMT 2013
                     SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/course/item.scala.html
-                    HASH: 42c11471f9661df35a4da808cdaa80b6d2f31449
-                    MATRIX: 742->1|876->41|906->63|965->88|1017->132|1055->133|1155->198|1169->204|1195->209|1323->301|1338->307|1372->319|1479->390|1494->396|1530->410
-                    LINES: 26->1|30->1|32->4|34->6|34->6|34->6|36->8|36->8|36->8|39->11|39->11|39->11|42->14|42->14|42->14
+                    HASH: 2e066e31831867be39e3a0982679dfba49b4fc95
+                    MATRIX: 747->1|891->51|930->74|948->84|986->85|1045->110|1097->154|1135->155|1235->220|1249->226|1275->231|1403->323|1418->329|1452->341|1559->412|1574->418|1610->432|1667->458
+                    LINES: 26->1|30->1|32->4|32->4|32->4|34->6|34->6|34->6|36->8|36->8|36->8|39->11|39->11|39->11|42->14|42->14|42->14|44->16
                     -- GENERATED --
                 */
             

@@ -31,7 +31,11 @@ Seq[Any](format.raw/*1.40*/("""
 
 """),format.raw/*4.1*/("""
 <h3>"""),_display_(Seq[Any](/*5.6*/courseInformation/*5.23*/.title)),format.raw/*5.29*/("""</h3>
-<p>"""),_display_(Seq[Any](/*6.5*/courseInformation/*6.22*/.content)),format.raw/*6.30*/("""</p>"""))}
+<p>
+"""),_display_(Seq[Any](/*7.2*/if(courseInformation.content!=null)/*7.37*/{_display_(Seq[Any](format.raw/*7.38*/("""
+"""),_display_(Seq[Any](/*8.2*/Html(courseInformation.content))),format.raw/*8.33*/("""
+""")))})),format.raw/*9.2*/("""
+</p>"""))}
     }
     
     def render(courseInformation:CourseInformation): play.api.templates.Html = apply(courseInformation)
@@ -43,11 +47,11 @@ Seq[Any](format.raw/*1.40*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 00:31:30 ALMT 2013
+                    DATE: Mon Apr 15 22:45:55 ALMT 2013
                     SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/courseinformation/student/item.scala.html
-                    HASH: bf7be08e0ab77306dc021cab4a0e84e24f72c47d
-                    MATRIX: 759->1|891->39|921->61|962->68|987->85|1014->91|1059->102|1084->119|1113->127
-                    LINES: 26->1|30->1|32->4|33->5|33->5|33->5|34->6|34->6|34->6
+                    HASH: 573850f584b269c6b4596b0adc8b3523b219f1b2
+                    MATRIX: 759->1|891->39|921->61|962->68|987->85|1014->91|1061->104|1104->139|1142->140|1179->143|1231->174|1264->177
+                    LINES: 26->1|30->1|32->4|33->5|33->5|33->5|35->7|35->7|35->7|36->8|36->8|37->9
                     -- GENERATED --
                 */
             

@@ -10,13 +10,21 @@
         <script type="text/javascript" src='@routes.Application.javascriptRoutes()'></script>
         <script type="text/javascript" src="@routes.Assets.at("stylesheets/js/bootstrap.js")"></script>
         <script type="text/javascript" src="@routes.Assets.at("stylesheets/js/bootstrap.min.js")"></script>
-             @if(user!=null){
+         @if(user!=null){
               <script type="text/javascript">
 				$(document).ready(function() {
 					$('.dropdown-toggle').dropdown();
 					 });
 				</script>
 				}
+        <script type="text/javascript" src="@routes.Assets.at("javascripts/tiny_mce/tiny_mce.js")"></script>
+        <script type="text/javascript">
+			tinyMCE.init({
+			        mode : "textareas"
+			});
+		</script>
+            
+				
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
         

@@ -20,15 +20,15 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object index extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template3[Long,List[Lecture],Form[Lecture],play.api.templates.Html] {
+object index extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template4[Long,List[Lecture],Form[Lecture],User,play.api.templates.Html] {
 
     /**/
-    def apply/*1.2*/(courseId: Long , lectures: List[Lecture] , lectureForm: Form[Lecture]):play.api.templates.Html = {
+    def apply/*1.2*/(courseId: Long , lectures: List[Lecture] , lectureForm: Form[Lecture],user:User):play.api.templates.Html = {
         _display_ {import helper._
 
 
-Seq[Any](format.raw/*1.73*/("""
-"""),format.raw/*3.1*/("""
+Seq[Any](format.raw/*1.83*/("""
+"""),_display_(Seq[Any](/*3.2*/main(user)/*3.12*/{_display_(Seq[Any](format.raw/*3.13*/("""
 <table>
 <th>Lecture name</th>
 <th>Description</th>
@@ -40,18 +40,24 @@ Seq[Any](format.raw/*1.73*/("""
 <tr>
 """),_display_(Seq[Any](/*13.2*/form(routes.Lectures.deleteLecture(lecture.id))/*13.49*/{_display_(Seq[Any](format.raw/*13.50*/("""
 <td><a href=""""),_display_(Seq[Any](/*14.15*/routes/*14.21*/.Lectures.lecturePage(lecture.id))),format.raw/*14.54*/("""">"""),_display_(Seq[Any](/*14.57*/lecture/*14.64*/.title)),format.raw/*14.70*/("""</a></td>
-<td>"""),_display_(Seq[Any](/*15.6*/lecture/*15.13*/.content)),format.raw/*15.21*/("""</td>
-<td>"""),_display_(Seq[Any](/*16.6*/lecture/*16.13*/.file)),format.raw/*16.18*/("""</td>
-<td>"""),_display_(Seq[Any](/*17.6*/lecture/*17.13*/.video)),format.raw/*17.19*/("""</td>
-<td><button type="submit">Delete</button></td>
+<td>
+<div class="description" >
+"""),_display_(Seq[Any](/*17.2*/if(lecture.content!=null)/*17.27*/{_display_(Seq[Any](format.raw/*17.28*/("""
+"""),_display_(Seq[Any](/*18.2*/Html(lecture.content))),format.raw/*18.23*/("""
 """)))})),format.raw/*19.2*/("""
+</div>
+</td>
+<td>"""),_display_(Seq[Any](/*22.6*/lecture/*22.13*/.file)),format.raw/*22.18*/("""</td>
+<td>"""),_display_(Seq[Any](/*23.6*/lecture/*23.13*/.video)),format.raw/*23.19*/("""</td>
+<td><button type="submit">Delete</button></td>
+""")))})),format.raw/*25.2*/("""
 </tr>
-""")))})),format.raw/*21.2*/("""
-""")))})),format.raw/*22.2*/("""
+""")))})),format.raw/*27.2*/("""
+""")))})),format.raw/*28.2*/("""
 </table>
 
 <h2>Add a new lecture</h2>
-"""),_display_(Seq[Any](/*26.2*/form(routes.Lectures.newLecture())/*26.36*/{_display_(Seq[Any](format.raw/*26.37*/("""
+"""),_display_(Seq[Any](/*32.2*/form(routes.Lectures.newLecture())/*32.36*/{_display_(Seq[Any](format.raw/*32.37*/("""
 <p>
 <input type="text" name="title" placeholder="Name">
 </p>
@@ -61,23 +67,27 @@ Seq[Any](format.raw/*1.73*/("""
 <p>
 <button type="submit">Create</button>
 </p>
-""")))})))}
+""")))})),format.raw/*42.2*/("""
+""")))})),format.raw/*43.2*/("""
+
+
+"""))}
     }
     
-    def render(courseId:Long,lectures:List[Lecture],lectureForm:Form[Lecture]): play.api.templates.Html = apply(courseId,lectures,lectureForm)
+    def render(courseId:Long,lectures:List[Lecture],lectureForm:Form[Lecture],user:User): play.api.templates.Html = apply(courseId,lectures,lectureForm,user)
     
-    def f:((Long,List[Lecture],Form[Lecture]) => play.api.templates.Html) = (courseId,lectures,lectureForm) => apply(courseId,lectures,lectureForm)
+    def f:((Long,List[Lecture],Form[Lecture],User) => play.api.templates.Html) = (courseId,lectures,lectureForm,user) => apply(courseId,lectures,lectureForm,user)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 00:24:08 ALMT 2013
+                    DATE: Mon Apr 15 23:33:23 ALMT 2013
                     SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/lecture/index.scala.html
-                    HASH: a96f56f6976f6ff1cceb1e716aec758b6c74c2ff
-                    MATRIX: 757->1|922->72|950->92|1084->191|1111->209|1150->210|1188->213|1226->235|1265->236|1309->245|1365->292|1404->293|1456->309|1471->315|1526->348|1565->351|1581->358|1609->364|1660->380|1676->387|1706->395|1753->407|1769->414|1796->419|1843->431|1859->438|1887->444|1974->500|2015->510|2049->513|2127->556|2170->590|2209->591
-                    LINES: 26->1|30->1|31->3|38->10|38->10|38->10|39->11|39->11|39->11|41->13|41->13|41->13|42->14|42->14|42->14|42->14|42->14|42->14|43->15|43->15|43->15|44->16|44->16|44->16|45->17|45->17|45->17|47->19|49->21|50->22|54->26|54->26|54->26
+                    HASH: c2c3c12cd6c0592ee025a7853a8487eb72f70b76
+                    MATRIX: 762->1|937->82|974->103|992->113|1030->114|1164->213|1191->231|1230->232|1268->235|1306->257|1345->258|1389->267|1445->314|1484->315|1536->331|1551->337|1606->370|1645->373|1661->380|1689->386|1770->432|1804->457|1843->458|1881->461|1924->482|1958->485|2015->507|2031->514|2058->519|2105->531|2121->538|2149->544|2236->600|2277->610|2311->613|2389->656|2432->690|2471->691|2714->903|2748->906
+                    LINES: 26->1|30->1|31->3|31->3|31->3|38->10|38->10|38->10|39->11|39->11|39->11|41->13|41->13|41->13|42->14|42->14|42->14|42->14|42->14|42->14|45->17|45->17|45->17|46->18|46->18|47->19|50->22|50->22|50->22|51->23|51->23|51->23|53->25|55->27|56->28|60->32|60->32|60->32|70->42|71->43
                     -- GENERATED --
                 */
             

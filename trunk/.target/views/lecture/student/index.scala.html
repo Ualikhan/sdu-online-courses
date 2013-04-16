@@ -38,8 +38,9 @@ By @course.owner.name
     </div>
     <div class="span8">
       <div class="contentBar">
-
+		
 </div>
+
     </div>
   </div>
 </div>
@@ -53,6 +54,7 @@ $(document).ready(function(){
 		myJsRoutes.controllers.Lectures.getLecture(lectureId).ajax({
 		    success : function(data) {
 			$('.contentBar').html(data);
+		
 		    }
 		});
 		return false;

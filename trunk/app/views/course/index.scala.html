@@ -1,7 +1,9 @@
-@(courses:List[Course],courseForm:Form[Course])
+@(courses:List[Course],courseForm:Form[Course],user:User)
+
+
 
 @import helper._
-
+@main(user){
 <table>
 <th>Course name</th>
 <th>Description</th>
@@ -10,7 +12,13 @@
 <tr>
 @form(routes.Courses.deleteCourse(course.id)){
 <td><a href="@routes.Courses.coursePage(course.id)">@course.name</a></td>
-<td>@course.description</td>
+<td>
+<div class="description">
+@if(course.description!=null){
+@Html(course.description)
+}
+</div>
+</td>
 <td><button type="submit">Delete</button></td>
 }
 </tr>
@@ -28,4 +36,6 @@
 <p>
 <button type="submit">Create</button>
 </p>
+}
+
 }

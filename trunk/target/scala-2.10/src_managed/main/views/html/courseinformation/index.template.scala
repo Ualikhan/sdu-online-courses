@@ -20,15 +20,15 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object index extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template3[Long,List[CourseInformation],Form[CourseInformation],play.api.templates.Html] {
+object index extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template4[Long,List[CourseInformation],Form[CourseInformation],User,play.api.templates.Html] {
 
     /**/
-    def apply/*1.2*/(courseId: Long , courseInformations: List[CourseInformation] , courseInformationForm: Form[CourseInformation]):play.api.templates.Html = {
+    def apply/*1.2*/(courseId: Long , courseInformations: List[CourseInformation] , courseInformationForm: Form[CourseInformation],user:User):play.api.templates.Html = {
         _display_ {import helper._
 
 
-Seq[Any](format.raw/*1.113*/("""
-"""),format.raw/*3.1*/("""
+Seq[Any](format.raw/*1.123*/("""
+"""),_display_(Seq[Any](/*3.2*/main(user)/*3.12*/{_display_(Seq[Any](format.raw/*3.13*/("""
 <table>
 <th>CourseInformation name</th>
 <th>Description</th>
@@ -38,42 +38,50 @@ Seq[Any](format.raw/*1.113*/("""
 <tr>
 """),_display_(Seq[Any](/*11.2*/form(routes.CourseInformations.deleteCourseInformation(courseInformation.id))/*11.79*/{_display_(Seq[Any](format.raw/*11.80*/("""
 <td><a href=""""),_display_(Seq[Any](/*12.15*/routes/*12.21*/.CourseInformations.courseInformationPage(courseInformation.id))),format.raw/*12.84*/("""">"""),_display_(Seq[Any](/*12.87*/courseInformation/*12.104*/.title)),format.raw/*12.110*/("""</a></td>
-<td>"""),_display_(Seq[Any](/*13.6*/courseInformation/*13.23*/.content)),format.raw/*13.31*/("""</td>
-<td><button type="submit">Delete</button></td>
-""")))})),format.raw/*15.2*/("""
-</tr>
+<td>
+<div class="description" style="width: 60%;max-height: 40px;">
+"""),_display_(Seq[Any](/*15.2*/if(courseInformation.content!=null)/*15.37*/{_display_(Seq[Any](format.raw/*15.38*/("""
+"""),_display_(Seq[Any](/*16.2*/Html(courseInformation.content))),format.raw/*16.33*/("""
 """)))})),format.raw/*17.2*/("""
-""")))})),format.raw/*18.2*/("""
+</div>
+</td>
+<td><button type="submit">Delete</button></td>
+""")))})),format.raw/*21.2*/("""
+</tr>
+""")))})),format.raw/*23.2*/("""
+""")))})),format.raw/*24.2*/("""
 </table>
 
 <h2>Add a new courseInformation</h2>
-"""),_display_(Seq[Any](/*22.2*/form(routes.CourseInformations.newCourseInformation())/*22.56*/{_display_(Seq[Any](format.raw/*22.57*/("""
+"""),_display_(Seq[Any](/*28.2*/form(routes.CourseInformations.newCourseInformation())/*28.56*/{_display_(Seq[Any](format.raw/*28.57*/("""
 <p>
 <input type="text" name="title" placeholder="Name">
 </p>
 <p>
-<textarea rows="10" cols="30" name="content" placeholder="Description"></textarea>
+<textarea class="descriptionTextArea" rows="30" cols="60" name="content" placeholder="Description"></textarea>
 </p>
 <p>
 <button type="submit">Create</button>
 </p>
-""")))})))}
+""")))})),format.raw/*38.2*/("""
+""")))})),format.raw/*39.2*/("""
+"""))}
     }
     
-    def render(courseId:Long,courseInformations:List[CourseInformation],courseInformationForm:Form[CourseInformation]): play.api.templates.Html = apply(courseId,courseInformations,courseInformationForm)
+    def render(courseId:Long,courseInformations:List[CourseInformation],courseInformationForm:Form[CourseInformation],user:User): play.api.templates.Html = apply(courseId,courseInformations,courseInformationForm,user)
     
-    def f:((Long,List[CourseInformation],Form[CourseInformation]) => play.api.templates.Html) = (courseId,courseInformations,courseInformationForm) => apply(courseId,courseInformations,courseInformationForm)
+    def f:((Long,List[CourseInformation],Form[CourseInformation],User) => play.api.templates.Html) = (courseId,courseInformations,courseInformationForm,user) => apply(courseId,courseInformations,courseInformationForm,user)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 00:24:08 ALMT 2013
+                    DATE: Mon Apr 15 23:41:16 ALMT 2013
                     SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/courseinformation/index.scala.html
-                    HASH: bf028781dcd220522a7d5ba831dadec5b1ae073c
-                    MATRIX: 787->1|993->112|1021->132|1133->210|1169->238|1207->239|1244->242|1301->284|1339->285|1383->294|1469->371|1508->372|1560->388|1575->394|1660->457|1699->460|1726->477|1755->483|1806->499|1832->516|1862->524|1949->580|1990->590|2024->593|2112->646|2175->700|2214->701
-                    LINES: 26->1|30->1|31->3|36->8|36->8|36->8|37->9|37->9|37->9|39->11|39->11|39->11|40->12|40->12|40->12|40->12|40->12|40->12|41->13|41->13|41->13|43->15|45->17|46->18|50->22|50->22|50->22
+                    HASH: bf8af19d4ebf8dadc9cfbb64e2029b924945af0b
+                    MATRIX: 792->1|1008->122|1045->143|1063->153|1101->154|1213->232|1249->260|1287->261|1324->264|1381->306|1419->307|1463->316|1549->393|1588->394|1640->410|1655->416|1740->479|1779->482|1806->499|1835->505|1952->587|1996->622|2035->623|2073->626|2126->657|2160->660|2257->726|2298->736|2332->739|2420->792|2483->846|2522->847|2793->1087|2827->1090
+                    LINES: 26->1|30->1|31->3|31->3|31->3|36->8|36->8|36->8|37->9|37->9|37->9|39->11|39->11|39->11|40->12|40->12|40->12|40->12|40->12|40->12|43->15|43->15|43->15|44->16|44->16|45->17|49->21|51->23|52->24|56->28|56->28|56->28|66->38|67->39
                     -- GENERATED --
                 */
             

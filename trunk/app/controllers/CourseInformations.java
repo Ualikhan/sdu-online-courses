@@ -17,7 +17,14 @@ public class CourseInformations extends Controller{
 	public static Result index() {
 		courseId=Long.parseLong(session("course"));
 		if(Secured.isTutorOf(courseId)){
-		return ok(index.render(courseId,CourseInformation.findCourseInformationsByCourse(courseId),courseInformationForm));
+		return ok(
+				index.render(
+						courseId,
+						CourseInformation.findCourseInformationsByCourse(courseId),
+						courseInformationForm,
+						User.find.byId(request().username())
+						)
+				);
 		}
 		else{
 			return forbidden();
@@ -32,7 +39,14 @@ public static Result newCourseInformation() {
 		Form<CourseInformation> filledForm=form(CourseInformation.class).bindFromRequest();
 		Course course=Course.find.byId(courseId);
 		CourseInformation.create(filledForm.get().title, filledForm.get().content,course);
-		return ok(index.render(courseId,CourseInformation.findCourseInformationsByCourse(courseId),courseInformationForm));
+		return ok(
+				index.render(
+						courseId,
+						CourseInformation.findCourseInformationsByCourse(courseId),
+						courseInformationForm,
+						User.find.byId(request().username())
+						)
+				);
 	}else{
 		return forbidden();
 	}
@@ -43,7 +57,13 @@ public static Result courseInformationPage(Long id) {
 	courseId=Long.parseLong(session("course"));
 	
 	if(Secured.isTutorOf(courseId)){
-			return ok(item.render(CourseInformation.find.byId(id),courseInformationForm));
+			return ok(
+					item.render(
+							CourseInformation.find.byId(id),
+							courseInformationForm,
+							User.find.byId(request().username())
+							)
+					);
 	}else{
 		return forbidden();
 	}
@@ -62,7 +82,14 @@ public static Result updateCourseInformation(Long id) {
 		
 	Form<CourseInformation> filledForm=form(CourseInformation.class).bindFromRequest();
 	filledForm.get().update(id);
-	return ok(index.render(courseId,CourseInformation.findCourseInformationsByCourse(courseId),courseInformationForm));
+	return ok(
+			index.render(
+					courseId,
+					CourseInformation.findCourseInformationsByCourse(courseId),
+					courseInformationForm,
+					User.find.byId(request().username())
+					)
+			);
 	}else{
 		return forbidden();
 	}
@@ -73,7 +100,14 @@ public static Result deleteCourseInformation(Long id) {
 	
 	if(Secured.isTutorOf(courseId)){
 	CourseInformation.delete(id);
-	return ok(index.render(courseId,CourseInformation.findCourseInformationsByCourse(courseId),courseInformationForm));
+	return ok(
+			index.render(
+					courseId,
+					CourseInformation.findCourseInformationsByCourse(courseId),
+					courseInformationForm,
+					User.find.byId(request().username())
+					)
+			);
 }else{
 	return forbidden();
 }
