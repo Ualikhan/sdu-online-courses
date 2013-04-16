@@ -3,4 +3,11 @@
 @import helper._
 
 <h3>@lecture.title</h3>
-<p>@lecture.content</p>
+<p>
+@if(lecture.content!=null){
+@Html(lecture.content)
+}
+</p>
+<iframe class="videoDiv" width="420" height="345"
+src="@lecture.video">
+</iframe>

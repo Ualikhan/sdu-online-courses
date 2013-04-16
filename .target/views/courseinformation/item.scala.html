@@ -1,16 +1,17 @@
-@(courseInformation: CourseInformation,courseInformationForm:Form[CourseInformation])
+@(courseInformation: CourseInformation,courseInformationForm:Form[CourseInformation],user:User)
 
 @import helper._
-
+@main(user){
 <h2>Edit courseInformation</h2>
 @form(routes.CourseInformations.updateCourseInformation(courseInformation.id)){
 <p>
 <input type="text" name="title" placeholder="Name" value="@courseInformation.title">
 </p>
 <p>
-<textarea rows="10" cols="30" name="content" placeholder="Description" >@courseInformation.content</textarea>
+<textarea class="descriptionTextArea" rows="30" cols="60" name="content" placeholder="Description" >@courseInformation.content</textarea>
 </p>
 <p>
 <button type="submit">Update</button><a href="@routes.CourseInformations.index()">Cancel</button>
 </p>
+}
 }

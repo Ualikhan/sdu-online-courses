@@ -57,6 +57,8 @@ public class Users extends Controller {
         User user= User.find.byId(request().username());
         user.name=loginForm.get().name;
         user.company=loginForm.get().company;
+        user.position=loginForm.get().position;
+        
         user.update();		
        return ok(views.html.user.profile.render(user,loginForm));
         }

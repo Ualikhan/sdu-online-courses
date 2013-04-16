@@ -6,10 +6,19 @@
 	margin: 10px;
 	margin-left: 40px;
 }
+.description{
+	padding:20px;
+	overflow:scroll;
+	max-height: 400px;
+	max-width: 80%;
+}
 
+.descriptionTextArea{
+	width: 90%;
+}
 .content{
 	width: 90%;
-	height: 800px;
+	min-height:800px;
 }
 .header{
 	width: 90%;

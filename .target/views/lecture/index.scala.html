@@ -1,6 +1,6 @@
-@(courseId: Long , lectures: List[Lecture] , lectureForm: Form[Lecture])
+@(courseId: Long , lectures: List[Lecture] , lectureForm: Form[Lecture],user:User)
 @import helper._
-
+@main(user){
 <table>
 <th>Lecture name</th>
 <th>Description</th>
@@ -12,7 +12,13 @@
 <tr>
 @form(routes.Lectures.deleteLecture(lecture.id)){
 <td><a href="@routes.Lectures.lecturePage(lecture.id)">@lecture.title</a></td>
-<td>@lecture.content</td>
+<td>
+<div class="description" >
+@if(lecture.content!=null){
+@Html(lecture.content)
+}
+</div>
+</td>
 <td>@lecture.file</td>
 <td>@lecture.video</td>
 <td><button type="submit">Delete</button></td>
@@ -34,3 +40,6 @@
 <button type="submit">Create</button>
 </p>
 }
+}
+
+

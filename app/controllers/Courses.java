@@ -13,7 +13,13 @@ public class Courses extends Controller{
 	public static Form<Course> courseForm=form(Course.class);
 	
 	public static Result index() {
-		return ok(index.render(Course.findTutorCourses(request().username()),courseForm));
+		return ok(
+				index.render(
+						Course.findTutorCourses(request().username()),
+						courseForm,
+						User.find.byId(request().username())
+						)
+				);
     }
 
 	
@@ -21,7 +27,13 @@ public static Result newCourse() {
 		Form<Course> filledForm=form(Course.class).bindFromRequest();
 		User user=User.find.where().eq("email", request().username()).findUnique();
 		Course.create(filledForm.get().name, filledForm.get().description,user);
-		return ok(index.render(Course.findTutorCourses(request().username()),courseForm));
+		return ok(
+				index.render(
+						Course.findTutorCourses(request().username()),
+						courseForm,
+						User.find.byId(request().username())
+						)
+				);
 		
 }
 
@@ -50,7 +62,13 @@ public static Result coursePage(Long id) {
 	}else if(Secured.isTutorOf(id)){
 		
 		session("course",id+"");
-			return ok(item.render(Course.find.byId(id),courseForm));
+			return ok(
+					item.render(
+							Course.find.byId(id),
+							courseForm,
+							User.find.byId(request().username())
+							)
+					);
 			
 	}
 		else
@@ -90,13 +108,25 @@ public static Result courseDescription(Long id) {
 public static Result updateCourse(Long id) {
 	Form<Course> filledForm=form(Course.class).bindFromRequest();
 	Course.update(id, filledForm.get().name, filledForm.get().description);
-	return ok(index.render(Course.findTutorCourses(request().username()),courseForm));
+	return ok(
+			index.render(
+					Course.findTutorCourses(request().username()),
+					courseForm,
+					User.find.byId(request().username())
+					)
+			);
 		
 }
 
 public static Result deleteCourse(Long id) {
 	Course.delete(id);
-	return ok(index.render(Course.findTutorCourses(request().username()),courseForm));
+	return ok(
+			index.render(
+					Course.findTutorCourses(request().username()),
+					courseForm,
+					User.find.byId(request().username())
+					)
+				);
 		
 }
 

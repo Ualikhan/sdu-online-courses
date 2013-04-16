@@ -31,28 +31,46 @@ Seq[Any](format.raw/*1.88*/("""
 
 """),_display_(Seq[Any](/*4.2*/main(user)/*4.12*/{_display_(Seq[Any](format.raw/*4.13*/("""
 	<h2>"""),_display_(Seq[Any](/*5.7*/course/*5.13*/.name)),format.raw/*5.18*/("""</h2>
-	<p>"""),_display_(Seq[Any](/*6.6*/course/*6.12*/.description)),format.raw/*6.24*/("""</p>
-	"""),_display_(Seq[Any](/*7.3*/if(enrollment.equals("ENROLLED"))/*7.36*/{_display_(Seq[Any](format.raw/*7.37*/("""
-		"""),_display_(Seq[Any](/*8.4*/form(routes.Courses.coursePage(course.id))/*8.46*/ {_display_(Seq[Any](format.raw/*8.48*/("""
+	<h3>Instructor:</h3>
+	<p>
+	"""),_display_(Seq[Any](/*8.3*/course/*8.9*/.owner.name)),format.raw/*8.20*/("""
+"""),_display_(Seq[Any](/*9.2*/if(course.owner.position!=null && course.owner.position.length()>0)/*9.69*/{_display_(Seq[Any](format.raw/*9.70*/("""
+,"""),_display_(Seq[Any](/*10.3*/course/*10.9*/.owner.position)),format.raw/*10.24*/("""
+""")))})),format.raw/*11.2*/("""
+"""),_display_(Seq[Any](/*12.2*/if(course.owner.company!=null && course.owner.company.length()>0)/*12.67*/{_display_(Seq[Any](format.raw/*12.68*/("""
+,"""),_display_(Seq[Any](/*13.3*/course/*13.9*/.owner.company)),format.raw/*13.23*/("""
+""")))})),format.raw/*14.2*/("""
+	</p>
+	
+<p>
+"""),_display_(Seq[Any](/*18.2*/if(course.description!=null)/*18.30*/{_display_(Seq[Any](format.raw/*18.31*/("""
+"""),_display_(Seq[Any](/*19.2*/Html(course.description))),format.raw/*19.26*/("""
+""")))})),format.raw/*20.2*/("""
+</p>
+	"""),_display_(Seq[Any](/*22.3*/if(enrollment.equals("ENROLLED"))/*22.36*/{_display_(Seq[Any](format.raw/*22.37*/("""
+		"""),_display_(Seq[Any](/*23.4*/form(routes.Courses.coursePage(course.id))/*23.46*/ {_display_(Seq[Any](format.raw/*23.48*/("""
 		<button class="btn btn-primary btn-medium" type="submit">Go to class</button>
-		""")))})),format.raw/*10.4*/("""
-	""")))}/*11.3*/else/*11.7*/{_display_(Seq[Any](format.raw/*11.8*/("""
-	"""),_display_(Seq[Any](/*12.3*/if(enrollment.equals("OWNER"))/*12.33*/{_display_(Seq[Any](format.raw/*12.34*/("""
-		"""),_display_(Seq[Any](/*13.4*/form(routes.Courses.coursePage(course.id))/*13.46*/ {_display_(Seq[Any](format.raw/*13.48*/("""
+		""")))})),format.raw/*25.4*/("""
+	""")))}/*26.3*/else/*26.7*/{_display_(Seq[Any](format.raw/*26.8*/("""
+	"""),_display_(Seq[Any](/*27.3*/if(enrollment.equals("OWNER"))/*27.33*/{_display_(Seq[Any](format.raw/*27.34*/("""
+		"""),_display_(Seq[Any](/*28.4*/form(routes.Courses.coursePage(course.id))/*28.46*/ {_display_(Seq[Any](format.raw/*28.48*/("""
 		<button class="btn btn-primary btn-medium" type="submit">Edit course</button>
-		""")))})),format.raw/*15.4*/("""
-	""")))}/*16.3*/else/*16.7*/{_display_(Seq[Any](format.raw/*16.8*/("""
-		"""),_display_(Seq[Any](/*17.4*/form(routes.Courses.join(course.id))/*17.40*/{_display_(Seq[Any](format.raw/*17.41*/("""
+		""")))})),format.raw/*30.4*/("""
+	""")))}/*31.3*/else/*31.7*/{_display_(Seq[Any](format.raw/*31.8*/("""
+		"""),_display_(Seq[Any](/*32.4*/form(routes.Courses.join(course.id))/*32.40*/{_display_(Seq[Any](format.raw/*32.41*/("""
 		<button class="btn btn-primary btn-medium" type="submit">Sign up</button>
-		""")))})),format.raw/*19.4*/("""
-	""")))})),format.raw/*20.3*/("""
-""")))})),format.raw/*21.2*/("""
- """),_display_(Seq[Any](/*22.3*/courseInformations/*22.21*/.map/*22.25*/ { task =>_display_(Seq[Any](format.raw/*22.35*/("""
+		""")))})),format.raw/*34.4*/("""
+	""")))})),format.raw/*35.3*/("""
+""")))})),format.raw/*36.2*/("""
+ """),_display_(Seq[Any](/*37.3*/courseInformations/*37.21*/.map/*37.25*/ { task =>_display_(Seq[Any](format.raw/*37.35*/("""
 <div class="courseInformation">
-<h3>"""),_display_(Seq[Any](/*24.6*/task/*24.10*/.title)),format.raw/*24.16*/("""</h3>
-<span>"""),_display_(Seq[Any](/*25.8*/task/*25.12*/.content)),format.raw/*25.20*/("""</span>
+<h3>"""),_display_(Seq[Any](/*39.6*/task/*39.10*/.title)),format.raw/*39.16*/("""</h3>
+<span>
+"""),_display_(Seq[Any](/*41.2*/if(task.content!=null)/*41.24*/{_display_(Seq[Any](format.raw/*41.25*/("""
+"""),_display_(Seq[Any](/*42.2*/Html(task.content))),format.raw/*42.20*/("""
+""")))})),format.raw/*43.2*/("""</span>
 </div>
-""")))})),format.raw/*27.2*/("""
+""")))})),format.raw/*45.2*/("""
 """)))})))}
     }
     
@@ -65,11 +83,11 @@ Seq[Any](format.raw/*1.88*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 00:41:56 ALMT 2013
+                    DATE: Mon Apr 15 22:45:54 ALMT 2013
                     SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/course/description.scala.html
-                    HASH: 1412a8f262e45f15a906ea22aa394675c2a267da
-                    MATRIX: 772->1|952->87|991->110|1009->120|1047->121|1089->129|1103->135|1129->140|1175->152|1189->158|1222->170|1264->178|1305->211|1343->212|1382->217|1432->259|1471->261|1588->347|1610->351|1622->355|1660->356|1699->360|1738->390|1777->391|1817->396|1868->438|1908->440|2025->526|2047->530|2059->534|2097->535|2137->540|2182->576|2221->577|2334->659|2369->663|2403->666|2442->670|2469->688|2482->692|2530->702|2605->742|2618->746|2646->752|2695->766|2708->770|2738->778|2787->796
-                    LINES: 26->1|30->1|32->4|32->4|32->4|33->5|33->5|33->5|34->6|34->6|34->6|35->7|35->7|35->7|36->8|36->8|36->8|38->10|39->11|39->11|39->11|40->12|40->12|40->12|41->13|41->13|41->13|43->15|44->16|44->16|44->16|45->17|45->17|45->17|47->19|48->20|49->21|50->22|50->22|50->22|50->22|52->24|52->24|52->24|53->25|53->25|53->25|55->27
+                    HASH: 21e4badd851ed39f82896e17e65c8df7c2ac7d18
+                    MATRIX: 772->1|952->87|991->110|1009->120|1047->121|1089->129|1103->135|1129->140|1201->178|1214->184|1246->195|1283->198|1358->265|1396->266|1435->270|1449->276|1486->291|1520->294|1558->297|1632->362|1671->363|1710->367|1724->373|1760->387|1794->390|1847->408|1884->436|1923->437|1961->440|2007->464|2041->467|2086->477|2128->510|2167->511|2207->516|2258->558|2298->560|2415->646|2437->650|2449->654|2487->655|2526->659|2565->689|2604->690|2644->695|2695->737|2735->739|2852->825|2874->829|2886->833|2924->834|2964->839|3009->875|3048->876|3161->958|3196->962|3230->965|3269->969|3296->987|3309->991|3357->1001|3432->1041|3445->1045|3473->1051|3524->1067|3555->1089|3594->1090|3632->1093|3672->1111|3706->1114|3755->1132
+                    LINES: 26->1|30->1|32->4|32->4|32->4|33->5|33->5|33->5|36->8|36->8|36->8|37->9|37->9|37->9|38->10|38->10|38->10|39->11|40->12|40->12|40->12|41->13|41->13|41->13|42->14|46->18|46->18|46->18|47->19|47->19|48->20|50->22|50->22|50->22|51->23|51->23|51->23|53->25|54->26|54->26|54->26|55->27|55->27|55->27|56->28|56->28|56->28|58->30|59->31|59->31|59->31|60->32|60->32|60->32|62->34|63->35|64->36|65->37|65->37|65->37|65->37|67->39|67->39|67->39|69->41|69->41|69->41|70->42|70->42|71->43|73->45
                     -- GENERATED --
                 */
             

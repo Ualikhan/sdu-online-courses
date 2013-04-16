@@ -1,7 +1,7 @@
-@(course: Course,courseForm:Form[Course])
+@(course: Course,courseForm:Form[Course],user:User)
 
 @import helper._
-
+@main(user){
 <h2>Edit course</h2>
 @form(routes.Courses.updateCourse(course.id)){
 <p>
@@ -13,4 +13,5 @@
 <p>
 <button type="submit">Update</button><a href="@routes.Courses.index">Cancel</button>
 </p>
+}
 }

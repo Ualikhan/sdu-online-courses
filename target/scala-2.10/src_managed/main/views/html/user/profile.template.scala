@@ -38,7 +38,7 @@ Seq[Any](format.raw/*1.33*/("""
 <input type="text" name="company" placeholder="Company"  value=""""),_display_(Seq[Any](/*10.66*/user/*10.70*/.company)),format.raw/*10.78*/("""">
 </p>
 <p>
-<input type="text" name="company" placeholder="Position"  value=""""),_display_(Seq[Any](/*13.67*/user/*13.71*/.position)),format.raw/*13.80*/("""">
+<input type="text" name="position" placeholder="Position"  value=""""),_display_(Seq[Any](/*13.68*/user/*13.72*/.position)),format.raw/*13.81*/("""">
 </p>
 <p>
 <input type="submit" placeholder="Save changes" >
@@ -69,10 +69,10 @@ Seq[Any](format.raw/*1.33*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 00:24:08 ALMT 2013
+                    DATE: Mon Apr 15 21:07:19 ALMT 2013
                     SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/user/profile.scala.html
-                    HASH: e69893a54e4c71ad082aa258b36ee0976bed272d
-                    MATRIX: 739->1|864->32|892->52|940->65|954->71|1015->111|1083->145|1118->172|1157->174|1258->240|1270->244|1296->249|1412->329|1425->333|1455->341|1572->422|1585->426|1616->435|1720->508|1758->511|1770->515|1798->521|1839->527|1881->560|1921->562|2178->788
+                    HASH: 65158e2b26e8c0861436aa282089cab784bf9e5e
+                    MATRIX: 739->1|864->32|892->52|940->65|954->71|1015->111|1083->145|1118->172|1157->174|1258->240|1270->244|1296->249|1412->329|1425->333|1455->341|1573->423|1586->427|1617->436|1721->509|1759->512|1771->516|1799->522|1840->528|1882->561|1922->563|2179->789
                     LINES: 26->1|30->1|31->3|32->4|32->4|32->4|33->5|33->5|33->5|35->7|35->7|35->7|38->10|38->10|38->10|41->13|41->13|41->13|46->18|47->19|47->19|47->19|49->21|49->21|49->21|59->31
                     -- GENERATED --
                 */

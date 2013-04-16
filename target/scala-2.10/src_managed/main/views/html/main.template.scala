@@ -38,15 +38,23 @@ Seq[Any](format.raw/*1.28*/("""
         <script type="text/javascript" src='"""),_display_(Seq[Any](/*10.46*/routes/*10.52*/.Application.javascriptRoutes())),format.raw/*10.83*/("""'></script>
         <script type="text/javascript" src=""""),_display_(Seq[Any](/*11.46*/routes/*11.52*/.Assets.at("stylesheets/js/bootstrap.js"))),format.raw/*11.93*/(""""></script>
         <script type="text/javascript" src=""""),_display_(Seq[Any](/*12.46*/routes/*12.52*/.Assets.at("stylesheets/js/bootstrap.min.js"))),format.raw/*12.97*/(""""></script>
-             """),_display_(Seq[Any](/*13.15*/if(user!=null)/*13.29*/{_display_(Seq[Any](format.raw/*13.30*/("""
+         """),_display_(Seq[Any](/*13.11*/if(user!=null)/*13.25*/{_display_(Seq[Any](format.raw/*13.26*/("""
               <script type="text/javascript">
 				$(document).ready(function() """),format.raw/*15.34*/("""{"""),format.raw/*15.35*/("""
 					$('.dropdown-toggle').dropdown();
 					 """),format.raw/*17.7*/("""}"""),format.raw/*17.8*/(""");
 				</script>
 				""")))})),format.raw/*19.6*/("""
-        <link rel="stylesheet" media="screen" href=""""),_display_(Seq[Any](/*20.54*/routes/*20.60*/.Assets.at("stylesheets/main.css"))),format.raw/*20.94*/("""">
-        <link rel="shortcut icon" type="image/png" href=""""),_display_(Seq[Any](/*21.59*/routes/*21.65*/.Assets.at("images/favicon.png"))),format.raw/*21.97*/("""">
+        <script type="text/javascript" src=""""),_display_(Seq[Any](/*20.46*/routes/*20.52*/.Assets.at("javascripts/tiny_mce/tiny_mce.js"))),format.raw/*20.98*/(""""></script>
+        <script type="text/javascript">
+			tinyMCE.init("""),format.raw/*22.17*/("""{"""),format.raw/*22.18*/("""
+			        mode : "textareas"
+			"""),format.raw/*24.4*/("""}"""),format.raw/*24.5*/(""");
+		</script>
+            
+				
+        <link rel="stylesheet" media="screen" href=""""),_display_(Seq[Any](/*28.54*/routes/*28.60*/.Assets.at("stylesheets/main.css"))),format.raw/*28.94*/("""">
+        <link rel="shortcut icon" type="image/png" href=""""),_display_(Seq[Any](/*29.59*/routes/*29.65*/.Assets.at("images/favicon.png"))),format.raw/*29.97*/("""">
         
         
     </head>
@@ -58,31 +66,31 @@ Seq[Any](format.raw/*1.28*/("""
     <div class="main">
  	<div class="header row">
  	<span class="logo">
-    <a href=""""),_display_(Seq[Any](/*33.15*/routes/*33.21*/.Application.index)),format.raw/*33.39*/("""" id="logo" ><span>SDU Online Courses!</span></a>
+    <a href=""""),_display_(Seq[Any](/*41.15*/routes/*41.21*/.Application.index)),format.raw/*41.39*/("""" id="logo" ><span>SDU Online Courses!</span></a>
     
     </span>
      <span class="user">
-    """),_display_(Seq[Any](/*37.6*/if(user!=null)/*37.20*/{_display_(Seq[Any](format.raw/*37.21*/("""
+    """),_display_(Seq[Any](/*45.6*/if(user!=null)/*45.20*/{_display_(Seq[Any](format.raw/*45.21*/("""
    
        <div class="dropdown">
   <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
-    """),_display_(Seq[Any](/*41.6*/user/*41.10*/.name)),format.raw/*41.15*/("""
+    """),_display_(Seq[Any](/*49.6*/user/*49.10*/.name)),format.raw/*49.15*/("""
     <b class="caret"></b>
   </a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-     <li role="presentation"><a role="menuitem" href=""""),_display_(Seq[Any](/*45.56*/routes/*45.62*/.Users.pro())),format.raw/*45.74*/("""">Profile</a></li>
-     <li role="presentation"><a role="menuitem" href=""""),_display_(Seq[Any](/*46.56*/routes/*46.62*/.Students.index())),format.raw/*46.79*/("""">My courses</a></li>
-    <li role="presentation"><a role="menuitem" href=""""),_display_(Seq[Any](/*47.55*/routes/*47.61*/.Application.logout())),format.raw/*47.82*/("""">Logout</a></li>
+     <li role="presentation"><a role="menuitem" href=""""),_display_(Seq[Any](/*53.56*/routes/*53.62*/.Users.pro())),format.raw/*53.74*/("""">Profile</a></li>
+     <li role="presentation"><a role="menuitem" href=""""),_display_(Seq[Any](/*54.56*/routes/*54.62*/.Students.index())),format.raw/*54.79*/("""">My courses</a></li>
+    <li role="presentation"><a role="menuitem" href=""""),_display_(Seq[Any](/*55.55*/routes/*55.61*/.Application.logout())),format.raw/*55.82*/("""">Logout</a></li>
   </ul>
 </div>
 
-""")))}/*51.2*/else/*51.6*/{_display_(Seq[Any](format.raw/*51.7*/("""
-<a href=""""),_display_(Seq[Any](/*52.11*/routes/*52.17*/.Application.login)),format.raw/*52.35*/("""">Sign in</a>
-""")))})),format.raw/*53.2*/("""
+""")))}/*59.2*/else/*59.6*/{_display_(Seq[Any](format.raw/*59.7*/("""
+<a href=""""),_display_(Seq[Any](/*60.11*/routes/*60.17*/.Application.login)),format.raw/*60.35*/("""">Sign in</a>
+""")))})),format.raw/*61.2*/("""
 </span>
 </div>
 <div class="content">
-      """),_display_(Seq[Any](/*57.8*/content)),format.raw/*57.15*/("""
+      """),_display_(Seq[Any](/*65.8*/content)),format.raw/*65.15*/("""
 </div>
 </div>
      <footer>
@@ -110,11 +118,11 @@ Seq[Any](format.raw/*1.28*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 00:24:07 ALMT 2013
+                    DATE: Mon Apr 15 23:08:40 ALMT 2013
                     SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/main.scala.html
-                    HASH: b0dde5d90c9715a78be354b0b0d59f18cfc2c745
-                    MATRIX: 725->1|828->27|1011->175|1025->181|1090->224|1151->250|1165->256|1231->301|1347->381|1362->387|1415->418|1508->475|1523->481|1586->522|1679->579|1694->585|1761->630|1823->656|1846->670|1885->671|1993->751|2022->752|2095->798|2123->799|2176->821|2266->875|2281->881|2337->915|2434->976|2449->982|2503->1014|2706->1181|2721->1187|2761->1205|2893->1302|2916->1316|2955->1317|3134->1461|3147->1465|3174->1470|3365->1625|3380->1631|3414->1643|3524->1717|3539->1723|3578->1740|3690->1816|3705->1822|3748->1843|3801->1878|3813->1882|3851->1883|3898->1894|3913->1900|3953->1918|3999->1933|4079->1978|4108->1985
-                    LINES: 26->1|29->1|36->8|36->8|36->8|37->9|37->9|37->9|38->10|38->10|38->10|39->11|39->11|39->11|40->12|40->12|40->12|41->13|41->13|41->13|43->15|43->15|45->17|45->17|47->19|48->20|48->20|48->20|49->21|49->21|49->21|61->33|61->33|61->33|65->37|65->37|65->37|69->41|69->41|69->41|73->45|73->45|73->45|74->46|74->46|74->46|75->47|75->47|75->47|79->51|79->51|79->51|80->52|80->52|80->52|81->53|85->57|85->57
+                    HASH: 4c0076e0c9f168287f9914cce6f2283e88fcc6c6
+                    MATRIX: 725->1|828->27|1011->175|1025->181|1090->224|1151->250|1165->256|1231->301|1347->381|1362->387|1415->418|1508->475|1523->481|1586->522|1679->579|1694->585|1761->630|1819->652|1842->666|1881->667|1989->747|2018->748|2091->794|2119->795|2172->817|2254->863|2269->869|2337->915|2433->983|2462->984|2523->1018|2551->1019|2673->1105|2688->1111|2744->1145|2841->1206|2856->1212|2910->1244|3113->1411|3128->1417|3168->1435|3300->1532|3323->1546|3362->1547|3541->1691|3554->1695|3581->1700|3772->1855|3787->1861|3821->1873|3931->1947|3946->1953|3985->1970|4097->2046|4112->2052|4155->2073|4208->2108|4220->2112|4258->2113|4305->2124|4320->2130|4360->2148|4406->2163|4486->2208|4515->2215
+                    LINES: 26->1|29->1|36->8|36->8|36->8|37->9|37->9|37->9|38->10|38->10|38->10|39->11|39->11|39->11|40->12|40->12|40->12|41->13|41->13|41->13|43->15|43->15|45->17|45->17|47->19|48->20|48->20|48->20|50->22|50->22|52->24|52->24|56->28|56->28|56->28|57->29|57->29|57->29|69->41|69->41|69->41|73->45|73->45|73->45|77->49|77->49|77->49|81->53|81->53|81->53|82->54|82->54|82->54|83->55|83->55|83->55|87->59|87->59|87->59|88->60|88->60|88->60|89->61|93->65|93->65
                     -- GENERATED --
                 */
             

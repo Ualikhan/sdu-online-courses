@@ -43,7 +43,11 @@ By @course.owner.name
 <span>
 <dl>
   <dt>@annoncement.title</dt>
-  <dd>@annoncement.content</dd>
+  <dd>
+@if(annoncement.content!=null){
+@Html(annoncement.content)
+}
+  </dd>
 </dl>
 <p>@annoncement.createdDate</p>
 </span>

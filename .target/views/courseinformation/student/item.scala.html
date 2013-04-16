@@ -3,4 +3,8 @@
 @import helper._
 
 <h3>@courseInformation.title</h3>
-<p>@courseInformation.content</p>
+<p>
+@if(courseInformation.content!=null){
+@Html(courseInformation.content)
+}
+</p>
