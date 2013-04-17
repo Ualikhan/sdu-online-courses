@@ -1,11 +1,9 @@
 @(courseId: Long , lectures: List[Lecture] , lectureForm: Form[Lecture],user:User)
 @import helper._
 @main(user){
-<table>
+<table class="table table-bordered">
 <th>Lecture name</th>
 <th>Description</th>
-<th>File</th>
-<th>Video</th>
 <th></th>
 @if(lectures!=null){
 @for(lecture<-lectures){
@@ -19,8 +17,7 @@
 }
 </div>
 </td>
-<td>@lecture.file</td>
-<td>@lecture.video</td>
+
 <td><button type="submit">Delete</button></td>
 }
 </tr>

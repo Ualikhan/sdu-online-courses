@@ -50,8 +50,8 @@ src="">
 }
                 /*
                     -- GENERATED --
-                    DATE: Wed Apr 17 19:12:25 ALMT 2013
-                    SOURCE: D:/sdu-online-courses/app/views/lecture/student/item.scala.html
+                    DATE: Wed Apr 17 22:13:01 ALMT 2013
+                    SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/lecture/student/item.scala.html
                     HASH: 7cfad8706727ab8ac00d78b3013e7aac4b7df35c
                     MATRIX: 739->1|851->19|881->41|922->48|937->55|964->61|1011->74|1044->99|1082->100|1119->103|1161->124|1194->127
                     LINES: 26->1|30->1|32->4|33->5|33->5|33->5|35->7|35->7|35->7|36->8|36->8|37->9

@@ -1,16 +1,16 @@
-@(announcement: Announcement,announcementForm:Form[Announcement])
-
+@(announcement: Announcement,announcementForm:Form[Announcement],user:User)
 @import helper._
-
+@main(user){
 <h2>Edit announcement</h2>
 @form(routes.Announcements.updateAnnouncement(announcement.id)){
 <p>
-<input type="text" name="name" placeholder="Name" value="@announcement.title">
+<input type="text" name="title" placeholder="Name" value="@announcement.title">
 </p>
 <p>
-<textarea rows="10" cols="30" name="description" placeholder="Description" >@announcement.content</textarea>
+<textarea class="ckeditor"  rows="10" cols="30" name="content" placeholder="Description" >@announcement.content</textarea>
 </p>
 <p>
 <button type="submit">Update</button><a href="@routes.Announcements.index()">Cancel</button>
 </p>
+}
 }

@@ -9,8 +9,20 @@
 		extra-scalaVersion="2.9.2"
 		conf="test"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, sources, docs, pom"
-		date="20130415002328"/>
+		date="20130417205416"/>
 	<dependencies>
+		<module organisation="com.github.play2war" name="play2-war-plugin">
+			<revision name="0.9" status="release" pubdate="20130325173705" resolver="sbt-plugin-releases" artresolver="sbt-plugin-releases" homepage="https://github.com/dlecan/play2-war-plugin" extra-sbtVersion="0.12" extra-scalaVersion="2.9.2" downloaded="true" searched="true" default="false" conf="default(compile), compile" position="58">
+				<license name="The Apache Software License, Version 2.0" url="http://www.apache.org/licenses/LICENSE-2.0.txt"/>
+				<metadata-artifact status="successful" details="" size="2130" time="841" location="D:\Programming\Java\Frameworks\play-2.1.0\framework\.\..\repository\cache\scala_2.9.2\sbt_0.12\com.github.play2war\play2-war-plugin\ivy-0.9.xml" searched="true" original-local-location="D:\Programming\Java\Frameworks\play-2.1.0\framework\.\..\repository\cache\scala_2.9.2\sbt_0.12\com.github.play2war\play2-war-plugin\ivy-0.9.xml.original" origin-is-local="false" origin-location="http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.play2war/play2-war-plugin/scala_2.9.2/sbt_0.12/0.9/ivys/ivy.xml"/>
+				<caller organisation="default" name="default-ba6748" conf="test, compile, runtime" rev="0.9" rev-constraint-default="0.9" rev-constraint-dynamic="0.9" callerrev="0.1-SNAPSHOT" extra-sbtVersion="0.12" extra-scalaVersion="2.9.2"/>
+				<artifacts>
+					<artifact name="play2-war-plugin" type="jar" ext="jar" status="successful" details="" size="58934" time="1555" location="D:\Programming\Java\Frameworks\play-2.1.0\framework\.\..\repository\cache\scala_2.9.2\sbt_0.12\com.github.play2war\play2-war-plugin\jars\play2-war-plugin-0.9.jar">
+						<origin-location is-local="false" location="http://scalasbt.artifactoryonline.com/scalasbt/sbt-plugin-releases/com.github.play2war/play2-war-plugin/scala_2.9.2/sbt_0.12/0.9/jars/play2-war-plugin.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="play" name="sbt-plugin">
 			<revision name="2.1.0" status="release" pubdate="20130205111248" resolver="typesafe-ivy-releases" artresolver="typesafe-ivy-releases" extra-sbtVersion="0.12" extra-scalaVersion="2.9.2" downloaded="false" searched="false" default="false" conf="default(compile), compile" position="0">
 				<metadata-artifact status="no" details="" size="4729" time="0" location="D:\Programming\Java\Frameworks\play-2.1.0\framework\.\..\repository\cache\scala_2.9.2\sbt_0.12\play\sbt-plugin\ivy-2.1.0.xml" searched="false" origin-is-local="false" origin-location="http://repo.typesafe.com/typesafe/ivy-releases/play/sbt-plugin/scala_2.9.2/sbt_0.12/2.1.0/ivys/ivy.xml"/>

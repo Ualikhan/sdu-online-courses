@@ -108,6 +108,6 @@
 	<classpathentry kind="lib" path="D:/Programming/Java/Frameworks/play-2.1.0/repository/local/org.easytesting/fest-util/1.1.6/jars/fest-util.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="D:/Programming/Java/Frameworks/play-2.1.0/framework/sbt/boot/scala-2.10.0/lib/scala-library.jar"/>
-	<classpathentry kind="lib" path="D:/Java/Libs/imgscalr-lib-4.2/imgscalr-lib-4.2.jar"/>
+	<classpathentry kind="lib" path="D:/Programming/Java/Frameworks/play-2.1.0/repository/cache/org.imgscalr/imgscalr-lib/jars/imgscalr-lib-4.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
