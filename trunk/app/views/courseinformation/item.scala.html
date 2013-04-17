@@ -8,7 +8,7 @@
 <input type="text" name="title" placeholder="Name" value="@courseInformation.title">
 </p>
 <p>
-<textarea class="descriptionTextArea" rows="30" cols="60" name="content" placeholder="Description" >@courseInformation.content</textarea>
+<textarea class="descriptionTextArea ckeditor" rows="30" cols="60" name="content" placeholder="Description" >@courseInformation.content</textarea>
 </p>
 <p>
 <button type="submit">Update</button><a href="@routes.CourseInformations.index()">Cancel</button>

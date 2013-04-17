@@ -7,4 +7,12 @@ public class Enums {
 		Tutor,
 		Student
 	}
+	
+	public enum ResourceTypes{
+		VIDEO,
+		SLIDE,
+		BOOK,
+		AUDIO,
+		TRANSCRIPT
+		}
 }

@@ -36,7 +36,7 @@ Seq[Any](format.raw/*1.96*/("""
 <input type="text" name="title" placeholder="Name" value=""""),_display_(Seq[Any](/*8.60*/courseInformation/*8.77*/.title)),format.raw/*8.83*/("""">
 </p>
 <p>
-<textarea class="descriptionTextArea" rows="30" cols="60" name="content" placeholder="Description" >"""),_display_(Seq[Any](/*11.102*/courseInformation/*11.119*/.content)),format.raw/*11.127*/("""</textarea>
+<textarea class="descriptionTextArea ckeditor" rows="30" cols="60" name="content" placeholder="Description" >"""),_display_(Seq[Any](/*11.111*/courseInformation/*11.128*/.content)),format.raw/*11.136*/("""</textarea>
 </p>
 <p>
 <button type="submit">Update</button><a href=""""),_display_(Seq[Any](/*14.48*/routes/*14.54*/.CourseInformations.index())),format.raw/*14.81*/("""">Cancel</button>
@@ -54,10 +54,10 @@ Seq[Any](format.raw/*1.96*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 23:41:16 ALMT 2013
-                    SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/courseinformation/item.scala.html
-                    HASH: 05c6c6e2981db442329b9dd1b598504ec482ffe8
-                    MATRIX: 780->1|968->95|1007->118|1025->128|1063->129|1133->165|1218->242|1256->243|1357->309|1382->326|1409->332|1562->448|1589->465|1620->473|1727->544|1742->550|1791->577|1848->603
+                    DATE: Wed Apr 17 19:12:25 ALMT 2013
+                    SOURCE: D:/sdu-online-courses/app/views/courseinformation/item.scala.html
+                    HASH: 34debf8bd8d6b71138a71ff4016b1523c4064380
+                    MATRIX: 780->1|968->95|1007->118|1025->128|1063->129|1133->165|1218->242|1256->243|1357->309|1382->326|1409->332|1571->457|1598->474|1629->482|1736->553|1751->559|1800->586|1857->612
                     LINES: 26->1|30->1|32->4|32->4|32->4|34->6|34->6|34->6|36->8|36->8|36->8|39->11|39->11|39->11|42->14|42->14|42->14|44->16
                     -- GENERATED --
                 */

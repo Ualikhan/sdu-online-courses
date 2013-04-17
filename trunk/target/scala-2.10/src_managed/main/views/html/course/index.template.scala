@@ -32,7 +32,7 @@ Seq[Any](format.raw/*1.58*/("""
 
 
 """),_display_(Seq[Any](/*6.2*/main(user)/*6.12*/{_display_(Seq[Any](format.raw/*6.13*/("""
-<table>
+<table class="table table-bordered">
 <th>Course name</th>
 <th>Description</th>
 <th></th>
@@ -59,7 +59,7 @@ Seq[Any](format.raw/*1.58*/("""
 <input type="text" name="name" placeholder="Name">
 </p>
 <p>
-<textarea rows="10" cols="30" name="description" placeholder="Description"></textarea>
+<textarea rows="10" cols="30" class="ckeditor" name="description" placeholder="Description"></textarea>
 </p>
 <p>
 <button type="submit">Create</button>
@@ -78,10 +78,10 @@ Seq[Any](format.raw/*1.58*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 22:49:49 ALMT 2013
-                    SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/course/index.scala.html
-                    HASH: 68600dad87a450c717a4a0e67a3b20032e0fe793
-                    MATRIX: 754->1|904->57|947->84|965->94|1003->95|1105->162|1141->182|1180->183|1224->192|1277->236|1316->237|1368->253|1383->259|1435->289|1474->292|1489->298|1516->303|1596->348|1633->376|1672->377|1710->380|1756->404|1790->407|1887->473|1928->483|2005->525|2046->557|2085->558|2331->773
+                    DATE: Wed Apr 17 19:12:25 ALMT 2013
+                    SOURCE: D:/sdu-online-courses/app/views/course/index.scala.html
+                    HASH: 9248a3000bcfaf048bf250c6836e89edeab3abb8
+                    MATRIX: 754->1|904->57|947->84|965->94|1003->95|1134->191|1170->211|1209->212|1253->221|1306->265|1345->266|1397->282|1412->288|1464->318|1503->321|1518->327|1545->332|1625->377|1662->405|1701->406|1739->409|1785->433|1819->436|1916->502|1957->512|2034->554|2075->586|2114->587|2377->819
                     LINES: 26->1|30->1|34->6|34->6|34->6|39->11|39->11|39->11|41->13|41->13|41->13|42->14|42->14|42->14|42->14|42->14|42->14|45->17|45->17|45->17|46->18|46->18|47->19|51->23|53->25|57->29|57->29|57->29|67->39
                     -- GENERATED --
                 */

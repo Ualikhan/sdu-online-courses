@@ -1,6 +1,7 @@
 import sbt._
 import Keys._
 import play.Project._
+import com.github.play2war.plugin._
 
 object ApplicationBuild extends Build {
 
@@ -11,11 +12,17 @@ object ApplicationBuild extends Build {
     // Add your project dependencies here,
     javaCore,
     javaJdbc,
-    javaEbean
+    javaEbean,
+    "mysql" % "mysql-connector-java" % "5.1.10",
+    "commons-io" % "commons-io" % "2.3",
+    "org.imgscalr" % "imgscalr-lib" % "4.2"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(
-    // Add your own project settings here      
-  )
+    Play2WarKeys.servletVersion := "2.5",
+      resolvers ++= Seq(
+ "The Buzz Media Maven Repository" at "http://maven.thebuzzmedia.com"
+ )
+).settings(Play2WarPlugin.play2WarSettings: _*)
 
 }

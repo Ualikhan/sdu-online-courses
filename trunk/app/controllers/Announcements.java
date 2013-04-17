@@ -17,7 +17,14 @@ public class Announcements extends Controller{
 	public static Result index() {
 		courseId=Long.parseLong(session("course"));
 		if(Secured.isTutorOf(courseId)){
-		return ok(index.render(courseId,Announcement.findAnnouncementsByCourse(courseId),announcementForm));
+		return ok(
+				index.render(
+						courseId,
+						Announcement.findAnnouncementsByCourse(courseId),
+						announcementForm,
+						User.find.byId(request().username())
+						)
+				);
 		}
 		else{
 			return forbidden();
@@ -32,7 +39,14 @@ public static Result newAnnouncement() {
 		Form<Announcement> filledForm=form(Announcement.class).bindFromRequest();
 		Course course=Course.find.byId(courseId);
 		Announcement.create(filledForm.get().title, filledForm.get().content,course);
-		return ok(index.render(courseId,Announcement.findAnnouncementsByCourse(courseId),announcementForm));
+		return ok(
+				index.render(
+						courseId,
+						Announcement.findAnnouncementsByCourse(courseId),
+						announcementForm,
+						User.find.byId(request().username())
+						)
+				);
 	}else{
 		return forbidden();
 	}
@@ -43,7 +57,13 @@ public static Result announcementPage(Long id) {
 	courseId=Long.parseLong(session("course"));
 	
 	if(Secured.isTutorOf(courseId)){
-			return ok(item.render(Announcement.find.byId(id),announcementForm));
+			return ok(
+					item.render(
+							Announcement.find.byId(id),
+							announcementForm,
+							User.find.byId(request().username())
+							)
+					);
 	}else{
 		return forbidden();
 	}
@@ -55,7 +75,14 @@ public static Result updateAnnouncement(Long id) {
 		
 	Form<Announcement> filledForm=form(Announcement.class).bindFromRequest();
 	Announcement.update(id, filledForm.get().title, filledForm.get().content);
-	return ok(index.render(courseId,Announcement.findAnnouncementsByCourse(courseId),announcementForm));
+	return ok(
+			index.render(
+					courseId,
+					Announcement.findAnnouncementsByCourse(courseId),
+					announcementForm,
+					User.find.byId(request().username())
+					)
+			);
 	}else{
 		return forbidden();
 	}
@@ -66,7 +93,14 @@ public static Result deleteAnnouncement(Long id) {
 	
 	if(Secured.isTutorOf(courseId)){
 	Announcement.delete(id);
-	return ok(index.render(courseId,Announcement.findAnnouncementsByCourse(courseId),announcementForm));
+	return ok(
+			index.render(
+					courseId,
+					Announcement.findAnnouncementsByCourse(courseId),
+					announcementForm,
+					User.find.byId(request().username())
+					)
+			);
 }else{
 	return forbidden();
 }

@@ -1,6 +1,6 @@
-// @SOURCE:D:/Programming/Eclipse Projects/sdu-online-courses/conf/routes
+// @SOURCE:D:/sdu-online-courses/conf/routes
 // @HASH:be6d59cc254c0ab3128844fe889e21d9ebdbc5be
-// @DATE:Mon Apr 15 00:31:29 ALMT 2013
+// @DATE:Wed Apr 17 19:12:23 ALMT 2013
 
 package controllers;
 
