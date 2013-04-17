@@ -45,17 +45,23 @@ Seq[Any](format.raw/*1.28*/("""
 					 """),format.raw/*17.7*/("""}"""),format.raw/*17.8*/(""");
 				</script>
 				""")))})),format.raw/*19.6*/("""
-        <script type="text/javascript" src=""""),_display_(Seq[Any](/*20.46*/routes/*20.52*/.Assets.at("javascripts/tiny_mce/tiny_mce.js"))),format.raw/*20.98*/(""""></script>
+        <script src=""""),_display_(Seq[Any](/*20.23*/routes/*20.29*/.Assets.at("javascripts/ckeditor/ckeditor.js"))),format.raw/*20.75*/(""""></script>
         <script type="text/javascript">
-			tinyMCE.init("""),format.raw/*22.17*/("""{"""),format.raw/*22.18*/("""
+		/*	
+        tinyMCE.init("""),format.raw/*23.22*/("""{"""),format.raw/*23.23*/("""
 			        mode : "textareas"
-			"""),format.raw/*24.4*/("""}"""),format.raw/*24.5*/(""");
+			"""),format.raw/*25.4*/("""}"""),format.raw/*25.5*/(""");
+		*/
+		CKEDITOR.replace( 'editor1', """),format.raw/*27.32*/("""{"""),format.raw/*27.33*/("""
+		    toolbar: 'Basic',
+		    uiColor: '#9AB8F3'
+		"""),format.raw/*30.3*/("""}"""),format.raw/*30.4*/(""");
 		</script>
             
 				
-        <link rel="stylesheet" media="screen" href=""""),_display_(Seq[Any](/*28.54*/routes/*28.60*/.Assets.at("stylesheets/main.css"))),format.raw/*28.94*/("""">
-        <link rel="shortcut icon" type="image/png" href=""""),_display_(Seq[Any](/*29.59*/routes/*29.65*/.Assets.at("images/favicon.png"))),format.raw/*29.97*/("""">
-        
+        <link rel="stylesheet" media="screen" href=""""),_display_(Seq[Any](/*34.54*/routes/*34.60*/.Assets.at("stylesheets/main.css"))),format.raw/*34.94*/("""">
+        <link rel="shortcut icon" type="image/png" href=""""),_display_(Seq[Any](/*35.59*/routes/*35.65*/.Assets.at("images/favicon.png"))),format.raw/*35.97*/("""">
+         
         
     </head>
     <body>
@@ -66,31 +72,31 @@ Seq[Any](format.raw/*1.28*/("""
     <div class="main">
  	<div class="header row">
  	<span class="logo">
-    <a href=""""),_display_(Seq[Any](/*41.15*/routes/*41.21*/.Application.index)),format.raw/*41.39*/("""" id="logo" ><span>SDU Online Courses!</span></a>
+    <a href=""""),_display_(Seq[Any](/*47.15*/routes/*47.21*/.Application.index)),format.raw/*47.39*/("""" id="logo" ><span>SDU Online Courses!</span></a>
     
     </span>
      <span class="user">
-    """),_display_(Seq[Any](/*45.6*/if(user!=null)/*45.20*/{_display_(Seq[Any](format.raw/*45.21*/("""
+    """),_display_(Seq[Any](/*51.6*/if(user!=null)/*51.20*/{_display_(Seq[Any](format.raw/*51.21*/("""
    
        <div class="dropdown">
   <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
-    """),_display_(Seq[Any](/*49.6*/user/*49.10*/.name)),format.raw/*49.15*/("""
+    """),_display_(Seq[Any](/*55.6*/user/*55.10*/.name)),format.raw/*55.15*/("""
     <b class="caret"></b>
   </a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-     <li role="presentation"><a role="menuitem" href=""""),_display_(Seq[Any](/*53.56*/routes/*53.62*/.Users.pro())),format.raw/*53.74*/("""">Profile</a></li>
-     <li role="presentation"><a role="menuitem" href=""""),_display_(Seq[Any](/*54.56*/routes/*54.62*/.Students.index())),format.raw/*54.79*/("""">My courses</a></li>
-    <li role="presentation"><a role="menuitem" href=""""),_display_(Seq[Any](/*55.55*/routes/*55.61*/.Application.logout())),format.raw/*55.82*/("""">Logout</a></li>
+     <li role="presentation"><a role="menuitem" href=""""),_display_(Seq[Any](/*59.56*/routes/*59.62*/.Users.pro())),format.raw/*59.74*/("""">Profile</a></li>
+     <li role="presentation"><a role="menuitem" href=""""),_display_(Seq[Any](/*60.56*/routes/*60.62*/.Students.index())),format.raw/*60.79*/("""">My courses</a></li>
+    <li role="presentation"><a role="menuitem" href=""""),_display_(Seq[Any](/*61.55*/routes/*61.61*/.Application.logout())),format.raw/*61.82*/("""">Logout</a></li>
   </ul>
 </div>
 
-""")))}/*59.2*/else/*59.6*/{_display_(Seq[Any](format.raw/*59.7*/("""
-<a href=""""),_display_(Seq[Any](/*60.11*/routes/*60.17*/.Application.login)),format.raw/*60.35*/("""">Sign in</a>
-""")))})),format.raw/*61.2*/("""
+""")))}/*65.2*/else/*65.6*/{_display_(Seq[Any](format.raw/*65.7*/("""
+<a href=""""),_display_(Seq[Any](/*66.11*/routes/*66.17*/.Application.login)),format.raw/*66.35*/("""">Sign in</a>
+""")))})),format.raw/*67.2*/("""
 </span>
 </div>
 <div class="content">
-      """),_display_(Seq[Any](/*65.8*/content)),format.raw/*65.15*/("""
+      """),_display_(Seq[Any](/*71.8*/content)),format.raw/*71.15*/("""
 </div>
 </div>
      <footer>
@@ -118,11 +124,11 @@ Seq[Any](format.raw/*1.28*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 23:08:40 ALMT 2013
-                    SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/main.scala.html
-                    HASH: 4c0076e0c9f168287f9914cce6f2283e88fcc6c6
-                    MATRIX: 725->1|828->27|1011->175|1025->181|1090->224|1151->250|1165->256|1231->301|1347->381|1362->387|1415->418|1508->475|1523->481|1586->522|1679->579|1694->585|1761->630|1819->652|1842->666|1881->667|1989->747|2018->748|2091->794|2119->795|2172->817|2254->863|2269->869|2337->915|2433->983|2462->984|2523->1018|2551->1019|2673->1105|2688->1111|2744->1145|2841->1206|2856->1212|2910->1244|3113->1411|3128->1417|3168->1435|3300->1532|3323->1546|3362->1547|3541->1691|3554->1695|3581->1700|3772->1855|3787->1861|3821->1873|3931->1947|3946->1953|3985->1970|4097->2046|4112->2052|4155->2073|4208->2108|4220->2112|4258->2113|4305->2124|4320->2130|4360->2148|4406->2163|4486->2208|4515->2215
-                    LINES: 26->1|29->1|36->8|36->8|36->8|37->9|37->9|37->9|38->10|38->10|38->10|39->11|39->11|39->11|40->12|40->12|40->12|41->13|41->13|41->13|43->15|43->15|45->17|45->17|47->19|48->20|48->20|48->20|50->22|50->22|52->24|52->24|56->28|56->28|56->28|57->29|57->29|57->29|69->41|69->41|69->41|73->45|73->45|73->45|77->49|77->49|77->49|81->53|81->53|81->53|82->54|82->54|82->54|83->55|83->55|83->55|87->59|87->59|87->59|88->60|88->60|88->60|89->61|93->65|93->65
+                    DATE: Wed Apr 17 19:12:25 ALMT 2013
+                    SOURCE: D:/sdu-online-courses/app/views/main.scala.html
+                    HASH: 2b7b867378cbcfd3e7959cc4e7d48bd982983c12
+                    MATRIX: 725->1|828->27|1011->175|1025->181|1090->224|1151->250|1165->256|1231->301|1347->381|1362->387|1415->418|1508->475|1523->481|1586->522|1679->579|1694->585|1761->630|1819->652|1842->666|1881->667|1989->747|2018->748|2091->794|2119->795|2172->817|2231->840|2246->846|2314->892|2421->971|2450->972|2511->1006|2539->1007|2606->1046|2635->1047|2714->1099|2742->1100|2864->1186|2879->1192|2935->1226|3032->1287|3047->1293|3101->1325|3305->1493|3320->1499|3360->1517|3492->1614|3515->1628|3554->1629|3733->1773|3746->1777|3773->1782|3964->1937|3979->1943|4013->1955|4123->2029|4138->2035|4177->2052|4289->2128|4304->2134|4347->2155|4400->2190|4412->2194|4450->2195|4497->2206|4512->2212|4552->2230|4598->2245|4678->2290|4707->2297
+                    LINES: 26->1|29->1|36->8|36->8|36->8|37->9|37->9|37->9|38->10|38->10|38->10|39->11|39->11|39->11|40->12|40->12|40->12|41->13|41->13|41->13|43->15|43->15|45->17|45->17|47->19|48->20|48->20|48->20|51->23|51->23|53->25|53->25|55->27|55->27|58->30|58->30|62->34|62->34|62->34|63->35|63->35|63->35|75->47|75->47|75->47|79->51|79->51|79->51|83->55|83->55|83->55|87->59|87->59|87->59|88->60|88->60|88->60|89->61|89->61|89->61|93->65|93->65|93->65|94->66|94->66|94->66|95->67|99->71|99->71
                     -- GENERATED --
                 */
             

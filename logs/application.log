@@ -1,13 +1,13 @@
-2013-04-16 23:51:16,864 - [INFO] - from play in main 
+2013-04-17 19:12:19,898 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-04-16 23:51:46,777 - [INFO] - from play in New I/O  worker #1 
+2013-04-17 19:12:39,540 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:h2:mem:play
 
-2013-04-16 23:51:53,438 - [ERROR] - from application in New I/O  worker #1 
+2013-04-17 19:12:40,623 - [ERROR] - from application in New I/O  worker #1 
 
 
-! @6e294m77p - Internal server error, for (GET) [/] ->
+! @6e2f16nk2 - Internal server error, for (GET) [/logout] ->
 
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
 	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:457) ~[play-jdbc_2.10.jar:2.1.0]
@@ -60,31 +60,120 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
 	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
 	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
 
-2013-04-16 23:52:03,104 - [INFO] - from play in New I/O  worker #2 
+2013-04-17 19:12:45,764 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:h2:mem:play
 
-2013-04-16 23:52:04,245 - [INFO] - from play in New I/O  worker #2 
+2013-04-17 19:12:46,065 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-04-17 00:26:13,734 - [INFO] - from play in New I/O  worker #3 
+2013-04-17 19:13:33,079 - [DEBUG] - from application in play-akka.actor.default-dispatcher-2 
+path: D:\sdu-online-courses
+
+2013-04-17 19:20:15,383 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:h2:mem:play
 
-2013-04-17 00:26:16,452 - [INFO] - from play in New I/O  worker #3 
+2013-04-17 19:20:15,514 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-04-17 00:26:20,160 - [INFO] - from play in New I/O  worker #4 
+2013-04-17 19:20:38,878 - [DEBUG] - from application in play-akka.actor.default-dispatcher-34 
+path: D:\sdu-online-courses
+
+2013-04-17 19:21:34,767 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:h2:mem:play
 
-2013-04-17 00:26:20,693 - [INFO] - from play in New I/O  worker #4 
+2013-04-17 19:21:34,891 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-04-17 00:28:13,377 - [INFO] - from play in New I/O  worker #3 
+2013-04-17 19:21:41,554 - [DEBUG] - from application in play-akka.actor.default-dispatcher-43 
+fileName: 
+
+2013-04-17 19:22:17,122 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:h2:mem:play
 
-2013-04-17 00:28:13,853 - [INFO] - from play in New I/O  worker #3 
+2013-04-17 19:22:17,246 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-04-17 19:22:24,027 - [DEBUG] - from application in play-akka.actor.default-dispatcher-38 
+fileName: attachment1.pdf
+
+2013-04-17 19:23:13,085 - [INFO] - from play in New I/O  worker #7 
+database [default] connected at jdbc:h2:mem:play
+
+2013-04-17 19:23:13,208 - [INFO] - from play in New I/O  worker #7 
+Application started (Dev)
+
+2013-04-17 19:23:17,769 - [DEBUG] - from application in play-akka.actor.default-dispatcher-46 
+fileName: attachment1.pdf
+
+2013-04-17 19:39:48,755 - [ERROR] - from application in New I/O  worker #5 
+
+
+! @6e2f4le6l - Internal server error, for (GET) [/course/lectures] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error[illegal start of simple expression]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-04-17 19:40:10,875 - [INFO] - from play in New I/O  worker #5 
+database [default] connected at jdbc:h2:mem:play
+
+2013-04-17 19:40:10,966 - [INFO] - from play in New I/O  worker #5 
+Application started (Dev)
+
+2013-04-17 19:44:18,769 - [INFO] - from play in New I/O  worker #6 
+database [default] connected at jdbc:h2:mem:play
+
+2013-04-17 19:44:18,885 - [INFO] - from play in New I/O  worker #6 
+Application started (Dev)
+
+2013-04-17 19:45:00,176 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:h2:mem:play
+
+2013-04-17 19:45:00,730 - [INFO] - from play in New I/O  worker #4 
 Application started (Dev)
 

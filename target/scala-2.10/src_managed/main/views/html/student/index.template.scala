@@ -65,8 +65,8 @@ Seq[Any](format.raw/*1.36*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 00:24:08 ALMT 2013
-                    SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/student/index.scala.html
+                    DATE: Wed Apr 17 19:12:25 ALMT 2013
+                    SOURCE: D:/sdu-online-courses/app/views/student/index.scala.html
                     HASH: 016dbbfdb39cd9bb02f8d932fe5cd0cf2fec600d
                     MATRIX: 742->1|870->35|898->55|937->60|955->70|993->71|1038->82|1054->90|1066->94|1113->104|1315->270|1328->274|1355->279|1443->331|1456->335|1489->346|1624->445|1673->485|1713->487|1905->648|2006->717
                     LINES: 26->1|30->1|31->3|33->5|33->5|33->5|35->7|35->7|35->7|35->7|43->15|43->15|43->15|44->16|44->16|44->16|47->19|47->19|47->19|50->22|54->26

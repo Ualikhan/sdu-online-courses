@@ -1,10 +1,12 @@
-@(lecture: Lecture,lectureForm:Form[Lecture],user:User)
+@(lecture: Lecture,resources:List[VideoResource],user:User)
 
 @import helper._
 
 @main(user){
 <h2>Edit lecture</h2>
-@form(routes.Lectures.updateLecture(lecture.id)){
+
+
+<form id="addStudentForm" method="post" action="@routes.Lectures.updateLecture(lecture.id)" enctype="multipart/form-data"> 
 <p>
 <input type="text" name="title" placeholder="Name" value="@lecture.title">
 </p>
@@ -12,10 +14,50 @@
 <textarea rows="10" cols="30" name="content" placeholder="Description" >@lecture.content</textarea>
 </p>
 <p>
-<input type="text" name="video" placeholder="Video" value="@lecture.video">
+Video<input class="videos" type="file" id="1" name="video" placeholder="Video">
+</p>
+<a class="addVideo">Add another video</a>
+<p>
+<div id="videos">
+<ul>
+@for(resource <- resources){
+<li>@resource.title 
+@if(resource.resourceType.name().equals("VIDEO")){
+@if(resource.file_path!=null){
+<iframe class="videoDiv" width="420" height="345"
+src="@routes.Assets.at("uploadVideos/"+{resource.file_path})">
+</iframe>
+}
+}else{
+@if(resource.resourceType.name().equals("SLIDE")){
+@if(resource.file_path!=null){
+<iframe class="videoDiv" width="420" height="345"
+src="@routes.Assets.at("uploadSlides/"+{resource.file_path})">
+</iframe>
+}
+}
+}
+</li>
+}
+</ul>
+</div>
+Slides<input type="file" name="slide" placeholder="Slides">
 </p>
 <p>
 <button type="submit">Update</button><a href="@routes.Lectures.index()">Cancel</button>
 </p>
+</form>
 }
-}
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+		$('.addVideo').on('click', function() {
+			$('#videos').append('<p>Video<input type="file" name="video" placeholder="Video"></p>');
+		 
+		   });
+	
+		
+		});
+</script>
+	

@@ -29,7 +29,7 @@ object index extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.t
 
 Seq[Any](format.raw/*1.123*/("""
 """),_display_(Seq[Any](/*3.2*/main(user)/*3.12*/{_display_(Seq[Any](format.raw/*3.13*/("""
-<table>
+<table class="table table-bordered">
 <th>CourseInformation name</th>
 <th>Description</th>
 <th></th>
@@ -39,7 +39,7 @@ Seq[Any](format.raw/*1.123*/("""
 """),_display_(Seq[Any](/*11.2*/form(routes.CourseInformations.deleteCourseInformation(courseInformation.id))/*11.79*/{_display_(Seq[Any](format.raw/*11.80*/("""
 <td><a href=""""),_display_(Seq[Any](/*12.15*/routes/*12.21*/.CourseInformations.courseInformationPage(courseInformation.id))),format.raw/*12.84*/("""">"""),_display_(Seq[Any](/*12.87*/courseInformation/*12.104*/.title)),format.raw/*12.110*/("""</a></td>
 <td>
-<div class="description" style="width: 60%;max-height: 40px;">
+<div class="description">
 """),_display_(Seq[Any](/*15.2*/if(courseInformation.content!=null)/*15.37*/{_display_(Seq[Any](format.raw/*15.38*/("""
 """),_display_(Seq[Any](/*16.2*/Html(courseInformation.content))),format.raw/*16.33*/("""
 """)))})),format.raw/*17.2*/("""
@@ -58,7 +58,7 @@ Seq[Any](format.raw/*1.123*/("""
 <input type="text" name="title" placeholder="Name">
 </p>
 <p>
-<textarea class="descriptionTextArea" rows="30" cols="60" name="content" placeholder="Description"></textarea>
+<textarea class="descriptionTextArea ckeditor" rows="30" cols="60" name="content" placeholder="Description"></textarea>
 </p>
 <p>
 <button type="submit">Create</button>
@@ -77,10 +77,10 @@ Seq[Any](format.raw/*1.123*/("""
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 23:41:16 ALMT 2013
-                    SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/courseinformation/index.scala.html
-                    HASH: bf8af19d4ebf8dadc9cfbb64e2029b924945af0b
-                    MATRIX: 792->1|1008->122|1045->143|1063->153|1101->154|1213->232|1249->260|1287->261|1324->264|1381->306|1419->307|1463->316|1549->393|1588->394|1640->410|1655->416|1740->479|1779->482|1806->499|1835->505|1952->587|1996->622|2035->623|2073->626|2126->657|2160->660|2257->726|2298->736|2332->739|2420->792|2483->846|2522->847|2793->1087|2827->1090
+                    DATE: Wed Apr 17 19:12:25 ALMT 2013
+                    SOURCE: D:/sdu-online-courses/app/views/courseinformation/index.scala.html
+                    HASH: dfff784a26fd56736dbff7872014f0bfcc258513
+                    MATRIX: 792->1|1008->122|1045->143|1063->153|1101->154|1242->261|1278->289|1316->290|1353->293|1410->335|1448->336|1492->345|1578->422|1617->423|1669->439|1684->445|1769->508|1808->511|1835->528|1864->534|1944->579|1988->614|2027->615|2065->618|2118->649|2152->652|2249->718|2290->728|2324->731|2412->784|2475->838|2514->839|2794->1088|2828->1091
                     LINES: 26->1|30->1|31->3|31->3|31->3|36->8|36->8|36->8|37->9|37->9|37->9|39->11|39->11|39->11|40->12|40->12|40->12|40->12|40->12|40->12|43->15|43->15|43->15|44->16|44->16|45->17|49->21|51->23|52->24|56->28|56->28|56->28|66->38|67->39
                     -- GENERATED --
                 */

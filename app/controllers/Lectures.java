@@ -1,8 +1,19 @@
 package controllers;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
+import org.imgscalr.Scalr;
+import org.apache.commons.io.FileUtils;
 import play.*;
 import models.*;
+import models.Enums.ResourceTypes;
 import play.mvc.*;
+import play.mvc.Http.MultipartFormData;
+import play.mvc.Http.MultipartFormData.FilePart;
 import play.data.*;
 import static play.data.Form.*;
 import views.html.lecture.*;
@@ -58,7 +69,7 @@ public static Result lecturePage(Long id) {
 	if(Secured.isTutorOf(courseId)){
 			return ok(
 					item.render(Lecture.find.byId(id),
-							lectureForm,
+							VideoResource.findByLecture(id),
 							User.find.byId(request().username())
 							)
 					);
@@ -86,7 +97,7 @@ public static Result getLecture(Long id) {
 
 
 
-public static Result updateLecture(Long id) {
+public static Result updateLecture(Long id)  throws IOException{
 	courseId=Long.parseLong(session("course"));
 	if(Secured.isTutorOf(courseId)){
 		
@@ -94,7 +105,45 @@ public static Result updateLecture(Long id) {
 	Lecture l=Lecture.find.ref(id);
 	l.title=filledForm.get().title;
 	l.content=filledForm.get().content;
-	l.video=filledForm.get().video;
+	VideoResource video=null;
+	String projectRoot = Play.application().path().getAbsolutePath();
+   
+	 MultipartFormData body = request().body().asMultipartFormData();
+     FilePart myVideo = body.getFile("video");
+     if (myVideo != null) {
+       String fileName = myVideo.getFilename();
+       String contentType = myVideo.getContentType(); 
+       File file = myVideo.getFile();
+       
+       File uniqueFile = File.createTempFile("video", ".wmv", new File(projectRoot+"\\public\\uploadVideos"));
+       
+       FileUtils.copyFile(file,uniqueFile);
+       video=VideoResource.create(uniqueFile.getName(),uniqueFile.getName(), "", ResourceTypes.VIDEO, l);
+      
+     }
+     
+     
+     FilePart mySlide = body.getFile("slide");
+     if (mySlide != null) {
+       String fileName = mySlide.getFilename();
+       String contentType = mySlide.getContentType(); 
+       File file = mySlide.getFile();
+       
+       Logger.debug("fileName: "+fileName);
+       String extension = "";
+
+       int i = fileName.lastIndexOf('.');
+       if (i > 0) {
+           extension = fileName.substring(i+1);
+       }
+       File uniqueFile = File.createTempFile("slide", "."+extension, new File(projectRoot+"\\public\\uploadSlides"));
+       
+       FileUtils.copyFile(file,uniqueFile);
+       video=VideoResource.create(uniqueFile.getName(),uniqueFile.getName(), "", ResourceTypes.SLIDE, l);
+      
+     }
+     
+	
 	l.update();
 	return ok(
 			index.render(

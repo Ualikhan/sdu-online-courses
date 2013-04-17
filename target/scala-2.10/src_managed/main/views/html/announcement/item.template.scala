@@ -20,44 +20,44 @@ import play.api.data.Field
 import play.mvc.Http.Context.Implicit._
 import views.html._
 /**/
-object item extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template2[Announcement,Form[Announcement],play.api.templates.Html] {
+object item extends BaseScalaTemplate[play.api.templates.Html,Format[play.api.templates.Html]](play.api.templates.HtmlFormat) with play.api.templates.Template3[Announcement,Form[Announcement],User,play.api.templates.Html] {
 
     /**/
-    def apply/*1.2*/(announcement: Announcement,announcementForm:Form[Announcement]):play.api.templates.Html = {
+    def apply/*1.2*/(announcement: Announcement,announcementForm:Form[Announcement],user:User):play.api.templates.Html = {
         _display_ {import helper._
 
 
-Seq[Any](format.raw/*1.66*/("""
-
-"""),format.raw/*4.1*/("""
+Seq[Any](format.raw/*1.76*/("""
+"""),_display_(Seq[Any](/*3.2*/main(user)/*3.12*/{_display_(Seq[Any](format.raw/*3.13*/("""
 <h2>Edit announcement</h2>
-"""),_display_(Seq[Any](/*6.2*/form(routes.Announcements.updateAnnouncement(announcement.id))/*6.64*/{_display_(Seq[Any](format.raw/*6.65*/("""
+"""),_display_(Seq[Any](/*5.2*/form(routes.Announcements.updateAnnouncement(announcement.id))/*5.64*/{_display_(Seq[Any](format.raw/*5.65*/("""
 <p>
-<input type="text" name="name" placeholder="Name" value=""""),_display_(Seq[Any](/*8.59*/announcement/*8.71*/.title)),format.raw/*8.77*/("""">
+<input type="text" name="title" placeholder="Name" value=""""),_display_(Seq[Any](/*7.60*/announcement/*7.72*/.title)),format.raw/*7.78*/("""">
 </p>
 <p>
-<textarea rows="10" cols="30" name="description" placeholder="Description" >"""),_display_(Seq[Any](/*11.78*/announcement/*11.90*/.content)),format.raw/*11.98*/("""</textarea>
+<textarea class="ckeditor"  rows="10" cols="30" name="content" placeholder="Description" >"""),_display_(Seq[Any](/*10.92*/announcement/*10.104*/.content)),format.raw/*10.112*/("""</textarea>
 </p>
 <p>
-<button type="submit">Update</button><a href=""""),_display_(Seq[Any](/*14.48*/routes/*14.54*/.Announcements.index())),format.raw/*14.76*/("""">Cancel</button>
+<button type="submit">Update</button><a href=""""),_display_(Seq[Any](/*13.48*/routes/*13.54*/.Announcements.index())),format.raw/*13.76*/("""">Cancel</button>
 </p>
+""")))})),format.raw/*15.2*/("""
 """)))})))}
     }
     
-    def render(announcement:Announcement,announcementForm:Form[Announcement]): play.api.templates.Html = apply(announcement,announcementForm)
+    def render(announcement:Announcement,announcementForm:Form[Announcement],user:User): play.api.templates.Html = apply(announcement,announcementForm,user)
     
-    def f:((Announcement,Form[Announcement]) => play.api.templates.Html) = (announcement,announcementForm) => apply(announcement,announcementForm)
+    def f:((Announcement,Form[Announcement],User) => play.api.templates.Html) = (announcement,announcementForm,user) => apply(announcement,announcementForm,user)
     
     def ref: this.type = this
 
 }
                 /*
                     -- GENERATED --
-                    DATE: Mon Apr 15 00:24:07 ALMT 2013
-                    SOURCE: D:/Programming/Eclipse Projects/sdu-online-courses/app/views/announcement/item.scala.html
-                    HASH: aa7e356cea19cf95f5b451c1da950fa77ca936df
-                    MATRIX: 760->1|918->65|948->87|1013->118|1083->180|1121->181|1221->246|1241->258|1268->264|1396->356|1417->368|1447->376|1554->447|1569->453|1613->475
-                    LINES: 26->1|30->1|32->4|34->6|34->6|34->6|36->8|36->8|36->8|39->11|39->11|39->11|42->14|42->14|42->14
+                    DATE: Wed Apr 17 19:12:25 ALMT 2013
+                    SOURCE: D:/sdu-online-courses/app/views/announcement/item.scala.html
+                    HASH: 9fe46b697b2d75ba4ea30737e47cc5c74b5d9cce
+                    MATRIX: 765->1|933->75|970->96|988->106|1026->107|1091->138|1161->200|1199->201|1300->267|1320->279|1347->285|1489->391|1511->403|1542->411|1649->482|1664->488|1708->510|1765->536
+                    LINES: 26->1|30->1|31->3|31->3|31->3|33->5|33->5|33->5|35->7|35->7|35->7|38->10|38->10|38->10|41->13|41->13|41->13|43->15
                     -- GENERATED --
                 */
             

@@ -4,7 +4,7 @@
 
 @import helper._
 @main(user){
-<table>
+<table class="table table-bordered">
 <th>Course name</th>
 <th>Description</th>
 <th></th>
@@ -31,7 +31,7 @@
 <input type="text" name="name" placeholder="Name">
 </p>
 <p>
-<textarea rows="10" cols="30" name="description" placeholder="Description"></textarea>
+<textarea rows="10" cols="30" class="ckeditor" name="description" placeholder="Description"></textarea>
 </p>
 <p>
 <button type="submit">Create</button>

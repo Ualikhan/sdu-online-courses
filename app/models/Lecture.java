@@ -18,10 +18,6 @@ public class Lecture extends Model{
 	@Column(columnDefinition="TEXT")
 	public String content;
 	
-	public String file;
-	
-	public String video;
-	
 	@ManyToOne
 	public Course course;
 	
