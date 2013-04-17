@@ -1,1 +1,12 @@
-[info] Compiling 1 Scala source to D:\sdu-online-courses\target\scala-2.10\classes...
+[info] Compiling 1 Scala source to D:\Programming\Eclipse Projects\sdu-online-courses\target\scala-2.10\classes...
+[error] D:\Programming\Eclipse Projects\sdu-online-courses\app\views\lecture\item.scala.html:70: unclosed character literal
+[error] 		   $(".player").flowplayer({ swf: "@routes.Assets.at('javascripts/flowplayer-5.4.0/flowplayer.swf')" });
+[error] 		                                                                                                 ^
+[error] D:\Programming\Eclipse Projects\sdu-online-courses\app\views\lecture\item.scala.html:70: ')' expected but double literal found.
+[error] 		   $(".player").flowplayer({ swf: "@routes.Assets.at('javascripts/flowplayer-5.4.0/flowplayer.swf')" });
+[error] 		                                                                                ^
+[error] D:\Programming\Eclipse Projects\sdu-online-courses\app\views\lecture\item.scala.html:74: ')' expected but '}' found.
+[error] 	
+[error] 	^
+[error] three errors found
+[error] (compile:compile) Compilation failed

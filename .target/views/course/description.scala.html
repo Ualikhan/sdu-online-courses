@@ -37,10 +37,10 @@
  @courseInformations.map { task =>
 <div class="courseInformation">
 <h3>@task.title</h3>
-<span>
 @if(task.content!=null){
 @Html(task.content)
-}</span>
+}
 </div>
 }
 }
+

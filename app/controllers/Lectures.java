@@ -68,8 +68,9 @@ public static Result lecturePage(Long id) {
 	
 	if(Secured.isTutorOf(courseId)){
 			return ok(
-					item.render(Lecture.find.byId(id),
-							VideoResource.findByLecture(id),
+					item.render(
+							Lecture.find.byId(id),
+							LectureResource.findByLecture(id),
 							User.find.byId(request().username())
 							)
 					);
@@ -105,7 +106,7 @@ public static Result updateLecture(Long id)  throws IOException{
 	Lecture l=Lecture.find.ref(id);
 	l.title=filledForm.get().title;
 	l.content=filledForm.get().content;
-	VideoResource video=null;
+	LectureResource video=null;
 	String projectRoot = Play.application().path().getAbsolutePath();
    
 	 MultipartFormData body = request().body().asMultipartFormData();
@@ -114,11 +115,16 @@ public static Result updateLecture(Long id)  throws IOException{
        String fileName = myVideo.getFilename();
        String contentType = myVideo.getContentType(); 
        File file = myVideo.getFile();
-       
-       File uniqueFile = File.createTempFile("video", ".wmv", new File(projectRoot+"\\public\\uploadVideos"));
+       String extension = "";
+
+       int i = fileName.lastIndexOf('.');
+       if (i > 0) {
+           extension = fileName.substring(i+1);
+       }
+       File uniqueFile = File.createTempFile("video", "."+extension, new File(projectRoot+"\\public\\uploadVideos"));
        
        FileUtils.copyFile(file,uniqueFile);
-       video=VideoResource.create(uniqueFile.getName(),uniqueFile.getName(), "", ResourceTypes.VIDEO, l);
+       video=LectureResource.create(uniqueFile.getName(), uniqueFile.getName(), ResourceTypes.VIDEO, l);
       
      }
      
@@ -139,7 +145,7 @@ public static Result updateLecture(Long id)  throws IOException{
        File uniqueFile = File.createTempFile("slide", "."+extension, new File(projectRoot+"\\public\\uploadSlides"));
        
        FileUtils.copyFile(file,uniqueFile);
-       video=VideoResource.create(uniqueFile.getName(),uniqueFile.getName(), "", ResourceTypes.SLIDE, l);
+       video=LectureResource.create(uniqueFile.getName(), uniqueFile.getName(), ResourceTypes.SLIDE, l);
       
      }
      
