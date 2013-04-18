@@ -37,6 +37,9 @@ POST    /course/announcements/:aid       controllers.Announcements.updateAnnounc
 GET    /course/lectures           controllers.Lectures.index()
 
 POST    /course/lectures          controllers.Lectures.newLecture()
+POST    /course/lecture/:id/addVideo          controllers.Lectures.addVideo(id: Long)
+POST    /course/lecture/:id/addSlide          controllers.Lectures.addSlide(id: Long)
+POST    /course/lecture/:lid/removeResource    controllers.Lectures.removeResource(rid: Long,lid: Long)
 POST    /course/lecture/:aid/delete   controllers.Lectures.deleteLecture(aid: Long)
 GET    /course/lectures/:aid        controllers.Lectures.lecturePage(aid: Long)
 GET    /course/lecture/:id           controllers.Lectures.getLecture(id: Long)
