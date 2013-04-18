@@ -222,4 +222,32 @@ public static Result deleteLecture(Long id) {
 }
 
 
+public static Result updateTitle() {
+    DynamicForm bform=form().bindFromRequest();
+    Long id=Long.parseLong(bform.get("id"));
+    String val=bform.get("value");
+    Lecture lect=Lecture.find.byId(id);
+    lect.title=val;
+    lect.update();
+	return ok(lect.title);
+}
+public static Result updateContent() {
+    DynamicForm bform=form().bindFromRequest();
+    Long id=Long.parseLong(bform.get("id"));
+    String val=bform.get("value");
+    Lecture lect=Lecture.find.byId(id);
+    lect.content=val;
+    lect.update();
+	return ok(lect.content);
+}
+public static Result updateResourceTitle() {
+    DynamicForm bform=form().bindFromRequest();
+    Long id=Long.parseLong(bform.get("id"));
+    String val=bform.get("value");
+    LectureResource lect=LectureResource.find.byId(id);
+    lect.title=val;
+    lect.update();
+	return ok(lect.title);
+}
+
 }

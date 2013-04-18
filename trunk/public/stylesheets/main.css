@@ -44,7 +44,7 @@
  
  .res{
  float: left;
- margin:
+ margin:10px;
  }
  .action{
  width:40px;
@@ -59,10 +59,11 @@
  background-color:#4a6b82;
  }
  .slideItem{
-
  float:left;
- margin:30px;
- width:200px;
+ margin-left:10px;
+ margin-top:15px;
+ width:500px;
+ height:60px;
  }
 
 .descriptionTextArea{
