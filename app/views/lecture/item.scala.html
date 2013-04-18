@@ -5,22 +5,13 @@
 @main(user){
 <h2>Edit lecture</h2>
 <input type="hidden" id="flowPlayer" value="@routes.Assets.at("javascripts/flowplayer-5.4.0/flowplayer.swf")">
+<input type="hidden" id="titleEdit" value="@routes.Lectures.updateTitle()">
+<input type="hidden" id="contentEdit" value="@routes.Lectures.updateContent()">
+<input type="hidden" id="resourceTitleEdit" value="@routes.Lectures.updateResourceTitle()">
 
+<div class="lectureTitleEdit" id="@lecture.id">@lecture.title</div>
+<div class="lectureContentEdit" id="@lecture.id">@lecture.content</div>
 
-<form  method="post" action="@routes.Lectures.updateLecture(lecture.id)" enctype="multipart/form-data"> 
-<p>
-<input type="text" name="title" placeholder="Name" value="@lecture.title">
-</p>
-<p>
-<textarea rows="10" cols="30" name="content" placeholder="Description" >@lecture.content</textarea>
-</p>
-<p>
-<div class="form-actions">
-  <button type="submit" class="btn btn-primary">Update</button>
-  <a class="btn" href="@routes.Lectures.index()">Cancel</a>
-</div>
-</p>
-</form>
 
 <form  method="post" action="@routes.Lectures.addVideo(lecture.id)" enctype="multipart/form-data">
 <fieldset>
@@ -28,7 +19,7 @@
 <input  type="text"  name="title" placeholder="Title">
 <input  type="text"  name="videoUrl" placeholder="Video url"> or 
 <input  type="file" id="1" name="videoFile" placeholder="Video path">
-<button class="btn btn-mini btn-primary" type="submit">Add</button>
+<button class="btn btn-primary" type="submit" data-loading-text="Loading...">Add</button>
 </fieldset>
 </form>
 
@@ -38,7 +29,7 @@
 <input  type="text"  name="title" placeholder="Title">
 <input  type="text"  name="slideUrl" placeholder="Slide url"> or 
 <input type="file" name="slideFile" placeholder="Slide path">
-<button class="btn btn-mini btn-primary" type="submit">Add</button>
+<button class="btn btn-primary" type="submit" data-loading-text="Loading...">Add</button>
 </fieldset>
 </form>
 <p>
@@ -58,7 +49,7 @@
 
 <div class="videoItem">
 <span class="res">
-<p class="title">@resource.title</p>
+<p class="resourceTitleEdit title" id="@resource.id">@resource.title</p>
 @if(resource.file_url.contains("youtube.com")){
 <iframe width="420" height="345"
 src="@resource.file_url">
@@ -94,7 +85,9 @@ src="@resource.file_url">
 @if(resource.file_url!=null){
 <div class="slideItem">
 <span class="res">
-<a class="title" href ="@routes.Assets.at("uploadSlides/"+{resource.file_url})">@resource.title </a> 
+<a class="title resourceTitleEdit" id="@resource.id" href ="@routes.Assets.at("uploadSlides/"+{resource.file_url})">
+@resource.title
+ </a> 
 </span>
 <span class="res action">
 
@@ -124,6 +117,20 @@ $(document).ready(function() {
 		   $(".player").flowplayer({ swf: flowPlayer
 		   });
 		
+		   var titleEdit=$('#titleEdit').val();
+		   var contentEdit=$('#contentEdit').val();
+		   $('.lectureTitleEdit').editable(titleEdit);
+		   $('.lectureContentEdit').editable(contentEdit, { 
+		         type      : 'textarea',
+		         cancel    : 'Cancel',
+		         submit    : 'OK',
+		         tooltip   : 'Click to edit...'
+		     });
+		   
+		   var resourceTitleEdit=$('#resourceTitleEdit').val();
+		   $('.resourceTitleEdit').editable(resourceTitleEdit);
+		   
+		   
 		});
 </script>
 	
