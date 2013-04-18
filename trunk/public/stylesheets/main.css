@@ -14,6 +14,56 @@
 	max-width: 90%;
 }
 
+.mask{
+	border:10px solid #ddd;
+	width:100%;
+	overflow:hidden
+	}
+ .videos{
+ width:100%;
+ background-color:#333;
+ margin-top:-10px;
+ overflow:hidden;
+ float:left
+ }
+ .slides{
+ width:100%;
+ background-color:#333;
+ margin-top:-10px;
+ overflow:hidden;
+ float:left
+ }
+ 
+ .title{
+ margin:10px;
+ height: 20px;
+ font-size: 16px;
+ font-family: monospace;
+ color: activeborder;
+ }
+ 
+ .res{
+ float: left;
+ margin:
+ }
+ .action{
+ width:40px;
+ height:40px;
+ }
+ .videoItem{
+ float:left;
+ margin:10px;
+ margin-left:30px;
+ width:500px;
+ height:390px;
+ background-color:#4a6b82;
+ }
+ .slideItem{
+
+ float:left;
+ margin:30px;
+ width:200px;
+ }
 
 .descriptionTextArea{
 	width: 90%;

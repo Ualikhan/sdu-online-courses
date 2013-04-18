@@ -70,6 +70,17 @@ create table user (
   constraint pk_user primary key (email))
 ;
 
+create table video_resource (
+  id                        bigint auto_increment not null,
+  title                     varchar(255),
+  file_path                 TEXT,
+  file_url                  TEXT,
+  resource_type             varchar(10),
+  lecture_id                bigint,
+  constraint ck_video_resource_resource_type check (resource_type in ('VIDEO','SLIDE','BOOK','AUDIO','TRANSCRIPT')),
+  constraint pk_video_resource primary key (id))
+;
+
 
 create table role_module (
   role_id                        bigint not null,
@@ -102,6 +113,8 @@ alter table lecture_resource add constraint fk_lecture_resource_lecture_5 foreig
 create index ix_lecture_resource_lecture_5 on lecture_resource (lecture_id);
 alter table user add constraint fk_user_role_6 foreign key (role_id) references role (id) on delete restrict on update restrict;
 create index ix_user_role_6 on user (role_id);
+alter table video_resource add constraint fk_video_resource_lecture_7 foreign key (lecture_id) references lecture (id) on delete restrict on update restrict;
+create index ix_video_resource_lecture_7 on video_resource (lecture_id);
 
 
 
@@ -136,6 +149,8 @@ drop table if exists role_module;
 drop table if exists user;
 
 drop table if exists user_course;
+
+drop table if exists video_resource;
 
 SET REFERENTIAL_INTEGRITY TRUE;
 
