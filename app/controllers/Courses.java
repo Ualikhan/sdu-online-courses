@@ -64,9 +64,10 @@ public static Result coursePage(Long id) {
 		session("course",id+"");
 			return ok(
 					item.render(
+							User.find.where().eq("email", request().username()).findUnique(),
 							Course.find.byId(id),
-							courseForm,
-							User.find.byId(request().username())
+							Announcement.findAnnouncementsByCourse(id),
+							CourseInformation.findCourseInformationsByCourse(id)
 							)
 					);
 			
@@ -88,7 +89,7 @@ public static Result courseDescription(Long id) {
 	return ok(
 					views.html.course.description.render(
 							Course.find.byId(id),
-							CourseInformation.findCourseInformationsByCourse(id),
+							CourseDescription.findCourseDescriptionsByCourse(id),
 							accessString,
 							User.find.byId(request().username())
 							)
@@ -97,7 +98,7 @@ public static Result courseDescription(Long id) {
 		else
 			return ok(views.html.course.description.render(
 					Course.find.byId(id),
-					CourseInformation.findCourseInformationsByCourse(id),
+					CourseDescription.findCourseDescriptionsByCourse(id),
 					"SIGNUP",
 					null
 					)

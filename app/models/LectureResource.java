@@ -64,4 +64,10 @@ public class LectureResource extends Model{
 		return find.where().eq("lecture.id", id2).orderBy("resourceType").findList();
 	}
 
+	public static List<LectureResource> findVideosByLecture(Long id2) {
+		return find.where().eq("lecture.id", id2).eq("resourceType", "VIDEO").findList();
+	}
+	public static List<LectureResource> findSlidesByLecture(Long id2) {
+		return find.where().eq("lecture.id", id2).eq("resourceType", "SLIDE").findList();
+	}
 }

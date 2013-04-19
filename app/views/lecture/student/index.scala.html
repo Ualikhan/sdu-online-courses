@@ -32,7 +32,7 @@ By @course.owner.name
      <ul class="nav nav-list sidebar">
   <li class="nav-header">Lectures</li>
   @for(lecture<-lectures){
-  <li><a class="lectures" id="@lecture.id" href="#">@lecture.title</a></li>
+  <li><a class="lectures" id="@lecture.id" href="@routes.Lectures.getLecture(lecture.id)">@lecture.title</a></li>
   }
 </ul>
     </div>
@@ -47,6 +47,7 @@ By @course.owner.name
 
 
 }
+/*
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.lectures').click(function(e) {
@@ -61,3 +62,4 @@ $(document).ready(function(){
 	});
 });
 </script>
+*/

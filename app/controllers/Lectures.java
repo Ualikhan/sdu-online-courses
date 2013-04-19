@@ -29,10 +29,9 @@ public class Lectures extends Controller{
 		courseId=Long.parseLong(session("course"));
 		if(Secured.isTutorOf(courseId)){
 		return ok(index.render(
-				courseId,
-				Lecture.findLecturesByCourse(courseId),
-				lectureForm,
-				User.find.byId(request().username())
+				User.find.where().eq("email", request().username()).findUnique(),
+				Course.find.byId(courseId),
+				Lecture.findLecturesByCourse(courseId)
 				)
 		);
 		}
@@ -51,10 +50,9 @@ public static Result newLecture() {
 		Lecture.create(filledForm.get().title, filledForm.get().content,course);
 		return ok(
 				index.render(
-						courseId,
-						Lecture.findLecturesByCourse(courseId),
-						lectureForm,
-						User.find.byId(request().username())
+						User.find.where().eq("email", request().username()).findUnique(),
+						Course.find.byId(courseId),
+						Lecture.findLecturesByCourse(courseId)
 						)
 				);
 	}else{
@@ -70,8 +68,8 @@ public static Result lecturePage(Long id) {
 			return ok(
 					item.render(
 							Lecture.find.byId(id),
-							LectureResource.findByLecture(id),
-							User.find.byId(request().username())
+							LectureResource.findVideosByLecture(id),
+							LectureResource.findSlidesByLecture(id)
 							)
 					);
 	}
@@ -88,12 +86,24 @@ public static Result lecturePage(Long id) {
 }
 
 public static Result getLecture(Long id) {
+courseId=Long.parseLong(session("course"));
 	
-		return ok(views.html.lecture.student.item.render(
-				Lecture.find.byId(id)
+	if(Secured.isTutorOf(courseId)){
+		return ok(item.render(
+				Lecture.find.byId(id),
+				LectureResource.findVideosByLecture(id),
+				LectureResource.findSlidesByLecture(id)
 				)
 				);
-	
+	}
+	else if(Secured.isStudentOf(id)){
+		return ok(views.html.lecture.student.item.render(
+				Lecture.find.byId(id),LectureResource.findByLecture(id)
+				)
+				);
+	}else{
+		return forbidden();
+	}
 }
 
 public static Result addVideo(Long lectureId)  throws IOException{
@@ -166,7 +176,7 @@ public static Result addSlide(Long lectureId)  throws IOException{
 	       }
 	       else{
 	    	   if(filledForm.get("slideUrl").length()>0)
-	        	 video=LectureResource.create(filledForm.get("title"),  filledForm.get("slideUrl"), ResourceTypes.VIDEO, l);
+	        	 video=LectureResource.create(filledForm.get("title"),  filledForm.get("slideUrl"), ResourceTypes.SLIDE, l);
 	         }
 	     }
 		return redirect(routes.Lectures.lecturePage(lectureId));
@@ -192,10 +202,9 @@ public static Result updateLecture(Long id)  throws IOException{
 	l.update();
 	return ok(
 			index.render(
-					courseId,
-					Lecture.findLecturesByCourse(courseId),
-					lectureForm,
-					User.find.byId(request().username())
+					User.find.where().eq("email", request().username()).findUnique(),
+					Course.find.byId(courseId),
+					Lecture.findLecturesByCourse(courseId)
 					)
 				);
 	}else{
@@ -210,10 +219,9 @@ public static Result deleteLecture(Long id) {
 	Lecture.delete(id);
 	return ok(
 			index.render(
-					courseId,
-					Lecture.findLecturesByCourse(courseId),
-					lectureForm,
-					User.find.byId(request().username())
+					User.find.where().eq("email", request().username()).findUnique(),
+					Course.find.byId(courseId),
+					Lecture.findLecturesByCourse(courseId)
 			)
 	);
 }else{

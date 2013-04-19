@@ -1,0 +1,10 @@
+@(courseDescription: CourseDescription)
+
+@import helper._
+
+<h3>@courseDescription.title</h3>
+<p>
+@if(courseDescription.content!=null){
+@Html(courseDescription.content)
+}
+</p>
