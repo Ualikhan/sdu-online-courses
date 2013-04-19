@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Date;
+
 import play.*;
 import models.*;
 import play.mvc.*;
@@ -39,14 +41,7 @@ public static Result newAnnouncement() {
 		Form<Announcement> filledForm=form(Announcement.class).bindFromRequest();
 		Course course=Course.find.byId(courseId);
 		Announcement.create(filledForm.get().title, filledForm.get().content,course);
-		return ok(
-				index.render(
-						courseId,
-						Announcement.findAnnouncementsByCourse(courseId),
-						announcementForm,
-						User.find.byId(request().username())
-						)
-				);
+		return redirect(routes.Courses.coursePage(courseId));
 	}else{
 		return forbidden();
 	}
@@ -88,22 +83,39 @@ public static Result updateAnnouncement(Long id) {
 	}
 }
 
+public static Result updateTitle(String annId,String cont) {
+    Long id=Long.parseLong(annId);
+    String val=cont;
+    Announcement lect=Announcement.find.byId(id);
+    lect.title=val;
+    lect.createdDate=new Date();
+    lect.update();
+	return ok(lect.title);
+}
+public static Result updateContent(String annId) {
+    Long id=Long.parseLong(annId);
+    DynamicForm bform=form().bindFromRequest();
+    String val=bform.get("value");
+    Announcement lect=Announcement.find.byId(id);
+    lect.content=val;
+    lect.createdDate=new Date();
+    lect.update();
+	return ok(lect.content);
+}
+
 public static Result deleteAnnouncement(Long id) {
 	courseId=Long.parseLong(session("course"));
 	
 	if(Secured.isTutorOf(courseId)){
+	
 	Announcement.delete(id);
-	return ok(
-			index.render(
-					courseId,
-					Announcement.findAnnouncementsByCourse(courseId),
-					announcementForm,
-					User.find.byId(request().username())
-					)
-			);
-}else{
-	return forbidden();
-}
+	
+	return redirect(routes.Courses.coursePage(courseId));
+		
+	}else{
+		return forbidden();
+	}
+
 }
 
 

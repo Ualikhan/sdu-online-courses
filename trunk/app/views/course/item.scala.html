@@ -1,17 +1,114 @@
-@(course: Course,courseForm:Form[Course],user:User)
+@(user:User,course:Course,announcements: List[Announcement],courseInformations: List[CourseInformation])
+
 
 @import helper._
 @main(user){
-<h2>Edit course</h2>
-@form(routes.Courses.updateCourse(course.id)){
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+     
+    </div>
+    <div class="span8">
+<h3>@course.name</h3>
+By @course.owner.name
+@if(course.owner.company!=null){
+,@course.owner.company
+}
+<div class="menuBar">
+<ul class="nav nav-pills">
+  <li class="active">
+    <a href="@routes.Courses.coursePage(course.id)">Home</a>
+  </li>
+  <li><a href="@routes.Lectures.index()">Lectures</a></li>
+  <li><a href="@routes.Application.index">Assignments</a></li>
+  <li><a href="@routes.Application.index">Community</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+     <ul class="nav nav-list sidebar">  
+  <li class="nav-header">Course information</li>
+  @for(courseInformation<-courseInformations){
+  <li><a class="courseInformations" id="@courseInformation.id" href="#">@courseInformation.title</a></li>
+  }
+</ul>
+    </div>
+    <div class="span8">
+      <div class="contentBar">
+      <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+       
+  
+<div id="announcements">
+<fieldset>
+    <legend>Announcements</legend>
+@for(annoncement<-announcements){
+<script type="text/javascript">
+
+     bkLib.onDomLoaded(function() {
+    	 var titleEdit=$('#titleEdit').val();
+          var myNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+        	  myJsRoutes.controllers.Announcements.updateContent(''+@annoncement.id).ajax({
+        		data: {value:content},
+      		    success : function(data) {
+      		    $('#annContent'+@annoncement.id).html('');
+      			$('#annContent'+@annoncement.id).html(data);
+      		    }
+      		});
+          } });
+          myNicEditor.setPanel('myNicPanel'+@annoncement.id);
+          myNicEditor.addInstance('annContent'+@annoncement.id);
+     });
+
+  </script> 
+  <div id="myNicPanel@annoncement.id" style="width: 525px;"></div>
+<h4>@annoncement.title
+@helper.form(routes.Announcements.deleteAnnouncement(annoncement.id)) {
+<button class="btn btn-mini btn-primary" type="submit"><i class="icon-remove"></i></button>
+}
+</h4>
+<div id="annContent@annoncement.id">
+
+@if(annoncement.content!=null){
+@Html(annoncement.content)
+}
+</div>
+<p>@annoncement.createdDate</p>
+
+}
+<h4>Add a new announcement</h4>
+@form(routes.Announcements.newAnnouncement()){
 <p>
-<input type="text" name="name" placeholder="Name" value="@course.name">
+<input type="text" name="title" placeholder="Name">
 </p>
 <p>
-<textarea rows="10" cols="30" name="description" placeholder="Description" >@course.description</textarea>
+<textarea class="ckeditor"  rows="10" cols="30" name="content" placeholder="Description"></textarea>
 </p>
 <p>
-<button type="submit">Update</button><a href="@routes.Courses.index">Cancel</button>
+<button class="btn btn-primary"  type="submit">Create</button>
 </p>
 }
+</div>
+</div>
+    </div>
+  </div>
+</div>
+
+
 }
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.courseInformations').click(function(e) {
+		var lectureId=$(this).attr('id');
+		myJsRoutes.controllers.CourseInformations.getCourseInformation(lectureId).ajax({
+		    success : function(data) {
+			$('.contentBar').html(data);
+		    }
+		});
+		return false;
+	});
+});
+</script>

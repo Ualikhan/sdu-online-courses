@@ -1,36 +1,29 @@
-2013-04-19 00:08:13,868 - [INFO] - from play in main 
+2013-04-19 14:32:20,713 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-04-19 00:57:40,267 - [INFO] - from play in New I/O  worker #1 
-database [default] connected at jdbc:h2:mem:play
+2013-04-19 14:32:27,249 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
 
-2013-04-19 00:57:46,670 - [ERROR] - from application in New I/O  worker #1 
+2013-04-19 14:32:28,622 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-04-19 15:18:37,783 - [ERROR] - from application in New I/O  worker #1 
 
 
-! @6e2o1gkeo - Internal server error, for (GET) [/] ->
+! @6e32ahdgj - Internal server error, for (GET) [/] ->
 
-play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:457) ~[play-jdbc_2.10.jar:2.1.0]
-	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:478) ~[play-jdbc_2.10.jar:2.1.0]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:434) ~[play-jdbc_2.10.jar:2.1.0]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:432) ~[play-jdbc_2.10.jar:2.1.0]
-	at scala.collection.immutable.List.foreach(List.scala:309) ~[scala-library.jar:na]
-	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:432) ~[play-jdbc_2.10.jar:2.1.0]
-	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at scala.collection.immutable.List.foreach(List.scala:309) ~[scala-library.jar:na]
-	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at play.api.Play$$anonfun$start$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at play.api.Play$$anonfun$start$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.1.0]
-	at play.api.Play$.start(Play.scala:62) ~[play_2.10.jar:2.1.0]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$1.apply(ApplicationProvider.scala:133) ~[play_2.10.jar:2.1.0]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$1.apply(ApplicationProvider.scala:106) ~[play_2.10.jar:2.1.0]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:106) ~[play_2.10.jar:2.1.0]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.1.0]
-	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
-	at play.core.ReloadableApplication.get(ApplicationProvider.scala:104) ~[play_2.10.jar:2.1.0]
+sbt.PlayExceptions$CompilationException: Compilation error[error: cannot find symbol]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
 	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
 	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
 	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
@@ -60,19 +53,1076 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
 	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
 	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
 
-2013-04-19 00:57:56,240 - [INFO] - from play in New I/O  worker #2 
-database [default] connected at jdbc:h2:mem:play
+2013-04-19 15:19:22,481 - [ERROR] - from application in New I/O  worker #1 
 
-2013-04-19 00:57:57,516 - [INFO] - from play in New I/O  worker #2 
+
+! @6e32ak1k5 - Internal server error, for (GET) [/] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error[error: method render in class index cannot be applied to given types;]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-04-19 15:21:17,843 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 15:21:18,101 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-04-19 01:02:00,963 - [DEBUG] - from application in play-akka.actor.default-dispatcher-31 
-fileName: quiz1.doc
+2013-04-19 15:25:47,648 - [ERROR] - from application in New I/O  worker #7 
 
-2013-04-19 01:02:23,178 - [DEBUG] - from application in play-akka.actor.default-dispatcher-36 
-fileName: Commands.txt
+
+! @6e32bfpe8 - Internal server error, for (GET) [/courses/1] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error[error: method render in class item cannot be applied to given types;]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-04-19 15:26:42,242 - [ERROR] - from application in New I/O  worker #7 
+
+
+! @6e32bj280 - Internal server error, for (GET) [/courses/1] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error[error: missing return statement]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-04-19 15:28:08,948 - [INFO] - from play in New I/O  worker #7 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 15:28:09,101 - [INFO] - from play in New I/O  worker #7 
+Application started (Dev)
+
+2013-04-19 15:28:48,846 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 15:28:49,111 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-04-19 15:33:07,272 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 15:33:07,524 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-04-19 15:34:07,825 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 15:34:07,997 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-04-19 15:39:00,682 - [INFO] - from play in New I/O  worker #7 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 15:39:00,844 - [INFO] - from play in New I/O  worker #7 
+Application started (Dev)
+
+2013-04-19 15:50:22,955 - [ERROR] - from application in New I/O  worker #5 
+
+
+! @6e32elnom - Internal server error, for (GET) [/courses/1] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error[type mismatch;
+ found   : play.api.templates.Html
+ required: ((models.Enums.ResourceTypes, scala.collection.mutable.Buffer[models.LectureResource])) => ?]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-04-19 15:51:29,183 - [INFO] - from play in New I/O  worker #5 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 15:51:29,310 - [INFO] - from play in New I/O  worker #5 
+Application started (Dev)
+
+2013-04-19 15:55:30,831 - [INFO] - from play in New I/O  worker #6 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 15:55:31,040 - [INFO] - from play in New I/O  worker #6 
+Application started (Dev)
+
+2013-04-19 15:57:56,214 - [INFO] - from play in New I/O  worker #8 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 15:57:56,374 - [INFO] - from play in New I/O  worker #8 
+Application started (Dev)
+
+2013-04-19 16:07:16,061 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 16:07:16,220 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-04-19 16:14:37,439 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 16:14:37,612 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-04-19 16:32:51,811 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 16:32:51,990 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-04-19 16:40:00,897 - [INFO] - from play in New I/O  worker #7 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 16:40:01,029 - [INFO] - from play in New I/O  worker #7 
+Application started (Dev)
+
+2013-04-19 16:40:42,980 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 16:40:43,130 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-04-19 16:43:08,432 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 16:43:08,639 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-04-19 16:50:34,454 - [INFO] - from play in New I/O  worker #5 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 16:50:34,610 - [INFO] - from play in New I/O  worker #5 
+Application started (Dev)
+
+2013-04-19 16:52:09,764 - [INFO] - from play in New I/O  worker #6 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 16:52:09,936 - [INFO] - from play in New I/O  worker #6 
+Application started (Dev)
+
+2013-04-19 16:52:46,289 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 16:52:46,492 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-04-19 16:53:26,846 - [INFO] - from play in New I/O  worker #6 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 16:53:27,020 - [INFO] - from play in New I/O  worker #6 
+Application started (Dev)
+
+2013-04-19 16:59:12,828 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 16:59:13,005 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-04-19 17:05:15,418 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:05:15,596 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-04-19 17:05:59,413 - [INFO] - from play in New I/O  worker #7 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:05:59,625 - [INFO] - from play in New I/O  worker #7 
+Application started (Dev)
+
+2013-04-19 17:06:21,653 - [INFO] - from play in New I/O  worker #6 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:06:21,825 - [INFO] - from play in New I/O  worker #6 
+Application started (Dev)
+
+2013-04-19 17:22:12,290 - [ERROR] - from application in New I/O  worker #6 
+
+
+! @6e330n9m9 - Internal server error, for (GET) [/course/lectures] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error[not enough arguments for method updateTitle: (id: String, cont: String)play.api.mvc.Call.
+Unspecified value parameters id, cont.]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-04-19 17:22:55,906 - [INFO] - from play in New I/O  worker #6 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:22:56,154 - [INFO] - from play in New I/O  worker #6 
+Application started (Dev)
+
+2013-04-19 17:23:44,982 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:23:45,250 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-04-19 17:24:50,235 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:24:50,446 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-04-19 17:25:14,961 - [ERROR] - from application in play-internal-execution-context-4 
+
+
+! @6e3317k1n - Internal server error, for (POST) [/course/announcement/updateTitle?id=1&cont=%0A%3Cp%20id%3D%22annTitleR1%22%3E%0A%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%3Cb%3EStatements%20of%20Accomplishment2438%3C%2Fb%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%3Cb%3EStatements%20of%20Accomplishment2438%3C%2Fb%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A] ->
+
+play.api.Application$$anon$1: Execution exception[[PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]]]
+	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
+	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+javax.persistence.PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:97) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
+	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
+	at controllers.Announcements.updateTitle(Announcements.java:96) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
+	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
+	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
+	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'title' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3556) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3490) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1959) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2109) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2077) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2362) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2280) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2265) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.jolbox.bonecp.PreparedStatementHandle.executeUpdate(PreparedStatementHandle.java:203) ~[bonecp.jar:0.7.1.RELEASE]
+	at com.avaje.ebeaninternal.server.type.DataBind.executeUpdate(DataBind.java:55) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:87) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
+	... 32 common frames omitted
+
+2013-04-19 17:25:21,106 - [ERROR] - from application in play-internal-execution-context-1 
+
+
+! @6e331834d - Internal server error, for (POST) [/course/announcement/updateTitle?id=1&cont=%0A%3Cp%20id%3D%22annTitleR1%22%3E%0A%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%3Cb%3EStatements%20of%20Accomplishment2438%3C%2Fb%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%3Cb%3EStatements%20of%20Accomplishment2438%3C%2Fb%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A] ->
+
+play.api.Application$$anon$1: Execution exception[[PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]]]
+	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
+	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+javax.persistence.PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:97) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
+	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
+	at controllers.Announcements.updateTitle(Announcements.java:96) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
+	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
+	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
+	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'title' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3556) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3490) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1959) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2109) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2077) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2362) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2280) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2265) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.jolbox.bonecp.PreparedStatementHandle.executeUpdate(PreparedStatementHandle.java:203) ~[bonecp.jar:0.7.1.RELEASE]
+	at com.avaje.ebeaninternal.server.type.DataBind.executeUpdate(DataBind.java:55) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:87) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
+	... 32 common frames omitted
+
+2013-04-19 17:25:22,722 - [ERROR] - from application in play-internal-execution-context-2 
+
+
+! @6e33185e8 - Internal server error, for (POST) [/course/announcement/updateTitle?id=1&cont=%0A%3Cp%20id%3D%22annTitleR1%22%3E%0A%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%3Cb%3EStatements%20of%20Accomplishment2438%3C%2Fb%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%3Cb%3EStatements%20of%20Accomplishment2438%3C%2Fb%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A] ->
+
+play.api.Application$$anon$1: Execution exception[[PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]]]
+	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
+	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+javax.persistence.PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:97) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
+	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
+	at controllers.Announcements.updateTitle(Announcements.java:96) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
+	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
+	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
+	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'title' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3556) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3490) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1959) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2109) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2077) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2362) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2280) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2265) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.jolbox.bonecp.PreparedStatementHandle.executeUpdate(PreparedStatementHandle.java:203) ~[bonecp.jar:0.7.1.RELEASE]
+	at com.avaje.ebeaninternal.server.type.DataBind.executeUpdate(DataBind.java:55) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:87) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
+	... 32 common frames omitted
+
+2013-04-19 17:25:25,116 - [ERROR] - from application in play-internal-execution-context-4 
+
+
+! @6e331892j - Internal server error, for (POST) [/course/announcement/updateTitle?id=1&cont=%0A%3Cp%20id%3D%22annTitleR1%22%3E%0A%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%3Cb%3EStatements%20of%20Accomplishment2438%3C%2Fb%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%3Cb%3EStatements%20of%20Accomplishment2438%3C%2Fb%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A] ->
+
+play.api.Application$$anon$1: Execution exception[[PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]]]
+	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
+	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+javax.persistence.PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:97) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
+	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
+	at controllers.Announcements.updateTitle(Announcements.java:96) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
+	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
+	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
+	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'title' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3556) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3490) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1959) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2109) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2077) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2362) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2280) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2265) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.jolbox.bonecp.PreparedStatementHandle.executeUpdate(PreparedStatementHandle.java:203) ~[bonecp.jar:0.7.1.RELEASE]
+	at com.avaje.ebeaninternal.server.type.DataBind.executeUpdate(DataBind.java:55) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:87) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
+	... 32 common frames omitted
+
+2013-04-19 17:26:31,032 - [ERROR] - from application in play-internal-execution-context-3 
+
+
+! @6e331c2fp - Internal server error, for (POST) [/course/announcement/updateTitle?id=1&cont=%0A%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%3Cb%3Egdsf%3C%2Fb%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A] ->
+
+play.api.Application$$anon$1: Execution exception[[PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]]]
+	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
+	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+javax.persistence.PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:97) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
+	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
+	at controllers.Announcements.updateTitle(Announcements.java:96) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
+	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
+	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
+	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'title' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3556) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3490) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1959) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2109) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2077) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2362) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2280) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2265) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.jolbox.bonecp.PreparedStatementHandle.executeUpdate(PreparedStatementHandle.java:203) ~[bonecp.jar:0.7.1.RELEASE]
+	at com.avaje.ebeaninternal.server.type.DataBind.executeUpdate(DataBind.java:55) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:87) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
+	... 32 common frames omitted
+
+2013-04-19 17:27:18,614 - [ERROR] - from application in play-internal-execution-context-1 
+
+
+! @6e331el02 - Internal server error, for (POST) [/course/announcement/updateTitle?id=1&cont=%0A%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%0A%3C%2Fp%3E%3Cp%20id%3D%22annTitleR1%22%3E%3Cb%3EStatements%20of%20Accomplishment2%3C%2Fb%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A%3Cp%3E%3C%2Fp%3E%0A] ->
+
+play.api.Application$$anon$1: Execution exception[[PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]]]
+	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
+	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+javax.persistence.PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:97) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
+	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
+	at controllers.Announcements.updateTitle(Announcements.java:96) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
+	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
+	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
+	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'title' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3556) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3490) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1959) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2109) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2077) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2362) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2280) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2265) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.jolbox.bonecp.PreparedStatementHandle.executeUpdate(PreparedStatementHandle.java:203) ~[bonecp.jar:0.7.1.RELEASE]
+	at com.avaje.ebeaninternal.server.type.DataBind.executeUpdate(DataBind.java:55) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:87) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
+	... 32 common frames omitted
+
+2013-04-19 17:32:14,805 - [INFO] - from play in New I/O  worker #7 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:32:14,999 - [INFO] - from play in New I/O  worker #7 
+Application started (Dev)
+
+2013-04-19 17:32:40,846 - [ERROR] - from application in play-internal-execution-context-2 
+
+
+! @6e33273hf - Internal server error, for (POST) [/course/announcement/updateTitle?id=1&cont=%0A%0A%0A%3Cp%3E%3Cb%3EStatements%3C%2Fb%3E%20of%20accomplishment%20are%20ready.%20Those%20who%20have%20finished%20the%20class%20may%20view%20or%20download%20their%20statements%20at%26nbsp%3B%3Ca%20href%3D%22http%3A%2F%2Fventure-lab.org%2Fventure%2Fstatement%22%3Eventure-lab.org%2Fventure%2Fstatement%3C%2Fa%3E%3C%2Fp%3E%0A%0A%3Cp%3EThose%20who%20finished%20OAP%20have%20received%20a%20statement%20of%20accomplishment%20and%20those%20who%20also%20finished%20OEP%20have%20received%20a%20statement%20of%20accomplishment%20with%20distinction%3C%2Fp%3E%0A%0A%0A] ->
+
+play.api.Application$$anon$1: Execution exception[[PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]]]
+	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
+	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
+	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+javax.persistence.PersistenceException: ERROR executing DML bindLog[] error[Data truncation: Data too long for column 'title' at row 1]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:97) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
+	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
+	at controllers.Announcements.updateTitle(Announcements.java:96) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$21$$anonfun$apply$21.apply(routes_routing.scala:409) ~[na:na]
+	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
+	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
+	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
+	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
+	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
+	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
+	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
+	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
+	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+Caused by: com.mysql.jdbc.MysqlDataTruncation: Data truncation: Data too long for column 'title' at row 1
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3556) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3490) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:1959) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2109) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2648) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:2077) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2362) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2280) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.mysql.jdbc.PreparedStatement.executeUpdate(PreparedStatement.java:2265) ~[mysql-connector-java-5.1.10.jar:na]
+	at com.jolbox.bonecp.PreparedStatementHandle.executeUpdate(PreparedStatementHandle.java:203) ~[bonecp.jar:0.7.1.RELEASE]
+	at com.avaje.ebeaninternal.server.type.DataBind.executeUpdate(DataBind.java:55) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:87) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
+	... 32 common frames omitted
+
+2013-04-19 17:33:58,384 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:33:58,567 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-04-19 17:34:36,280 - [INFO] - from play in New I/O  worker #5 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:34:36,533 - [INFO] - from play in New I/O  worker #5 
+Application started (Dev)
+
+2013-04-19 17:36:10,691 - [INFO] - from play in New I/O  worker #6 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:36:10,865 - [INFO] - from play in New I/O  worker #6 
+Application started (Dev)
+
+2013-04-19 17:43:06,001 - [INFO] - from play in New I/O  worker #7 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:43:06,320 - [INFO] - from play in New I/O  worker #7 
+Application started (Dev)
+
+2013-04-19 17:53:02,784 - [ERROR] - from application in New I/O  worker #5 
+
+
+! @6e334oh75 - Internal server error, for (GET) [/course/lectures] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error[error: missing return statement]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-04-19 17:54:06,494 - [ERROR] - from application in New I/O  worker #5 
+
+
+! @6e33527df - Internal server error, for (GET) [/course/lectures] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error[error: missing return statement]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-04-19 17:54:40,989 - [INFO] - from play in New I/O  worker #5 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:54:41,154 - [INFO] - from play in New I/O  worker #5 
+Application started (Dev)
+
+2013-04-19 17:57:12,781 - [INFO] - from play in New I/O  worker #5 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:57:12,962 - [INFO] - from play in New I/O  worker #5 
+Application started (Dev)
+
+2013-04-19 17:59:31,024 - [INFO] - from play in New I/O  worker #5 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 17:59:31,197 - [INFO] - from play in New I/O  worker #5 
+Application started (Dev)
+
+2013-04-19 18:00:46,581 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 18:00:46,768 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-04-19 18:02:31,360 - [INFO] - from play in New I/O  worker #5 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 18:02:31,522 - [INFO] - from play in New I/O  worker #5 
+Application started (Dev)
+
+2013-04-19 18:03:30,018 - [INFO] - from play in New I/O  worker #5 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 18:03:30,191 - [INFO] - from play in New I/O  worker #5 
+Application started (Dev)
+
+2013-04-19 18:12:20,171 - [INFO] - from play in New I/O  worker #5 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 18:12:20,354 - [INFO] - from play in New I/O  worker #5 
+Application started (Dev)
+
+2013-04-19 18:14:43,460 - [INFO] - from play in New I/O  worker #5 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 18:14:43,649 - [INFO] - from play in New I/O  worker #5 
+Application started (Dev)
+
+2013-04-19 18:20:28,239 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses?characterEncoding=UTF-8
+
+2013-04-19 18:20:28,402 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
 

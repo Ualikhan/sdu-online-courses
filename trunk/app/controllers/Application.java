@@ -115,7 +115,9 @@ public class Application extends Controller {
         return ok(
             Routes.javascriptRouter("myJsRoutes",
             		controllers.routes.javascript.Lectures.getLecture(),
-            		controllers.routes.javascript.CourseInformations.getCourseInformation()
+            		controllers.routes.javascript.CourseInformations.getCourseInformation(),
+            		controllers.routes.javascript.Announcements.updateTitle(),
+            		controllers.routes.javascript.Announcements.updateContent()
             )
         );
     }

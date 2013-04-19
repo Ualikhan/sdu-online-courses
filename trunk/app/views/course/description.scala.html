@@ -1,4 +1,4 @@
-@(course:Course,courseInformations:List[CourseInformation],enrollment:String,user:User)
+@(course:Course,courseDescriptions:List[CourseDescription],enrollment:String,user:User)
 
 @import helper._
 @main(user){
@@ -34,8 +34,8 @@
 		}
 	}
 }
- @courseInformations.map { task =>
-<div class="courseInformation">
+ @courseDescriptions.map { task =>
+<div class="courseDescription">
 <h3>@task.title</h3>
 @if(task.content!=null){
 @Html(task.content)
