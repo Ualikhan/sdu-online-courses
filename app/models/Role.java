@@ -16,6 +16,7 @@ public class Role {
 	public Long id;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('Administrator','Tutor','Student')")
 	public RoleTypes name;
 	
 	@ManyToMany

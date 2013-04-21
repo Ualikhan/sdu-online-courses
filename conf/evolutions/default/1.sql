@@ -16,7 +16,7 @@ create table course (
   id                        bigint auto_increment not null,
   name                      varchar(255),
   description               TEXT,
-  owner_email               varchar(255),
+  owner_email               varchar(40),
   constraint pk_course primary key (id))
 ;
 
@@ -48,7 +48,7 @@ create table lecture_resource (
   id                        bigint auto_increment not null,
   title                     varchar(255),
   file_url                  TEXT,
-  resource_type             varchar(10),
+  resource_type             ENUM('VIDEO','SLIDE','BOOK','AUDIO','TRANSCRIPT'),
   lecture_id                bigint,
   constraint ck_lecture_resource_resource_type check (resource_type in ('VIDEO','SLIDE','BOOK','AUDIO','TRANSCRIPT')),
   constraint pk_lecture_resource primary key (id))
@@ -62,13 +62,13 @@ create table module (
 
 create table role (
   id                        bigint auto_increment not null,
-  name                      varchar(13),
+  name                      ENUM('Administrator','Tutor','Student'),
   constraint ck_role_name check (name in ('Administrator','Tutor','Student')),
   constraint pk_role primary key (id))
 ;
 
 create table user (
-  email                     varchar(255) not null,
+  email                     varchar(40) not null,
   name                      varchar(255),
   password                  varchar(255),
   position                  varchar(255),
@@ -76,17 +76,6 @@ create table user (
   photo                     varchar(255),
   role_id                   bigint,
   constraint pk_user primary key (email))
-;
-
-create table video_resource (
-  id                        bigint auto_increment not null,
-  title                     varchar(255),
-  file_path                 TEXT,
-  file_url                  TEXT,
-  resource_type             varchar(10),
-  lecture_id                bigint,
-  constraint ck_video_resource_resource_type check (resource_type in ('VIDEO','SLIDE','BOOK','AUDIO','TRANSCRIPT')),
-  constraint pk_video_resource primary key (id))
 ;
 
 
@@ -97,7 +86,7 @@ create table role_module (
 ;
 
 create table user_course (
-  user_email                     varchar(255) not null,
+  user_email                     varchar(40) not null,
   course_id                      bigint not null,
   constraint pk_user_course primary key (user_email, course_id))
 ;
@@ -115,8 +104,6 @@ alter table lecture_resource add constraint fk_lecture_resource_lecture_6 foreig
 create index ix_lecture_resource_lecture_6 on lecture_resource (lecture_id);
 alter table user add constraint fk_user_role_7 foreign key (role_id) references role (id) on delete restrict on update restrict;
 create index ix_user_role_7 on user (role_id);
-alter table video_resource add constraint fk_video_resource_lecture_8 foreign key (lecture_id) references lecture (id) on delete restrict on update restrict;
-create index ix_video_resource_lecture_8 on video_resource (lecture_id);
 
 
 
@@ -153,8 +140,6 @@ drop table role_module;
 drop table user;
 
 drop table user_course;
-
-drop table video_resource;
 
 SET FOREIGN_KEY_CHECKS=1;
 

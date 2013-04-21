@@ -1,15 +1,8 @@
 package models;
-
-import java.sql.Blob;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import play.db.ebean.Model;
 
@@ -17,6 +10,7 @@ import play.db.ebean.Model;
 public class User extends Model{
 	
 	@Id
+	@Column(length=40, nullable=false)
 	public String email;
 	public String name;
 	public String password;

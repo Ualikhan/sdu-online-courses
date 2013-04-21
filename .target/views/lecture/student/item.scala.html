@@ -1,6 +1,8 @@
-@(lecture: Lecture)
+@(lecture: Lecture,resources:List[LectureResource])
 
 @import helper._
+
+<input type="hidden" id="flowPlayer" value="@routes.Assets.at("javascripts/flowplayer-5.4.0/flowplayer.swf")">
 
 <h3>@lecture.title</h3>
 <p>
@@ -8,6 +10,80 @@
 @Html(lecture.content)
 }
 </p>
-<iframe class="videoDiv" width="420" height="345"
-src="">
+@resources.groupBy(_.resourceType).map{
+       			case (resourceT,resources) => {
+
+
+@if(resourceT.name().equals("VIDEO")){
+<fieldset>
+ <legend>Videos</legend>
+<div class='mask' width="">
+<div class='videos'>
+@for(resource <- resources){ 
+
+@if(resource.file_url!=null){
+
+<div class="videoItem">
+<span class="res">
+<p class="resourceTitleEdit title" id="@resource.id">@resource.title</p>
+@if(resource.file_url.contains("youtube.com")){
+<iframe class="videoFrameSize"
+src="@resource.file_url">
 </iframe>
+}else{
+<div class="player videoFrameSize" data-engine="flash" style="display:block;">
+   <video preload="none">
+        <source type="video/mp4" src="@routes.Assets.at("uploadVideos/"+{resource.file_url})"/>
+      
+         </video>
+</div>
+}
+</span>
+</div>
+}
+}
+</div>
+</div>
+</fieldset>
+}else{
+@if(resourceT.name().equals("SLIDE")){
+<fieldset>
+ <legend>Slides</legend>
+<div class='mask'>
+<div class='slides'>
+@for(resource <- resources){
+@if(resource.file_url!=null){
+<div class="slideItem">
+<span class="res">
+@if(resource.file_url.contains("http")){
+<a class="title resourceTitleEdit" id="@resource.id" href ="@resource.file_url">
+@resource.title
+ </a>
+}else{
+<a class="title resourceTitleEdit" id="@resource.id" href ="@routes.Assets.at("uploadSlides/"+{resource.file_url})">
+@resource.title
+ </a>
+}
+</span>
+</div>
+}
+}
+</div>
+</div>
+</fieldset>
+}
+}
+
+}
+}
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	       var flowPlayer=$('#flowPlayer').val();
+		   // install flowplayer to an element with CSS class "player"
+		   $(".player").flowplayer({ swf: flowPlayer
+		   });
+		   
+		});
+</script>

@@ -36,6 +36,7 @@
  
  .title{
  margin:10px;
+ margin-top:5px;
  height: 20px;
  font-size: 16px;
  font-family: monospace;
@@ -45,6 +46,7 @@
  .res{
  float: left;
  margin:10px;
+ margin-top:0px;
  }
  .action{
  width:40px;
@@ -56,6 +58,11 @@
  width:48%;
  background-color:#4a6b82;
  }
+ 
+ .item{
+ float: left;
+ }
+ 
  .slideItem{
  float:left;
  margin:10px;

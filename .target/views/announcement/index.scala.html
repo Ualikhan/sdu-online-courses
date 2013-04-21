@@ -19,25 +19,14 @@
 </div>
 </td>
 <td>@announcement.createdDate</td>
-<td><button type="submit">Delete</button></td>
+<td><button  class="btn btn-mini btn-primary"  type="submit"><i class="icon-remove"></i></button></td>
 }
 </tr>
 }
 }
 </table>
 
-<h2>Add a new announcement</h2>
-@form(routes.Announcements.newAnnouncement()){
-<p>
-<input type="text" name="title" placeholder="Name">
-</p>
-<p>
-<textarea class="ckeditor"  rows="10" cols="30" name="content" placeholder="Description"></textarea>
-</p>
-<p>
-<button type="submit">Create</button>
-</p>
-}
+
 }
 
  <script type="text/javascript">

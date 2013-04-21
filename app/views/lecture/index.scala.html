@@ -42,7 +42,18 @@ By @course.owner.name
     </div>
     <div class="span8">
       <div class="contentBar">
-		
+		<h2>Add  new lecture</h2>
+@form(routes.Lectures.newLecture()){
+<p>
+<input type="text" name="title" placeholder="Name">
+</p>
+<p>
+<textarea class="descriptionTextArea ckeditor" rows="30" cols="60" name="content" placeholder="Description"></textarea>
+</p>
+<p>
+<button type="submit">Create</button>
+</p>
+}
 </div>
 
     </div>

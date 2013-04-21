@@ -1,0 +1,39 @@
+@(courseId: Long , courseDescriptions: List[CourseDescription] , courseDescriptionForm: Form[CourseDescription],user:User)
+@import helper._
+@main(user){
+<table class="table table-bordered">
+<th>CourseDescription name</th>
+<th>Description</th>
+<th></th>
+@if(courseDescriptions!=null){
+@for(courseDescription<-courseDescriptions){
+<tr>
+@form(routes.CourseDescriptions.deleteCourseDescription(courseDescription.id)){
+<td><a href="@routes.CourseDescriptions.courseDescriptionPage(courseDescription.id)">@courseDescription.title</a></td>
+<td>
+<div class="description">
+@if(courseDescription.content!=null){
+@Html(courseDescription.content)
+}
+</div>
+</td>
+<td><button type="submit">Delete</button></td>
+}
+</tr>
+}
+}
+</table>
+
+<h2>Add a new courseDescription</h2>
+@form(routes.CourseDescriptions.newCourseDescription()){
+<p>
+<input type="text" name="title" placeholder="Name">
+</p>
+<p>
+<textarea class="descriptionTextArea ckeditor" rows="30" cols="60" name="content" placeholder="Description"></textarea>
+</p>
+<p>
+<button type="submit">Create</button>
+</p>
+}
+}

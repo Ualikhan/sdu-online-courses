@@ -1,17 +1,71 @@
-@(courseInformation: CourseInformation,courseInformationForm:Form[CourseInformation],user:User)
+@(courseInformation: CourseInformation)
 
 @import helper._
-@main(user){
-<h2>Edit courseInformation</h2>
-@form(routes.CourseInformations.updateCourseInformation(courseInformation.id)){
-<p>
-<input type="text" name="title" placeholder="Name" value="@courseInformation.title">
-</p>
-<p>
-<textarea class="descriptionTextArea ckeditor" rows="30" cols="60" name="content" placeholder="Description" >@courseInformation.content</textarea>
-</p>
-<p>
-<button type="submit">Update</button><a href="@routes.CourseInformations.index()">Cancel</button>
-</p>
+
+<input type="hidden" id="ciUpdateTitleUrl" value="@routes.CourseInformations.updateTitle()">
+
+<div id="announcements">
+<fieldset>
+    <legend>Edit course information</legend>
+
+  <div class="row" style="margin-left: 20px;">
+<h4><span class="item courseInformationTitle" id="@courseInformation.id">@courseInformation.title</span></h4>
+@helper.form(action=routes.CourseInformations.deleteCourseInformation(courseInformation.id),'class->"res action") {
+<button class="btn btn-mini btn-primary"  type="submit"><i class="icon-remove"></i></button>
 }
+<br/>
+<br/>
+<div class="alert alert-success">
+successfully saved
+</div>
+
+<div id="courseInformationNicPanel@courseInformation.id" style="width: 525px;"></div>
+<br/>
+<div id="courseInformationContent@courseInformation.id">
+
+@if(courseInformation.content!=null){
+@Html(courseInformation.content)
 }
+</div>
+</div>
+</fieldset>
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+	
+	var ciUpdateTitleUrl=$('#ciUpdateTitleUrl').val();
+	$('.courseInformationTitle').editable(function(value, settings) {
+		 $('.alert-success').hide();
+		var id=$(this).attr('id');
+		var result=value;
+		myJsRoutes.controllers.CourseInformations.updateTitle().ajax({
+			data: {id:id,value:value},
+		    success : function(data) {
+			$('#'+id).html(data);
+			result=data;
+			$('.alert-success').show();
+		    }
+		});
+		return(result);
+	});
+	
+	$('.alert-success').hide();
+    	 var courseInformationNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+    		 $('.alert-success').hide();
+       	  myJsRoutes.controllers.CourseInformations.updateContent(''+@courseInformation.id).ajax({
+       		data: {value:content},
+     		    success : function(data) {
+     		    $('#courseInformationContent'+@courseInformation.id).html('');
+     			$('#courseInformationContent'+@courseInformation.id).html(data);
+     			$('.alert-success').show();
+     		    }
+     		});
+         } });
+         courseInformationNicEditor.setPanel('courseInformationNicPanel'+@courseInformation.id);
+         courseInformationNicEditor.addInstance('courseInformationContent'+@courseInformation.id);
+    
+     });
+
+  </script> 

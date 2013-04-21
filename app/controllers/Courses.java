@@ -86,8 +86,9 @@ public static Result courseDescription(Long id) {
 	else 
 		accessString="SIGNUP";
 		
+	if(Secured.isTutorOf(id)){
 	return ok(
-					views.html.course.description.render(
+					views.html.course.description.tutor.render(
 							Course.find.byId(id),
 							CourseDescription.findCourseDescriptionsByCourse(id),
 							accessString,
@@ -95,14 +96,26 @@ public static Result courseDescription(Long id) {
 							)
 					);
 	}
-		else
-			return ok(views.html.course.description.render(
+	else {
+		return ok(
+				views.html.course.description.student.render(
+						Course.find.byId(id),
+						CourseDescription.findCourseDescriptionsByCourse(id),
+						accessString,
+						User.find.byId(request().username())
+						)
+				);
+	}
+	}
+	else{
+			return ok(views.html.course.description.student.render(
 					Course.find.byId(id),
 					CourseDescription.findCourseDescriptionsByCourse(id),
 					"SIGNUP",
 					null
 					)
 			);
+	}
 }
 
 

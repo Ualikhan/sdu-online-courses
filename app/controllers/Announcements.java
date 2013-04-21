@@ -83,9 +83,10 @@ public static Result updateAnnouncement(Long id) {
 	}
 }
 
-public static Result updateTitle(String annId,String cont) {
-    Long id=Long.parseLong(annId);
-    String val=cont;
+public static Result updateTitle() {
+    DynamicForm bform=form().bindFromRequest();
+    Long id=Long.parseLong(bform.get("id"));
+    String val=bform.get("value");
     Announcement lect=Announcement.find.byId(id);
     lect.title=val;
     lect.createdDate=new Date();
