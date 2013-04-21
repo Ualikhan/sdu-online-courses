@@ -12,6 +12,7 @@ import play.db.ebean.Model.Finder;
 public class Announcement extends Model{
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long id;
 	public String title;
 	

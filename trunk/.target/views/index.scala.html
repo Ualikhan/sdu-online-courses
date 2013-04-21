@@ -6,24 +6,31 @@
 
  	
  	
- 	 @courses.map { task =>
- 	 <div class="container-fluid courseCell">
+ 	 @courses.map { course =>
+<div class="row courseCell">
+ 	 <div class="span3"></div>
+ 	 <div class="span7">
        <div class="row-fluid">
-    <div class="span2">
-      
-    </div>
-    <div class="span4">
-  							<h3><a href="@routes.Courses.courseDescription(task.id)"" >@task.name</a></h3>
-  							<span class="instructorName textGray">@task.owner.name</span>
-  		</div>				
-  							<div class="span4">
-  							<p>
-  							
-  							</p>
-  							</div>
-  							</div>
-                           
-                           </div>
+ 		<h3><a href="@routes.Courses.courseDescription(course.id)"" >@course.name</a></h3>					
+ 		</div>
+ 		<div class="row-fluid" style="margin-bottom:10px;margin-top:-5px;">
+ 		<span class="instructorName textGray">
+ 		
+ 		@course.owner.name
+ 		@if(course.owner.position!=null){
+ 		:@course.owner.position
+ 		}
+ 		@if(course.owner.company!=null){
+ 		,@course.owner.company
+ 		}
+ 		
+ 		</span>				
+ 		</div>
+ 		<div class="row-fluid courseSummary">
+ 		<p>@course.description</p>			
+ 		</div>
+  		</div>
+</div>
                         }
                         
  }

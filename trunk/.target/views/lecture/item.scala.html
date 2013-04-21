@@ -1,49 +1,19 @@
-@(lecture: Lecture,resources:List[LectureResource],user:User)
+@(lecture: Lecture,videoResources:List[LectureResource],slideResources:List[LectureResource])
 
 @import helper._
 
-@main(user){
 <h2>Edit lecture</h2>
-<input type="hidden" id="flowPlayer" value="@routes.Assets.at("javascripts/flowplayer-5.4.0/flowplayer.swf")">
-<input type="hidden" id="titleEdit" value="@routes.Lectures.updateTitle()">
-<input type="hidden" id="contentEdit" value="@routes.Lectures.updateContent()">
-<input type="hidden" id="resourceTitleEdit" value="@routes.Lectures.updateResourceTitle()">
 
 <div class="lectureTitleEdit" id="@lecture.id">@lecture.title</div>
 <div class="lectureContentEdit" id="@lecture.id">@lecture.content</div>
 
-
-<form  method="post" action="@routes.Lectures.addVideo(lecture.id)" enctype="multipart/form-data">
-<fieldset>
-    <legend>Add video to lecture</legend>
-<input  type="text"  name="title" placeholder="Title">
-<input  type="text"  name="videoUrl" placeholder="Video url"> or 
-<input  type="file" id="1" name="videoFile" placeholder="Video path">
-<button class="btn btn-primary" type="submit" data-loading-text="Loading...">Add</button>
-</fieldset>
-</form>
-
-<form  method="post" action="@routes.Lectures.addSlide(lecture.id)" enctype="multipart/form-data">
-<fieldset>
-    <legend>Add slides to lecture</legend>
-<input  type="text"  name="title" placeholder="Title">
-<input  type="text"  name="slideUrl" placeholder="Slide url"> or 
-<input type="file" name="slideFile" placeholder="Slide path">
-<button class="btn btn-primary" type="submit" data-loading-text="Loading...">Add</button>
-</fieldset>
-</form>
 <p>
 
-@resources.groupBy(_.resourceType).map{
-       			case (resourceT,resources) => {
-
-
-@if(resourceT.name().equals("VIDEO")){
 <fieldset>
  <legend>Videos</legend>
-<div class='mask'>
+<div class='mask' style="width:100%;">
 <div class='videos'>
-@for(resource <- resources){ 
+@for(resource <- videoResources){ 
 
 @if(resource.file_url!=null){
 
@@ -51,11 +21,11 @@
 <span class="res">
 <p class="resourceTitleEdit title" id="@resource.id">@resource.title</p>
 @if(resource.file_url.contains("youtube.com")){
-<iframe width="420" height="345"
+<iframe class="videoFrameSize"
 src="@resource.file_url">
 </iframe>
 }else{
-<div class="player" data-engine="flash" style="display:block;width:420px;height:345px;">
+<div class="player videoFrameSize" data-engine="flash" style="display:block;">
    <video preload="none">
         <source type="video/mp4" src="@routes.Assets.at("uploadVideos/"+{resource.file_url})"/>
       
@@ -74,20 +44,38 @@ src="@resource.file_url">
 }
 </div>
 </div>
+
 </fieldset>
-}else{
-@if(resourceT.name().equals("SLIDE")){
+
+<form  method="post" action="@routes.Lectures.addVideo(lecture.id)" enctype="multipart/form-data">
+<fieldset>
+    <legend>Add video to lecture</legend>
+<input  type="text"  name="title" placeholder="Title">
+<input  type="text"  name="videoUrl" placeholder="Video url"> or 
+<input  type="file" id="1" name="videoFile" placeholder="Video path">
+<button class="btn btn-primary" type="submit" data-loading-text="Loading...">Add</button>
+</fieldset>
+</form>
+
+
+
 <fieldset>
  <legend>Slides</legend>
-<div class='mask'>
+<div class='mask' >
 <div class='slides'>
-@for(resource <- resources){
+@for(resource <- slideResources){
 @if(resource.file_url!=null){
 <div class="slideItem">
 <span class="res">
+@if(resource.file_url.contains("http")){
+<a class="title resourceTitleEdit" id="@resource.id" href ="@resource.file_url">
+@resource.title
+ </a>
+}else{
 <a class="title resourceTitleEdit" id="@resource.id" href ="@routes.Assets.at("uploadSlides/"+{resource.file_url})">
 @resource.title
- </a> 
+ </a>
+} 
 </span>
 <span class="res action">
 
@@ -100,35 +88,67 @@ src="@resource.file_url">
 }
 </div>
 </div>
+
+
 </fieldset>
-}
-}
 
-}
-}
-
-}
+<form  method="post" action="@routes.Lectures.addSlide(lecture.id)" enctype="multipart/form-data">
+<fieldset>
+    <legend>Add slides to lecture</legend>
+<input  type="text"  name="title" placeholder="Title">
+<input  type="text"  name="slideUrl" placeholder="Slide url"> or 
+<input type="file" name="slideFile" placeholder="Slide path">
+<button class="btn btn-primary" type="submit" data-loading-text="Loading...">Add</button>
+</fieldset>
+</form>
 
 <script type="text/javascript">
 $(document).ready(function() {
 	
-	       var flowPlayer=$('#flowPlayer').val();
+	      
 		   // install flowplayer to an element with CSS class "player"
-		   $(".player").flowplayer({ swf: flowPlayer
+		   $(".player").flowplayer({ 
+			   swf: ''+@routes.Assets.at("javascripts/flowplayer-5.4.0/flowplayer.swf")
 		   });
 		
-		   var titleEdit=$('#titleEdit').val();
-		   var contentEdit=$('#contentEdit').val();
-		   $('.lectureTitleEdit').editable(titleEdit);
-		   $('.lectureContentEdit').editable(contentEdit, { 
+		  
+		   $('.lectureTitleEdit').editable(
+				   function(value, settings) {
+						 $('.alert-success').hide();
+						var id=$(this).attr('id');
+						var result=value;
+						myJsRoutes.controllers.Lectures.updateTitle().ajax({
+							data: {id:id,value:value},
+						    success : function(data) {
+							result=data;
+							$('.alert-success').show();
+						    }
+						});
+						return(result);
+					}
+		   );
+		   $('.lectureContentEdit').editable(''+@routes.Lectures.updateContent(), { 
 		         type      : 'textarea',
 		         cancel    : 'Cancel',
 		         submit    : 'OK',
 		         tooltip   : 'Click to edit...'
 		     });
 		   
-		   var resourceTitleEdit=$('#resourceTitleEdit').val();
-		   $('.resourceTitleEdit').editable(resourceTitleEdit);
+		   $('.resourceTitleEdit').editable(
+				   function(value, settings) {
+						 $('.alert-success').hide();
+						var id=$(this).attr('id');
+						var result=value;
+						myJsRoutes.controllers.LectureResources.updateTitle().ajax({
+							data: {id:id,value:value},
+						    success : function(data) {
+							result=data;
+							$('.alert-success').show();
+						    }
+						});
+						return(result);
+					}
+		   );
 		   
 		   
 		});

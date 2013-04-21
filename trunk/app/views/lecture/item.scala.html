@@ -3,10 +3,6 @@
 @import helper._
 
 <h2>Edit lecture</h2>
-<input type="hidden" id="flowPlayer" value="@routes.Assets.at("javascripts/flowplayer-5.4.0/flowplayer.swf")">
-<input type="hidden" id="titleEdit" value="@routes.Lectures.updateTitle()">
-<input type="hidden" id="contentEdit" value="@routes.Lectures.updateContent()">
-<input type="hidden" id="resourceTitleEdit" value="@routes.Lectures.updateResourceTitle()">
 
 <div class="lectureTitleEdit" id="@lecture.id">@lecture.title</div>
 <div class="lectureContentEdit" id="@lecture.id">@lecture.content</div>
@@ -109,23 +105,50 @@ src="@resource.file_url">
 <script type="text/javascript">
 $(document).ready(function() {
 	
-	       var flowPlayer=$('#flowPlayer').val();
+	      
 		   // install flowplayer to an element with CSS class "player"
-		   $(".player").flowplayer({ swf: flowPlayer
+		   $(".player").flowplayer({ 
+			   swf: ''+@routes.Assets.at("javascripts/flowplayer-5.4.0/flowplayer.swf")
 		   });
 		
-		   var titleEdit=$('#titleEdit').val();
-		   var contentEdit=$('#contentEdit').val();
-		   $('.lectureTitleEdit').editable(titleEdit);
-		   $('.lectureContentEdit').editable(contentEdit, { 
+		  
+		   $('.lectureTitleEdit').editable(
+				   function(value, settings) {
+						 $('.alert-success').hide();
+						var id=$(this).attr('id');
+						var result=value;
+						myJsRoutes.controllers.Lectures.updateTitle().ajax({
+							data: {id:id,value:value},
+						    success : function(data) {
+							result=data;
+							$('.alert-success').show();
+						    }
+						});
+						return(result);
+					}
+		   );
+		   $('.lectureContentEdit').editable(''+@routes.Lectures.updateContent(), { 
 		         type      : 'textarea',
 		         cancel    : 'Cancel',
 		         submit    : 'OK',
 		         tooltip   : 'Click to edit...'
 		     });
 		   
-		   var resourceTitleEdit=$('#resourceTitleEdit').val();
-		   $('.resourceTitleEdit').editable(resourceTitleEdit);
+		   $('.resourceTitleEdit').editable(
+				   function(value, settings) {
+						 $('.alert-success').hide();
+						var id=$(this).attr('id');
+						var result=value;
+						myJsRoutes.controllers.LectureResources.updateTitle().ajax({
+							data: {id:id,value:value},
+						    success : function(data) {
+							result=data;
+							$('.alert-success').show();
+						    }
+						});
+						return(result);
+					}
+		   );
 		   
 		   
 		});

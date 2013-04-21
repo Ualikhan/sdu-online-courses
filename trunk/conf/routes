@@ -32,7 +32,7 @@ POST    /course/announcement/:aid/delete   controllers.Announcements.deleteAnnou
 GET    /course/announcements/:aid        controllers.Announcements.announcementPage(aid: Long)
 POST    /course/announcements/:aid       controllers.Announcements.updateAnnouncement(aid: Long)
 
-POST    /course/announcement/updateTitle          controllers.Announcements.updateTitle(id:String,cont:String)
+POST    /course/announcement/updateTitle          controllers.Announcements.updateTitle()
 POST    /course/announcement/updateContent          controllers.Announcements.updateContent(id:String)
 
 
@@ -60,6 +60,8 @@ POST    /course/courseInformation/:aid/delete   controllers.CourseInformations.d
 GET    /course/courseInformations/:aid        controllers.CourseInformations.courseInformationPage(aid: Long)
 POST    /course/courseInformations/:aid       controllers.CourseInformations.updateCourseInformation(aid: Long)
 GET    /course/courseInformation/:id           controllers.CourseInformations.getCourseInformation(id: Long)
+POST    /course/courseInformation/updateTitle          controllers.CourseInformations.updateTitle()
+POST    /course/courseInformation/updateContent          controllers.CourseInformations.updateContent(id:String)
 
 
 #CourseDescription
@@ -69,6 +71,8 @@ POST    /course/courseDescription/:aid/delete   controllers.CourseDescriptions.d
 GET    /course/courseDescriptions/:aid        controllers.CourseDescriptions.courseDescriptionPage(aid: Long)
 POST    /course/courseDescriptions/:aid       controllers.CourseDescriptions.updateCourseDescription(aid: Long)
 GET    /course/courseDescription/:id           controllers.CourseDescriptions.getCourseDescription(id: Long)
+POST    /course/courseDescription/updateTitle          controllers.CourseDescriptions.updateTitle()
+POST    /course/courseDescription/updateContent          controllers.CourseDescriptions.updateContent(id:String)
 
 
 #

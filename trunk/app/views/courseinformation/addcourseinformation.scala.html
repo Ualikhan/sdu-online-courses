@@ -1,4 +1,4 @@
-@(user:User,course:Course,announcements: List[Announcement],courseInformations: List[CourseInformation])
+@(user:User,course:Course,courseInformations: List[CourseInformation])
 
 
 @import helper._
@@ -36,77 +36,27 @@ By @course.owner.name
   <li><a class="courseInformations" id="@courseInformation.id" href="#">@courseInformation.title</a></li>
   }
   <li>
-  @form(routes.CourseInformations.newCourseInformation()){
+ @form(routes.CourseInformations.newCourseInformation()){
   <button type="submit" style="width: 40%;"><i class="icon-plus"></i></button>
   }
-  </li>
+   </li>
 </ul>
     </div>
     <div class="span8">
       <div class="contentBar">
        
- <input type="hidden" id="myUrl" value="@routes.Announcements.updateTitle()">
- 
-<div id="announcements">
-<fieldset>
-    <legend>Announcements</legend>
-@for(annoncement<-announcements){
-<script type="text/javascript">
-
-     bkLib.onDomLoaded(function() {
-    	  var myNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
-    		  $('#alert-success'+@annoncement.id).hide();
-    			
-        	  myJsRoutes.controllers.Announcements.updateContent(''+@annoncement.id).ajax({
-        		data: {value:content},
-      		    success : function(data) {
-      		    $('#annContent'+@annoncement.id).html('');
-      			$('#annContent'+@annoncement.id).html(data);
-      			$('#alert-success'+@annoncement.id).show();
-      			
-      		    }
-      		});
-          } });
-          myNicEditor.setPanel('myNicPanel'+@annoncement.id);
-          myNicEditor.addInstance('annContent'+@annoncement.id);
-         
-     });
-
-  </script> 
-  <div class="row" style="margin-left: 20px;">
-<h4><span class="announcementTitle item" id="@annoncement.id">@annoncement.title</span></h4>
-@helper.form(action=routes.Announcements.deleteAnnouncement(annoncement.id),'class->"res action") {
-<button class="btn btn-mini btn-primary"  type="submit"><i class="icon-remove"></i></button>
-}
-<br/>
-<br/>
-<div id="alert-success@annoncement.id" class="alert alert-success">
-successfully saved
-</div>
-<div id="myNicPanel@annoncement.id" style="width: 525px;"></div>
-
-<div id="annContent@annoncement.id">
-
-@if(annoncement.content!=null){
-@Html(annoncement.content)
-}
-</div>
-<p>@annoncement.createdDate</p>
-</div>
-}
-<h4>Add a new announcement</h4>
-@form(routes.Announcements.newAnnouncement()){
+<h2>Add a new courseInformation</h2>
+@form(routes.CourseInformations.newCourseInformation()){
 <p>
 <input type="text" name="title" placeholder="Name">
 </p>
 <p>
-<textarea class="ckeditor"  rows="10" cols="30" name="content" placeholder="Description"></textarea>
+<textarea class="descriptionTextArea ckeditor" rows="30" cols="60" name="content" placeholder="Description"></textarea>
 </p>
 <p>
-<button class="btn btn-primary"  type="submit">Create</button>
+<button type="submit">Create</button>
 </p>
 }
-</div>
 </div>
     </div>
   </div>
@@ -146,5 +96,7 @@ $(document).ready(function(){
 		});
 		return false;
 	});
+	
+	
 });
 </script>

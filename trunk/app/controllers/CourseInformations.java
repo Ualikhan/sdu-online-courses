@@ -1,5 +1,7 @@
 package controllers;
 
+import java.util.Date;
+
 import play.*;
 import models.*;
 import play.mvc.*;
@@ -40,11 +42,11 @@ public static Result newCourseInformation() {
 		Course course=Course.find.byId(courseId);
 		CourseInformation.create(filledForm.get().title, filledForm.get().content,course);
 		return ok(
-				index.render(
-						courseId,
-						CourseInformation.findCourseInformationsByCourse(courseId),
-						courseInformationForm,
-						User.find.byId(request().username())
+				addcourseinformation.render(
+						User.find.where().eq("email", request().username()).findUnique(),
+						Course.find.byId(courseId),
+						CourseInformation.findCourseInformationsByCourse(courseId)
+						
 						)
 				);
 	}else{
@@ -59,21 +61,34 @@ public static Result courseInformationPage(Long id) {
 	if(Secured.isTutorOf(courseId)){
 			return ok(
 					item.render(
-							CourseInformation.find.byId(id),
-							courseInformationForm,
-							User.find.byId(request().username())
+							CourseInformation.find.byId(id)
 							)
 					);
-	}else{
+	}
+	
+	else{
 		return forbidden();
 	}
 }
 
 public static Result getCourseInformation(Long id){
+	courseId=CourseInformation.find.ref(id).course.id;
+	
+	if(Secured.isTutorOf(courseId)){
+		return ok(
+				item.render(
+						CourseInformation.find.byId(id)
+						)
+				);
+	}
+	else if(Secured.isStudentOf(courseId)){
 	return ok(views.html.courseinformation.student.item.render(
 			CourseInformation.find.byId(id)
 			)
 			);
+}else{
+	return forbidden();
+}
 }
 
 public static Result updateCourseInformation(Long id) {
@@ -101,11 +116,11 @@ public static Result deleteCourseInformation(Long id) {
 	if(Secured.isTutorOf(courseId)){
 	CourseInformation.delete(id);
 	return ok(
-			index.render(
-					courseId,
-					CourseInformation.findCourseInformationsByCourse(courseId),
-					courseInformationForm,
-					User.find.byId(request().username())
+			addcourseinformation.render(
+					User.find.where().eq("email", request().username()).findUnique(),
+					Course.find.byId(courseId),
+					CourseInformation.findCourseInformationsByCourse(courseId)
+					
 					)
 			);
 }else{
@@ -113,5 +128,22 @@ public static Result deleteCourseInformation(Long id) {
 }
 }
 
-
+public static Result updateTitle() {
+    DynamicForm bform=form().bindFromRequest();
+    Long id=Long.parseLong(bform.get("id"));
+    String val=bform.get("value");
+    CourseInformation lect=CourseInformation.find.byId(id);
+    lect.title=val;
+    lect.update();
+	return ok(lect.title);
+}
+public static Result updateContent(String annId) {
+    Long id=Long.parseLong(annId);
+    DynamicForm bform=form().bindFromRequest();
+    String val=bform.get("value");
+    CourseInformation lect=CourseInformation.find.byId(id);
+    lect.content=val;
+    lect.update();
+	return ok(lect.content);
+}
 }

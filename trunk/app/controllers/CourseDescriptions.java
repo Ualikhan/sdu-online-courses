@@ -113,5 +113,23 @@ public static Result deleteCourseDescription(Long id) {
 }
 }
 
+public static Result updateTitle() {
+    DynamicForm bform=form().bindFromRequest();
+    Long id=Long.parseLong(bform.get("id"));
+    String val=bform.get("value");
+    CourseDescription lect=CourseDescription.find.byId(id);
+    lect.title=val;
+    lect.update();
+	return ok(lect.title);
+}
+public static Result updateContent(String annId) {
+    Long id=Long.parseLong(annId);
+    DynamicForm bform=form().bindFromRequest();
+    String val=bform.get("value");
+    CourseDescription lect=CourseDescription.find.byId(id);
+    lect.content=val;
+    lect.update();
+	return ok(lect.content);
+}
 
 }

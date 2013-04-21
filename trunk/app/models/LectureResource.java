@@ -24,6 +24,7 @@ public class LectureResource extends Model{
 	public String file_url;
 	
 	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('VIDEO','SLIDE','BOOK','AUDIO','TRANSCRIPT')")
 	public ResourceTypes resourceType;
 	
 	@ManyToOne

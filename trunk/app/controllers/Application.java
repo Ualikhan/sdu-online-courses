@@ -115,9 +115,19 @@ public class Application extends Controller {
         return ok(
             Routes.javascriptRouter("myJsRoutes",
             		controllers.routes.javascript.Lectures.getLecture(),
+            		
+            		controllers.routes.javascript.CourseInformations.newCourseInformation(),
             		controllers.routes.javascript.CourseInformations.getCourseInformation(),
+            		controllers.routes.javascript.CourseInformations.updateTitle(),
+            		controllers.routes.javascript.CourseInformations.updateContent(),
+            		
+            		controllers.routes.javascript.CourseDescriptions.updateTitle(),
+            		controllers.routes.javascript.CourseDescriptions.updateContent(),
+            		
             		controllers.routes.javascript.Announcements.updateTitle(),
             		controllers.routes.javascript.Announcements.updateContent()
+            		
+            		
             )
         );
     }
