@@ -37,31 +37,29 @@
  .title{
  margin:10px;
  margin-top:5px;
+ width: 250px;
  height: 20px;
  font-size: 16px;
  font-family: monospace;
  color: #9EB6C4;
  }
- 
- .resourceTitleEdit{
- margin: 20px;
- }
- 
+  
  .lectures{
- margin:10px;
- margin-top:5px;
- height: 20px;
- font-size: 16px;
+
  }
  
  .res{
- float: left;
+display:block;
+float: left;
  margin:10px;
- margin-top:0px;
  }
  .action{
- width:40px;
- height:40px;
+ margin-top:10px;
+ display:block;
+ float: left;
+ width:20px;
+ height:20px;
+ margin-left: 0px;
  }
  .videoItem{
  float:left;
@@ -81,7 +79,7 @@
  height:40px;
  }
  .videoFrameSize{
- width: 300px;
+ width: 290px;
  height: 250px;
  }
 

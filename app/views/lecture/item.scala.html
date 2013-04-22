@@ -26,23 +26,24 @@ successfully saved
 
 <div class="videoItem">
 <span class="res">
-<p class="resourceTitleEdit title" id="resourceTitle@resource.id">@resource.title</p>
+<p class="title resourceTitleEdit" id="resourceTitle@resource.id">@resource.title</p>
+</span>
+<span class="action" style="margin-top: 20px;">
+<a href="@routes.Lectures.removeResource(resource.id,lecture.id)" type="submit"><i class="icon-remove"></i></a>
+</span>
 @if(resource.file_url.contains("youtube.com")){
 <iframe class="videoFrameSize"
 src="@resource.file_url">
 </iframe>
 }else{
-<div class="player videoFrameSize" data-engine="flash" style="display:block;">
+<div class="player videoFrameSize" data-engine="flash" >
    <video preload="none">
         <source type="video/mp4" src="@routes.Assets.at("uploadVideos/"+{resource.file_url})"/>
       
          </video>
 </div>
 }
-</span>
-<span class="res action" style="margin:10px;margin-top:30px;">
-<a href="@routes.Lectures.removeResource(resource.id,lecture.id)" type="submit"><i class="icon-remove"></i></a>
-</span>
+
 </div>
 }
 }
@@ -81,7 +82,7 @@ src="@resource.file_url">
  </a>
 } 
 </span>
-<span class="res action">
+<span class="action">
 <a href="@routes.Lectures.removeResource(resource.id,lecture.id)" type="submit"><i class="icon-remove"></i></a>
 </span>
 </div>

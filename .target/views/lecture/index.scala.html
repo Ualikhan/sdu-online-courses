@@ -32,12 +32,20 @@ By @course.owner.name
      <ul class="nav nav-list sidebar">
   <li class="nav-header">Lectures</li>
   @for(lecture<-lectures){
-  @form(routes.Lectures.deleteLecture(lecture.id)){
-  <li><a class="lectures" id="@lecture.id" href="@routes.Lectures.getLecture(lecture.id)">@lecture.title</a>
- <button class="btn btn-mini btn-primary"  type="submit"><i class="icon-remove"></i></button>
+  <li>
+  <span class="res">
+  <a class="lectures " id="lecture@lecture.id" href="@routes.Lectures.getLecture(lecture.id)">@lecture.title</a>
+</span>
+  <span class="action">
+<a href="@routes.Lectures.deleteLecture(lecture.id)" type="submit"><i class="icon-remove"></i></a>
+</span>
   </li>
-}
   }
+  <li>
+  @form(routes.Lectures.index()){
+  <button type="submit" style="width: 40%;"><i class="icon-plus"></i></button>
+  }
+  </li>
 </ul>
     </div>
     <div class="span8">
@@ -66,8 +74,10 @@ By @course.owner.name
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.lectures').click(function(e) {
-		var lectureId=$(this).attr('id');
-		myJsRoutes.controllers.Lectures.getLecture(lectureId).ajax({
+		var lectureid=$(this).attr('id');
+		 var toRemove = 'lecture';
+		 var id = lectureid.replace(toRemove,'');
+		myJsRoutes.controllers.Lectures.getLecture(id).ajax({
 		    success : function(data) {
 			$('.contentBar').html(data);
 		

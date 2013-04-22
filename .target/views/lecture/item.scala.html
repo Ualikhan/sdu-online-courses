@@ -3,9 +3,16 @@
 @import helper._
 
 <h2>Edit lecture</h2>
-
-<div class="lectureTitleEdit" id="@lecture.id">@lecture.title</div>
-<div class="lectureContentEdit" id="@lecture.id">@lecture.content</div>
+<div class="alert alert-success">
+successfully saved
+</div>
+<input type="hidden" id="flowPlayer" value="@routes.Assets.at("javascripts/flowplayer-5.4.0/flowplayer.swf")">
+<div class="lectureTitleEdit" id="lectureTitle@lecture.id">@lecture.title</div>
+<div class="lectureContentEdit" id="lectureContent@lecture.id">
+@if(lecture.content!=null){
+@Html(lecture.content)
+}
+</div>
 
 <p>
 
@@ -19,26 +26,24 @@
 
 <div class="videoItem">
 <span class="res">
-<p class="resourceTitleEdit title" id="@resource.id">@resource.title</p>
+<p class="title resourceTitleEdit" id="resourceTitle@resource.id">@resource.title</p>
+</span>
+<span class="action" style="margin-top: 20px;">
+<a href="@routes.Lectures.removeResource(resource.id,lecture.id)" type="submit"><i class="icon-remove"></i></a>
+</span>
 @if(resource.file_url.contains("youtube.com")){
 <iframe class="videoFrameSize"
 src="@resource.file_url">
 </iframe>
 }else{
-<div class="player videoFrameSize" data-engine="flash" style="display:block;">
+<div class="player videoFrameSize" data-engine="flash" >
    <video preload="none">
         <source type="video/mp4" src="@routes.Assets.at("uploadVideos/"+{resource.file_url})"/>
       
          </video>
 </div>
 }
-</span>
-<span class="res action" style="margin:10px;margin-top:30px;">
 
-@helper.form(routes.Lectures.removeResource(resource.id,lecture.id)) {
-<button class="btn btn-mini btn-primary" type="submit"><i class="icon-remove"></i></button>
-}
-</span>
 </div>
 }
 }
@@ -52,7 +57,7 @@ src="@resource.file_url">
     <legend>Add video to lecture</legend>
 <input  type="text"  name="title" placeholder="Title">
 <input  type="text"  name="videoUrl" placeholder="Video url"> or 
-<input  type="file" id="1" name="videoFile" placeholder="Video path">
+<input  type="file"  name="videoFile" placeholder="Video path">
 <button class="btn btn-primary" type="submit" data-loading-text="Loading...">Add</button>
 </fieldset>
 </form>
@@ -68,20 +73,17 @@ src="@resource.file_url">
 <div class="slideItem">
 <span class="res">
 @if(resource.file_url.contains("http")){
-<a class="title resourceTitleEdit" id="@resource.id" href ="@resource.file_url">
+<a class="title resourceTitleEdit" id="resourceTitle@resource.id" href ="@resource.file_url">
 @resource.title
  </a>
 }else{
-<a class="title resourceTitleEdit" id="@resource.id" href ="@routes.Assets.at("uploadSlides/"+{resource.file_url})">
+<a class="title resourceTitleEdit" id="resourceTitle@resource.id" href ="@routes.Assets.at("uploadSlides/"+{resource.file_url})">
 @resource.title
  </a>
 } 
 </span>
-<span class="res action">
-
-@helper.form(routes.Lectures.removeResource(resource.id,lecture.id)) {
-<button class="btn btn-mini btn-primary" type="submit"><i class="icon-remove"></i></button>
-}
+<span class="action">
+<a href="@routes.Lectures.removeResource(resource.id,lecture.id)" type="submit"><i class="icon-remove"></i></a>
 </span>
 </div>
 }
@@ -105,41 +107,42 @@ src="@resource.file_url">
 <script type="text/javascript">
 $(document).ready(function() {
 	
-	      
+	      var flowPlayer=$('#flowPlayer').val();
 		   // install flowplayer to an element with CSS class "player"
 		   $(".player").flowplayer({ 
-			   swf: ''+@routes.Assets.at("javascripts/flowplayer-5.4.0/flowplayer.swf")
+			   swf: flowPlayer
 		   });
 		
-		  
+		   $('.alert-success').hide();
 		   $('.lectureTitleEdit').editable(
 				   function(value, settings) {
 						 $('.alert-success').hide();
-						var id=$(this).attr('id');
+						var lectureTitleid=$(this).attr('id');
+						 var toRemove = 'lectureTitle';
+						 var id = lectureTitleid.replace(toRemove,'');
 						var result=value;
 						myJsRoutes.controllers.Lectures.updateTitle().ajax({
 							data: {id:id,value:value},
 						    success : function(data) {
 							result=data;
+							$('#lecture'+id).html(data);
 							$('.alert-success').show();
 						    }
 						});
 						return(result);
 					}
 		   );
-		   $('.lectureContentEdit').editable(''+@routes.Lectures.updateContent(), { 
-		         type      : 'textarea',
-		         cancel    : 'Cancel',
-		         submit    : 'OK',
-		         tooltip   : 'Click to edit...'
-		     });
+		   
 		   
 		   $('.resourceTitleEdit').editable(
 				   function(value, settings) {
 						 $('.alert-success').hide();
-						var id=$(this).attr('id');
+
+							var resourceTitleid=$(this).attr('id');
+							 var toRemove = 'resourceTitle';
+							 var id = resourceTitleid.replace(toRemove,'');
 						var result=value;
-						myJsRoutes.controllers.LectureResources.updateTitle().ajax({
+						myJsRoutes.controllers.Lectures.updateResourceTitle().ajax({
 							data: {id:id,value:value},
 						    success : function(data) {
 							result=data;
