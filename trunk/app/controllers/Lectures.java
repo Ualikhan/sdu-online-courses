@@ -138,7 +138,7 @@ public static Result addVideo(Long lectureId)  throws IOException{
 	    		   video=LectureResource.create(filledForm.get("title"),  filledForm.get("videoUrl"), ResourceTypes.VIDEO, l);
 	       }
 	     }
-		return redirect(routes.Lectures.lecturePage(lectureId));
+		return redirect(routes.Lectures.index());
 	}
 	else{
 		return forbidden();
@@ -179,7 +179,7 @@ public static Result addSlide(Long lectureId)  throws IOException{
 	        	 video=LectureResource.create(filledForm.get("title"),  filledForm.get("slideUrl"), ResourceTypes.SLIDE, l);
 	         }
 	     }
-		return redirect(routes.Lectures.lecturePage(lectureId));
+	     return redirect(routes.Lectures.index());
 	}
 	else{
 		return forbidden();
@@ -188,7 +188,7 @@ public static Result addSlide(Long lectureId)  throws IOException{
 
 public static Result removeResource(Long resourceId,Long lectureId){
 	LectureResource.delete(resourceId);
-	return redirect(routes.Lectures.lecturePage(lectureId));
+	return redirect(routes.Lectures.index());
 }
 
 public static Result updateLecture(Long id)  throws IOException{
@@ -200,13 +200,7 @@ public static Result updateLecture(Long id)  throws IOException{
 	l.title=filledForm.get("title");
 	l.content=filledForm.get("content");
 	l.update();
-	return ok(
-			index.render(
-					User.find.where().eq("email", request().username()).findUnique(),
-					Course.find.byId(courseId),
-					Lecture.findLecturesByCourse(courseId)
-					)
-				);
+	return redirect(routes.Lectures.index());
 	}else{
 		return forbidden();
 	}

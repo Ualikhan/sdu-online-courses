@@ -9,7 +9,7 @@
     <legend>Edit course information</legend>
 
   <div class="row" style="margin-left: 20px;">
-<h4><span class="item courseInformationTitle" id="@courseInformation.id">@courseInformation.title</span></h4>
+<h4><span class="item courseInformationTitle" id="courseInformationTitle@courseInformation.id">@courseInformation.title</span></h4>
 @helper.form(action=routes.CourseInformations.deleteCourseInformation(courseInformation.id),'class->"res action") {
 <button class="btn btn-mini btn-primary"  type="submit"><i class="icon-remove"></i></button>
 }
@@ -38,12 +38,14 @@ $(document).ready(function(){
 	var ciUpdateTitleUrl=$('#ciUpdateTitleUrl').val();
 	$('.courseInformationTitle').editable(function(value, settings) {
 		 $('.alert-success').hide();
-		var id=$(this).attr('id');
+		 var courseInformationTitleid=$(this).attr('id');
+		 var toRemove = 'courseInformationTitle';
+		 var id = courseInformationTitleid.replace(toRemove,'');
 		var result=value;
 		myJsRoutes.controllers.CourseInformations.updateTitle().ajax({
 			data: {id:id,value:value},
 		    success : function(data) {
-			$('#'+id).html(data);
+			$('#courseInformation'+id).html(data);
 			result=data;
 			$('.alert-success').show();
 		    }

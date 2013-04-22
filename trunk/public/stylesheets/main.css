@@ -40,7 +40,18 @@
  height: 20px;
  font-size: 16px;
  font-family: monospace;
- color: activeborder;
+ color: #9EB6C4;
+ }
+ 
+ .resourceTitleEdit{
+ margin: 20px;
+ }
+ 
+ .lectures{
+ margin:10px;
+ margin-top:5px;
+ height: 20px;
+ font-size: 16px;
  }
  
  .res{
