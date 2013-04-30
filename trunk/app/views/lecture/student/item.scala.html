@@ -1,15 +1,56 @@
-@(lecture: Lecture,resources:List[LectureResource])
+@(user:User,course:Course,lectures: List[Lecture],lecture: Lecture,resources:List[LectureResource])
 
 @import helper._
+@main(user){
 
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+    </div>
+    <div class="span8">
+<h3>@course.name</h3>
+By @course.owner.name
+@if(course.owner.company!=null){
+,@course.owner.company
+}
+<div class="menuBar">
+<ul class="nav nav-pills">
+  <li >
+    <a href="@routes.Courses.coursePage(course.id)">Home</a>
+  </li>
+  <li class="active"><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
+  <li><a href="@routes.Application.index">Assignments</a></li>
+  <li><a href="@routes.Application.index">Community</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+     <ul class="nav nav-list sidebar">
+  <li class="nav-header">Lectures</li>
+  @for(lecture<-lectures){
+  <li><a id="@lecture.id" href="@routes.Lectures.getLecture(lecture.id)">@lecture.title</a></li>
+  }
+</ul>
+    </div>
+    <div class="span8">
+      <div class="contentBar">
+		
 <input type="hidden" id="flowPlayer" value="@routes.Assets.at("javascripts/flowplayer-5.4.0/flowplayer.swf")">
 
 <h3>@lecture.title</h3>
-<p>
+<fieldset>
+<legend>Description</legend>
 @if(lecture.content!=null){
 @Html(lecture.content)
 }
-</p>
+</fieldset>
+
+
+
 @resources.groupBy(_.resourceType).map{
        			case (resourceT,resources) => {
 
@@ -73,8 +114,44 @@ src="@resource.file_url">
 </fieldset>
 }
 }
-
 }
+}
+
+@if(lecture.keyConcepts!=null){
+<br/>
+<fieldset>
+<legend>Key concepts</legend>
+@Html(lecture.keyConcepts)
+</fieldset>
+}
+
+@if(lecture.reading!=null){
+<br/>
+<fieldset>
+<legend>Reading</legend>
+@Html(lecture.reading)
+</fieldset>
+}
+
+@if(lecture.assignment!=null){
+<br/>
+<fieldset>
+<legend>Assignment</legend>
+@Html(lecture.assignment)
+</fieldset>
+}
+
+@if(lecture.additionalResources!=null){
+<br/>
+<fieldset>
+<legend>Additional Resources</legend>
+@Html(lecture.additionalResources)
+</fieldset>
+}
+</div>
+    </div>
+  </div>
+</div>
 }
 
 <script type="text/javascript">

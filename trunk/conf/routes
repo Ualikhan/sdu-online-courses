@@ -45,6 +45,11 @@ POST    /course/lecture/:id/addSlide          controllers.Lectures.addSlide(id: 
 
 POST    /course/lecture/updateTitle          controllers.Lectures.updateTitle()
 POST    /course/lecture/updateContent          controllers.Lectures.updateContent()
+POST    /course/lecture/updateKeyConcepts          controllers.Lectures.updateKeyConcepts()
+POST    /course/lecture/updateReading          controllers.Lectures.updateReading()
+POST    /course/lecture/updateAssignment          controllers.Lectures.updateAssignment()
+POST    /course/lecture/updateAdditionalResources     controllers.Lectures.updateAdditionalResources()
+
 POST    /course/lecture/updateResourceTitle          controllers.Lectures.updateResourceTitle()
 
 GET    /course/lecture/:lid/removeResource    controllers.Lectures.removeResource(rid: Long,lid: Long)
@@ -55,7 +60,8 @@ POST    /course/lectures/:aid       controllers.Lectures.updateLecture(aid: Long
 
 #CourseInformation
 GET    /course/courseInformations           controllers.CourseInformations.index()
-POST    /course/courseInformations          controllers.CourseInformations.newCourseInformation()
+GET    /course/courseInformations/new          controllers.CourseInformations.addCourseInformation()
+POST    /course/courseInformations/save          controllers.CourseInformations.saveCourseInformation()
 POST    /course/courseInformation/:aid/delete   controllers.CourseInformations.deleteCourseInformation(aid: Long)
 GET    /course/courseInformations/:aid        controllers.CourseInformations.courseInformationPage(aid: Long)
 POST    /course/courseInformations/:aid       controllers.CourseInformations.updateCourseInformation(aid: Long)

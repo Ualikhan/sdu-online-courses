@@ -9,7 +9,7 @@
  	 @courses.map { course =>
 <div class="row courseCell">
  	 <div class="span3"></div>
- 	 <div class="span7">
+ 	 <div class="media span7">
        <div class="row-fluid">
  		<h3><a href="@routes.Courses.courseDescription(course.id)"" >@course.name</a></h3>					
  		</div>
@@ -27,7 +27,9 @@
  		</span>				
  		</div>
  		<div class="row-fluid courseSummary">
- 		<p>@course.description</p>			
+ 		@if(course.description!=null){
+ 		<p>@Html(course.description)</p>		
+ 		}	
  		</div>
   		</div>
 </div>

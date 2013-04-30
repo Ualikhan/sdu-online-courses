@@ -19,7 +19,7 @@ By @course.owner.name
   <li class="active">
     <a href="@routes.Courses.coursePage(course.id)">Home</a>
   </li>
-  <li><a href="@routes.Lectures.index()">Lectures</a></li>
+  <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
   <li><a href="@routes.Application.index">Assignments</a></li>
   <li><a href="@routes.Application.index">Community</a></li>
 </ul>
@@ -36,7 +36,7 @@ By @course.owner.name
   <li><a class="courseInformations" id="courseInformation@courseInformation.id" href="#">@courseInformation.title</a></li>
   }
   <li>
-  @form(routes.CourseInformations.newCourseInformation()){
+  @form(routes.CourseInformations.addCourseInformation()){
   <button type="submit" style="width: 40%;"><i class="icon-plus"></i></button>
   }
   </li>

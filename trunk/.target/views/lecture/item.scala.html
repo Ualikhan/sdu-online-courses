@@ -1,21 +1,83 @@
-@(lecture: Lecture,videoResources:List[LectureResource],slideResources:List[LectureResource])
+@(user:User,course:Course,lectures: List[Lecture],lecture: Lecture,videoResources:List[LectureResource],slideResources:List[LectureResource])
 
 @import helper._
+@main(user){
 
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+    </div>
+    <div class="span8">
+<h3>@course.name</h3>
+By @course.owner.name
+@if(course.owner.company!=null){
+,@course.owner.company
+}
+<div class="menuBar">
+<ul class="nav nav-pills">
+  <li >
+    <a href="@routes.Courses.coursePage(course.id)">Home</a>
+  </li>
+  <li class="active"><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
+  <li><a href="@routes.Application.index">Assignments</a></li>
+  <li><a href="@routes.Application.index">Community</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+     <ul class="nav nav-list sidebar">
+  <li class="nav-header">Lectures</li>
+  @for(lecture<-lectures){
+  <li>
+  <a id="lecture@lecture.id" href="@routes.Lectures.getLecture(lecture.id)">@lecture.title</a>
+  </li>
+  }
+  <li>
+  @form(routes.Lectures.index()){
+  <button type="submit" style="width: 40%;"><i class="icon-plus"></i></button>
+  }
+  </li>
+</ul>
+    </div>
+    <div class="span8">
+      <div class="contentBar">
+@if(lecture!=null){
 <h2>Edit lecture</h2>
-<div class="alert alert-success">
+
+<div id="bigFieldSet">
+<fieldset>
+<legend>Title</legend>
+<div id="lectureTitle" class="alert alert-success">
 successfully saved
 </div>
 <input type="hidden" id="flowPlayer" value="@routes.Assets.at("javascripts/flowplayer-5.4.0/flowplayer.swf")">
-<div class="lectureTitleEdit" id="lectureTitle@lecture.id">@lecture.title</div>
-<div class="lectureContentEdit" id="lectureContent@lecture.id">
+
+<div class="title">
+<span class="res lectureTitleEdit" id="lectureTitle@lecture.id">@lecture.title</span>
+  <span class="action">
+<a href="@routes.Lectures.deleteLecture(lecture.id)" type="submit"><i class="icon-remove"></i></a>
+</span>
+</div>
+<br/>
+</fieldset>
+<fieldset>
+<legend>Description</legend>
+<div id="lecturecontentAlert" class="alert alert-success">
+successfully saved
+</div>
+
+<div class="nicPanels" id="lecturecontentNicPanel" style="width: 525px;"></div>
+<br/>
+<div id="lecturecontent">
 @if(lecture.content!=null){
 @Html(lecture.content)
 }
 </div>
-
-<p>
-
+</fieldset>
 <fieldset>
  <legend>Videos</legend>
 <div class='mask' style="width:100%;">
@@ -103,9 +165,89 @@ src="@resource.file_url">
 <button class="btn btn-primary" type="submit" data-loading-text="Loading...">Add</button>
 </fieldset>
 </form>
+<br/>
+<fieldset >
+<legend>Key concepts</legend>
+<div id="lecturekeyConceptsAlert" class="alert alert-success">
+successfully saved
+</div>
+<div class="nicPanels" id="lecturekeyConceptsNicPanel" style="width: 525px;"></div>
+<br/>
+<div id="lecturekeyConcepts">
+@if(lecture.keyConcepts!=null){
+@Html(lecture.keyConcepts)
+}
+</div>
+</fieldset>
+<br/>
+<fieldset>
+<legend>Reading</legend>
+<div id="lecturereadingAlert" class="alert alert-success">
+successfully saved
+</div>
+<div class="nicPanels" id="lecturereadingNicPanel" style="width: 525px;"></div>
+<br/>
+<div id="lecturereading">
+@if(lecture.reading!=null){
+@Html(lecture.reading)
+}
+</div>
+</fieldset>
+<br/>
+<fieldset>
+<legend>Assignment</legend>
+<div id="lectureassignmentAlert" class="alert alert-success">
+successfully saved
+</div>
+<div class="nicPanels" id="lectureassignmentNicPanel" style="width: 525px;"></div>
+<br/>
+<div id="lectureassignment">
+@if(lecture.assignment!=null){
+@Html(lecture.assignment)
+}
+</div>
+</fieldset>
+<br/>
+<fieldset>
+<legend>Additional Resources</legend>
+<div id="lectureadditionalResourcesAlert" class="alert alert-success">
+successfully saved
+</div>
+<div class="nicPanels" id="lectureadditionalResourcesNicPanel" style="width: 525px;"></div>
+<br/>
+<div id="lectureadditionalResources">
+@if(lecture.additionalResources!=null){
+@Html(lecture.additionalResources)
+}
+</div>
+</fieldset>
+</div>
+}
+<p>
+		
+</div>
+    </div>
+  </div>
+</div>
+
+
+}
 
 <script type="text/javascript">
-$(document).ready(function() {
+$(document).ready(function(){
+
+		 $('.nicPanels').hide();
+		 
+		 $('#lecturekeyConcepts').click(function() {
+			  $('#lecturekeyConceptsNicPanel').show();
+			});
+		 
+		 $('#bigFieldSet').click(function(event){
+		     event.stopPropagation();
+		     $('.nicPanels').hide();
+		 });
+		 
+		 var lectureId=''+@lecture.id;
 	
 	      var flowPlayer=$('#flowPlayer').val();
 		   // install flowplayer to an element with CSS class "player"
@@ -116,7 +258,7 @@ $(document).ready(function() {
 		   $('.alert-success').hide();
 		   $('.lectureTitleEdit').editable(
 				   function(value, settings) {
-						 $('.alert-success').hide();
+						 $('#lectureTitle').hide();
 						var lectureTitleid=$(this).attr('id');
 						 var toRemove = 'lectureTitle';
 						 var id = lectureTitleid.replace(toRemove,'');
@@ -126,7 +268,7 @@ $(document).ready(function() {
 						    success : function(data) {
 							result=data;
 							$('#lecture'+id).html(data);
-							$('.alert-success').show();
+							$('#lectureTitle').show();
 						    }
 						});
 						return(result);
@@ -154,6 +296,82 @@ $(document).ready(function() {
 		   );
 		   
 		   
+		   $('.alert-success').hide();
+	    	 var lecturecontentNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+	    		 $('#lecturecontentAlert').hide();
+	       	  myJsRoutes.controllers.Lectures.updateContent().ajax({
+	       		data: {id:lectureId,value:content},
+	     		    success : function(data) {
+	     		    $('#lecturecontent').html('');
+	     			$('#lecturecontent').html(data);
+	     			$('#lecturecontentAlert').show();
+	     		    }
+	     		});
+	         } });
+	         lecturecontentNicEditor.setPanel('lecturecontentNicPanel');
+	         lecturecontentNicEditor.addInstance('lecturecontent');
+	    
+	         
+	         
+	         var lecturekeyConceptsNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+	    		 $('#lecturekeyConceptsAlert').hide();
+	       	  myJsRoutes.controllers.Lectures.updateKeyConcepts(''+@lecture.id).ajax({
+	       		data:  {id:lectureId,value:content},
+	     		    success : function(data) {
+	     		    $('#lecturekeyConcepts').html('');
+	     			$('#lecturekeyConcepts').html(data);
+	     			$('#lecturekeyConceptsAlert').show();
+	     		    }
+	     		});
+	         } });
+	         lecturekeyConceptsNicEditor.setPanel('lecturekeyConceptsNicPanel');
+	         lecturekeyConceptsNicEditor.addInstance('lecturekeyConcepts');
+	    
+	         
+	         var lecturereadingNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+	    		 $('#lecturereadingAlert').hide();
+	       	  myJsRoutes.controllers.Lectures.updateReading(''+@lecture.id).ajax({
+	       		data:  {id:lectureId,value:content},
+	     		    success : function(data) {
+	     		    $('#lecturereading').html('');
+	     			$('#lecturereading').html(data);
+	     			$('#lecturereadingAlert').show();
+	     		    }
+	     		});
+	         } });
+	         lecturereadingNicEditor.setPanel('lecturereadingNicPanel');
+	         lecturereadingNicEditor.addInstance('lecturereading');
+	    
+	         
+	         var lectureassignmentNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+	    		 $('#lectureassignmentAlert').hide();
+	       	  myJsRoutes.controllers.Lectures.updateAssignment(''+@lecture.id).ajax({
+	       		data:  {id:lectureId,value:content},
+	     		    success : function(data) {
+	     		    $('#lectureassignment').html('');
+	     			$('#lectureassignment').html(data);
+	     			$('#lectureassignmentAlert').show();
+	     		    }
+	     		});
+	         } });
+	         lectureassignmentNicEditor.setPanel('lectureassignmentNicPanel');
+	         lectureassignmentNicEditor.addInstance('lectureassignment');
+	    
+	         
+	         var lectureadditionalResourcesNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+	    		 $('#lectureadditionalResourcesAlert').hide();
+	       	  myJsRoutes.controllers.Lectures.updateAdditionalResources(''+@lecture.id).ajax({
+	       		data:  {id:lectureId,value:content},
+	     		    success : function(data) {
+	     		    $('#lectureadditionalResources').html('');
+	     			$('#lectureadditionalResources').html(data);
+	     			$('#lectureadditionalResourcesAlert').show();
+	     		    }
+	     		});
+	         } });
+	         lectureadditionalResourcesNicEditor.setPanel('lectureadditionalResourcesNicPanel');
+	         lectureadditionalResourcesNicEditor.addInstance('lectureadditionalResources');
+	    		   
 		});
 </script>
 	
