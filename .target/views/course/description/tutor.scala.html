@@ -79,6 +79,23 @@ successfully saved
 </div>
 </div>
 }
+<br/>
+<fieldset>
+<legend>Add description for course</legend>
+@form(routes.CourseDescriptions.newCourseDescription()){
+<p>
+<input type="text" name="title" placeholder="Name">
+</p>
+<p>
+<div style="width: 650px;">
+<textarea class="descriptionTextArea ckeditor" rows="30" cols="40" name="content" placeholder="Description"></textarea>
+</div>
+</p>
+<p>
+<button class="btn  btn-medium btn-primary" type="submit">Create</button>
+</p>
+}
+</fieldset>
 }
 
 <script type="text/javascript">

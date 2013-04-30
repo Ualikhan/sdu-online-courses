@@ -47,7 +47,12 @@ public static Result newLecture() {
 	if(Secured.isTutorOf(courseId)){
 		Form<Lecture> filledForm=form(Lecture.class).bindFromRequest();
 		Course course=Course.find.byId(courseId);
-		Lecture.create(filledForm.get().title, filledForm.get().content,course);
+		Lecture lecture=new Lecture(filledForm.get().title, filledForm.get().content,course);
+		lecture.keyConcepts=filledForm.get().keyConcepts;
+		lecture.reading=filledForm.get().reading;
+		lecture.assignment=filledForm.get().assignment;
+		lecture.additionalResources=filledForm.get().additionalResources;
+		lecture.save();
 		return ok(
 				index.render(
 						User.find.where().eq("email", request().username()).findUnique(),
@@ -67,7 +72,10 @@ public static Result lecturePage(Long id) {
 	if(Secured.isTutorOf(courseId)){
 			return ok(
 					item.render(
-							Lecture.find.byId(id),
+							User.find.where().eq("email", request().username()).findUnique(),
+							Course.find.byId(courseId),
+							Lecture.findLecturesByCourse(courseId),
+							Lecture.findLastLectureByCourse(courseId),
 							LectureResource.findVideosByLecture(id),
 							LectureResource.findSlidesByLecture(id)
 							)
@@ -90,15 +98,22 @@ courseId=Long.parseLong(session("course"));
 	
 	if(Secured.isTutorOf(courseId)){
 		return ok(item.render(
+				User.find.where().eq("email", request().username()).findUnique(),
+				Course.find.byId(courseId),
+				Lecture.findLecturesByCourse(courseId),
 				Lecture.find.byId(id),
 				LectureResource.findVideosByLecture(id),
 				LectureResource.findSlidesByLecture(id)
 				)
 				);
 	}
-	else if(Secured.isStudentOf(id)){
+	else if(Secured.isStudentOf(courseId)){
 		return ok(views.html.lecture.student.item.render(
-				Lecture.find.byId(id),LectureResource.findByLecture(id)
+				User.find.where().eq("email", request().username()).findUnique(),
+				Course.find.byId(courseId),
+				Lecture.findLecturesByCourse(courseId),
+				Lecture.find.byId(id),
+				LectureResource.findByLecture(id)
 				)
 				);
 	}else{
@@ -233,6 +248,7 @@ public static Result updateTitle() {
     lect.update();
 	return ok(lect.title);
 }
+
 public static Result updateContent() {
     DynamicForm bform=form().bindFromRequest();
     Long id=Long.parseLong(bform.get("id"));
@@ -242,6 +258,48 @@ public static Result updateContent() {
     lect.update();
 	return ok(lect.content);
 }
+
+public static Result updateKeyConcepts() {
+    DynamicForm bform=form().bindFromRequest();
+    Long id=Long.parseLong(bform.get("id"));
+    String val=bform.get("value");
+    Lecture lect=Lecture.find.byId(id);
+    lect.keyConcepts=val;
+    lect.update();
+	return ok(lect.keyConcepts);
+}
+
+public static Result updateReading() {
+    DynamicForm bform=form().bindFromRequest();
+    Long id=Long.parseLong(bform.get("id"));
+    String val=bform.get("value");
+    Lecture lect=Lecture.find.byId(id);
+    lect.reading=val;
+    lect.update();
+	return ok(lect.reading);
+}
+
+public static Result updateAssignment() {
+    DynamicForm bform=form().bindFromRequest();
+    Long id=Long.parseLong(bform.get("id"));
+    String val=bform.get("value");
+    Lecture lect=Lecture.find.byId(id);
+    lect.assignment=val;
+    lect.update();
+	return ok(lect.assignment);
+}
+
+
+public static Result updateAdditionalResources() {
+    DynamicForm bform=form().bindFromRequest();
+    Long id=Long.parseLong(bform.get("id"));
+    String val=bform.get("value");
+    Lecture lect=Lecture.find.byId(id);
+    lect.additionalResources=val;
+    lect.update();
+	return ok(lect.additionalResources);
+}
+
 public static Result updateResourceTitle() {
     DynamicForm bform=form().bindFromRequest();
     Long id=Long.parseLong(bform.get("id"));

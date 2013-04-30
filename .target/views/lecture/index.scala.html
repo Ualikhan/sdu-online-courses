@@ -33,12 +33,7 @@ By @course.owner.name
   <li class="nav-header">Lectures</li>
   @for(lecture<-lectures){
   <li>
-  <span class="res">
-  <a class="lectures " id="lecture@lecture.id" href="@routes.Lectures.getLecture(lecture.id)">@lecture.title</a>
-</span>
-  <span class="action">
-<a href="@routes.Lectures.deleteLecture(lecture.id)" type="submit"><i class="icon-remove"></i></a>
-</span>
+  <a id="lecture@lecture.id" href="@routes.Lectures.getLecture(lecture.id)">@lecture.title</a>
   </li>
   }
   <li>
@@ -52,12 +47,69 @@ By @course.owner.name
       <div class="contentBar">
 		<h2>Add  new lecture</h2>
 @form(routes.Lectures.newLecture()){
-<p>
 <input type="text" name="title" placeholder="Name">
-</p>
-<p>
-<textarea class="descriptionTextArea ckeditor" rows="30" cols="60" name="content" placeholder="Description"></textarea>
-</p>
+<div class="accordion" id="accordion2">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+       Description
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse in">
+      <div class="accordion-inner">
+<textarea class="descriptionTextArea ckeditor" rows="30" cols="40" name="content" placeholder="Description"></textarea>
+</div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+       Key concepts
+      </a>
+    </div>
+    <div id="collapseTwo" class="accordion-body collapse">
+      <div class="accordion-inner">
+<textarea class="descriptionTextArea ckeditor" rows="30" cols="40" name="keyConcepts" placeholder="Key concepts"></textarea>
+ </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+        Reading
+      </a>
+    </div>
+    <div id="collapseThree" class="accordion-body collapse">
+      <div class="accordion-inner">
+<textarea class="descriptionTextArea ckeditor" rows="30" cols="40" name="reading" placeholder="Reading"></textarea>
+ </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
+       Assignment
+      </a>
+    </div>
+    <div id="collapseFour" class="accordion-body collapse">
+      <div class="accordion-inner">
+<textarea class="descriptionTextArea ckeditor" rows="30" cols="40" name="assignment" placeholder="Assignment"></textarea>
+ </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
+        Additional Resources
+      </a>
+    </div>
+    <div id="collapseFive" class="accordion-body collapse">
+      <div class="accordion-inner">
+<textarea class="descriptionTextArea ckeditor" rows="30" cols="40" name="additionalResources" placeholder="Additional Resources"></textarea>
+ </div>
+    </div>
+  </div>
+</div>
 <p>
 <button type="submit">Create</button>
 </p>

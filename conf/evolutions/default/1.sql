@@ -40,6 +40,10 @@ create table lecture (
   id                        bigint auto_increment not null,
   title                     varchar(255),
   content                   TEXT,
+  key_concepts              TEXT,
+  reading                   TEXT,
+  assignment                TEXT,
+  additional_resources      TEXT,
   course_id                 bigint,
   constraint pk_lecture primary key (id))
 ;

@@ -40,10 +40,10 @@ public static Result newCourseDescription() {
 		Course course=Course.find.byId(courseId);
 		CourseDescription.create(filledForm.get().title, filledForm.get().content,course);
 		return ok(
-				index.render(
-						courseId,
+				views.html.course.description.tutor.render(
+						Course.find.byId(courseId),
 						CourseDescription.findCourseDescriptionsByCourse(courseId),
-						courseDescriptionForm,
+						"OWNER",
 						User.find.byId(request().username())
 						)
 				);

@@ -33,8 +33,26 @@ public class CourseInformations extends Controller{
 		}
     }
 
+	public static Result addCourseInformation() {
+		courseId=Long.parseLong(session("course"));
+		
+		if(Secured.isTutorOf(courseId)){
+			Form<CourseInformation> filledForm=form(CourseInformation.class).bindFromRequest();
+			Course course=Course.find.byId(courseId);
+			return ok(
+					addcourseinformation.render(
+							User.find.where().eq("email", request().username()).findUnique(),
+							Course.find.byId(courseId),
+							CourseInformation.findCourseInformationsByCourse(courseId)
+							
+							)
+					);
+		}else{
+			return forbidden();
+		}
+	}
 	
-public static Result newCourseInformation() {
+public static Result saveCourseInformation() {
 	courseId=Long.parseLong(session("course"));
 	
 	if(Secured.isTutorOf(courseId)){

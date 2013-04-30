@@ -19,6 +19,18 @@ public class Lecture extends Model{
 	@Column(columnDefinition="TEXT")
 	public String content;
 	
+	@Column(columnDefinition="TEXT")
+	public String keyConcepts;
+	
+	@Column(columnDefinition="TEXT")
+	public String reading;
+	
+	@Column(columnDefinition="TEXT")
+	public String assignment;
+	
+	@Column(columnDefinition="TEXT")
+	public String additionalResources;
+	
 	@ManyToOne
 	public Course course;
 	
@@ -32,6 +44,10 @@ public class Lecture extends Model{
 	
 	public static List<Lecture> findLecturesByCourse(Long courseId){
 		return find.where().eq("course.id", courseId).findList();
+	}
+	
+	public static Lecture findLastLectureByCourse(Long courseId){
+		return Lecture.find.where().eq("course.id",courseId).orderBy("id desc").setMaxRows(1).findUnique();
 	}
 	
 	public static void create(String title,String content,Course course){
