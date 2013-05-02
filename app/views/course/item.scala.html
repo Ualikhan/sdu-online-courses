@@ -20,7 +20,7 @@ By @course.owner.name
     <a href="@routes.Courses.coursePage(course.id)">Home</a>
   </li>
   <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
-  <li><a href="@routes.Application.index">Assignments</a></li>
+  <li><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
   <li><a href="@routes.Application.index">Community</a></li>
 </ul>
 </div>
@@ -46,7 +46,7 @@ By @course.owner.name
       <div class="contentBar">
        
 
-<div id="announcements">
+<div class="announcements">
 <fieldset>
     <legend>Announcements</legend>
 @for(annoncement<-announcements){
@@ -66,13 +66,19 @@ By @course.owner.name
       		    }
       		});
           } });
-          myNicEditor.setPanel('myNicPanel'+@annoncement.id);
+          myNicEditor.setPanel('annNicPanel'+@annoncement.id);
           myNicEditor.addInstance('annContent'+@annoncement.id);
+         
+          $('#annContent'+@annoncement.id).click(function() {
+    		  $('#annNicPanel'+@annoncement.id).show();
+    		});
          
      });
 
+     
+    
   </script> 
-  <div class="row" style="margin-left: 20px;">
+  <div class="row" style="margin-left: 20px;" id="annItem@annoncement.id">
 <h4><span class="announcementTitle item" id="announcementTitle@annoncement.id">@annoncement.title</span></h4>
 @helper.form(action=routes.Announcements.deleteAnnouncement(annoncement.id),'class->"res action") {
 <button class="btn btn-mini btn-primary"  type="submit"><i class="icon-remove"></i></button>
@@ -82,7 +88,7 @@ By @course.owner.name
 <div id="alert-success@annoncement.id" class="alert alert-success">
 successfully saved
 </div>
-<div id="myNicPanel@annoncement.id" style="width: 525px;"></div>
+<div class="nicPanels" id="annNicPanel@annoncement.id" style="width: 525px;"></div>
 
 <div id="annContent@annoncement.id">
 
@@ -99,7 +105,8 @@ successfully saved
 <input type="text" name="title" placeholder="Name">
 </p>
 <p>
-<textarea class="ckeditor"  rows="10" cols="30" name="content" placeholder="Description"></textarea>
+<div id="annAddTextAreaNicPanel" style="width: 525px;"></div>
+<textarea id="annAddTextArea" style="width: 525px;" rows="10"  name="content" placeholder="Description"></textarea>
 </p>
 <p>
 <button class="btn btn-primary"  type="submit">Create</button>
@@ -116,7 +123,11 @@ successfully saved
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.alert-success').hide();
+	$('.nicPanels').hide();
 	
+	var annAddTextAreaNicEditor = new nicEditor({fullPanel : true});
+	  annAddTextAreaNicEditor.setPanel('annAddTextAreaNicPanel');
+	  annAddTextAreaNicEditor.addInstance('annAddTextArea');
 	
 	$('.announcementTitle').editable(
 			function(value, settings) {

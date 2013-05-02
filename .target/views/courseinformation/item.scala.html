@@ -4,7 +4,7 @@
 
 <input type="hidden" id="ciUpdateTitleUrl" value="@routes.CourseInformations.updateTitle()">
 
-<div id="announcements">
+<div class="announcements">
 <fieldset>
     <legend>Edit course information</legend>
 
@@ -19,7 +19,7 @@
 successfully saved
 </div>
 
-<div id="courseInformationNicPanel@courseInformation.id" style="width: 525px;"></div>
+<div class="nicPanels" id="courseInformationNicPanel@courseInformation.id" style="width: 525px;"></div>
 <br/>
 <div id="courseInformationContent@courseInformation.id">
 
@@ -34,6 +34,10 @@ successfully saved
 <script type="text/javascript">
 
 $(document).ready(function(){
+
+	$('.alert-success').hide();
+	$('.nicPanels').hide();
+	
 	
 	var ciUpdateTitleUrl=$('#ciUpdateTitleUrl').val();
 	$('.courseInformationTitle').editable(function(value, settings) {
@@ -53,7 +57,6 @@ $(document).ready(function(){
 		return(result);
 	});
 	
-	$('.alert-success').hide();
     	 var courseInformationNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
     		 $('.alert-success').hide();
        	  myJsRoutes.controllers.CourseInformations.updateContent(''+@courseInformation.id).ajax({
@@ -68,6 +71,11 @@ $(document).ready(function(){
          courseInformationNicEditor.setPanel('courseInformationNicPanel'+@courseInformation.id);
          courseInformationNicEditor.addInstance('courseInformationContent'+@courseInformation.id);
     
+         
+         $('#courseInformationContent'+@courseInformation.id).click(function() {
+			  $('#courseInformationNicPanel'+@courseInformation.id).show();
+			});
+   	  
      });
 
   </script> 

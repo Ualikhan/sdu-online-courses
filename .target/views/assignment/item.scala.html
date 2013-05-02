@@ -1,0 +1,224 @@
+@(user:User,course:Course,assignments: List[Assignment],assignment: Assignment)
+
+@import helper._
+@main(user){
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+    </div>
+    <div class="span8">
+<h3>@course.name</h3>
+By @course.owner.name
+@if(course.owner.company!=null){
+,@course.owner.company
+}
+<div class="menuBar">
+<ul class="nav nav-pills">
+  <li >
+    <a href="@routes.Courses.coursePage(course.id)">Home</a>
+  </li>
+  <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
+  <li class="active"><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
+  <li><a href="@routes.Application.index">Community</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+     <ul class="nav nav-list sidebar">
+  <li class="nav-header">Assignments</li>
+  @for(assignment<-assignments){
+  <li>
+  <a id="assignment@assignment.id" href="@routes.Assignments.getAssignment(assignment.id)">@assignment.title</a>
+  </li>
+  }
+  <li>
+  @form(routes.Assignments.index()){
+  <button type="submit" style="width: 40%;"><i class="icon-plus"></i></button>
+  }
+  </li>
+</ul>
+    </div>
+    <div class="span8">
+      <div class="contentBar">
+@if(assignment!=null){
+<h2>Edit assignment</h2>
+
+<div id="bigFieldSet">
+<fieldset>
+<legend>Title</legend>
+<div id="assignmentTitle" class="alert alert-success">
+successfully saved
+</div>
+
+<div class="title">
+<span class="res assignmentTitleEdit" id="assignmentTitle@assignment.id">@assignment.title</span>
+  <span class="action">
+<a href="@routes.Assignments.deleteAssignment(assignment.id)" type="submit"><i class="icon-remove"></i></a>
+</span>
+</div>
+<br/>
+</fieldset>
+<fieldset class="nicField">
+<legend>Description</legend>
+<div id="assignmentdescriptionAlert" class="alert alert-success">
+successfully saved
+</div>
+
+<div class="nicPanels" id="assignmentdescriptionNicPanel" style="width: 525px;"></div>
+<br/>
+<div id="assignmentdescription" class="nicTextContainer">
+@if(assignment.description!=null){
+@Html(assignment.description)
+}
+</div>
+
+</fieldset>
+
+<script type="text/javascript">
+bkLib.onDomLoaded(function() {
+		   $('.alert-success').hide();
+		   
+		   var assignmentId=''+@assignment.id;
+		   
+	    	 var assignmentdescriptionNicEditor = new nicEditor({fullPanel : true, onSave : function(description, id, instance) {
+	         $('#assignmentdescriptionAlert').hide();
+	       	 myJsRoutes.controllers.Assignments.updateDescription().ajax({
+	       	 data: {id:assignmentId,value:description},
+	     		    success : function(data) {
+	     		    $('#assignmentdescription').html('');
+	     			$('#assignmentdescription').html(data);
+	     			$('#assignmentdescriptionAlert').show();
+	     		    }
+	     		});
+	         }});
+	         assignmentdescriptionNicEditor.setPanel('assignmentdescriptionNicPanel');
+	         assignmentdescriptionNicEditor.addInstance('assignmentdescription');
+	    
+	         $('#assignmentdescription').click(function() {
+				  $('#assignmentdescriptionNicPanel').show();
+				});
+	         
+	         var assignmentactionItemsNicEditor = new nicEditor({fullPanel : true, onSave : function(description, id, instance) {
+	         $('#assignmentactionItemsAlert').hide();
+	       	 myJsRoutes.controllers.Assignments.updateActionItems().ajax({
+	       	 data:  {id:assignmentId,value:description},
+	     		    success : function(data) {
+	     		    $('#assignmentactionItems').html('');
+	     			$('#assignmentactionItems').html(data);
+	     			$('#assignmentactionItemsAlert').show();
+	     		    }
+	     		});
+	         } });
+	         assignmentactionItemsNicEditor.setPanel('assignmentactionItemsNicPanel');
+	         assignmentactionItemsNicEditor.addInstance('assignmentactionItems');
+	    
+	         
+	         $('#assignmentactionItems').click(function() {
+				  $('#assignmentactionItemsNicPanel').show();
+				});
+			 
+	  
+		});
+</script>
+
+<fieldset class="nicField">
+<legend>Action Items</legend>
+<div id="assignmentactionItemsAlert" class="alert alert-success">
+successfully saved
+</div>
+
+<div class="nicPanels" id="assignmentactionItemsNicPanel" style="width: 525px;"></div>
+<br/>
+<div id="assignmentactionItems" class="nicTextContainer">
+@if(assignment.actionItems!=null){
+@Html(assignment.actionItems)
+}
+</div>
+</fieldset>
+
+<p>
+StartDate-
+<form id="startDateUpdateForm">
+<input type="hidden" name="id" value="@assignment.id">
+<input id="startDate" type="text" class="datepicker" name="startDate" value="@assignment.startDate.format("dd/MM/yyyy")">
+<button id="startDateButton" type="button" class="btn btn-primary">Change</button>
+</form>
+</p>
+<p>
+Deadline-
+<form id="deadlineUpdateForm">
+<input type="hidden" name="id" value="@assignment.id">
+<input type="text" id="deadline" class="datepicker" name="deadline" value="@assignment.deadline.format("dd/MM/yyyy")">
+<button id="deadlineButton" type="button" class="btn btn-primary">Change</button>
+</form>
+</p>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	 $( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
+	
+	$('#startDateButton').click(function(){
+		myJsRoutes.controllers.Assignments.updateStartDate().ajax({
+			data: $('#startDateUpdateForm').serialize(),
+		    success : function(data) {
+			$('#startDate').val(data);
+			
+		    }
+		});
+	});
+	
+	$('#deadlineButton').click(function(){
+		myJsRoutes.controllers.Assignments.updateDeadline().ajax({
+			data: $('#deadlineUpdateForm').serialize(),
+		    success : function(data) {
+			$('#deadline').val(data);
+			
+		    }
+		});
+	});
+
+		 $('.nicPanels').hide(); 		
+		   $('.alert-success').hide();
+		   
+		   $('.assignmentTitleEdit').editable(
+				   function(value, settings) {
+						 $('#assignmentTitle').hide();
+						var assignmentTitleid=$(this).attr('id');
+						 var toRemove = 'assignmentTitle';
+						 var id = assignmentTitleid.replace(toRemove,'');
+						var result=value;
+						myJsRoutes.controllers.Assignments.updateTitle().ajax({
+							data: {id:id,value:value},
+						    success : function(data) {
+							result=data;
+							$('#assignment'+id).html(data);
+							$('#assignmentTitle').show();
+						    }
+						});
+						return(result);
+					}
+		   );
+		   		   
+});
+
+
+</script>
+}
+<p>
+		
+</div>
+    </div>
+  </div>
+</div>
+
+
+}
+
+
+	

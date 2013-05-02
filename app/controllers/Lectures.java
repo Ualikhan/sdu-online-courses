@@ -70,16 +70,22 @@ public static Result lecturePage(Long id) {
 	courseId=Long.parseLong(session("course"));
 	
 	if(Secured.isTutorOf(courseId)){
+		Lecture lastLecture=Lecture.findLastLectureByCourse(courseId);
+		if(lastLecture!=null){
 			return ok(
 					item.render(
 							User.find.where().eq("email", request().username()).findUnique(),
 							Course.find.byId(courseId),
 							Lecture.findLecturesByCourse(courseId),
-							Lecture.findLastLectureByCourse(courseId),
+							lastLecture,
 							LectureResource.findVideosByLecture(id),
 							LectureResource.findSlidesByLecture(id)
 							)
 					);
+		}
+		else{
+			return redirect(routes.Lectures.index());
+		}
 	}
 	else if(Secured.isStudentOf(id)){
 		return ok(views.html.lecture.student.index.render(

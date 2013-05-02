@@ -58,6 +58,20 @@ GET    /course/lectures/:aid        controllers.Lectures.lecturePage(aid: Long)
 GET    /course/lecture/:id           controllers.Lectures.getLecture(id: Long)
 POST    /course/lectures/:aid       controllers.Lectures.updateLecture(aid: Long)
 
+
+#Assignments
+GET    /course/assignments           controllers.Assignments.index()
+POST    /course/assignments          controllers.Assignments.newAssignment()
+POST    /course/assignment/updateTitle          controllers.Assignments.updateTitle()
+POST    /course/assignment/updateDescription          controllers.Assignments.updateDescription()
+POST    /course/assignment/updateActionItems          controllers.Assignments.updateActionItems()
+POST    /course/assignment/updateStartDate          controllers.Assignments.updateStartDate()
+POST    /course/assignment/updateDeadline          controllers.Assignments.updateDeadline()
+
+GET    /course/assignment/:aid/delete   controllers.Assignments.deleteAssignment(aid: Long)
+GET    /course/assignments/:aid        controllers.Assignments.assignmentPage(aid: Long)
+GET    /course/assignment/:id           controllers.Assignments.getAssignment(id: Long)
+
 #CourseInformation
 GET    /course/courseInformations           controllers.CourseInformations.index()
 GET    /course/courseInformations/new          controllers.CourseInformations.addCourseInformation()

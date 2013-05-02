@@ -1,0 +1,98 @@
+@(user:User,course:Course,assignments: List[Assignment])
+
+@import helper._
+@main(user){
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+    </div>
+    <div class="span8">
+<h3>@course.name</h3>
+By @course.owner.name
+@if(course.owner.company!=null){
+,@course.owner.company
+}
+<div class="menuBar">
+<ul class="nav nav-pills">
+  <li >
+    <a href="@routes.Courses.coursePage(course.id)">Home</a>
+  </li>
+  <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li> 
+  <li class="active"><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
+  <li><a href="@routes.Application.index">Community</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+     <ul class="nav nav-list sidebar">
+  <li class="nav-header">Assignments</li>
+  @for(assignment<-assignments){
+  <li>
+  <a id="assignment@assignment.id" href="@routes.Assignments.getAssignment(assignment.id)">@assignment.title</a>
+  </li>
+  }
+  <li>
+  @form(routes.Assignments.index()){
+  <button type="submit" style="width: 40%;"><i class="icon-plus"></i></button>
+  }
+  </li>
+</ul>
+    </div>
+    <div class="span8">
+      <div class="contentBar">
+<div class="announcements">       
+<h2>Add a new assignment</h2>
+@form(routes.Assignments.newAssignment()){
+<p>
+<input type="text" name="title" placeholder="Name">
+</p>
+<p>
+<div id="assignmentDescriptionNicPanel" style="width: 525px;"></div>
+<textarea id="assignmentDescription" style="width: 525px;" rows="10"  name="description" placeholder="Description"></textarea>
+</p>
+<p>
+<div id="assignmentActionItemsNicPanel" style="width: 525px;"></div>
+<textarea id="assignmentActionItems" style="width: 525px;" rows="10"  name="actionItems" placeholder="Action Items"></textarea>
+</p>
+<p>
+<input type="text" name="startDate" class="datepicker" />
+</p>
+<p>
+<input type="text" name="deadline" class="datepicker"  />
+</p>
+<p>
+<button class="btn btn-primary" type="submit">Create</button>
+</p>
+}
+</div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+}
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
+	
+	
+	var contentTextAreaNicEditor = new nicEditor({fullPanel : true});
+	contentTextAreaNicEditor.setPanel('assignmentDescriptionNicPanel');
+	contentTextAreaNicEditor.addInstance('assignmentDescription');
+	
+	var keyConceptsTextAreaNicEditor = new nicEditor({fullPanel : true});
+	keyConceptsTextAreaNicEditor.setPanel('assignmentActionItemsNicPanel');
+	keyConceptsTextAreaNicEditor.addInstance('assignmentActionItems');
+	
+
+
+});
+</script>

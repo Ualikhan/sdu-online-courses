@@ -1,10 +1,11 @@
 @(courseInformation: CourseInformation)
 
 @import helper._
-
+<div class="announcements">
 <h3>@courseInformation.title</h3>
 <p>
 @if(courseInformation.content!=null){
 @Html(courseInformation.content)
 }
 </p>
+</div>
