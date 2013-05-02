@@ -56,6 +56,11 @@ bkLib.onDomLoaded(function() {
     	  courseDescriptionNicEditor.setPanel('courseDescriptionNicPanel'+@courseDescription.id);
     	  courseDescriptionNicEditor.addInstance('cdContent'+@courseDescription.id);
          
+    	  $('#cdContent'+@courseDescription.id).click(function() {
+			  $('#courseDescriptionNicPanel'+@courseDescription.id).show();
+			});
+    	  
+    
      });
 
   </script> 
@@ -69,7 +74,7 @@ bkLib.onDomLoaded(function() {
 <div id="alert-success@courseDescription.id" class="alert alert-success">
 successfully saved
 </div>
-<div id="courseDescriptionNicPanel@courseDescription.id" style="width: 525px;"></div>
+<div class="nicPanels" id="courseDescriptionNicPanel@courseDescription.id" style="width: 525px;"></div>
 
 <div id="cdContent@courseDescription.id">
 @if(courseDescription.content!=null){
@@ -87,9 +92,8 @@ successfully saved
 <input type="text" name="title" placeholder="Name">
 </p>
 <p>
-<div style="width: 650px;">
-<textarea class="descriptionTextArea ckeditor" rows="30" cols="40" name="content" placeholder="Description"></textarea>
-</div>
+<div id="courseDescAddTextAreaNicPanel" style="width: 525px;"></div>
+<textarea style="width: 525px;" id="courseDescAddTextArea"  rows="10" name="content" placeholder="Description"></textarea>
 </p>
 <p>
 <button class="btn  btn-medium btn-primary" type="submit">Create</button>
@@ -101,7 +105,11 @@ successfully saved
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.alert-success').hide();
-	 
+	$('.nicPanels').hide();
+	
+	var courseDescAddTextAreaNicEditor = new nicEditor({fullPanel : true});
+	  courseDescAddTextAreaNicEditor.setPanel('courseDescAddTextAreaNicPanel');
+	  courseDescAddTextAreaNicEditor.addInstance('courseDescAddTextArea');
 	
 	var courseDescriptionTitleUrl=$('#courseDescriptionTitleUrl').val();
 	$('.courseDescriptionTitle').editable(function(value, settings) {

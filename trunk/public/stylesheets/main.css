@@ -144,13 +144,29 @@ outline: 1px solid #DDDDDD;
 }
 
 .contentBar{
+	margin:20px;
 	background-color: #F5F5F5;
 	border: 1px solid rgba(0, 0, 0, 0.126);
+	min-height: 300px;
 }
 
 .studentCourses{
 	width: 80%;
 	
+}
+
+.nicField{
+	
+}
+
+.nicTextContainer{
+	border: 1px solid #000;
+	width: 525px;
+}
+
+.announcements{
+	margin:20px;
+	min-height: 300px;
 }
 
 .studentCourseCell{

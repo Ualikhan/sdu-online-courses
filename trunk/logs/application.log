@@ -1,212 +1,117 @@
-2013-04-30 20:22:24,948 - [INFO] - from play in main 
+2013-05-02 20:14:27,742 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-04-30 20:23:57,208 - [INFO] - from play in New I/O  worker #1 
+2013-05-02 20:15:41,358 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 20:24:00,564 - [INFO] - from play in New I/O  worker #1 
+2013-05-02 20:15:56,079 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-04-30 20:29:24,503 - [INFO] - from play in New I/O  worker #4 
+2013-05-02 20:17:52,579 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 20:29:25,214 - [INFO] - from play in New I/O  worker #4 
+2013-05-02 20:17:53,708 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-04-30 20:31:19,889 - [INFO] - from play in New I/O  worker #2 
+2013-05-02 20:27:09,759 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 20:31:20,743 - [INFO] - from play in New I/O  worker #2 
+2013-05-02 20:27:15,890 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-04-30 20:43:29,359 - [INFO] - from play in New I/O  worker #3 
+2013-05-02 20:28:21,448 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 20:43:30,207 - [INFO] - from play in New I/O  worker #3 
+2013-05-02 20:28:22,408 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-04-30 20:47:01,668 - [INFO] - from play in New I/O  worker #4 
+2013-05-02 20:28:33,242 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 20:47:02,265 - [INFO] - from play in New I/O  worker #4 
+2013-05-02 20:28:33,893 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-04-30 20:48:01,845 - [INFO] - from play in New I/O  worker #3 
+2013-05-02 20:31:29,116 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 20:48:02,435 - [INFO] - from play in New I/O  worker #3 
+2013-05-02 20:31:29,895 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-04-30 20:56:16,625 - [INFO] - from play in New I/O  worker #1 
+2013-05-02 20:32:32,752 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 20:56:17,207 - [INFO] - from play in New I/O  worker #1 
+2013-05-02 20:32:34,179 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 
-2013-04-30 20:56:20,941 - [ERROR] - from application in play-internal-execution-context-2 
-
-
-! @6e662k3l3 - Internal server error, for (GET) [/course/lectures/3] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
-	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-java.lang.NullPointerException: null
-	at views.html.lecture.item$.apply(item.template.scala:86) ~[na:na]
-	at views.html.lecture.item$.render(item.template.scala:393) ~[na:na]
-	at views.html.lecture.item.render(item.template.scala) ~[na:na]
-	at controllers.Lectures.lecturePage(Lectures.java:73) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$36$$anonfun$apply$36.apply(routes_routing.scala:569) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$36$$anonfun$apply$36.apply(routes_routing.scala:569) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
-	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
-	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
-	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
-
-2013-04-30 20:58:43,534 - [INFO] - from play in New I/O  worker #1 
+2013-05-02 20:40:44,554 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 20:58:44,141 - [INFO] - from play in New I/O  worker #1 
+2013-05-02 20:40:47,926 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-04-30 20:58:46,486 - [ERROR] - from application in play-internal-execution-context-1 
-
-
-! @6e6632b54 - Internal server error, for (GET) [/course/lectures/3] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
-	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-java.lang.NullPointerException: null
-	at views.html.lecture.item$.apply(item.template.scala:264) ~[na:na]
-	at views.html.lecture.item$.render(item.template.scala:394) ~[na:na]
-	at views.html.lecture.item.render(item.template.scala) ~[na:na]
-	at controllers.Lectures.lecturePage(Lectures.java:73) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$36$$anonfun$apply$36.apply(routes_routing.scala:569) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$36$$anonfun$apply$36.apply(routes_routing.scala:569) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
-	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
-	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
-	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
-
-2013-04-30 21:03:15,189 - [INFO] - from play in New I/O  worker #2 
+2013-05-02 20:47:28,322 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 21:03:16,259 - [INFO] - from play in New I/O  worker #2 
+2013-05-02 20:47:32,288 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-04-30 21:08:44,807 - [ERROR] - from application in play-internal-execution-context-1 
-
-
-! @6e664ac7g - Internal server error, for (GET) [/course/lectures/1] ->
-
-play.api.Application$$anon$1: Execution exception[[NumberFormatException: null]]
-	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
-	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-java.lang.NumberFormatException: null
-	at java.lang.Long.parseLong(Unknown Source) ~[na:1.7.0_13]
-	at java.lang.Long.parseLong(Unknown Source) ~[na:1.7.0_13]
-	at controllers.Lectures.lecturePage(Lectures.java:70) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$36$$anonfun$apply$36.apply(routes_routing.scala:569) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$36$$anonfun$apply$36.apply(routes_routing.scala:569) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
-	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
-	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
-	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
-
-2013-04-30 21:14:02,686 - [INFO] - from play in New I/O  worker #2 
+2013-05-02 20:49:33,323 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 21:14:06,064 - [INFO] - from play in New I/O  worker #2 
+2013-05-02 20:49:37,825 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-04-30 21:19:23,777 - [INFO] - from play in New I/O  worker #3 
+2013-05-02 20:51:58,643 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 21:19:28,507 - [INFO] - from play in New I/O  worker #3 
+2013-05-02 20:51:59,727 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-04-30 21:26:18,815 - [INFO] - from play in New I/O  worker #1 
+2013-05-02 20:53:35,989 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 21:26:29,115 - [INFO] - from play in New I/O  worker #1 
+2013-05-02 20:53:36,676 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-04-30 21:34:45,327 - [INFO] - from play in New I/O  worker #4 
+2013-05-02 20:55:57,722 - [INFO] - from play in New I/O  worker #4 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-04-30 21:34:48,137 - [INFO] - from play in New I/O  worker #4 
+2013-05-02 20:55:58,369 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-02 21:00:38,351 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-02 21:00:39,058 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-02 21:03:01,314 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-02 21:03:02,596 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-02 21:07:23,253 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-02 21:07:27,780 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-02 21:09:17,678 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-02 21:09:18,467 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-02 21:10:51,556 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-02 21:10:52,480 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-02 21:18:20,659 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-02 21:18:26,805 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 

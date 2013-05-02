@@ -1,4 +1,4 @@
-@(user:User,course:Course,lectures: List[Lecture])
+@(user:User,course:Course,assignments: List[Assignment])
 
 @import helper._
 @main(user){
@@ -18,9 +18,9 @@ By @course.owner.name
   <li >
     <a href="@routes.Courses.coursePage(course.id)">Home</a>
   </li>
-  <li class="active"><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
-  <li><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
-  <li><a href="@routes.Application.index">Community</a></li>
+   <li class="active"><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
+   <li class="active"><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
+   <li><a href="@routes.Application.index">Community</a></li>
 </ul>
 </div>
 </div>
@@ -30,9 +30,9 @@ By @course.owner.name
   <div class="row-fluid">
     <div class="span3">
      <ul class="nav nav-list sidebar">
-  <li class="nav-header">Lectures</li>
-  @for(lecture<-lectures){
-  <li><a id="@lecture.id" href="@routes.Lectures.getLecture(lecture.id)">@lecture.title</a></li>
+  <li class="nav-header">Assignments</li>
+  @for(assignment<-assignments){
+  <li><a id="@assignment.id" href="@routes.Assignments.getAssignment(assignment.id)">@assignment.title</a></li>
   }
 </ul>
     </div>

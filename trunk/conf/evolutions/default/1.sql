@@ -12,6 +12,17 @@ create table announcement (
   constraint pk_announcement primary key (id))
 ;
 
+create table assignment (
+  id                        bigint auto_increment not null,
+  title                     varchar(255),
+  description               TEXT,
+  action_items              TEXT,
+  start_date                datetime,
+  deadline                  datetime,
+  course_id                 bigint,
+  constraint pk_assignment primary key (id))
+;
+
 create table course (
   id                        bigint auto_increment not null,
   name                      varchar(255),
@@ -96,18 +107,20 @@ create table user_course (
 ;
 alter table announcement add constraint fk_announcement_course_1 foreign key (course_id) references course (id) on delete restrict on update restrict;
 create index ix_announcement_course_1 on announcement (course_id);
-alter table course add constraint fk_course_owner_2 foreign key (owner_email) references user (email) on delete restrict on update restrict;
-create index ix_course_owner_2 on course (owner_email);
-alter table course_description add constraint fk_course_description_course_3 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_course_description_course_3 on course_description (course_id);
-alter table course_information add constraint fk_course_information_course_4 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_course_information_course_4 on course_information (course_id);
-alter table lecture add constraint fk_lecture_course_5 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_lecture_course_5 on lecture (course_id);
-alter table lecture_resource add constraint fk_lecture_resource_lecture_6 foreign key (lecture_id) references lecture (id) on delete restrict on update restrict;
-create index ix_lecture_resource_lecture_6 on lecture_resource (lecture_id);
-alter table user add constraint fk_user_role_7 foreign key (role_id) references role (id) on delete restrict on update restrict;
-create index ix_user_role_7 on user (role_id);
+alter table assignment add constraint fk_assignment_course_2 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_assignment_course_2 on assignment (course_id);
+alter table course add constraint fk_course_owner_3 foreign key (owner_email) references user (email) on delete restrict on update restrict;
+create index ix_course_owner_3 on course (owner_email);
+alter table course_description add constraint fk_course_description_course_4 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_course_description_course_4 on course_description (course_id);
+alter table course_information add constraint fk_course_information_course_5 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_course_information_course_5 on course_information (course_id);
+alter table lecture add constraint fk_lecture_course_6 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_lecture_course_6 on lecture (course_id);
+alter table lecture_resource add constraint fk_lecture_resource_lecture_7 foreign key (lecture_id) references lecture (id) on delete restrict on update restrict;
+create index ix_lecture_resource_lecture_7 on lecture_resource (lecture_id);
+alter table user add constraint fk_user_role_8 foreign key (role_id) references role (id) on delete restrict on update restrict;
+create index ix_user_role_8 on user (role_id);
 
 
 
@@ -124,6 +137,8 @@ alter table user_course add constraint fk_user_course_course_02 foreign key (cou
 SET FOREIGN_KEY_CHECKS=0;
 
 drop table announcement;
+
+drop table assignment;
 
 drop table course;
 

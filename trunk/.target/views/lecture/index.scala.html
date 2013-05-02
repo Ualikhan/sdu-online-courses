@@ -19,7 +19,7 @@ By @course.owner.name
     <a href="@routes.Courses.coursePage(course.id)">Home</a>
   </li>
   <li class="active"><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
-  <li><a href="@routes.Application.index">Assignments</a></li>
+  <li><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
   <li><a href="@routes.Application.index">Community</a></li>
 </ul>
 </div>
@@ -45,6 +45,7 @@ By @course.owner.name
     </div>
     <div class="span8">
       <div class="contentBar">
+      <div class="announcements">
 		<h2>Add  new lecture</h2>
 @form(routes.Lectures.newLecture()){
 <input type="text" name="title" placeholder="Name">
@@ -57,7 +58,8 @@ By @course.owner.name
     </div>
     <div id="collapseOne" class="accordion-body collapse in">
       <div class="accordion-inner">
-<textarea class="descriptionTextArea ckeditor" rows="30" cols="40" name="content" placeholder="Description"></textarea>
+      <div class="nicPanels" id="contentNicPanel" style="width: 525px;"></div>
+<textarea id="content" rows="10" class="nicTextContainer" name="content" placeholder="Description"></textarea>
 </div>
     </div>
   </div>
@@ -69,7 +71,8 @@ By @course.owner.name
     </div>
     <div id="collapseTwo" class="accordion-body collapse">
       <div class="accordion-inner">
-<textarea class="descriptionTextArea ckeditor" rows="30" cols="40" name="keyConcepts" placeholder="Key concepts"></textarea>
+      <div class="nicPanels" id="keyConceptsNicPanel" style="width: 525px;"></div>
+<textarea id="keyConcepts" rows="10" class="nicTextContainer" name="keyConcepts" placeholder="Key concepts"></textarea>
  </div>
     </div>
   </div>
@@ -81,7 +84,8 @@ By @course.owner.name
     </div>
     <div id="collapseThree" class="accordion-body collapse">
       <div class="accordion-inner">
-<textarea class="descriptionTextArea ckeditor" rows="30" cols="40" name="reading" placeholder="Reading"></textarea>
+      <div class="nicPanels" id="readingNicPanel" style="width: 525px;"></div>
+<textarea id="reading" rows="10" class="nicTextContainer" name="reading" placeholder="Reading"></textarea>
  </div>
     </div>
   </div>
@@ -93,7 +97,8 @@ By @course.owner.name
     </div>
     <div id="collapseFour" class="accordion-body collapse">
       <div class="accordion-inner">
-<textarea class="descriptionTextArea ckeditor" rows="30" cols="40" name="assignment" placeholder="Assignment"></textarea>
+      <div class="nicPanels" id="assignmentNicPanel" style="width: 525px;"></div>
+<textarea id="assignment" rows="10" class="nicTextContainer" name="assignment" placeholder="Assignment"></textarea>
  </div>
     </div>
   </div>
@@ -105,7 +110,8 @@ By @course.owner.name
     </div>
     <div id="collapseFive" class="accordion-body collapse">
       <div class="accordion-inner">
-<textarea class="descriptionTextArea ckeditor" rows="30" cols="40" name="additionalResources" placeholder="Additional Resources"></textarea>
+      <div class="nicPanels" id="additionalResourcesNicPanel" style="width: 525px;"></div>
+<textarea id="additionalResources" rows="10" class="nicTextContainer" name="additionalResources" placeholder="Additional Resources"></textarea>
  </div>
     </div>
   </div>
@@ -115,7 +121,7 @@ By @course.owner.name
 </p>
 }
 </div>
-
+</div>
     </div>
   </div>
 </div>
@@ -125,6 +131,27 @@ By @course.owner.name
 
 <script type="text/javascript">
 $(document).ready(function(){
+	
+	var contentTextAreaNicEditor = new nicEditor({fullPanel : true});
+	contentTextAreaNicEditor.setPanel('contentNicPanel');
+	contentTextAreaNicEditor.addInstance('content');
+	
+	var keyConceptsTextAreaNicEditor = new nicEditor({fullPanel : true});
+	keyConceptsTextAreaNicEditor.setPanel('keyConceptsNicPanel');
+	keyConceptsTextAreaNicEditor.addInstance('keyConcepts');
+	
+	var readingTextAreaNicEditor = new nicEditor({fullPanel : true});
+	readingTextAreaNicEditor.setPanel('readingNicPanel');
+	readingTextAreaNicEditor.addInstance('reading');
+	
+	var assignmentTextAreaNicEditor = new nicEditor({fullPanel : true});
+	assignmentTextAreaNicEditor.setPanel('assignmentNicPanel');
+	assignmentTextAreaNicEditor.addInstance('assignment');
+	
+	var additionalResourcesTextAreaNicEditor = new nicEditor({fullPanel : true});
+	additionalResourcesTextAreaNicEditor.setPanel('additionalResourcesNicPanel');
+	additionalResourcesTextAreaNicEditor.addInstance('additionalResources');
+	
 	$('.lectures').click(function(e) {
 		var lectureid=$(this).attr('id');
 		 var toRemove = 'lecture';
