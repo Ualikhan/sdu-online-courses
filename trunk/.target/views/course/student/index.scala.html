@@ -19,8 +19,8 @@ By @course.owner.name
     <a href="@routes.Courses.coursePage(course.id)">Home</a>
   </li>
   <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
-  <li><a href="@routes.Application.index">Assignments</a></li>
-  <li><a href="@routes.Application.index">Community</a></li>
+  <li><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
+   <li><a href="@routes.Application.index">Community</a></li>
 </ul>
 </div>
 </div>
@@ -63,10 +63,12 @@ By @course.owner.name
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.courseInformations').click(function(e) {
+		$('.courseInformations').closest('li').removeClass('active');
 		var lectureId=$(this).attr('id');
 		myJsRoutes.controllers.CourseInformations.getCourseInformation(lectureId).ajax({
 		    success : function(data) {
 			$('.contentBar').html(data);
+			$('#'+lectureId).closest('li').addClass('active');
 		    }
 		});
 		return false;

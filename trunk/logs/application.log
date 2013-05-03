@@ -1,9 +1,113 @@
-2013-05-03 17:15:12,389 - [INFO] - from play in main 
+2013-05-03 20:14:51,272 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-05-03 17:15:23,800 - [INFO] - from play in New I/O  worker #1 
+2013-05-03 20:15:55,162 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-03 17:15:24,961 - [INFO] - from play in New I/O  worker #1 
+2013-05-03 20:16:04,758 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-03 20:21:51,134 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-03 20:21:52,326 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-03 20:23:17,533 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-03 20:23:18,181 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-03 20:24:01,392 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-03 20:24:01,988 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-03 20:24:51,633 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-03 20:24:52,258 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-03 20:28:15,148 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-03 20:28:16,444 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-03 20:28:54,048 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-03 20:28:54,786 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-03 20:31:11,372 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-03 20:31:12,029 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-03 20:31:32,067 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-03 20:31:32,687 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-03 20:33:29,244 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-03 20:33:29,994 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-03 22:48:23,031 - [ERROR] - from application in New I/O  worker #1 
+
+
+! @6e72ch67p - Internal server error, for (GET) [/course/lectures/1] ->
+
+sbt.PlayExceptions$TemplateCompilationException: Compilation error[`)' expected but end of source found]
+	at sbt.PlayCommands$$anonfun$43.apply(PlayCommands.scala:433) ~[na:na]
+	at sbt.PlayCommands$$anonfun$43.apply(PlayCommands.scala:409) ~[na:na]
+	at sbt.Scoped$$anonfun$hf5$1.apply(Structure.scala:581) ~[na:na]
+	at sbt.Scoped$$anonfun$hf5$1.apply(Structure.scala:581) ~[na:na]
+	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:49) ~[scala-library.jar:na]
+	at sbt.Scoped$Reduced$$anonfun$combine$1$$anonfun$apply$12.apply(Structure.scala:311) ~[na:na]
+	at sbt.Scoped$Reduced$$anonfun$combine$1$$anonfun$apply$12.apply(Structure.scala:311) ~[na:na]
+	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:41) ~[na:na]
+	at sbt.std.Transform$$anon$5.work(System.scala:71) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:232) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:232) ~[na:na]
+	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
+	at sbt.Execute.work(Execute.scala:238) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:232) ~[na:na]
+	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:232) ~[na:na]
+	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
+	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source) ~[na:1.7.0_13]
+	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.7.0_13]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) ~[na:1.7.0_13]
+	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source) ~[na:1.7.0_13]
+	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.7.0_13]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
+	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
+
+2013-05-03 22:50:09,482 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-03 22:50:11,908 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-03 22:52:26,670 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-03 22:52:28,690 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-03 23:00:02,124 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-03 23:00:08,856 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 

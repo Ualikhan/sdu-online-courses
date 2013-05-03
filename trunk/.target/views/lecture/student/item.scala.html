@@ -31,8 +31,12 @@ By @course.owner.name
     <div class="span3">
      <ul class="nav nav-list sidebar">
   <li class="nav-header">Lectures</li>
-  @for(lecture<-lectures){
-  <li><a id="@lecture.id" href="@routes.Lectures.getLecture(lecture.id)">@lecture.title</a></li>
+  @for(lec<-lectures){
+   @if(lec.id==lecture.id){
+  <li class="active"><a id="@lec.id" href="@routes.Lectures.getLecture(lec.id)">@lec.title</a></li>
+  }else{
+  <li><a id="@lec.id" href="@routes.Lectures.getLecture(lec.id)">@lec.title</a></li>
+  }
   }
 </ul>
     </div>
@@ -42,13 +46,12 @@ By @course.owner.name
 <input type="hidden" id="flowPlayer" value="@routes.Assets.at("javascripts/flowplayer-5.4.0/flowplayer.swf")">
 
 <h3>@lecture.title</h3>
+@if(lecture.content!=null && lecture.content.length()>0 && org.jsoup.Jsoup.parse(lecture.content).text().length()>0){
 <fieldset>
 <legend>Description</legend>
-@if(lecture.content!=null){
 @Html(lecture.content)
-}
 </fieldset>
-
+}
 
 
 @resources.groupBy(_.resourceType).map{
@@ -117,7 +120,7 @@ src="@resource.file_url">
 }
 }
 
-@if(lecture.keyConcepts!=null){
+@if(lecture.keyConcepts!=null && lecture.keyConcepts.length()>0 && org.jsoup.Jsoup.parse(lecture.keyConcepts).text().length()>0){
 <br/>
 <fieldset>
 <legend>Key concepts</legend>
@@ -125,7 +128,7 @@ src="@resource.file_url">
 </fieldset>
 }
 
-@if(lecture.reading!=null){
+@if(lecture.reading!=null && lecture.reading.length()>0 && org.jsoup.Jsoup.parse(lecture.reading).text().length()>0){
 <br/>
 <fieldset>
 <legend>Reading</legend>
@@ -133,7 +136,7 @@ src="@resource.file_url">
 </fieldset>
 }
 
-@if(lecture.assignment!=null){
+@if(lecture.assignment!=null && lecture.assignment.length()>0 && org.jsoup.Jsoup.parse(lecture.assignment).text().length()>0){
 <br/>
 <fieldset>
 <legend>Assignment</legend>
@@ -141,7 +144,7 @@ src="@resource.file_url">
 </fieldset>
 }
 
-@if(lecture.additionalResources!=null){
+@if(lecture.additionalResources!=null && lecture.additionalResources.length()>0 && org.jsoup.Jsoup.parse(lecture.additionalResources).text().length()>0){
 <br/>
 <fieldset>
 <legend>Additional Resources</legend>

@@ -17,8 +17,10 @@
 .mask{
 	border:5px solid #ddd;
 	width:100%;
-	overflow:hidden
+	overflow:hidden;
+	
 	}
+	
  .videos{
  width:100%;
  background-color:#333;
