@@ -93,11 +93,23 @@ public static Result assignmentPage(Long id) {
 		}
 	}
 	else if(Secured.isStudentOf(id)){
+		Assignment lastAssignment=Assignment.findLastAssignmentByCourse(courseId);
+		if(lastAssignment!=null){
+		return ok(views.html.assignment.student.item.render(
+				User.find.where().eq("email", request().username()).findUnique(),
+				Course.find.byId(courseId),
+				Assignment.findAssignmentsByCourse(courseId),
+				lastAssignment
+				)
+				);
+		}
+	else{
 		return ok(views.html.assignment.student.index.render(
 				User.find.where().eq("email", request().username()).findUnique(),
 				Course.find.byId(id),
 				Assignment.findAssignmentsByCourse(id)
 				));
+	}
 	}
 	else{
 		return forbidden();

@@ -31,14 +31,20 @@ By @course.owner.name
     <div class="span3">
      <ul class="nav nav-list sidebar">
   <li class="nav-header">Assignments</li>
-  @for(assignment<-assignments){
-  <li>
-  <a id="assignment@assignment.id" href="@routes.Assignments.getAssignment(assignment.id)">@assignment.title</a>
+  @for(ass<-assignments){
+   @if(ass.id==assignment.id){
+   <li class="active">
+  <a id="assignment@ass.id" href="@routes.Assignments.getAssignment(ass.id)">@ass.title</a>
   </li>
+   }else{
+  <li>
+  <a id="assignment@ass.id" href="@routes.Assignments.getAssignment(ass.id)">@ass.title</a>
+  </li>
+  }
   }
   <li>
   @form(routes.Assignments.index()){
-  <button type="submit" style="width: 40%;"><i class="icon-plus"></i></button>
+  <button type="submit" class="new"><i class="icon-plus"></i></button>
   }
   </li>
 </ul>
@@ -46,20 +52,31 @@ By @course.owner.name
     <div class="span8">
       <div class="contentBar">
 @if(assignment!=null){
-<h2>Edit assignment</h2>
+<div class="actionDelete" style="display:block;float:left;width:100%">
+<h3 style="display:block;float:left;">Edit assignment</h3>
+<a style="display:block;float:right;" href="#" class="assignmentDelete"><i class="icon-remove"></i></a>
+</div>
 
-<div id="bigFieldSet">
+@form(action=routes.Assignments.deleteAssignment(assignment.id),'id -> "removeForm"){
+  <button type="submit" id="assignmentRemoveLink">Delete</button>
+  }
+
+
 <fieldset>
 <legend>Title</legend>
 <div id="assignmentTitle" class="alert alert-success">
 successfully saved
 </div>
 
-<div class="title">
+<div id="dialog-form" title="">
+  <form>
+ <h4>Are you sure to remove this assignment?</h4>
+ <input type="hidden" name="id" value="@assignment.id"/>
+  </form>
+</div>
+
+<div class="title" style="width:80%;">
 <span class="res assignmentTitleEdit" id="assignmentTitle@assignment.id">@assignment.title</span>
-  <span class="action">
-<a href="@routes.Assignments.deleteAssignment(assignment.id)" type="submit"><i class="icon-remove"></i></a>
-</span>
 </div>
 <br/>
 </fieldset>
@@ -146,7 +163,9 @@ StartDate-
 <form id="startDateUpdateForm">
 <input type="hidden" name="id" value="@assignment.id">
 <input id="startDate" type="text" class="datepicker" name="startDate" value="@assignment.startDate.format("dd/MM/yyyy")">
-<button id="startDateButton" type="button" class="btn btn-primary">Change</button>
+<button style="margin-top:-10px;" id="startDateButton" type="button" class="btn btn-primary">Change</button>
+<img id="startDateUpdateSuccess" src="@routes.Assets.at("images/success.jpg")" />
+
 </form>
 </p>
 <p>
@@ -154,31 +173,80 @@ Deadline-
 <form id="deadlineUpdateForm">
 <input type="hidden" name="id" value="@assignment.id">
 <input type="text" id="deadline" class="datepicker" name="deadline" value="@assignment.deadline.format("dd/MM/yyyy")">
-<button id="deadlineButton" type="button" class="btn btn-primary">Change</button>
+<button style="margin-top:-10px;" id="deadlineButton" type="button" class="btn btn-primary">Change</button>
+<img id="deadlineUpdateSuccess" src="@routes.Assets.at("images/success.jpg")" />
 </form>
-</p>
-</div>
+
 <script type="text/javascript">
 $(document).ready(function(){
+	$('#deadlineUpdateSuccess').hide();
+	$('#startDateUpdateSuccess').hide();
+	$('#removeForm').hide();
 	
-	 $( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
+	$( "#dialog-form" ).dialog({
+	      autoOpen: false,
+	      height: 200,
+	      width: 200,
+	      modal: true,
+	      buttons: {
+	        "YES": function() {
+	        	$('#assignmentRemoveLink').click();
+	         
+	        },
+	        Cancel: function() {
+	          $( this ).dialog( "close" );
+	        }
+	      },
+	      close: function() {
+	       
+	      }
+	    });
+	
+	$( ".assignmentDelete" )
+    .button()
+    .click(function() {
+      $( "#dialog-form" ).dialog( "open" );
+    });
+	
+	 $( "#startDate" ).datepicker({ 
+		 dateFormat: 'dd/mm/yy',
+		 changeMonth: true,
+	      changeYear: true,
+		 onClose: function( selectedDate ) {
+			        $( "#deadline" ).datepicker( "option", "minDate", selectedDate );
+			        $('#startDateUpdateSuccess').hide();
+			      }
+	 });
+	 
+	 $( "#deadline" ).datepicker({
+		 dateFormat: 'dd/mm/yy',
+	      changeMonth: true,
+	      changeYear: true,
+	      onClose: function( selectedDate ) {
+	        $( "#startDate" ).datepicker( "option", "maxDate", selectedDate );
+	        $('#deadlineUpdateSuccess').hide();
+	      }
+	    });
 	
 	$('#startDateButton').click(function(){
+		$('#startDateUpdateSuccess').hide();
 		myJsRoutes.controllers.Assignments.updateStartDate().ajax({
 			data: $('#startDateUpdateForm').serialize(),
 		    success : function(data) {
 			$('#startDate').val(data);
-			
+			$('#startDateUpdateSuccess').show();
 		    }
 		});
 	});
 	
 	$('#deadlineButton').click(function(){
+		$('#deadlineUpdateSuccess').hide();
+		
 		myJsRoutes.controllers.Assignments.updateDeadline().ajax({
 			data: $('#deadlineUpdateForm').serialize(),
 		    success : function(data) {
 			$('#deadline').val(data);
-			
+			$('#deadlineUpdateSuccess').show();
 		    }
 		});
 	});
@@ -203,7 +271,7 @@ $(document).ready(function(){
 						});
 						return(result);
 					}
-		   );
+		   );	
 		   		   
 });
 
@@ -212,13 +280,9 @@ $(document).ready(function(){
 }
 <p>
 		
-</div>
+		</div>
     </div>
   </div>
 </div>
 
-
 }
-
-
-	

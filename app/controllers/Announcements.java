@@ -15,7 +15,6 @@ public class Announcements extends Controller{
 	public static Form<Announcement> announcementForm=form(Announcement.class);
 	static Long courseId;
 	
-	
 	public static Result index() {
 		courseId=Long.parseLong(session("course"));
 		if(Secured.isTutorOf(courseId)){

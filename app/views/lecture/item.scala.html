@@ -31,14 +31,20 @@ By @course.owner.name
     <div class="span3">
      <ul class="nav nav-list sidebar">
   <li class="nav-header">Lectures</li>
-  @for(lecture<-lectures){
-  <li>
-  <a id="lecture@lecture.id" href="@routes.Lectures.getLecture(lecture.id)">@lecture.title</a>
+  @for(lec<-lectures){
+   @if(lec.id==lecture.id){
+    <li class="active">
+  <a id="lecture@lec.id" href="@routes.Lectures.getLecture(lec.id)">@lec.title</a>
   </li>
+   }else{
+  <li>
+  <a id="lecture@lec.id" href="@routes.Lectures.getLecture(lec.id)">@lec.title</a>
+  </li>
+  }
   }
   <li>
   @form(routes.Lectures.index()){
-  <button type="submit" style="width: 40%;"><i class="icon-plus"></i></button>
+  <button type="submit" class="new"><i class="icon-plus"></i></button>
   }
   </li>
 </ul>
@@ -46,9 +52,15 @@ By @course.owner.name
     <div class="span8">
       <div class="contentBar">
 @if(lecture!=null){
-<h2>Edit lecture</h2>
 
-<div id="bigFieldSet">
+<div class="actionDelete" style="display:block;float:left;width:100%">
+<h3 style="display:block;float:left;">Edit lecture</h3>
+<a style="display:block;float:right;" href="#" class="lectureDelete"><i class="icon-remove"></i></a>
+</div>
+@form(action=routes.Lectures.deleteLecture(lecture.id),'id -> "removeForm"){
+  <button type="submit" id="lectureRemoveLink">Delete</button>
+  }
+
 <fieldset>
 <legend>Title</legend>
 <div id="lectureTitle" class="alert alert-success">
@@ -64,12 +76,8 @@ successfully saved
   </form>
 </div>
 
-<div class="title">
+<div class="title" style="width:80%;">
 <span class="res lectureTitleEdit" id="lectureTitle@lecture.id">@lecture.title</span>
-  <span class="action">
-  <a id="lectureRemoveLink" href="@routes.Lectures.deleteLecture(lecture.id)">Delete</a>
-<a class="lectureDelete"><i class="icon-remove"></i></a>
-</span>
 </div>
 <br/>
 </fieldset>
@@ -334,9 +342,11 @@ successfully saved
 }
 </div>
 </fieldset>
-</div>
 <script type="text/javascript">
 $(document).ready(function(){
+	
+	$('#removeForm').hide();
+	
 	$( "#dialog-form" ).dialog({
 	      autoOpen: false,
 	      height: 200,

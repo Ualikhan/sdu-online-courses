@@ -37,7 +37,7 @@ By @course.owner.name
   }
   <li>
   @form(routes.CourseInformations.addCourseInformation()){
-  <button type="submit" style="width: 40%;"><i class="icon-plus"></i></button>
+  <button type="submit"  class="new"><i class="icon-plus"></i></button>
   }
   </li>
 </ul>
@@ -148,6 +148,7 @@ $(document).ready(function(){
 			});
 	
 	$('.courseInformations').click(function(e) {
+		$('.courseInformations').closest('li').removeClass('active');
 		var courseInformationid=$(this).attr('id');
 		 var toRemove = 'courseInformation';
 		 var id = courseInformationid.replace(toRemove,'');
@@ -155,6 +156,7 @@ $(document).ready(function(){
 		myJsRoutes.controllers.CourseInformations.getCourseInformation(id).ajax({
 		    success : function(data) {
 			$('.contentBar').html(data);
+			$('#'+courseInformationid).closest('li').addClass('active');
 		    }
 		});
 		return false;
