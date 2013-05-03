@@ -15,7 +15,8 @@ object ApplicationBuild extends Build {
     javaEbean,
     "mysql" % "mysql-connector-java" % "5.1.10",
     "commons-io" % "commons-io" % "2.3",
-    "org.imgscalr" % "imgscalr-lib" % "4.2"
+    "org.imgscalr" % "imgscalr-lib" % "4.2",
+    "org.jsoup" % "jsoup" % "0.2.2"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(

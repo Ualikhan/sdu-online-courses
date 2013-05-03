@@ -18,7 +18,7 @@ By @course.owner.name
   <li >
     <a href="@routes.Courses.coursePage(course.id)">Home</a>
   </li>
-  <li class="active"><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
+  <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
   <li class="active"><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
   <li><a href="@routes.Application.index">Community</a></li>
 </ul>
@@ -31,8 +31,13 @@ By @course.owner.name
     <div class="span3">
      <ul class="nav nav-list sidebar">
   <li class="nav-header">Assignments</li>
-  @for(assignment<-assignments){
-  <li><a id="@assignment.id" href="@routes.Assignments.getAssignment(assignment.id)">@assignment.title</a></li>
+  @for(ass<-assignments){
+  @if(ass.id==assignment.id){
+  <li class="active"><a id="@ass.id" href="@routes.Assignments.getAssignment(ass.id)">@ass.title</a></li>
+  }else{
+  <li><a id="@ass.id" href="@routes.Assignments.getAssignment(ass.id)">@ass.title</a></li>
+  
+  }
   }
 </ul>
     </div>

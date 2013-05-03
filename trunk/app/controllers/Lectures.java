@@ -88,11 +88,24 @@ public static Result lecturePage(Long id) {
 		}
 	}
 	else if(Secured.isStudentOf(id)){
+		Lecture lastLecture=Lecture.findLastLectureByCourse(courseId);
+		if(lastLecture!=null){
+		return ok(views.html.lecture.student.item.render(
+				User.find.where().eq("email", request().username()).findUnique(),
+				Course.find.byId(courseId),
+				Lecture.findLecturesByCourse(courseId),
+				lastLecture,
+				LectureResource.findByLecture(lastLecture.id)
+				)
+				);
+		}
+		else{
 		return ok(views.html.lecture.student.index.render(
 				User.find.where().eq("email", request().username()).findUnique(),
 				Course.find.byId(id),
 				Lecture.findLecturesByCourse(id)
 				));
+		}
 	}
 	else{
 		return forbidden();
