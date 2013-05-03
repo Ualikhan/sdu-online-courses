@@ -60,7 +60,7 @@ By @course.owner.name
 @form(action=routes.Lectures.deleteLecture(lecture.id),'id -> "removeForm"){
   <button type="submit" id="lectureRemoveLink">Delete</button>
   }
-
+<div style="width:100%;margin-top: 60px;">
 <fieldset>
 <legend>Title</legend>
 <div id="lectureTitle" class="alert alert-success">
@@ -342,8 +342,22 @@ successfully saved
 }
 </div>
 </fieldset>
+<input type="file" name="file_upload" id="file_upload" />
+</div>
+<input type="hidden" id="uploadifySwf" value="@routes.Assets.at("javascripts/uploadify/uploadify.swf")">
+<input type="hidden" id="uploadifyPhp" value="@routes.Assets.at("javascripts/uploadify/uploadify.php")">
+
 <script type="text/javascript">
 $(document).ready(function(){
+	
+	var swf=$('#uploadifySwf').val();
+	var php=$('#uploadifyPhp').val();
+	
+	 $('#file_upload').uploadify({
+	        'swf'      : swf,
+	        'uploader' : php
+	        // Put your options here
+	    });
 	
 	$('#removeForm').hide();
 	

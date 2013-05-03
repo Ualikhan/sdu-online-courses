@@ -38,7 +38,7 @@ By @course.owner.name
   }
   <li>
   @form(routes.Assignments.index()){
-  <button type="submit" style="width: 40%;"><i class="icon-plus"></i></button>
+  <button type="submit" class="new"><i class="icon-plus"></i></button>
   }
   </li>
 </ul>
@@ -49,21 +49,26 @@ By @course.owner.name
 <h2>Add a new assignment</h2>
 @form(routes.Assignments.newAssignment()){
 <p>
+<label for="title">Name</label>
 <input type="text" name="title" placeholder="Name">
 </p>
 <p>
+<label for="title">Description</label>
 <div id="assignmentDescriptionNicPanel" style="width: 525px;"></div>
 <textarea id="assignmentDescription" style="width: 525px;" rows="10"  name="description" placeholder="Description"></textarea>
 </p>
 <p>
+<label for="title">Action items</label>
 <div id="assignmentActionItemsNicPanel" style="width: 525px;"></div>
 <textarea id="assignmentActionItems" style="width: 525px;" rows="10"  name="actionItems" placeholder="Action Items"></textarea>
 </p>
 <p>
-<input type="text" name="startDate" class="datepicker" />
+<label for="title">Start date</label>
+<input type="text" id="startDate" name="startDate" class="datepicker" />
 </p>
 <p>
-<input type="text" name="deadline" class="datepicker"  />
+<label for="title">Deadline</label>
+<input type="text" id="deadline" name="deadline" class="datepicker"  />
 </p>
 <p>
 <button class="btn btn-primary" type="submit">Create</button>
@@ -81,8 +86,23 @@ By @course.owner.name
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	$( ".datepicker" ).datepicker({ dateFormat: 'dd/mm/yy' });
-	
+	$( "#startDate" ).datepicker({ 
+		 dateFormat: 'dd/mm/yy',
+		 changeMonth: true,
+	      changeYear: true,
+		 onClose: function( selectedDate ) {
+			        $( "#deadline" ).datepicker( "option", "minDate", selectedDate );
+			      }
+	 });
+	 
+	 $( "#deadline" ).datepicker({
+		 dateFormat: 'dd/mm/yy',
+	      changeMonth: true,
+	      changeYear: true,
+	      onClose: function( selectedDate ) {
+	        $( "#startDate" ).datepicker( "option", "maxDate", selectedDate );
+	      }
+	    });
 	
 	var contentTextAreaNicEditor = new nicEditor({fullPanel : true});
 	contentTextAreaNicEditor.setPanel('assignmentDescriptionNicPanel');

@@ -52,16 +52,16 @@ By @course.owner.name
     <div class="span8">
       <div class="contentBar">
 @if(assignment!=null){
-<div class="actionDelete" style="display:block;float:left;width:100%">
-<h3 style="display:block;float:left;">Edit assignment</h3>
-<a style="display:block;float:right;" href="#" class="assignmentDelete"><i class="icon-remove"></i></a>
+<div class="actionDelete" style="width:100%">
+<h3 style="float:left;">Edit assignment</h3>
+<a style="float:right;" href="#" class="assignmentDelete"><i class="icon-remove"></i></a>
 </div>
 
 @form(action=routes.Assignments.deleteAssignment(assignment.id),'id -> "removeForm"){
   <button type="submit" id="assignmentRemoveLink">Delete</button>
   }
 
-
+<div style="width:100%;margin-top: 60px;">
 <fieldset>
 <legend>Title</legend>
 <div id="assignmentTitle" class="alert alert-success">
@@ -176,6 +176,7 @@ Deadline-
 <button style="margin-top:-10px;" id="deadlineButton" type="button" class="btn btn-primary">Change</button>
 <img id="deadlineUpdateSuccess" src="@routes.Assets.at("images/success.jpg")" />
 </form>
+</div>
 
 <script type="text/javascript">
 $(document).ready(function(){
