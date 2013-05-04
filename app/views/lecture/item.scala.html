@@ -97,6 +97,7 @@ successfully saved
 </fieldset>
 <fieldset >
  <legend>Videos</legend>
+
 <div class='mask' style="width:100%;">
 <div class='videos'>
 @for(resource <- videoResources){ 
@@ -105,7 +106,8 @@ successfully saved
 
 <div class="videoItem">
 <span class="res">
-<p class="title resourceTitleEdit" id="resourceTitle@resource.id">@resource.title</p>
+<p class="title resourceTitleEdit" id="resourceTitle@resource.id">@resource.title</p><img class="alert-success" id="resourceTitleSuccess@resource.id" src="@routes.Assets.at("images/success.jpg")" />
+
 </span>
 <span class="action" style="margin-top: 20px;">
 <a href="@routes.Lectures.removeResource(resource.id,lecture.id)" type="submit"><i class="icon-remove"></i></a>
@@ -118,31 +120,31 @@ src="@resource.file_url">
 <div class="player videoFrameSize" data-engine="flash" >
    <video preload="none">
         <source type="video/mp4" src="@routes.Assets.at("uploadVideos/"+{resource.file_url})"/>
-      
          </video>
 </div>
 }
-
 </div>
 }
 }
 </div>
 </div>
-
 </fieldset>
 
-<form  method="post" action="@routes.Lectures.addVideo(lecture.id)" enctype="multipart/form-data">
+<form  method="post" id="addVideoForm" action="@routes.Lectures.addVideo(lecture.id)" enctype="multipart/form-data">
 <fieldset>
     <legend>Add video to lecture</legend>
 <input  type="text"  name="title" placeholder="Title">
 <input  type="text"  name="videoUrl" placeholder="Video url"> or 
 <input  type="file"  name="videoFile" placeholder="Video path">
 <button class="btn btn-primary" type="submit" data-loading-text="Loading...">Add</button>
+<img id="addVideoSuccess" src="@routes.Assets.at("images/success.jpg")" />
+
 </fieldset>
 </form>
-
-
-
+<div class="progress">
+    <div id="bar" class="bar"></div >
+    <div class="percent">0%</div >
+</div>
 <fieldset>
  <legend>Slides</legend>
 <div class='mask' >
@@ -152,14 +154,16 @@ src="@resource.file_url">
 <div class="slideItem">
 <span class="res">
 @if(resource.file_url.contains("http")){
-<a class="title resourceTitleEdit" id="resourceTitle@resource.id" href ="@resource.file_url">
+<a class="title resourceTitleEdit"  id="resourceTitle@resource.id" href ="@resource.file_url">
 @resource.title
  </a>
+ 
 }else{
 <a class="title resourceTitleEdit" id="resourceTitle@resource.id" href ="@routes.Assets.at("uploadSlides/"+{resource.file_url})">
 @resource.title
  </a>
 } 
+<img class="alert-success" id="resourceTitleSuccess@resource.id" src="@routes.Assets.at("images/success.jpg")" />
 </span>
 <span class="action">
 <a href="@routes.Lectures.removeResource(resource.id,lecture.id)" type="submit"><i class="icon-remove"></i></a>
@@ -169,19 +173,24 @@ src="@resource.file_url">
 }
 </div>
 </div>
-
-
 </fieldset>
 
-<form  method="post" action="@routes.Lectures.addSlide(lecture.id)" enctype="multipart/form-data">
+<form  method="post" id="addSlideForm" action="@routes.Lectures.addSlide(lecture.id)" enctype="multipart/form-data">
 <fieldset>
     <legend>Add slides to lecture</legend>
 <input  type="text"  name="title" placeholder="Title">
 <input  type="text"  name="slideUrl" placeholder="Slide url"> or 
 <input type="file" name="slideFile" placeholder="Slide path">
 <button class="btn btn-primary" type="submit" data-loading-text="Loading...">Add</button>
+<img id="addSlideSuccess" src="@routes.Assets.at("images/success.jpg")" />
+
 </fieldset>
 </form>
+<div class="progress">
+    <div id="bar2" class="bar"></div >
+    <div class="percent2">0%</div >
+</div>
+
 <br/>
 
 <script type="text/javascript">
@@ -189,8 +198,6 @@ bkLib.onDomLoaded(function() {
 		   $('.alert-success').hide();
 		   
 		   var lectureId=''+@lecture.id;
-			
-		   
 	    	 var lecturecontentNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
 	    		 $('#lecturecontentAlert').hide();
 	       	  myJsRoutes.controllers.Lectures.updateContent().ajax({
@@ -342,22 +349,55 @@ successfully saved
 }
 </div>
 </fieldset>
-<input type="file" name="file_upload" id="file_upload" />
 </div>
-<input type="hidden" id="uploadifySwf" value="@routes.Assets.at("javascripts/uploadify/uploadify.swf")">
-<input type="hidden" id="uploadifyPhp" value="@routes.Assets.at("javascripts/uploadify/uploadify.php")">
+
 
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	var swf=$('#uploadifySwf').val();
-	var php=$('#uploadifyPhp').val();
+	var bar = $('#bar');
+	var percent = $('.percent');
+	$('#addVideoSuccess').hide();
+
+	$('#addVideoForm').ajaxForm({
+	    beforeSend: function() {
+	    	$('#addVideoSuccess').hide();
+	        var percentVal = '0%';
+	        bar.width(percentVal);
+	        percent.html(percentVal);
+	    },
+	    uploadProgress: function(event, position, total, percentComplete) {
+	        var percentVal = percentComplete + '%';
+	        bar.width(percentVal);
+	        percent.html(percentVal);
+	    },
+	    success : function(data) {
+			$('#addVideoSuccess').show();
+		    }
+	}); 
 	
-	 $('#file_upload').uploadify({
-	        'swf'      : swf,
-	        'uploader' : php
-	        // Put your options here
-	    });
+	
+	var bar2 = $('#bar2');
+	var percent2 = $('.percent2');
+	$('#addSlideSuccess').hide();
+	$('#addSlideForm').ajaxForm({
+		
+	    beforeSend: function() {
+	    	$('#addSlideSuccess').hide();
+	        var percentVal2 = '0%';
+	        bar2.width(percentVal2);
+	        percent2.html(percentVal2);
+	    },
+	    uploadProgress: function(event, position, total, percentComplete) {
+	        var percentVal2 = percentComplete + '%';
+	        bar2.width(percentVal2);
+	        percent2.html(percentVal2);
+	    },
+	    success : function(data) {
+			$('#addSlideSuccess').show();
+		    }
+	}); 
+	
 	
 	$('#removeForm').hide();
 	
@@ -418,8 +458,7 @@ $(document).ready(function(){
 		   
 		   $('.resourceTitleEdit').editable(
 				   function(value, settings) {
-						 $('.alert-success').hide();
-
+					  
 							var resourceTitleid=$(this).attr('id');
 							 var toRemove = 'resourceTitle';
 							 var id = resourceTitleid.replace(toRemove,'');
@@ -428,8 +467,8 @@ $(document).ready(function(){
 							data: {id:id,value:value},
 						    success : function(data) {
 							result=data;
-							$('.alert-success').show();
-						    }
+							
+							}
 						});
 						return(result);
 					}
@@ -441,14 +480,9 @@ $(document).ready(function(){
 </script>
 }
 <p>
-		
 </div>
-    </div>
+ </div>
   </div>
 </div>
 
-
 }
-
-
-	
