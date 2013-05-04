@@ -121,6 +121,8 @@ public class Application extends Controller {
             		controllers.routes.javascript.Lectures.updateReading(),
             		controllers.routes.javascript.Lectures.updateAssignment(),
             		controllers.routes.javascript.Lectures.updateAdditionalResources(),
+            		controllers.routes.javascript.Lectures.addVideo(),
+            		controllers.routes.javascript.Lectures.addSlide(),
             		
             		controllers.routes.javascript.Lectures.updateResourceTitle(),
             		

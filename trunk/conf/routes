@@ -49,7 +49,7 @@ POST    /course/lecture/updateKeyConcepts          controllers.Lectures.updateKe
 POST    /course/lecture/updateReading          controllers.Lectures.updateReading()
 POST    /course/lecture/updateAssignment          controllers.Lectures.updateAssignment()
 POST    /course/lecture/updateAdditionalResources     controllers.Lectures.updateAdditionalResources()
-
+POST   /course/lecture/upload                         controllers.Lectures.upload()
 POST    /course/lecture/updateResourceTitle          controllers.Lectures.updateResourceTitle()
 
 GET    /course/lecture/:lid/removeResource    controllers.Lectures.removeResource(rid: Long,lid: Long)
