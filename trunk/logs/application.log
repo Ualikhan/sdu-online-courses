@@ -1,162 +1,33 @@
-2013-05-04 14:52:30,641 - [INFO] - from play in main 
+2013-05-06 00:14:39,186 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-05-04 14:52:40,822 - [INFO] - from play in New I/O  worker #1 
+2013-05-06 00:15:55,922 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-04 14:52:42,113 - [INFO] - from play in New I/O  worker #1 
+2013-05-06 00:16:07,117 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-05-04 14:54:22,244 - [INFO] - from play in New I/O  worker #7 
+2013-05-06 00:26:28,575 - [INFO] - from play in New I/O  worker #4 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-04 14:54:22,474 - [INFO] - from play in New I/O  worker #7 
+2013-05-06 00:26:29,356 - [INFO] - from play in New I/O  worker #4 
 Application started (Dev)
 
-2013-05-04 15:02:16,370 - [INFO] - from play in New I/O  worker #5 
+2013-05-06 00:33:56,214 - [INFO] - from play in New I/O  worker #4 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-04 15:02:16,629 - [INFO] - from play in New I/O  worker #5 
+2013-05-06 00:34:01,523 - [INFO] - from play in New I/O  worker #4 
 Application started (Dev)
 
-2013-05-04 15:02:27,673 - [DEBUG] - from application in play-akka.actor.default-dispatcher-24 
-Uploaded file name Koala.jpg by user 
-
-2013-05-04 15:02:44,947 - [DEBUG] - from application in play-akka.actor.default-dispatcher-29 
-Uploaded file name Hydrangeas.jpg by user 
-
-2013-05-04 15:02:50,504 - [DEBUG] - from application in play-akka.actor.default-dispatcher-23 
-Uploaded file name Hydrangeas.jpg by user 
-
-2013-05-04 15:07:28,528 - [INFO] - from play in New I/O  worker #3 
+2013-05-06 00:38:45,492 - [INFO] - from play in New I/O  worker #4 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-04 15:07:28,705 - [INFO] - from play in New I/O  worker #3 
+2013-05-06 00:38:50,042 - [INFO] - from play in New I/O  worker #4 
 Application started (Dev)
 
-2013-05-04 15:08:16,627 - [DEBUG] - from application in play-akka.actor.default-dispatcher-37 
-fileName: big_buck_bunny.mp4
-
-2013-05-04 15:10:57,843 - [INFO] - from play in New I/O  worker #4 
+2013-05-06 00:44:18,976 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-04 15:10:58,030 - [INFO] - from play in New I/O  worker #4 
-Application started (Dev)
-
-2013-05-04 15:21:55,702 - [INFO] - from play in New I/O  worker #6 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-04 15:21:55,936 - [INFO] - from play in New I/O  worker #6 
-Application started (Dev)
-
-2013-05-04 15:23:24,315 - [DEBUG] - from application in play-akka.actor.default-dispatcher-81 
-fileName: attachment1.pdf
-
-2013-05-04 15:24:50,065 - [DEBUG] - from application in play-akka.actor.default-dispatcher-85 
-fileName: attachment1.pdf
-
-2013-05-04 15:33:41,792 - [DEBUG] - from application in play-akka.actor.default-dispatcher-107 
-fileName: Графические знаки Platonus.pdf
-
-2013-05-04 15:34:04,796 - [DEBUG] - from application in play-akka.actor.default-dispatcher-108 
-fileName: Руководство 3.0.pdf
-
-2013-05-04 15:35:18,550 - [INFO] - from play in New I/O  worker #2 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-04 15:35:20,711 - [INFO] - from play in New I/O  worker #2 
-Application started (Dev)
-
-2013-05-04 15:35:46,594 - [DEBUG] - from application in play-akka.actor.default-dispatcher-120 
-fileName: Руководство 3.0.pdf
-
-2013-05-04 15:37:11,706 - [DEBUG] - from application in play-akka.actor.default-dispatcher-131 
-fileName: Руководство технического администратора.pdf
-
-2013-05-04 15:39:11,353 - [INFO] - from play in New I/O  worker #5 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-04 15:39:11,666 - [INFO] - from play in New I/O  worker #5 
-Application started (Dev)
-
-2013-05-04 15:39:41,656 - [DEBUG] - from application in play-akka.actor.default-dispatcher-139 
-fileName: Руководство по установке АИС Platonus .pdf
-
-2013-05-04 15:41:43,755 - [DEBUG] - from application in play-akka.actor.default-dispatcher-157 
-fileName: attachment1.pdf
-
-2013-05-04 15:41:53,466 - [DEBUG] - from application in play-akka.actor.default-dispatcher-154 
-fileName: attachment1.pdf
-
-2013-05-04 15:41:53,479 - [DEBUG] - from application in play-akka.actor.default-dispatcher-162 
-fileName: attachment1.pdf
-
-2013-05-04 15:41:53,479 - [DEBUG] - from application in play-akka.actor.default-dispatcher-161 
-fileName: attachment1.pdf
-
-2013-05-04 15:41:53,483 - [DEBUG] - from application in play-akka.actor.default-dispatcher-152 
-fileName: attachment1.pdf
-
-2013-05-04 15:41:53,585 - [DEBUG] - from application in play-akka.actor.default-dispatcher-157 
-fileName: attachment1.pdf
-
-2013-05-04 15:41:53,586 - [DEBUG] - from application in play-akka.actor.default-dispatcher-156 
-fileName: attachment1.pdf
-
-2013-05-04 15:42:28,986 - [DEBUG] - from application in play-akka.actor.default-dispatcher-152 
-fileName: Dogovor_prof_praktika.docx
-
-2013-05-04 15:44:18,069 - [INFO] - from play in New I/O  worker #5 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-04 15:44:18,251 - [INFO] - from play in New I/O  worker #5 
-Application started (Dev)
-
-2013-05-04 15:44:18,705 - [DEBUG] - from application in play-akka.actor.default-dispatcher-168 
-fileName: big_buck_bunny.mp4
-
-2013-05-04 15:45:26,369 - [INFO] - from play in New I/O  worker #5 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-04 15:45:26,542 - [INFO] - from play in New I/O  worker #5 
-Application started (Dev)
-
-2013-05-04 15:45:37,850 - [DEBUG] - from application in play-akka.actor.default-dispatcher-174 
-fileName: big_buck_bunny.mp4
-
-2013-05-04 15:54:39,879 - [INFO] - from play in New I/O  worker #1 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-04 15:54:40,141 - [INFO] - from play in New I/O  worker #1 
-Application started (Dev)
-
-2013-05-04 17:04:30,109 - [INFO] - from play in New I/O  worker #6 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-04 17:04:30,378 - [INFO] - from play in New I/O  worker #6 
-Application started (Dev)
-
-2013-05-04 17:27:11,931 - [INFO] - from play in New I/O  worker #4 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-04 17:27:12,239 - [INFO] - from play in New I/O  worker #4 
-Application started (Dev)
-
-2013-05-04 17:31:44,771 - [INFO] - from play in New I/O  worker #4 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-04 17:31:45,029 - [INFO] - from play in New I/O  worker #4 
-Application started (Dev)
-
-2013-05-04 17:37:37,616 - [INFO] - from play in New I/O  worker #2 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-04 17:37:37,869 - [INFO] - from play in New I/O  worker #2 
-Application started (Dev)
-
-2013-05-04 17:52:30,701 - [INFO] - from play in New I/O  worker #6 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-04 17:52:31,089 - [INFO] - from play in New I/O  worker #6 
+2013-05-06 00:44:30,797 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 

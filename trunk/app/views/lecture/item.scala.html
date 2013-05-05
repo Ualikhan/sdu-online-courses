@@ -101,29 +101,11 @@ successfully saved
 <div class='mask' style="width:100%;">
 <div class='videos'>
 @for(resource <- videoResources){ 
-
 @if(resource.file_url!=null){
-
-<div class="videoItem">
-<span class="res">
-<p class="title resourceTitleEdit" id="resourceTitle@resource.id">@resource.title</p><img class="alert-success" id="resourceTitleSuccess@resource.id" src="@routes.Assets.at("images/success.jpg")" />
-
-</span>
-<span class="action" style="margin-top: 20px;">
-<a href="@routes.Lectures.removeResource(resource.id,lecture.id)" type="submit"><i class="icon-remove"></i></a>
-</span>
-@if(resource.file_url.contains("youtube.com")){
-<iframe class="videoFrameSize"
-src="@resource.file_url">
-</iframe>
-}else{
-<div class="player videoFrameSize" data-engine="flash" >
-   <video preload="none">
-        <source type="video/mp4" src="@routes.Assets.at("uploadVideos/"+{resource.file_url})"/>
-         </video>
+<div class="videoDialog" id="videoDialog@resource.id" title="">
+@videoItem(resource)
 </div>
-}
-</div>
+<p class="title videoClick" id="resourceTitle@resource.id">@resource.title</p><img class="alert-success" id="resourceTitleSuccess@resource.id" src="@routes.Assets.at("images/success.jpg")" />
 }
 }
 </div>
@@ -473,6 +455,25 @@ $(document).ready(function(){
 						return(result);
 					}
 		   );
+		   
+		   $( ".videoDialog" ).dialog({
+			      autoOpen: false,
+			      height: 600,
+			      width: 800,
+			      modal: true
+			      
+			    });
+		   
+		   $( ".videoClick" )
+		      .button()
+		      .click(function() {
+		    	  var resourceTitleid=$(this).attr('id');
+					 var toRemove = 'resourceTitle';
+					 var id = resourceTitleid.replace(toRemove,'');
+		        $( "#videoDialog"+id ).dialog( "open" );
+		      });
+		   
+		  
 		   
 });
 

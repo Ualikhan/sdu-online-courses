@@ -61,29 +61,16 @@ By @course.owner.name
 @if(resourceT.name().equals("VIDEO")){
 <fieldset>
  <legend>Videos</legend>
-<div class='mask' width="">
+<div class='mask' style="width:100%;">
 <div class='videos'>
 @for(resource <- resources){ 
 
 @if(resource.file_url!=null){
+<div class="videoDialog" id="videoDialog@resource.id" title="">
+@videoItem(resource)
+</div>
+<p class="title videoClick" id="resourceTitle@resource.id">@resource.title</p>
 
-<div class="videoItem">
-<span class="res">
-<p class="resourceTitleEdit title" id="@resource.id">@resource.title</p>
-@if(resource.file_url.contains("youtube.com")){
-<iframe class="videoFrameSize"
-src="@resource.file_url">
-</iframe>
-}else{
-<div class="player videoFrameSize" data-engine="flash" style="display:block;">
-   <video preload="none">
-        <source type="video/mp4" src="@routes.Assets.at("uploadVideos/"+{resource.file_url})"/>
-      
-         </video>
-</div>
-}
-</span>
-</div>
 }
 }
 </div>
@@ -164,6 +151,33 @@ $(document).ready(function() {
 		   // install flowplayer to an element with CSS class "player"
 		   $(".player").flowplayer({ swf: flowPlayer
 		   });
+		   
+		   setInterval("getPercent()", 5000);
+			
+		   function getPercent()
+		   {
+		   	var theTime = $f(".player").getTime();
+		   	var theD = $f(".player").getClip().fullDuration;
+		   	var theD2 = $f(".player").getClip().duration;
+		   	alert($f(".player") + " : " + theTime + " : " + theD + " : " + theD2)
+		   }
+		   
+			 $( ".videoDialog" ).dialog({
+			      autoOpen: false,
+			      height: 600,
+			      width: 800,
+			      modal: true
+			      
+			    });
+		  
+		  $( ".videoClick" )
+		     .button()
+		     .click(function() {
+		   	  var resourceTitleid=$(this).attr('id');
+					 var toRemove = 'resourceTitle';
+					 var id = resourceTitleid.replace(toRemove,'');
+		       $( "#videoDialog"+id ).dialog( "open" );
+		     });
 		   
 		});
 </script>
