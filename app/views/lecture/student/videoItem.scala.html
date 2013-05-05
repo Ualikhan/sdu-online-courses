@@ -1,0 +1,21 @@
+@(resource:LectureResource)
+<fieldset>
+
+<div class="videoItem">
+<span class="res">
+<p class="title" id="resourceTitle@resource.id">@resource.title</p>
+</span>
+
+@if(resource.file_url.contains("youtube.com")){
+<iframe class="videoFrameSize"
+src="@resource.file_url">
+</iframe>
+}else{
+<div class="player videoFrameSize" data-engine="flash" >
+   <video preload="none">
+        <source type="video/mp4" src="@routes.Assets.at("uploadVideos/"+{resource.file_url})"/>
+         </video>
+</div>
+}
+</div>
+</fieldset>
