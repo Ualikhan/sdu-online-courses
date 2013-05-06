@@ -26,6 +26,9 @@ public class Assignment extends Model{
 	public Date startDate;
 	public Date deadline;	
 	
+	@OneToOne
+	pu
+	
 	@ManyToOne
 	public Course course;
 	
