@@ -176,6 +176,18 @@ Deadline-
 <button style="margin-top:-10px;" id="deadlineButton" type="button" class="btn btn-primary">Change</button>
 <img id="deadlineUpdateSuccess" src="@routes.Assets.at("images/success.jpg")" />
 </form>
+@if(assignment.submissionForm!=null){
+@form(routes.SubmissionForms.updateSubmissionForm()){
+<input type="hidden" name="id" value="@assignment.id">
+<button type="submit" class="btn btn-primary">Update submission form</button>
+}
+}else{
+@form(routes.SubmissionForms.newSubmissionForm()){
+<input type="hidden" name="id" value="@assignment.id">
+<button type="submit" class="btn btn-primary">Create new submission form</button>
+}
+}
+
 </div>
 
 <script type="text/javascript">

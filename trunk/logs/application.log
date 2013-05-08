@@ -1,345 +1,273 @@
-2013-05-06 12:03:13,097 - [INFO] - from play in main 
+2013-05-07 12:03:39,779 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-05-06 12:06:32,152 - [INFO] - from play in New I/O  worker #1 
+2013-05-07 12:04:09,251 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-06 12:07:06,847 - [INFO] - from play in New I/O  worker #1 
+2013-05-07 12:04:16,390 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-05-06 12:22:21,951 - [INFO] - from play in New I/O  worker #4 
+2013-05-07 12:13:58,715 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-06 12:22:25,935 - [INFO] - from play in New I/O  worker #4 
+2013-05-07 12:13:59,401 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-05-06 12:22:26,319 - [ERROR] - from application in play-internal-execution-context-1 
+2013-05-07 12:23:14,550 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
+2013-05-07 12:23:15,934 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
 
-! @6e7l3ie9l - Internal server error, for (POST) [/course/assignment/updateActionItems] ->
+2013-05-07 12:24:43,256 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-play.api.Application$$anon$1: Execution exception[[OptimisticLockException: Data has changed. updated [0] rows sql[update assignment set action_items=? where id=? and title=? and description=? and action_items=? and start_date=? and deadline=? and course_id=?] bind[null]]]
-	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
-	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-javax.persistence.OptimisticLockException: Data has changed. updated [0] rows sql[update assignment set action_items=? where id=? and title=? and description=? and action_items=? and start_date=? and deadline=? and course_id=?] bind[null]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlHandler.checkRowCount(DmlHandler.java:103) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:88) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
-	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
-	at controllers.Assignments.updateActionItems(Assignments.java:214) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$44$$anonfun$apply$44.apply(routes_routing.scala:677) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$44$$anonfun$apply$44.apply(routes_routing.scala:677) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
-	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
-	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
-	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+2013-05-07 12:24:44,664 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
 
-2013-05-06 12:22:26,319 - [ERROR] - from application in play-internal-execution-context-2 
+2013-05-07 12:27:41,130 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
+2013-05-07 12:27:41,952 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
 
-! @6e7l3ie9l - Internal server error, for (POST) [/course/assignment/updateActionItems] ->
+2013-05-07 12:33:22,895 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-play.api.Application$$anon$1: Execution exception[[OptimisticLockException: Data has changed. updated [0] rows sql[update assignment set action_items=? where id=? and title=? and description=? and action_items=? and start_date=? and deadline=? and course_id=?] bind[null]]]
-	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
-	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-javax.persistence.OptimisticLockException: Data has changed. updated [0] rows sql[update assignment set action_items=? where id=? and title=? and description=? and action_items=? and start_date=? and deadline=? and course_id=?] bind[null]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlHandler.checkRowCount(DmlHandler.java:103) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:88) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
-	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
-	at controllers.Assignments.updateActionItems(Assignments.java:214) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$44$$anonfun$apply$44.apply(routes_routing.scala:677) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$44$$anonfun$apply$44.apply(routes_routing.scala:677) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
-	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
-	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
-	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+2013-05-07 12:33:25,426 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
 
-2013-05-06 12:22:26,589 - [ERROR] - from application in play-internal-execution-context-2 
+2013-05-07 12:35:14,168 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
+2013-05-07 12:35:15,447 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
 
-! @6e7l3iem7 - Internal server error, for (POST) [/course/assignment/updateActionItems] ->
+2013-05-07 12:36:49,134 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-play.api.Application$$anon$1: Execution exception[[OptimisticLockException: Data has changed. updated [0] rows sql[update assignment set action_items=? where id=? and title=? and description=? and action_items=? and start_date=? and deadline=? and course_id=?] bind[null]]]
-	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
-	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-javax.persistence.OptimisticLockException: Data has changed. updated [0] rows sql[update assignment set action_items=? where id=? and title=? and description=? and action_items=? and start_date=? and deadline=? and course_id=?] bind[null]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlHandler.checkRowCount(DmlHandler.java:103) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:88) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
-	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
-	at controllers.Assignments.updateActionItems(Assignments.java:214) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$44$$anonfun$apply$44.apply(routes_routing.scala:677) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$44$$anonfun$apply$44.apply(routes_routing.scala:677) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
-	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
-	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
-	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+2013-05-07 12:36:50,284 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
 
-2013-05-06 12:22:26,595 - [ERROR] - from application in play-internal-execution-context-1 
+2013-05-07 12:37:42,237 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
+2013-05-07 12:37:42,886 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
 
-! @6e7l3iem7 - Internal server error, for (POST) [/course/assignment/updateActionItems] ->
+2013-05-07 12:39:12,864 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-play.api.Application$$anon$1: Execution exception[[OptimisticLockException: Data has changed. updated [0] rows sql[update assignment set action_items=? where id=? and title=? and description=? and action_items=? and start_date=? and deadline=? and course_id=?] bind[null]]]
-	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
-	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-javax.persistence.OptimisticLockException: Data has changed. updated [0] rows sql[update assignment set action_items=? where id=? and title=? and description=? and action_items=? and start_date=? and deadline=? and course_id=?] bind[null]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlHandler.checkRowCount(DmlHandler.java:103) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:88) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
-	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
-	at controllers.Assignments.updateActionItems(Assignments.java:214) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$44$$anonfun$apply$44.apply(routes_routing.scala:677) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$44$$anonfun$apply$44.apply(routes_routing.scala:677) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
-	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
-	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
-	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+2013-05-07 12:39:13,508 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
 
-2013-05-06 12:22:26,878 - [ERROR] - from application in play-internal-execution-context-1 
+2013-05-07 12:40:24,901 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
+2013-05-07 12:40:25,683 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
 
-! @6e7l3if78 - Internal server error, for (POST) [/course/assignment/updateDescription] ->
+2013-05-07 13:04:05,226 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-play.api.Application$$anon$1: Execution exception[[OptimisticLockException: Data has changed. updated [0] rows sql[update assignment set description=? where id=? and title=? and description=? and action_items=? and start_date=? and deadline=? and course_id=?] bind[null]]]
-	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
-	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-javax.persistence.OptimisticLockException: Data has changed. updated [0] rows sql[update assignment set description=? where id=? and title=? and description=? and action_items=? and start_date=? and deadline=? and course_id=?] bind[null]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlHandler.checkRowCount(DmlHandler.java:103) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:88) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
-	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
-	at controllers.Assignments.updateDescription(Assignments.java:204) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$43$$anonfun$apply$43.apply(routes_routing.scala:669) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$43$$anonfun$apply$43.apply(routes_routing.scala:669) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
-	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
-	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
-	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+2013-05-07 13:04:15,723 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
 
-2013-05-06 12:22:26,878 - [ERROR] - from application in play-internal-execution-context-2 
+2013-05-07 13:05:20,210 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
+2013-05-07 13:05:20,822 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
 
-! @6e7l3if7a - Internal server error, for (POST) [/course/assignment/updateDescription] ->
+2013-05-07 13:07:22,085 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-play.api.Application$$anon$1: Execution exception[[OptimisticLockException: Data has changed. updated [0] rows sql[update assignment set description=? where id=? and title=? and description=? and action_items=? and start_date=? and deadline=? and course_id=?] bind[null]]]
-	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
-	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-javax.persistence.OptimisticLockException: Data has changed. updated [0] rows sql[update assignment set description=? where id=? and title=? and description=? and action_items=? and start_date=? and deadline=? and course_id=?] bind[null]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlHandler.checkRowCount(DmlHandler.java:103) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.UpdateHandler.execute(UpdateHandler.java:88) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:86) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.update(DmlBeanPersister.java:66) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeUpdateBean(DefaultPersistExecute.java:91) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:485) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:511) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersister.update(DefaultPersister.java:417) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.persist.DefaultPersister.forceUpdate(DefaultPersister.java:184) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1651) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1640) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebeaninternal.server.core.DefaultServer.update(DefaultServer.java:1617) ~[avaje-ebeanorm-server.jar:na]
-	at com.avaje.ebean.Ebean.update(Ebean.java:548) ~[avaje-ebeanorm-api.jar:na]
-	at play.db.ebean.Model.update(Model.java:133) ~[play-java-ebean_2.10.jar:2.1.0]
-	at controllers.Assignments.updateDescription(Assignments.java:204) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$43$$anonfun$apply$43.apply(routes_routing.scala:669) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$43$$anonfun$apply$43.apply(routes_routing.scala:669) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
-	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
-	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
-	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
+2013-05-07 13:07:23,507 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-07 13:08:46,227 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 13:08:47,029 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-07 13:17:43,563 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 13:17:44,689 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-07 13:23:55,893 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 13:24:01,639 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-07 13:27:17,178 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 13:27:17,960 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-07 13:29:04,364 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 13:29:05,030 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-07 13:32:10,959 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 13:32:18,298 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-07 13:34:07,237 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 13:34:08,413 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-07 13:39:19,418 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 13:39:20,670 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-07 13:48:05,282 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 13:48:08,361 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-07 13:50:04,483 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 13:50:05,543 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-07 15:05:54,523 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 15:05:55,221 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-07 15:07:25,517 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 15:07:26,312 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-07 15:11:08,147 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 15:11:08,906 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-07 15:14:56,358 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 15:14:57,120 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-07 15:17:45,822 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 15:17:46,463 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-07 16:17:00,849 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 16:17:19,724 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-07 16:18:12,376 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 16:18:13,463 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-07 16:23:34,703 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 16:23:35,414 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-07 16:38:10,184 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 16:38:11,167 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-07 16:40:19,323 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 16:40:20,045 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-07 16:41:36,833 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 16:41:37,841 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-07 17:47:48,298 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 17:48:00,524 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-07 17:52:50,404 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 17:52:58,550 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-07 17:55:04,373 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 17:55:05,401 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-07 17:56:49,306 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 17:56:50,765 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-07 19:04:22,761 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 19:04:32,366 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-07 19:06:00,552 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 19:06:01,400 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-07 19:15:14,682 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 19:15:16,280 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-07 19:18:34,013 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 19:18:35,019 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-07 19:24:49,578 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 19:24:50,508 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-07 19:26:04,624 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-07 19:26:06,042 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
 
