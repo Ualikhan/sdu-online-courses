@@ -1,6 +1,18 @@
 @(user:User,course:Course,lectures: List[Lecture],lecture: Lecture,videoResources:List[LectureResource],slideResources:List[LectureResource])
 
 @import helper._
+
+@severityColor(url: String) = @{
+   if(url.contains("youtube")){
+   if(url.contains("watch?v="))
+    url.substring(url.indexOf("watch?v=")+8);
+    else{
+     if(url.contains("embed/"))
+		   url.substring(url.indexOf("embed/")+6);
+    }
+    }
+}
+
 @main(user){
 
 <div class="container-fluid">
@@ -98,18 +110,19 @@ successfully saved
 <fieldset >
  <legend>Videos</legend>
 
-<div class='mask' style="width:100%;">
-<div class='videos'>
+
 @for(resource <- videoResources){ 
 @if(resource.file_url!=null){
 <div class="videoDialog" id="videoDialog@resource.id" title="">
 @videoItem(resource)
 </div>
-<p class="title videoClick" id="resourceTitle@resource.id">@resource.title</p><img class="alert-success" id="resourceTitleSuccess@resource.id" src="@routes.Assets.at("images/success.jpg")" />
+<div class="videoListItem row">
+<div class="res" style="background-size: cover;background-position: center;width:100px;height:56px;background-image:url(https://img.youtube.com/vi/@severityColor(resource.file_url)/hqdefault.jpg)"></div>
+<a class="videoClick res" href="#" id="resourceTitle@resource.id">@resource.title</a><img class="alert-success" id="resourceTitleSuccess@resource.id" src="@routes.Assets.at("images/success.jpg")" />
+</div>
 }
 }
-</div>
-</div>
+
 </fieldset>
 
 <form  method="post" id="addVideoForm" action="@routes.Lectures.addVideo(lecture.id)" enctype="multipart/form-data">
@@ -304,33 +317,35 @@ successfully saved
 </div>
 </fieldset>
 <br/>
-<fieldset class="nicField">
+<div>
+<fieldset class="res nicField" style="width: 45%;">
 <legend>Assignment</legend>
 <div id="lectureassignmentAlert" class="alert alert-success">
 successfully saved
 </div>
-<div class="nicPanels" id="lectureassignmentNicPanel" style="width: 525px;"></div>
+<div class="nicPanels" id="lectureassignmentNicPanel" style="width: 100%;"></div>
 <br/>
-<div id="lectureassignment" class="nicTextContainer">
+<div id="lectureassignment" class="nicTextContainer" style="width: 100%;">
 @if(lecture.assignment!=null){
 @Html(lecture.assignment)
 }
 </div>
 </fieldset>
-<br/>
-<fieldset class="nicField">
+<fieldset class="res nicField" style="width: 45%;">
 <legend>Additional Resources</legend>
 <div id="lectureadditionalResourcesAlert" class="alert alert-success">
 successfully saved
 </div>
-<div class="nicPanels" id="lectureadditionalResourcesNicPanel" style="width: 525px;"></div>
+<div class="nicPanels" id="lectureadditionalResourcesNicPanel" style="width: 100%;"></div>
 <br/>
-<div id="lectureadditionalResources" class="nicTextContainer">
+<div id="lectureadditionalResources" class="nicTextContainer" style="width: 100%;">
 @if(lecture.additionalResources!=null){
 @Html(lecture.additionalResources)
 }
 </div>
 </fieldset>
+</div>
+
 </div>
 
 
@@ -464,9 +479,7 @@ $(document).ready(function(){
 			      
 			    });
 		   
-		   $( ".videoClick" )
-		      .button()
-		      .click(function() {
+		   $( ".videoClick" ).click(function() {
 		    	  var resourceTitleid=$(this).attr('id');
 					 var toRemove = 'resourceTitle';
 					 var id = resourceTitleid.replace(toRemove,'');

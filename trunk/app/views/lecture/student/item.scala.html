@@ -1,6 +1,18 @@
 @(user:User,course:Course,lectures: List[Lecture],lecture: Lecture,resources:List[LectureResource])
 
 @import helper._
+
+@severityColor(url: String) = @{
+   if(url.contains("youtube")){
+   if(url.contains("watch?v="))
+    url.substring(url.indexOf("watch?v=")+8);
+    else{
+     if(url.contains("embed/"))
+		   url.substring(url.indexOf("embed/")+6);
+    }
+    }
+}
+
 @main(user){
 
 <div class="container-fluid">
@@ -61,20 +73,20 @@ By @course.owner.name
 @if(resourceT.name().equals("VIDEO")){
 <fieldset>
  <legend>Videos</legend>
-<div class='mask' style="width:100%;">
-<div class='videos'>
+
 @for(resource <- resources){ 
 
 @if(resource.file_url!=null){
 <div class="videoDialog" id="videoDialog@resource.id" title="">
 @videoItem(resource)
 </div>
-<p class="title videoClick" id="resourceTitle@resource.id">@resource.title</p>
+<div class="videoListItem row">
+<div class="res" style="background-size: cover;background-position: center;width:100px;height:56px;background-image:url(https://img.youtube.com/vi/@severityColor(resource.file_url)/hqdefault.jpg)"></div>
+<h4 class="res videoLink"><a class="videoClick" href="#" id="resourceTitle@resource.id">@resource.title</a></h4>
+</div>
+}
+}
 
-}
-}
-</div>
-</div>
 </fieldset>
 }else{
 @if(resourceT.name().equals("SLIDE")){
@@ -122,22 +134,21 @@ By @course.owner.name
 @Html(lecture.reading)
 </fieldset>
 }
-
-@if(lecture.assignment!=null && lecture.assignment.length()>0 && org.jsoup.Jsoup.parse(lecture.assignment).text().length()>0){
 <br/>
-<fieldset>
+<div>
+@if(lecture.assignment!=null && lecture.assignment.length()>0 && org.jsoup.Jsoup.parse(lecture.assignment).text().length()>0){
+<fieldset class="res nicField" style="width: 45%;">
 <legend>Assignment</legend>
 @Html(lecture.assignment)
 </fieldset>
 }
-
 @if(lecture.additionalResources!=null && lecture.additionalResources.length()>0 && org.jsoup.Jsoup.parse(lecture.additionalResources).text().length()>0){
-<br/>
-<fieldset>
+<fieldset class="res nicField" style="width: 45%;">
 <legend>Additional Resources</legend>
 @Html(lecture.additionalResources)
 </fieldset>
 }
+</div>
 </div>
     </div>
   </div>
@@ -170,9 +181,7 @@ $(document).ready(function() {
 			      
 			    });
 		  
-		  $( ".videoClick" )
-		     .button()
-		     .click(function() {
+		  $( ".videoClick" ).click(function() {
 		   	  var resourceTitleid=$(this).attr('id');
 					 var toRemove = 'resourceTitle';
 					 var id = resourceTitleid.replace(toRemove,'');

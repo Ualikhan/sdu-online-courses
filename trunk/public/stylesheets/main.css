@@ -142,7 +142,7 @@ color: #575757;
 .logo{
 	float: left;
 	padding-bottom:10px;
-	padding-left: 30px;
+	padding-left: 50px;
 	padding-top: 20px;
 	
 }
@@ -161,10 +161,19 @@ outline: 1px solid #DDDDDD;
 }
 
 .contentBar{
-	margin:20px;
 	background-color: #F5F5F5;
 	border: 1px solid rgba(0, 0, 0, 0.126);
 	min-height: 300px;
+}
+
+.videoListItem{
+	margin-left:10px;
+width: 100%;
+}
+
+.videoLink{
+	color: #007fcc;
+text-decoration: none;
 }
 
 .studentCourses{

@@ -173,8 +173,12 @@ public static Result addVideo(Long lectureId)  throws IOException{
 	       }
 	     }
 	     else{
-	    	   if(filledForm.get("videoUrl").length()>0)
-	    		   video=LectureResource.create(filledForm.get("title"),  filledForm.get("videoUrl"), ResourceTypes.VIDEO, l);
+	    	   if(filledForm.get("videoUrl").length()>0){
+	    		   String url=filledForm.get("videoUrl");
+	    		   
+	    		   video=LectureResource.create(filledForm.get("title"),  url, ResourceTypes.VIDEO, l);
+	    		   
+	    	   }
 	       }
 		return ok("OK");
 	}

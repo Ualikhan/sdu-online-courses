@@ -46,13 +46,13 @@ By @course.owner.name
 		
 
 <h3>@assignment.title</h3>
-@if(assignment.description!=null){
+@if(assignment.description!=null && assignment.description.length()>0 && org.jsoup.Jsoup.parse(assignment.description).text().length()>0){
 <fieldset>
 <legend>Description</legend>
 @Html(assignment.description)
 </fieldset>
 }
-@if(assignment.actionItems!=null){
+@if(assignment.actionItems!=null && assignment.actionItems.length()>0 && org.jsoup.Jsoup.parse(assignment.actionItems).text().length()>0){
 <br/>
 <fieldset>
 <legend>Action Items</legend>
