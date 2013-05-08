@@ -7,9 +7,21 @@
 
 </span>
 
+@severityColor(url: String) = @{
+   if(url.contains("youtube")){
+   if(url.contains("watch?v="))
+    url.substring(url.indexOf("watch?v=")+8);
+    else{
+     if(url.contains("embed/"))
+		   url.substring(url.indexOf("embed/")+6);
+    }
+    }
+}
+
+
 @if(resource.file_url.contains("youtube.com")){
 <iframe class="videoFrameSize"
-src="@resource.file_url">
+src="http://www.youtube.com/embed/@severityColor(resource.file_url)"">
 </iframe>
 }else{
 <div class="player videoFrameSize" data-engine="flash" >

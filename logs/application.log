@@ -1,273 +1,470 @@
-2013-05-07 12:03:39,779 - [INFO] - from play in main 
+2013-05-08 14:33:45,246 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-05-07 12:04:09,251 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 14:33:50,528 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 12:04:16,390 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 14:33:51,336 - [ERROR] - from application in New I/O  worker #1 
+
+
+! @6e8a92jpd - Internal server error, for (GET) [/] ->
+
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:457) ~[play-jdbc_2.10.jar:2.1.0]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:478) ~[play-jdbc_2.10.jar:2.1.0]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:434) ~[play-jdbc_2.10.jar:2.1.0]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:432) ~[play-jdbc_2.10.jar:2.1.0]
+	at scala.collection.immutable.List.foreach(List.scala:309) ~[scala-library.jar:na]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:432) ~[play-jdbc_2.10.jar:2.1.0]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
+	at scala.collection.immutable.List.foreach(List.scala:309) ~[scala-library.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:63) ~[play_2.10.jar:2.1.0]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.1.0]
+	at play.api.Play$.start(Play.scala:62) ~[play_2.10.jar:2.1.0]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$1.apply(ApplicationProvider.scala:133) ~[play_2.10.jar:2.1.0]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$1.apply(ApplicationProvider.scala:106) ~[play_2.10.jar:2.1.0]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:106) ~[play_2.10.jar:2.1.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:104) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-05-08 14:34:01,929 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-08 14:34:02,946 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-05-07 12:13:58,715 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 15:51:26,258 - [INFO] - from play in New I/O  worker #5 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 12:13:59,401 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 15:51:26,555 - [INFO] - from play in New I/O  worker #5 
 Application started (Dev)
 
-2013-05-07 12:23:14,550 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 15:53:12,269 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 12:23:15,934 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 15:53:12,466 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-05-07 12:24:43,256 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 15:55:27,512 - [DEBUG] - from application in play-akka.actor.default-dispatcher-63 
+path: D:\sdu-online-courses
+
+2013-05-08 16:22:38,798 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 12:24:44,664 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 16:22:39,034 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-05-07 12:27:41,130 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 16:23:04,060 - [DEBUG] - from application in play-akka.actor.default-dispatcher-134 
+ZTisw355mbg
+
+2013-05-08 16:35:33,275 - [ERROR] - from application in New I/O  worker #6 
+
+
+! @6e8ap25ha - Internal server error, for (GET) [/assets/stylesheets/images/ui-bg_glass_75_dadada_1x400.png] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error[not found: value url]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-05-08 16:35:36,752 - [ERROR] - from application in New I/O  worker #7 
+
+
+! @6e8ap2al5 - Internal server error, for (GET) [/course/lectures/1] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error[not found: value url]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-05-08 16:39:42,140 - [ERROR] - from application in New I/O  worker #7 
+
+
+! @6e8apg9l4 - Internal server error, for (GET) [/course/lectures/1] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error[':' expected but ')' found.]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-05-08 16:40:12,645 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 12:27:41,952 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 16:40:12,990 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-05-07 12:33:22,895 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 16:40:56,012 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 12:33:25,426 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 16:40:56,242 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-05-07 12:35:14,168 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 16:43:22,536 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 12:35:15,447 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 16:43:22,741 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-05-07 12:36:49,134 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 16:45:22,297 - [INFO] - from play in New I/O  worker #6 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 12:36:50,284 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 16:45:22,490 - [INFO] - from play in New I/O  worker #6 
 Application started (Dev)
 
-2013-05-07 12:37:42,237 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 16:49:26,350 - [ERROR] - from application in New I/O  worker #8 
+
+
+! @6e8b0ng0l - Internal server error, for (GET) [/course/lectures/1] ->
+
+sbt.PlayExceptions$CompilationException: Compilation error[not found: value severityColor]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+
+2013-05-08 16:50:33,649 - [INFO] - from play in New I/O  worker #8 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 12:37:42,886 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 16:50:33,974 - [INFO] - from play in New I/O  worker #8 
 Application started (Dev)
 
-2013-05-07 12:39:12,864 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 16:52:22,688 - [INFO] - from play in New I/O  worker #6 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 12:39:13,508 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 16:52:22,887 - [INFO] - from play in New I/O  worker #6 
 Application started (Dev)
 
-2013-05-07 12:40:24,901 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 16:55:54,506 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 12:40:25,683 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 16:55:54,849 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-05-07 13:04:05,226 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 16:56:39,208 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:04:15,723 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 16:56:39,504 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-05-07 13:05:20,210 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 16:58:21,326 - [INFO] - from play in New I/O  worker #8 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:05:20,822 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 16:58:21,567 - [INFO] - from play in New I/O  worker #8 
 Application started (Dev)
 
-2013-05-07 13:07:22,085 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:14:48,588 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:07:23,507 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:14:51,607 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 
-2013-05-07 13:08:46,227 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 17:17:18,350 - [INFO] - from play in New I/O  worker #8 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:08:47,029 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 17:17:18,800 - [INFO] - from play in New I/O  worker #8 
 Application started (Dev)
 
-2013-05-07 13:17:43,563 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 17:19:44,299 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:17:44,689 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 17:19:44,640 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-05-07 13:23:55,893 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 17:21:10,941 - [INFO] - from play in New I/O  worker #5 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:24:01,639 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 17:21:11,254 - [INFO] - from play in New I/O  worker #5 
 Application started (Dev)
 
-2013-05-07 13:27:17,178 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 17:31:46,244 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:27:17,960 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 17:31:46,607 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-05-07 13:29:04,364 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:32:50,806 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:29:05,030 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:32:51,099 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-05-07 13:32:10,959 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:34:37,467 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:32:18,298 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:34:37,820 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-05-07 13:34:07,237 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 17:36:57,045 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:34:08,413 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 17:36:57,259 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 
-2013-05-07 13:39:19,418 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 17:48:54,000 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:39:20,670 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 17:48:54,298 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-05-07 13:48:05,282 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 17:49:39,781 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:48:08,361 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 17:49:39,951 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-05-07 13:50:04,483 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 17:50:44,935 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 13:50:05,543 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 17:50:45,125 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-05-07 15:05:54,523 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:51:14,067 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 15:05:55,221 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:51:14,683 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 
-2013-05-07 15:07:25,517 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 17:51:38,191 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 15:07:26,312 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 17:51:38,452 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 
-2013-05-07 15:11:08,147 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:52:14,832 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 15:11:08,906 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:52:15,234 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-05-07 15:14:56,358 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 17:52:50,217 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 15:14:57,120 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 17:52:50,421 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-05-07 15:17:45,822 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 17:53:11,393 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 15:17:46,463 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 17:53:11,565 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-05-07 16:17:00,849 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 17:54:05,718 - [INFO] - from play in New I/O  worker #8 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 16:17:19,724 - [INFO] - from play in New I/O  worker #4 
+2013-05-08 17:54:06,045 - [INFO] - from play in New I/O  worker #8 
 Application started (Dev)
 
-2013-05-07 16:18:12,376 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:56:40,826 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 16:18:13,463 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:56:41,052 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-05-07 16:23:34,703 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:58:01,130 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 16:23:35,414 - [INFO] - from play in New I/O  worker #2 
+2013-05-08 17:58:01,360 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 
-2013-05-07 16:38:10,184 - [INFO] - from play in New I/O  worker #3 
+2013-05-08 18:00:05,614 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-07 16:38:11,167 - [INFO] - from play in New I/O  worker #3 
-Application started (Dev)
-
-2013-05-07 16:40:19,323 - [INFO] - from play in New I/O  worker #3 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-07 16:40:20,045 - [INFO] - from play in New I/O  worker #3 
-Application started (Dev)
-
-2013-05-07 16:41:36,833 - [INFO] - from play in New I/O  worker #4 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-07 16:41:37,841 - [INFO] - from play in New I/O  worker #4 
-Application started (Dev)
-
-2013-05-07 17:47:48,298 - [INFO] - from play in New I/O  worker #3 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-07 17:48:00,524 - [INFO] - from play in New I/O  worker #3 
-Application started (Dev)
-
-2013-05-07 17:52:50,404 - [INFO] - from play in New I/O  worker #2 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-07 17:52:58,550 - [INFO] - from play in New I/O  worker #2 
-Application started (Dev)
-
-2013-05-07 17:55:04,373 - [INFO] - from play in New I/O  worker #4 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-07 17:55:05,401 - [INFO] - from play in New I/O  worker #4 
-Application started (Dev)
-
-2013-05-07 17:56:49,306 - [INFO] - from play in New I/O  worker #3 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-07 17:56:50,765 - [INFO] - from play in New I/O  worker #3 
-Application started (Dev)
-
-2013-05-07 19:04:22,761 - [INFO] - from play in New I/O  worker #1 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-07 19:04:32,366 - [INFO] - from play in New I/O  worker #1 
-Application started (Dev)
-
-2013-05-07 19:06:00,552 - [INFO] - from play in New I/O  worker #1 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-07 19:06:01,400 - [INFO] - from play in New I/O  worker #1 
-Application started (Dev)
-
-2013-05-07 19:15:14,682 - [INFO] - from play in New I/O  worker #3 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-07 19:15:16,280 - [INFO] - from play in New I/O  worker #3 
-Application started (Dev)
-
-2013-05-07 19:18:34,013 - [INFO] - from play in New I/O  worker #2 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-07 19:18:35,019 - [INFO] - from play in New I/O  worker #2 
-Application started (Dev)
-
-2013-05-07 19:24:49,578 - [INFO] - from play in New I/O  worker #1 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-07 19:24:50,508 - [INFO] - from play in New I/O  worker #1 
-Application started (Dev)
-
-2013-05-07 19:26:04,624 - [INFO] - from play in New I/O  worker #1 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-07 19:26:06,042 - [INFO] - from play in New I/O  worker #1 
+2013-05-08 18:00:05,792 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 

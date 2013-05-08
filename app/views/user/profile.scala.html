@@ -1,6 +1,7 @@
 @(user:User,userForm:Form[User])
 @import helper._
 
+@main(user){
 <img src="@routes.Assets.at("uploadImages/"+{user.photo})" width="60px" height="60px" >
  @form(routes.Users.editUser) {
 <p>
@@ -28,4 +29,5 @@
 <p>
 <input type="submit" placeholder="Save changes" >
 </p>
+}
 }
