@@ -73,6 +73,19 @@ float: left;
  background-color:#4a6b82;
  }
  
+ .draggableElement{
+ width: 100px;
+ }
+ 
+ .draggableElementContainer {
+width: 500px;
+height: 200px;
+ }
+ 
+ .anotherSize{
+ width:300px;
+ }
+ 
  .item{
  float: left;
  }

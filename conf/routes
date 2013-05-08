@@ -72,6 +72,10 @@ GET    /course/assignment/:aid/delete   controllers.Assignments.deleteAssignment
 GET    /course/assignments/:aid        controllers.Assignments.assignmentPage(aid: Long)
 GET    /course/assignment/:id           controllers.Assignments.getAssignment(id: Long)
 
+POST   /course/assignment/newSubmission          controllers.SubmissionForms.newSubmissionForm()
+POST   /course/assignment/updateSubmission          controllers.SubmissionForms.updateSubmissionForm()
+
+
 #CourseInformation
 GET    /course/courseInformations           controllers.CourseInformations.index()
 GET    /course/courseInformations/new          controllers.CourseInformations.addCourseInformation()

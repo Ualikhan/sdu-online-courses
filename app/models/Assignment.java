@@ -27,7 +27,7 @@ public class Assignment extends Model{
 	public Date deadline;	
 	
 	@OneToOne
-	pu
+	public SubmissionForm submissionForm;
 	
 	@ManyToOne
 	public Course course;
