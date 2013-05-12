@@ -16,7 +16,8 @@ object ApplicationBuild extends Build {
     "mysql" % "mysql-connector-java" % "5.1.10",
     "commons-io" % "commons-io" % "2.3",
     "org.imgscalr" % "imgscalr-lib" % "4.2",
-    "org.jsoup" % "jsoup" % "0.2.2"
+    "org.jsoup" % "jsoup" % "0.2.2",
+    "org.ocpsoft.prettytime" % "prettytime" % "2.1.2.Final"
   )
 
   val main = play.Project(appName, appVersion, appDependencies).settings(

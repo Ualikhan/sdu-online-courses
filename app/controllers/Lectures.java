@@ -3,10 +3,13 @@ package controllers;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 import javax.imageio.ImageIO;
 
 import org.imgscalr.Scalr;
+import org.ocpsoft.prettytime.PrettyTime;
 import org.apache.commons.io.FileUtils;
 import play.*;
 import models.*;
@@ -235,6 +238,96 @@ public static Result addSlide(Long lectureId)  throws IOException{
 	}
 }
 
+public static Result editSlide(Long resourceId)  throws IOException{
+	courseId=Long.parseLong(session("course"));
+	LectureResource l=LectureResource.find.ref(resourceId);
+	if(Secured.isTutorOf(courseId)){
+		DynamicForm filledForm=form().bindFromRequest();
+		String projectRoot = Play.application().path().getAbsolutePath();
+	   
+		 MultipartFormData body = request().body().asMultipartFormData();
+		 FilePart mySlide = body.getFile("slideFile");
+	     if (mySlide != null) {
+	    	 
+	       String fileName = mySlide.getFilename();
+	       String contentType = mySlide.getContentType(); 
+	       File file = mySlide.getFile();
+	       if(file.length()>0){
+	       Logger.debug("fileName: "+fileName);
+	       String extension = "";
+
+	       int i = fileName.lastIndexOf('.');
+	       if (i > 0) {
+	           extension = fileName.substring(i+1);
+	       }
+	       File uniqueFile = File.createTempFile("slide", "."+extension, new File(projectRoot+"\\public\\uploadSlides"));
+	       
+	       FileUtils.copyFile(file,uniqueFile);
+	       l.title=filledForm.get("title");
+	       l.file_url=uniqueFile.getName();
+	       }
+	       else{
+	    	   if(filledForm.get("slideUrl").length()>0){
+	        	
+	    		   l.title=filledForm.get("title");
+	    	       l.file_url= filledForm.get("slideUrl");
+	    	       
+	         }
+	       }
+	       l.update();
+	     }
+	     return redirect(routes.Lectures.getLecture(l.lecture.id));
+	}
+	else{
+		return forbidden();
+	}
+}
+
+public static Result editVideo(Long resourceId)  throws IOException{
+	courseId=Long.parseLong(session("course"));
+	LectureResource l=LectureResource.find.ref(resourceId);
+	if(Secured.isTutorOf(courseId)){
+		DynamicForm filledForm=form().bindFromRequest();
+		String projectRoot = Play.application().path().getAbsolutePath();
+	   
+		 MultipartFormData body = request().body().asMultipartFormData();
+		 FilePart myVideo = body.getFile("videoFile");
+	     if (myVideo != null) {
+	    	 
+	       String fileName = myVideo.getFilename();
+	       String contentType = myVideo.getContentType(); 
+	       File file = myVideo.getFile();
+	       if(file.length()>0){
+	       Logger.debug("fileName: "+fileName);
+	       String extension = "";
+
+	       int i = fileName.lastIndexOf('.');
+	       if (i > 0) {
+	           extension = fileName.substring(i+1);
+	       }
+	       File uniqueFile = File.createTempFile("video", "."+extension, new File(projectRoot+"\\public\\uploadVideos"));
+	       
+	       FileUtils.copyFile(file,uniqueFile);
+	       l.title=filledForm.get("title");
+	       l.file_url=uniqueFile.getName();
+	       }
+	       else{
+	    	   if(filledForm.get("videoUrl").length()>0){
+	        	
+	    		   l.title=filledForm.get("title");
+	    	       l.file_url= filledForm.get("videoUrl");
+	    	       
+	         }
+	       }
+	       l.update();
+	     }
+	     return redirect(routes.Lectures.getLecture(l.lecture.id));
+	}
+	else{
+		return forbidden();
+	}
+}
+
 public static Result removeResource(Long resourceId,Long lectureId){
 	LectureResource.delete(resourceId);
 	return redirect(routes.Lectures.getLecture(lectureId));
@@ -259,6 +352,10 @@ public static Result deleteLecture(Long id) {
 	courseId=Long.parseLong(session("course"));
 	
 	if(Secured.isTutorOf(courseId)){
+	List<LectureResource> resources=LectureResource.findLectureResourcesByLecture(id);
+	for(LectureResource resource:resources){
+		LectureResource.delete(resource.id);
+	}
 	Lecture.delete(id);
 	return ok(
 			index.render(

@@ -33,7 +33,7 @@ public class Announcement extends Model{
 	public static Finder<Long,Announcement> find=new Finder<Long, Announcement>(Long.class, Announcement.class);
 	
 	public static List<Announcement> findAnnouncementsByCourse(Long courseId){
-		return find.where().eq("course.id", courseId).findList();
+		return find.where().eq("course.id", courseId).orderBy("created_date desc").findList();
 	}
 	
 	public static void create(String title,String content,Course course){

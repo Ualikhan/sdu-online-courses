@@ -4,8 +4,8 @@
 
 @severityColor(url: String) = @{
    if(url.contains("youtube")){
-   if(url.contains("watch?v="))
-    url.substring(url.indexOf("watch?v=")+8);
+   if(url.contains("v="))
+    url.substring(url.indexOf("v=")+2);
     else{
      if(url.contains("embed/"))
 		   url.substring(url.indexOf("embed/")+6);
@@ -77,7 +77,7 @@ By @course.owner.name
 @for(resource <- resources){ 
 
 @if(resource.file_url!=null){
-<div class="videoDialog" id="videoDialog@resource.id" title="">
+<div class="videoDialog" data="@resource.id" id="videoDialog@resource.id" title="">
 @videoItem(resource)
 </div>
 <div class="videoListItem row">
@@ -142,7 +142,7 @@ By @course.owner.name
 @Html(lecture.assignment)
 </fieldset>
 }
-@if(lecture.additionalResources!=null && lecture.additionalResources.length()>0 && org.jsoup.Jsoup.parse(lecture.additionalResources).text().length()>0){
+@if(lecture.additionalResources!=null && lecture.additionalResources.length()>0 && ((!lecture.additionalResources.contains("img") && org.jsoup.Jsoup.parse(lecture.additionalResources).text().length()>0) || lecture.additionalResources.contains("img"))){
 <fieldset class="res nicField" style="width: 45%;">
 <legend>Additional Resources</legend>
 @Html(lecture.additionalResources)
@@ -181,6 +181,14 @@ $(document).ready(function() {
 			      
 			    });
 		  
+			 $(document).on('dialogclose', '.videoDialog', function(){
+				   var id=$(this).attr('data');
+				   var iframe = $('#youtubePlayer'+id);
+				   var src = iframe.attr('src');
+				   iframe.attr('src', '');
+				   iframe.attr('src', src);
+			});
+			 
 		  $( ".videoClick" ).click(function() {
 		   	  var resourceTitleid=$(this).attr('id');
 					 var toRemove = 'resourceTitle';

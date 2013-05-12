@@ -42,6 +42,9 @@ GET    /course/lectures           controllers.Lectures.index()
 POST    /course/lectures          controllers.Lectures.newLecture()
 POST    /course/lecture/:id/addVideo          controllers.Lectures.addVideo(id: Long)
 POST    /course/lecture/:id/addSlide          controllers.Lectures.addSlide(id: Long)
+POST    /course/lecture/:id/editSlide         controllers.Lectures.editSlide(id: Long)
+POST    /course/lecture/:id/editVideo         controllers.Lectures.editVideo(id: Long)
+
 
 POST    /course/lecture/updateTitle          controllers.Lectures.updateTitle()
 POST    /course/lecture/updateContent          controllers.Lectures.updateContent()
