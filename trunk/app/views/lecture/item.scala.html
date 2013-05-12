@@ -54,8 +54,8 @@ By @course.owner.name
   </li>
   }
   }
-  <li>
-  @form(routes.Lectures.index()){
+  <li  style="height: 50px;">
+  @form(action=routes.Lectures.index(),'style->"padding:10px;"){
   <button type="submit" class="new"><i class="icon-plus"></i></button>
   }
   </li>
@@ -70,7 +70,10 @@ By @course.owner.name
 <a style="display:block;float:right;" href="#" class="lectureDelete"><i class="icon-remove"></i></a>
 </div>
 @form(action=routes.Lectures.deleteLecture(lecture.id),'id -> "removeForm"){
-  <button type="submit" id="lectureRemoveLink">Delete</button>
+  <button type="submit" id="lectureRemoveLink"></button>
+  }
+@form(action=routes.Lectures.getLecture(lecture.id),'id -> "refreshForm"){
+  <button type="submit" id="lectureRefreshLink"></button>
   }
 <div style="width:100%;margin-top: 60px;">
 <fieldset>
@@ -110,19 +113,28 @@ successfully saved
 <fieldset >
  <legend>Videos</legend>
 
-
+<div id="videoContainer">
 @for(resource <- videoResources){ 
 @if(resource.file_url!=null){
-<div class="videoDialog" id="videoDialog@resource.id" title="">
+<div class="videoEditDialog" id="videoEditDialog@resource.id"  title="">
+@videoEdit(resource)
+</div>
+<div style="margin-top: -100px;" class="videoDialog" data="@resource.id" id="videoDialog@resource.id" title="">
 @videoItem(resource)
 </div>
 <div class="videoListItem row">
 <div class="res" style="background-size: cover;background-position: center;width:100px;height:56px;background-image:url(https://img.youtube.com/vi/@severityColor(resource.file_url)/hqdefault.jpg)"></div>
 <a class="videoClick res" href="#" id="resourceTitle@resource.id">@resource.title</a><img class="alert-success" id="resourceTitleSuccess@resource.id" src="@routes.Assets.at("images/success.jpg")" />
+<span class="action">
+<a class="editVideoClick" data="@resource.id" href="#" type="submit"><i class="icon-edit"></i></a>
+</span>
+<span class="action">
+<a href="@routes.Lectures.removeResource(resource.id,lecture.id)" type="submit"><i class="icon-remove"></i></a>
+</span>
 </div>
 }
 }
-
+</div>
 </fieldset>
 
 <form  method="post" id="addVideoForm" action="@routes.Lectures.addVideo(lecture.id)" enctype="multipart/form-data">
@@ -142,23 +154,24 @@ successfully saved
 </div>
 <fieldset>
  <legend>Slides</legend>
-<div class='mask' >
-<div class='slides'>
 @for(resource <- slideResources){
 @if(resource.file_url!=null){
-<div class="slideItem">
-<span class="res">
+<div class="resourceEditDialog" id="resourceEditDialog@resource.id"  title="">
+@resourceEdit(resource)
+</div>
+<div class="videoListItem row">
 @if(resource.file_url.contains("http")){
-<a class="title resourceTitleEdit"  id="resourceTitle@resource.id" href ="@resource.file_url">
+<a class="res"  id="resourceTitle@resource.id" href ="@resource.file_url">
 @resource.title
  </a>
  
 }else{
-<a class="title resourceTitleEdit" id="resourceTitle@resource.id" href ="@routes.Assets.at("uploadSlides/"+{resource.file_url})">
+<a class="res" id="resourceTitle@resource.id" href ="@routes.Assets.at("uploadSlides/"+{resource.file_url})">
 @resource.title
  </a>
-} 
-<img class="alert-success" id="resourceTitleSuccess@resource.id" src="@routes.Assets.at("images/success.jpg")" />
+}
+<span class="action">
+<a class="editClick" data="@resource.id" href="#" type="submit"><i class="icon-edit"></i></a>
 </span>
 <span class="action">
 <a href="@routes.Lectures.removeResource(resource.id,lecture.id)" type="submit"><i class="icon-remove"></i></a>
@@ -166,8 +179,7 @@ successfully saved
 </div>
 }
 }
-</div>
-</div>
+
 </fieldset>
 
 <form  method="post" id="addSlideForm" action="@routes.Lectures.addSlide(lecture.id)" enctype="multipart/form-data">
@@ -317,7 +329,7 @@ successfully saved
 </div>
 </fieldset>
 <br/>
-<div>
+<div style="width: 100%">
 <fieldset class="res nicField" style="width: 45%;">
 <legend>Assignment</legend>
 <div id="lectureassignmentAlert" class="alert alert-success">
@@ -370,6 +382,7 @@ $(document).ready(function(){
 	    },
 	    success : function(data) {
 			$('#addVideoSuccess').show();
+			$('#lectureRefreshLink').click();
 		    }
 	}); 
 	
@@ -392,11 +405,13 @@ $(document).ready(function(){
 	    },
 	    success : function(data) {
 			$('#addSlideSuccess').show();
+			$('#lectureRefreshLink').click();
 		    }
 	}); 
 	
 	
 	$('#removeForm').hide();
+	$('#refreshForm').hide();
 	
 	$( "#dialog-form" ).dialog({
 	      autoOpen: false,
@@ -417,9 +432,7 @@ $(document).ready(function(){
 	      }
 	    });
 	 
-	    $( ".lectureDelete" )
-	      .button()
-	      .click(function() {
+	    $( ".lectureDelete" ).click(function() {
 	        $( "#dialog-form" ).dialog( "open" );
 	      });
 
@@ -478,6 +491,15 @@ $(document).ready(function(){
 			      modal: true
 			      
 			    });
+		 
+	
+		 $(document).on('dialogclose', '.videoDialog', function(){
+			   var id=$(this).attr('data');
+			   var iframe = $('#youtubePlayer'+id);
+			   var src = iframe.attr('src');
+			   iframe.attr('src', '');
+			   iframe.attr('src', src);
+			   });
 		   
 		   $( ".videoClick" ).click(function() {
 		    	  var resourceTitleid=$(this).attr('id');
@@ -486,7 +508,32 @@ $(document).ready(function(){
 		        $( "#videoDialog"+id ).dialog( "open" );
 		      });
 		   
-		  
+		   
+		   $( ".resourceEditDialog" ).dialog({
+			      autoOpen: false,
+			      height: 400,
+			      width: 400,
+			      modal: true
+			      
+			    });
+		 
+		   $( ".videoEditDialog" ).dialog({
+			      autoOpen: false,
+			      height: 400,
+			      width: 400,
+			      modal: true
+			      
+			    });
+		   $( ".editClick" ).click(function() {
+		    	  var id=$(this).attr('data');
+		        $( "#resourceEditDialog"+id ).dialog( "open" );
+		      });
+		   
+		   $( ".editVideoClick" ).click(function() {
+		    	  var id=$(this).attr('data');
+		        $( "#videoEditDialog"+id ).dialog( "open" );
+		      });
+		   
 		   
 });
 

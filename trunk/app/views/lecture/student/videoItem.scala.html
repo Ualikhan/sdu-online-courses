@@ -1,4 +1,16 @@
 @(resource:LectureResource)
+
+@severityColor(url: String) = @{
+   if(url.contains("youtube")){
+   if(url.contains("v="))
+    url.substring(url.indexOf("v=")+2);
+    else{
+     if(url.contains("embed/"))
+		   url.substring(url.indexOf("embed/")+6);
+    }
+    }
+}
+
 <fieldset>
 
 <div class="videoItem">
@@ -7,8 +19,8 @@
 </span>
 
 @if(resource.file_url.contains("youtube.com")){
-<iframe class="videoFrameSize"
-src="@resource.file_url">
+<iframe id="youtubePlayer@resource.id" class="videoFrameSize"
+src="http://www.youtube.com/embed/@{severityColor(resource.file_url)}?enablejsapi=1">
 </iframe>
 }else{
 <div class="player videoFrameSize" data-engine="flash" >

@@ -52,7 +52,7 @@ By @course.owner.name
 @Html(assignment.description)
 </fieldset>
 }
-@if(assignment.actionItems!=null && assignment.actionItems.length()>0 && org.jsoup.Jsoup.parse(assignment.actionItems).text().length()>0){
+@if(assignment.actionItems!=null && assignment.actionItems.length()>0 && !assignment.actionItems.contains("<img") && org.jsoup.Jsoup.parse(assignment.actionItems).text().length()>0){
 <br/>
 <fieldset>
 <legend>Action Items</legend>

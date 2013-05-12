@@ -1,16 +1,16 @@
 @(resource:LectureResource)
 <fieldset>
 
-<div class="videoItem">
-<span class="res">
+<div class="videoItem" id="videoItem@resource.id">
+<span class="res" id="popupVid">
 <p class="title resourceTitleEdit" id="resourceTitle@resource.id">@resource.title</p><img class="alert-success" id="resourceTitleSuccess@resource.id" src="@routes.Assets.at("images/success.jpg")" />
 
 </span>
 
 @severityColor(url: String) = @{
    if(url.contains("youtube")){
-   if(url.contains("watch?v="))
-    url.substring(url.indexOf("watch?v=")+8);
+   if(url.contains("v="))
+    url.substring(url.indexOf("v=")+2);
     else{
      if(url.contains("embed/"))
 		   url.substring(url.indexOf("embed/")+6);
@@ -20,8 +20,8 @@
 
 
 @if(resource.file_url.contains("youtube.com")){
-<iframe class="videoFrameSize"
-src="http://www.youtube.com/embed/@severityColor(resource.file_url)"">
+<iframe id="youtubePlayer@resource.id" class="videoFrameSize"
+src="http://www.youtube.com/embed/@{severityColor(resource.file_url)}?enablejsapi=1">
 </iframe>
 }else{
 <div class="player videoFrameSize" data-engine="flash" >

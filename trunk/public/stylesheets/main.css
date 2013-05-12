@@ -231,12 +231,13 @@ text-decoration: none;
 }
 
 .nicTextContainer{
-	border: 1px solid #000;
+	border: 1px solid rgb(87,87,87);
 	width: 525px;
+	
 }
 
 .announcements{
-	margin:20px;
+	margin:5px;
 	min-height: 300px;
 }
 

@@ -1,0 +1,10 @@
+@(resource:LectureResource)
+<fieldset>
+<legend>Edit resource</legend>
+<form method="post" id="editResourceForm" action="@routes.Lectures.editSlide(resource.id)" enctype="multipart/form-data">
+<label for="title">Title</label><input  type="text"  name="title" placeholder="Title" value="@resource.title">
+<label for="slideUrl">Slide url</label><textarea name="slideUrl">@resource.file_url</textarea> or 
+<label for="slideFile">Slide path</label><input type="file" name="slideFile" placeholder="Slide path">
+<button class="btn btn-primary" type="submit" data-loading-text="Loading...">Edit</button>
+</form>
+</fieldset>

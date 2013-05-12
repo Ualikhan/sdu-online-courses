@@ -2,6 +2,7 @@
 
 @import helper._
 @main(user){
+<div style="margin-left: 20px;">
 	<h2>@course.name</h2>
 	<h3>Instructor:</h3>
 	<p>
@@ -34,6 +35,7 @@
 		}
 	}
 }
+</div>
 
 <input type="hidden" id="courseDescriptionTitleUrl" value="@routes.CourseDescriptions.updateTitle()">
 @for(courseDescription <- courseDescriptions){
