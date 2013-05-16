@@ -6,6 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import models.Assignment;
+import models.Question;
 import models.SubmissionForm;
 import models.Course;
 import models.User;
@@ -14,12 +15,12 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
-import views.html.assignment.*;
+import views.html.submissionform.*;
 
 @Security.Authenticated(Secured.class)
 public class SubmissionForms extends Controller{	
 
-static Long courseId;	
+static Long courseId;
 	
 public static Result newSubmissionForm() throws ParseException{
 	courseId=Long.parseLong(session("course"));
@@ -34,10 +35,11 @@ public static Result newSubmissionForm() throws ParseException{
 		assigment.update();
 		
 		return ok(
-				submissionFormCreate.render(
+				questioncreate.render(
 						User.find.where().eq("email", request().username()).findUnique(),
 						Course.find.byId(courseId),
-						submissionForm
+						submissionForm,
+						Question.findBySubmissionForm(submissionForm.id)
 						)
 				);
 	}else{
@@ -56,10 +58,11 @@ public static Result updateSubmissionForm() throws ParseException{
 		SubmissionForm submissionForm=assigment.submissionForm;
 		
 		return ok(
-				submissionFormCreate.render(
+				questioncreate.render(
 						User.find.where().eq("email", request().username()).findUnique(),
 						Course.find.byId(courseId),
-						submissionForm
+						submissionForm,
+						Question.findBySubmissionForm(submissionForm.id)
 						)
 				);
 	}else{

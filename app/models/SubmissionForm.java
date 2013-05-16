@@ -2,6 +2,8 @@ package models;
 
 import javax.persistence.*;
 
+import models.Enums.ResourceTypes;
+
 import play.db.ebean.*;
 
 @Entity
@@ -12,7 +14,7 @@ public class SubmissionForm extends Model{
 	public Long id;
 	
 	public String title;
-	
+
 	public static Finder<Long,SubmissionForm> find=new Finder<Long, SubmissionForm>(Long.class, SubmissionForm.class);
 		
 	public static void delete(Long id){

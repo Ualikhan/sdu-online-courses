@@ -15,4 +15,11 @@ public class Enums {
 		AUDIO,
 		TRANSCRIPT
 		}
+	
+	public enum AnswerTypes{
+		QA,
+		SCT,
+		MCT
+		}
+	
 }
