@@ -12,6 +12,7 @@ import play.db.ebean.Model;
 public class Course extends Model{
 
 	@Id
+	@Version
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long id;
 	

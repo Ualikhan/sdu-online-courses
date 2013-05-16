@@ -12,6 +12,14 @@ create table announcement (
   constraint pk_announcement primary key (id))
 ;
 
+create table answer (
+  id                        bigint auto_increment not null,
+  answer_content            TEXT,
+  is_true_answer            tinyint(1) default 0,
+  question_id               bigint,
+  constraint pk_answer primary key (id))
+;
+
 create table assignment (
   id                        bigint auto_increment not null,
   title                     varchar(255),
@@ -76,6 +84,17 @@ create table module (
   constraint pk_module primary key (id))
 ;
 
+create table question (
+  id                        bigint auto_increment not null,
+  question_content          TEXT,
+  answer_type               ENUM('QA','SCT','MCT'),
+  num_of_answers            integer,
+  num_of_right_answers      integer,
+  submission_form_id        bigint,
+  constraint ck_question_answer_type check (answer_type in ('QA','SCT','MCT')),
+  constraint pk_question primary key (id))
+;
+
 create table role (
   id                        bigint auto_increment not null,
   name                      ENUM('Administrator','Tutor','Student'),
@@ -120,24 +139,28 @@ create table user_course (
 ;
 alter table announcement add constraint fk_announcement_course_1 foreign key (course_id) references course (id) on delete restrict on update restrict;
 create index ix_announcement_course_1 on announcement (course_id);
-alter table assignment add constraint fk_assignment_submissionForm_2 foreign key (submission_form_id) references submission_form (id) on delete restrict on update restrict;
-create index ix_assignment_submissionForm_2 on assignment (submission_form_id);
-alter table assignment add constraint fk_assignment_course_3 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_assignment_course_3 on assignment (course_id);
-alter table course add constraint fk_course_owner_4 foreign key (owner_email) references user (email) on delete restrict on update restrict;
-create index ix_course_owner_4 on course (owner_email);
-alter table course_description add constraint fk_course_description_course_5 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_course_description_course_5 on course_description (course_id);
-alter table course_information add constraint fk_course_information_course_6 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_course_information_course_6 on course_information (course_id);
-alter table lecture add constraint fk_lecture_course_7 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_lecture_course_7 on lecture (course_id);
-alter table lecture_resource add constraint fk_lecture_resource_lecture_8 foreign key (lecture_id) references lecture (id) on delete restrict on update restrict;
-create index ix_lecture_resource_lecture_8 on lecture_resource (lecture_id);
-alter table submission_item add constraint fk_submission_item_submissionForm_9 foreign key (submission_form_id) references submission_form (id) on delete restrict on update restrict;
-create index ix_submission_item_submissionForm_9 on submission_item (submission_form_id);
-alter table user add constraint fk_user_role_10 foreign key (role_id) references role (id) on delete restrict on update restrict;
-create index ix_user_role_10 on user (role_id);
+alter table answer add constraint fk_answer_question_2 foreign key (question_id) references question (id) on delete restrict on update restrict;
+create index ix_answer_question_2 on answer (question_id);
+alter table assignment add constraint fk_assignment_submissionForm_3 foreign key (submission_form_id) references submission_form (id) on delete restrict on update restrict;
+create index ix_assignment_submissionForm_3 on assignment (submission_form_id);
+alter table assignment add constraint fk_assignment_course_4 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_assignment_course_4 on assignment (course_id);
+alter table course add constraint fk_course_owner_5 foreign key (owner_email) references user (email) on delete restrict on update restrict;
+create index ix_course_owner_5 on course (owner_email);
+alter table course_description add constraint fk_course_description_course_6 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_course_description_course_6 on course_description (course_id);
+alter table course_information add constraint fk_course_information_course_7 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_course_information_course_7 on course_information (course_id);
+alter table lecture add constraint fk_lecture_course_8 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_lecture_course_8 on lecture (course_id);
+alter table lecture_resource add constraint fk_lecture_resource_lecture_9 foreign key (lecture_id) references lecture (id) on delete restrict on update restrict;
+create index ix_lecture_resource_lecture_9 on lecture_resource (lecture_id);
+alter table question add constraint fk_question_submissionForm_10 foreign key (submission_form_id) references submission_form (id) on delete restrict on update restrict;
+create index ix_question_submissionForm_10 on question (submission_form_id);
+alter table submission_item add constraint fk_submission_item_submissionForm_11 foreign key (submission_form_id) references submission_form (id) on delete restrict on update restrict;
+create index ix_submission_item_submissionForm_11 on submission_item (submission_form_id);
+alter table user add constraint fk_user_role_12 foreign key (role_id) references role (id) on delete restrict on update restrict;
+create index ix_user_role_12 on user (role_id);
 
 
 
@@ -155,6 +178,8 @@ SET FOREIGN_KEY_CHECKS=0;
 
 drop table announcement;
 
+drop table answer;
+
 drop table assignment;
 
 drop table course;
@@ -168,6 +193,8 @@ drop table lecture;
 drop table lecture_resource;
 
 drop table module;
+
+drop table question;
 
 drop table role;
 

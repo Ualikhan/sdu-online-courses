@@ -1,0 +1,118 @@
+@(user:User,course:Course,submissionForm:SubmissionForm,questions: List[Question])
+
+@import helper._
+@main(user){
+
+<style>
+  #sortable{ list-style-type: none; margin: 0; padding: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;}
+  #sortable li{ margin: 5px; padding: 5px; font-size: 1.2em; width: 120px; }
+</style>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+    </div>
+    <div class="span8">
+<h3>@course.name</h3>
+By @course.owner.name
+@if(course.owner.company!=null){
+,@course.owner.company
+}
+<div class="menuBar">
+<ul class="nav nav-pills">
+  <li >
+    <a href="@routes.Courses.coursePage(course.id)">Home</a>
+  </li>
+  <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
+  <li class="active"><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
+  <li><a href="@routes.Application.index">Community</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+
+    </div>
+    <div class="span8">
+      <div class="contentBar">
+      	@for(question<-questions){
+      	@question.questionContent
+		<ul>
+		@for(cn <- 1 to question.numOfAnswers){
+		<li>
+		@if(question.answerType.name.equals("MCT")){
+		<input type="text" name="answer@cn">
+		<input type="checkbox" name="answerTrue@cn">
+		}else{
+		@if(question.answerType.name.equals("SCT")){
+		<input type="text" name="answer@cn">
+		<input type="radio" name="answerTrue">
+		}else{
+		<label for="answerContent">Answer</label><textarea name="answerContent@cn" rows="5" cols="10"></textarea>
+	
+		}
+		
+		}
+		</li>
+		}
+		</ul>
+		
+		}
+	<fieldset>
+    <legend>Add question</legend>	
+	<form method="post" action="@routes.Questions.newQuestion(submissionForm.id)">
+	<p>
+	<label for="questionContent">Question</label><textarea name="questionContent" rows="5" cols="10"></textarea>
+	</p>
+	<p>
+	<label for="answerType">Answer type</label>
+	<select id="answerType" name="answerType">
+	<option value="QA">Question-Answer</option>
+	<option value="SCT">Single choice test</option>
+	<option value="MCT">Multiple choice test</option>
+	</select>
+	</p>
+	<p id="numofAnswers">
+	<label for="numOfAnswers">Number of answers</label>
+	<input type="text" name="numOfAnswers">
+	</p>
+	<p  id="numofRightAnswers">
+	<label for="numOfRightAnswers">Number of right answers</label>
+	<input type="text" name="numOfRightAnswers">
+	</p>
+	<input type="submit" value="Submit">
+	</form>
+	</fieldset>
+		</div>
+    </div>
+  </div>
+</div>
+
+}
+<script type="text/javascript">
+$(function() {
+	
+	$('#numofAnswers').hide();
+	$('#numofRightAnswers').hide();
+	  
+	$('#answerType').on('change', function() {
+		if($('#answerType').val()=='QA'){
+			  $('#numofAnswers').hide();
+			  $('#numofRightAnswers').hide();
+			 }
+			 else{
+				 if($('#answerType').val()=='SCT'){
+					  $('#numofAnswers').show();
+					  $('#numofRightAnswers').hide();
+					 }
+				 else{
+					 $('#numofAnswers').show();
+					 $('#numofRightAnswers').show();
+				 }
+			 }
+		});
+  });
+</script>
