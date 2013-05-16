@@ -136,6 +136,8 @@ public class Application extends Controller {
             		
             		controllers.routes.javascript.Questions.newQuestion(),
             		controllers.routes.javascript.Questions.updateQuestion(),
+            		controllers.routes.javascript.Answers.newAnswer(),
+            		controllers.routes.javascript.Answers.updateAnswer(),
             		
             		
             		controllers.routes.javascript.CourseInformations.getCourseInformation(),

@@ -40,24 +40,28 @@ By @course.owner.name
       <div class="contentBar">
       	@for(question<-questions){
       	@question.questionContent
+      	<form method="post" action="@routes.Answers.newAnswer()">
+      	<input type="hidden" name="questionId" value="@question.id">
 		<ul>
 		@for(cn <- 1 to question.numOfAnswers){
 		<li>
 		@if(question.answerType.name.equals("MCT")){
 		<input type="text" name="answer@cn">
-		<input type="checkbox" name="answerTrue@cn">
+		<input type="hidden" id="answerTrue@cn" name="answerTrue@cn">
+		<input type="checkbox" class="answerCheck" data="@cn">
 		}else{
 		@if(question.answerType.name.equals("SCT")){
 		<input type="text" name="answer@cn">
-		<input type="radio" name="answerTrue">
+		<input type="radio" name="answerTrue@question.id" value="@cn">
 		}else{
-		<label for="answerContent">Answer</label><textarea name="answerContent@cn" rows="5" cols="10"></textarea>
-	
+		<label for="answer@cn">Answer</label><textarea name="answer@cn" rows="5" cols="10"></textarea>
 		}
 		
 		}
 		</li>
 		}
+		<input type="submit" value="Submit">
+		</form>
 		</ul>
 		
 		}
@@ -98,6 +102,16 @@ $(function() {
 	$('#numofAnswers').hide();
 	$('#numofRightAnswers').hide();
 	  
+	$('.answerCheck').on('click',function(){
+		var id=$(this).attr('data');
+	$(this).is(':checked')){
+		$('#answerTrue'+id).val('1');
+	}
+	else{
+		$('#answerTrue'+id).val('');
+	}
+	});
+	
 	$('#answerType').on('change', function() {
 		if($('#answerType').val()=='QA'){
 			  $('#numofAnswers').hide();
