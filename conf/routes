@@ -84,6 +84,10 @@ POST   /course/assignment/updateSubmission          controllers.SubmissionForms.
 POST   /course/assignment/newQuestion          controllers.Questions.newQuestion(id: Long)
 POST   /course/assignment/updateQuestion          controllers.Questions.updateQuestion(id: Long)
 
+#Answers
+POST   /course/assignment/newAnswer          controllers.Answers.newAnswer()
+POST   /course/assignment/updateAnswer          controllers.Answers.updateAnswer(id: Long)
+
 
 #CourseInformation
 GET    /course/courseInformations           controllers.CourseInformations.index()
