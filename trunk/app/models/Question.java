@@ -22,6 +22,9 @@ public class Question extends Model{
 	public int numOfAnswers;
 	public int numOfRightAnswers;
 	
+	@OneToMany(targetEntity = Answer.class, cascade = CascadeType.ALL)
+    public List<Answer> answers;
+	
 	@ManyToOne
 	public SubmissionForm submissionForm;
 	

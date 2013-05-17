@@ -1,36 +1,29 @@
-2013-05-16 20:12:54,965 - [INFO] - from play in main 
+2013-05-17 09:53:42,319 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-05-16 20:20:04,707 - [INFO] - from play in New I/O  worker #1 
+2013-05-17 09:53:49,761 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-16 20:20:19,722 - [ERROR] - from application in New I/O  worker #1 
+2013-05-17 09:53:50,899 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-17 09:56:36,094 - [ERROR] - from application in New I/O  worker #4 
 
 
-! @6eai73n00 - Internal server error, for (GET) [/] ->
+! @6eama8bci - Internal server error, for (GET) [/course/assignments/1] ->
 
-play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:457) ~[play-jdbc_2.10.jar:2.1.0]
-	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:478) ~[play-jdbc_2.10.jar:2.1.0]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:434) ~[play-jdbc_2.10.jar:2.1.0]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:432) ~[play-jdbc_2.10.jar:2.1.0]
-	at scala.collection.immutable.List.foreach(List.scala:309) ~[scala-library.jar:na]
-	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:432) ~[play-jdbc_2.10.jar:2.1.0]
-	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at scala.collection.immutable.List.foreach(List.scala:309) ~[scala-library.jar:na]
-	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at play.api.Play$$anonfun$start$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at play.api.Play$$anonfun$start$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.1.0]
-	at play.api.Play$.start(Play.scala:62) ~[play_2.10.jar:2.1.0]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$1.apply(ApplicationProvider.scala:133) ~[play_2.10.jar:2.1.0]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$1.apply(ApplicationProvider.scala:106) ~[play_2.10.jar:2.1.0]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:106) ~[play_2.10.jar:2.1.0]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.1.0]
-	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
-	at play.core.ReloadableApplication.get(ApplicationProvider.scala:104) ~[play_2.10.jar:2.1.0]
+sbt.PlayExceptions$CompilationException: Compilation error[value answers is not a member of models.Question]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
 	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
 	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
 	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
@@ -60,20 +53,68 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
 	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
 	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
 
-2013-05-16 20:20:51,683 - [INFO] - from play in New I/O  worker #1 
+2013-05-17 09:57:24,570 - [INFO] - from play in New I/O  worker #4 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-16 20:20:53,689 - [INFO] - from play in New I/O  worker #1 
+2013-05-17 09:57:24,740 - [INFO] - from play in New I/O  worker #4 
 Application started (Dev)
 
-2013-05-16 20:21:47,626 - [ERROR] - from application in play-internal-execution-context-2 
+2013-05-17 09:58:10,809 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-17 09:58:11,152 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-17 10:00:07,881 - [INFO] - from play in New I/O  worker #6 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-17 10:00:08,098 - [INFO] - from play in New I/O  worker #6 
+Application started (Dev)
+
+2013-05-17 10:00:37,541 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-17 10:00:37,737 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-17 10:01:43,795 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-17 10:01:44,110 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-05-17 10:02:10,263 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-17 10:02:10,504 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-17 10:03:26,432 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-17 10:03:27,160 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-17 10:05:38,854 - [INFO] - from play in New I/O  worker #6 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-17 10:05:39,072 - [INFO] - from play in New I/O  worker #6 
+Application started (Dev)
+
+2013-05-17 10:17:28,960 - [INFO] - from play in New I/O  worker #5 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-17 10:17:29,225 - [INFO] - from play in New I/O  worker #5 
+Application started (Dev)
+
+2013-05-17 10:17:43,256 - [ERROR] - from application in play-internal-execution-context-4 
 
 
-! @6eai78n6l - Internal server error, for (POST) [/course/assignments] ->
+! @6eamd2dpp - Internal server error, for (POST) [/course/assignment/updateAnswer?id=1] ->
 
 play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
 	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
@@ -85,17 +126,13 @@ play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
 	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
 java.lang.NullPointerException: null
-	at java.util.Calendar.setTime(Unknown Source) ~[na:1.7.0_13]
-	at java.text.SimpleDateFormat.format(Unknown Source) ~[na:1.7.0_13]
-	at java.text.SimpleDateFormat.format(Unknown Source) ~[na:1.7.0_13]
-	at java.text.DateFormat.format(Unknown Source) ~[na:1.7.0_13]
-	at controllers.Assignments.newAssignment(Assignments.java:59) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$43$$anonfun$apply$43.apply(routes_routing.scala:693) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$43$$anonfun$apply$43.apply(routes_routing.scala:693) ~[na:na]
+	at controllers.Answers.updateAnswer(Answers.java:89) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$57$$anonfun$apply$57.apply(routes_routing.scala:813) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$57$$anonfun$apply$57.apply(routes_routing.scala:813) ~[na:na]
 	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
 	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
 	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
@@ -115,24 +152,18 @@ java.lang.NullPointerException: null
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
 
-2013-05-16 22:30:39,639 - [INFO] - from play in New I/O  worker #3 
+2013-05-17 10:19:21,058 - [INFO] - from play in New I/O  worker #8 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-16 22:31:07,138 - [INFO] - from play in New I/O  worker #3 
+2013-05-17 10:19:21,292 - [INFO] - from play in New I/O  worker #8 
 Application started (Dev)
 
-2013-05-16 22:35:31,454 - [INFO] - from play in New I/O  worker #4 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-16 22:35:50,514 - [INFO] - from play in New I/O  worker #4 
-Application started (Dev)
-
-2013-05-16 22:36:44,726 - [ERROR] - from application in play-internal-execution-context-2 
+2013-05-17 10:19:28,256 - [ERROR] - from application in play-internal-execution-context-1 
 
 
-! @6eaip1f65 - Internal server error, for (POST) [/course/assignment/newAnswer] ->
+! @6eamd8d8b - Internal server error, for (POST) [/course/assignment/updateAnswer?id=1] ->
 
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
+play.api.Application$$anon$1: Execution exception[[EntityNotFoundException: Bean not found during lazy load or refresh. id[1] type[class models.Answer]]]
 	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
 	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
 	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
@@ -142,13 +173,21 @@ play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
 	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-java.lang.NullPointerException: null
-	at controllers.Answers.newAnswer(Answers.java:37) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$56$$anonfun$apply$56.apply(routes_routing.scala:805) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$56$$anonfun$apply$56.apply(routes_routing.scala:805) ~[na:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110) [na:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603) [na:1.7.0]
+	at java.lang.Thread.run(Thread.java:722) [na:1.7.0]
+javax.persistence.EntityNotFoundException: Bean not found during lazy load or refresh. id[1] type[class models.Answer]
+	at com.avaje.ebeaninternal.server.core.DefaultBeanLoader.refreshBeanInternal(DefaultBeanLoader.java:455) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultBeanLoader.loadBean(DefaultBeanLoader.java:382) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebeaninternal.server.core.DefaultServer.loadBean(DefaultServer.java:498) ~[avaje-ebeanorm-server.jar:na]
+	at com.avaje.ebean.bean.EntityBeanIntercept.loadBeanInternal(EntityBeanIntercept.java:513) ~[avaje-ebeanorm-api.jar:na]
+	at com.avaje.ebean.bean.EntityBeanIntercept.loadBean(EntityBeanIntercept.java:473) ~[avaje-ebeanorm-api.jar:na]
+	at com.avaje.ebean.bean.EntityBeanIntercept.preGetter(EntityBeanIntercept.java:605) ~[avaje-ebeanorm-api.jar:na]
+	at models.Answer._ebean_get_question(Answer.java:4) ~[na:na]
+	at models.Answer.getQuestion(Answer.java) ~[na:na]
+	at controllers.Answers.updateAnswer(Answers.java:83) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$57$$anonfun$apply$57.apply(routes_routing.scala:813) ~[na:na]
+	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$57$$anonfun$apply$57.apply(routes_routing.scala:813) ~[na:na]
 	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
 	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
 	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
@@ -168,162 +207,21 @@ java.lang.NullPointerException: null
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
 
-2013-05-16 22:38:10,918 - [INFO] - from play in New I/O  worker #3 
+2013-05-17 10:23:02,593 - [INFO] - from play in New I/O  worker #7 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-16 22:38:11,577 - [INFO] - from play in New I/O  worker #3 
+2013-05-17 10:23:02,730 - [INFO] - from play in New I/O  worker #7 
 Application started (Dev)
 
-2013-05-16 22:38:36,901 - [ERROR] - from application in play-internal-execution-context-2 
-
-
-! @6eaip7p4f - Internal server error, for (POST) [/course/assignment/newAnswer] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
-	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-java.lang.NullPointerException: null
-	at controllers.Answers.newAnswer(Answers.java:37) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$56$$anonfun$apply$56.apply(routes_routing.scala:805) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$56$$anonfun$apply$56.apply(routes_routing.scala:805) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
-	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
-	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
-	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
-
-2013-05-16 22:44:16,059 - [INFO] - from play in New I/O  worker #2 
+2013-05-17 10:24:07,457 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-16 22:44:16,773 - [INFO] - from play in New I/O  worker #2 
+2013-05-17 10:24:07,665 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-05-16 22:51:36,646 - [INFO] - from play in New I/O  worker #3 
+2013-05-17 10:28:19,634 - [INFO] - from play in New I/O  worker #6 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-16 22:51:51,428 - [INFO] - from play in New I/O  worker #3 
-Application started (Dev)
-
-2013-05-16 22:53:35,553 - [ERROR] - from application in play-internal-execution-context-1 
-
-
-! @6eaj172e3 - Internal server error, for (POST) [/course/assignment/newAnswer] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
-	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-java.lang.NullPointerException: null
-	at controllers.Answers.newAnswer(Answers.java:57) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$56$$anonfun$apply$56.apply(routes_routing.scala:805) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$56$$anonfun$apply$56.apply(routes_routing.scala:805) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
-	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
-	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
-	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
-
-2013-05-16 23:37:55,462 - [ERROR] - from application in play-internal-execution-context-1 
-
-
-! @6eaj72b88 - Internal server error, for (POST) [/course/assignment/newAnswer] ->
-
-play.api.Application$$anon$1: Execution exception[[NullPointerException: null]]
-	at play.api.Application$class.handleError(Application.scala:289) ~[play_2.10.jar:2.1.0]
-	at play.api.DefaultApplication.handleError(Application.scala:383) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:132) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler$$anon$2$$anonfun$handle$1.apply(PlayDefaultUpstreamHandler.scala:128) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend1$1.apply(Promise.scala:113) [play_2.10.jar:2.1.0]
-	at play.api.libs.concurrent.PlayPromise$$anonfun$extend$1$$anonfun$apply$1.apply(Promise.scala:104) [play_2.10.jar:2.1.0]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24) [scala-library.jar:na]
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24) [scala-library.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-java.lang.NullPointerException: null
-	at controllers.Answers.newAnswer(Answers.java:57) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$56$$anonfun$apply$56.apply(routes_routing.scala:805) ~[na:na]
-	at Routes$$anonfun$routes$1$$anonfun$applyOrElse$56$$anonfun$apply$56.apply(routes_routing.scala:805) ~[na:na]
-	at play.core.Router$HandlerInvoker$$anon$6$$anon$2.invocation(Router.scala:141) ~[play_2.10.jar:2.1.0]
-	at play.core.Router$Routes$$anon$1.invocation(Router.scala:322) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:31) ~[play_2.10.jar:2.1.0]
-	at play.GlobalSettings$1.call(GlobalSettings.java:63) ~[play_2.10.jar:2.1.0]
-	at play.mvc.Security$AuthenticatedAction.call(Security.java:39) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:74) ~[play_2.10.jar:2.1.0]
-	at play.core.j.JavaAction$$anon$2.apply(JavaAction.scala:73) ~[play_2.10.jar:2.1.0]
-	at play.libs.F$Promise$PromiseActor.onReceive(F.java:420) ~[play_2.10.jar:2.1.0]
-	at akka.actor.UntypedActor$$anonfun$receive$1.applyOrElse(UntypedActor.scala:159) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:425) ~[akka-actor_2.10.jar:na]
-	at akka.actor.ActorCell.invoke(ActorCell.scala:386) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:230) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.Mailbox.run(Mailbox.scala:212) ~[akka-actor_2.10.jar:na]
-	at akka.dispatch.ForkJoinExecutorConfigurator$MailboxExecutionTask.exec(AbstractDispatcher.scala:502) ~[akka-actor_2.10.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:262) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:975) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1478) ~[scala-library.jar:na]
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:104) ~[scala-library.jar:na]
-
-2013-05-16 23:40:53,167 - [INFO] - from play in New I/O  worker #1 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-16 23:40:53,976 - [INFO] - from play in New I/O  worker #1 
-Application started (Dev)
-
-2013-05-16 23:44:34,267 - [INFO] - from play in New I/O  worker #2 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-16 23:44:34,921 - [INFO] - from play in New I/O  worker #2 
-Application started (Dev)
-
-2013-05-16 23:46:28,517 - [INFO] - from play in New I/O  worker #2 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-16 23:46:29,298 - [INFO] - from play in New I/O  worker #2 
+2013-05-17 10:28:19,824 - [INFO] - from play in New I/O  worker #6 
 Application started (Dev)
 

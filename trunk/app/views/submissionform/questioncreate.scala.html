@@ -40,7 +40,30 @@ By @course.owner.name
       <div class="contentBar">
       	@for(question<-questions){
       	@question.questionContent
-      	<form method="post" action="@routes.Answers.newAnswer()">
+      	@if(question.answers.size>0){
+      	<form method="post" action="@routes.Answers.updateAnswer(question.id)">
+      	<ul>
+		@for(cn <- 1 to question.answers.size){
+		<li>
+		@if(question.answerType.name.equals("MCT")){
+		<input type="text" name="answer@cn" value="@question.answers(cn-1).answerContent">
+		<input type="hidden" id="answerTrue@cn" name="answerTrue@cn">
+		<input type="checkbox" class="answerCheck" data="@cn">
+		}else{
+		@if(question.answerType.name.equals("SCT")){
+		<input type="text" name="answer@cn" value="@question.answers(cn-1).answerContent">
+		<input type="radio" name="answerTrue@question.id" value="@cn">
+		}else{
+		<label for="answer@cn">Answer</label><textarea name="answer@cn" rows="5" cols="10">@question.answers(0).answerContent</textarea>
+		}
+		
+		}
+		</li>
+		}
+		<input type="submit" value="Submit">
+		</form>
+		}else{
+		<form method="post" action="@routes.Answers.newAnswer()">
       	<input type="hidden" name="questionId" value="@question.id">
 		<ul>
 		@for(cn <- 1 to question.numOfAnswers){
@@ -51,7 +74,7 @@ By @course.owner.name
 		<input type="checkbox" class="answerCheck" data="@cn">
 		}else{
 		@if(question.answerType.name.equals("SCT")){
-		<input type="text" name="answer@cn">
+		<input type="text" name="answer@cn" >
 		<input type="radio" name="answerTrue@question.id" value="@cn">
 		}else{
 		<label for="answer@cn">Answer</label><textarea name="answer@cn" rows="5" cols="10"></textarea>
@@ -62,6 +85,7 @@ By @course.owner.name
 		}
 		<input type="submit" value="Submit">
 		</form>
+		}
 		</ul>
 		
 		}
@@ -104,12 +128,12 @@ $(function() {
 	  
 	$('.answerCheck').on('click',function(){
 		var id=$(this).attr('data');
-	$(this).is(':checked')){
+		if($(this).is(':checked')){
 		$('#answerTrue'+id).val('1');
-	}
-	else{
-		$('#answerTrue'+id).val('');
-	}
+		}
+		else{
+			$('#answerTrue'+id).val('');
+		}
 	});
 	
 	$('#answerType').on('change', function() {
