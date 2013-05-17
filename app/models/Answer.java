@@ -31,5 +31,11 @@ public class Answer extends Model{
 		an.delete();
 	}
 
+	public static void deleteAllAnswersFromQuestion(Long id){
+		List<Answer> ans=Answer.find.where().eq("question.id", id).findList();
+		for(Answer an:ans){
+		an.delete();
+		}
+	}
 
 }

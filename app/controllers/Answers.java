@@ -34,7 +34,7 @@ public static Result newAnswer() throws ParseException{
 		
 		if(question.answerType.name().equals("QA")){
 			Answer answer=new Answer();	
-			answer.answerContent=filledForm.get("answer");
+			answer.answerContent=filledForm.get("answer"+question.id);
 			answer.save();
 		}
 		else if(question.answerType.name().equals("SCT")){
@@ -77,20 +77,43 @@ public static Result newAnswer() throws ParseException{
 	}
 }
 
-public static Result updateAnswer(Long answerId) throws ParseException{
+public static Result updateAnswer(Long questionId) throws ParseException{
 	courseId=Long.parseLong(session("course"));
-	Question question=null;
+	Question question=Question.find.ref(questionId);
 	
 	if(Secured.isTutorOf(courseId)){
 		DynamicForm filledForm=form().bindFromRequest();
-		if(filledForm.get("questionId")!=null && filledForm.get("questionId").length()>0)
-			question=Question.find.ref(Long.parseLong(filledForm.get("questionId")));
-		for(int i=1;i<=question.numOfAnswers;i++){
-		Answer answer=Answer.find.ref(answerId);	
+		
+		if(question.answerType.name().equals("QA")){
+			Answer answer=question.answers.get(0);
+			answer.answerContent=filledForm.get("answer"+question.id);
+			answer.update();
+		}
+		else if(question.answerType.name().equals("SCT")){
+			for(int i=1;i<=question.answers.size();i++){
+				Answer answer=question.answers.get(i-1);	
+			answer.answerContent=filledForm.get("answer"+i);
+			if(filledForm.get("answerTrue"+question.id).equals(""+i))
+			answer.isTrueAnswer=true;
+			else 
+				answer.isTrueAnswer=false;
+			
+			answer.update();
+			}
+			}
+		else if(question.answerType.name().equals("MCT")){
+		for(int i=1;i<=question.answers.size();i++){
+			Answer answer=question.answers.get(i-1);	
 		answer.answerContent=filledForm.get("answer"+i);
-		answer.question=question;
+		if(filledForm.get("answerTrue"+i).equals("1"))
+		answer.isTrueAnswer=true;
+		else 
+			answer.isTrueAnswer=false;
+		
 		answer.update();
 		}
+		}
+		
 		return ok(
 				questioncreate.render(
 						User.find.where().eq("email", request().username()).findUnique(),
