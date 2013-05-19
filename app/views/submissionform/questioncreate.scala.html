@@ -40,30 +40,45 @@ By @course.owner.name
       <div class="contentBar">
       	@for(question<-questions){
       	@question.questionContent
+      	<div id="updateAnswerFormSuccess@question.id" class="alert alert-success">
+		successfully saved
+		</div>
       	@if(question.answers.size>0){
-      	<form method="post" action="@routes.Answers.updateAnswer(question.id)">
+      	
+      	<form class="updateAnswerForm" id="updateAnswerForm@question.id" method="post" action="@routes.Answers.updateAnswer(question.id)">
       	<ul>
 		@for(cn <- 1 to question.answers.size){
 		<li>
 		@if(question.answerType.name.equals("MCT")){
 		<input type="text" name="answer@cn" value="@question.answers(cn-1).answerContent">
+		@if(question.answers(cn-1).isTrueAnswer==true){
+		<input type="hidden" id="answerTrue@cn" name="answerTrue@cn" value="1">
+		<input type="checkbox" class="answerCheck" data="@cn" checked="checked">
+		}else{
 		<input type="hidden" id="answerTrue@cn" name="answerTrue@cn">
 		<input type="checkbox" class="answerCheck" data="@cn">
+		}
+		
 		}else{
 		@if(question.answerType.name.equals("SCT")){
+		
 		<input type="text" name="answer@cn" value="@question.answers(cn-1).answerContent">
-		<input type="radio" name="answerTrue@question.id" value="@cn">
+		@if(question.answers(cn-1).isTrueAnswer==true){
+		<input type="radio" name="answerTrue@question.id" value="@cn" checked="checked">
 		}else{
-		<label for="answer@cn">Answer</label><textarea name="answer@cn" rows="5" cols="10">@question.answers(0).answerContent</textarea>
+		<input type="radio" name="answerTrue@question.id" value="@cn">
+		}
+		}else{
+		<label for="answer@cn">Answer</label><textarea name="answer@question.id" rows="5" cols="10">@question.answers(0).answerContent</textarea>
 		}
 		
 		}
 		</li>
 		}
-		<input type="submit" value="Submit">
+		<button type="submit" class="updateAnswerClick" id="@question.id">Submit</button>
 		</form>
 		}else{
-		<form method="post" action="@routes.Answers.newAnswer()">
+		<form class="createAnswerForm" id="createAnswerForm@question.id" method="post" action="@routes.Answers.newAnswer()">
       	<input type="hidden" name="questionId" value="@question.id">
 		<ul>
 		@for(cn <- 1 to question.numOfAnswers){
@@ -77,13 +92,13 @@ By @course.owner.name
 		<input type="text" name="answer@cn" >
 		<input type="radio" name="answerTrue@question.id" value="@cn">
 		}else{
-		<label for="answer@cn">Answer</label><textarea name="answer@cn" rows="5" cols="10"></textarea>
+		<label for="answer@question.id">Answer</label><textarea name="answer@question.id" rows="5" cols="10"></textarea>
 		}
 		
 		}
 		</li>
 		}
-		<input type="submit" value="Submit">
+		<button type="submit">Submit</button>
 		</form>
 		}
 		</ul>
@@ -121,11 +136,28 @@ By @course.owner.name
 
 }
 <script type="text/javascript">
+$(document).ready(function(){
+
+	$('.alert-success').hide();
 $(function() {
-	
 	$('#numofAnswers').hide();
 	$('#numofRightAnswers').hide();
 	  
+	$('.updateAnswerForm').ajaxForm({
+	    success : function(data) {
+			$('#updateAnswerFormSuccess'+data).show();
+			}
+	});
+	
+	$('.createAnswerForm').ajaxForm({
+	    success : function(data) {
+			$('#updateAnswerFormSuccess'+data).show();
+			}
+	});
+	
+	
+	
+
 	$('.answerCheck').on('click',function(){
 		var id=$(this).attr('data');
 		if($(this).is(':checked')){
@@ -153,4 +185,5 @@ $(function() {
 			 }
 		});
   });
+});
 </script>
