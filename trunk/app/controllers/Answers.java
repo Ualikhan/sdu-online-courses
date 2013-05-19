@@ -35,6 +35,8 @@ public static Result newAnswer() throws ParseException{
 		if(question.answerType.name().equals("QA")){
 			Answer answer=new Answer();	
 			answer.answerContent=filledForm.get("answer"+question.id);
+			answer.question=question;
+			
 			answer.save();
 		}
 		else if(question.answerType.name().equals("SCT")){
@@ -64,13 +66,7 @@ public static Result newAnswer() throws ParseException{
 		}
 		}
 		
-		return ok(
-				questioncreate.render(
-						User.find.where().eq("email", request().username()).findUnique(),
-						Course.find.byId(courseId),
-						question.submissionForm,
-						Question.findBySubmissionForm(question.submissionForm.id)
-						)
+		return ok(""+question.id
 				);
 	}else{
 		return forbidden();
@@ -115,12 +111,7 @@ public static Result updateAnswer(Long questionId) throws ParseException{
 		}
 		
 		return ok(
-				questioncreate.render(
-						User.find.where().eq("email", request().username()).findUnique(),
-						Course.find.byId(courseId),
-						question.submissionForm,
-						Question.findBySubmissionForm(question.submissionForm.id)
-						)
+				questionId+""
 				);
 	}else{
 		return forbidden();
