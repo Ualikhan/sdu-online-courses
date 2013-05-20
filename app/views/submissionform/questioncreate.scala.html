@@ -39,6 +39,7 @@ By @course.owner.name
     <div class="span8">
       <div class="contentBar">
       	@for(question<-questions){
+      	<div class="questions">
       	@question.questionContent
       	<div id="updateAnswerFormSuccess@question.id" class="alert alert-success">
 		successfully saved
@@ -46,11 +47,16 @@ By @course.owner.name
       	@if(question.answers.size>0){
       	
       	<form class="updateAnswerForm" id="updateAnswerForm@question.id" method="post" action="@routes.Answers.updateAnswer(question.id)">
-      	<ul>
+      	@if(question.answerType.name.equals("QA")){
+		<label for="answer@question.id">Answer</label>
+		<textarea class="questionAnswerTextArea" name="answer@question.id">@question.answers(0).answerContent</textarea>
+		<br/>
+		}else{
+      	<ol type="A">
 		@for(cn <- 1 to question.answers.size){
 		<li>
 		@if(question.answerType.name.equals("MCT")){
-		<input type="text" name="answer@cn" value="@question.answers(cn-1).answerContent">
+		<textarea class="questionAnswerTextArea" name="answer@cn">@question.answers(cn-1).answerContent</textarea>
 		@if(question.answers(cn-1).isTrueAnswer==true){
 		<input type="hidden" id="answerTrue@cn" name="answerTrue@cn" value="1">
 		<input type="checkbox" class="answerCheck" data="@cn" checked="checked">
@@ -61,54 +67,59 @@ By @course.owner.name
 		
 		}else{
 		@if(question.answerType.name.equals("SCT")){
-		
-		<input type="text" name="answer@cn" value="@question.answers(cn-1).answerContent">
+		<textarea class="questionAnswerTextArea" name="answer@cn">@question.answers(cn-1).answerContent</textarea>
 		@if(question.answers(cn-1).isTrueAnswer==true){
 		<input type="radio" name="answerTrue@question.id" value="@cn" checked="checked">
 		}else{
 		<input type="radio" name="answerTrue@question.id" value="@cn">
 		}
-		}else{
-		<label for="answer@cn">Answer</label><textarea name="answer@question.id" rows="5" cols="10">@question.answers(0).answerContent</textarea>
 		}
 		
 		}
 		</li>
 		}
-		<button type="submit" class="updateAnswerClick" id="@question.id">Submit</button>
+		</ol>
+		}
+		<button style="float: right;" type="submit" class="updateAnswerClick" id="@question.id">Submit</button>
 		</form>
 		}else{
 		<form class="createAnswerForm" id="createAnswerForm@question.id" method="post" action="@routes.Answers.newAnswer()">
       	<input type="hidden" name="questionId" value="@question.id">
-		<ul>
+      	@if(question.answerType.name.equals("QA")){
+      	<label for="answer@question.id">Answer</label>
+		<textarea class="questionAnswerTextArea" name="answer@question.id"></textarea>
+		<br/>
+      	}else{
+		<ol type="A">
 		@for(cn <- 1 to question.numOfAnswers){
 		<li>
 		@if(question.answerType.name.equals("MCT")){
-		<input type="text" name="answer@cn">
+		<textarea class="questionAnswerTextArea" name="answer@cn"></textarea>
 		<input type="hidden" id="answerTrue@cn" name="answerTrue@cn">
 		<input type="checkbox" class="answerCheck" data="@cn">
 		}else{
 		@if(question.answerType.name.equals("SCT")){
-		<input type="text" name="answer@cn" >
+		<textarea class="questionAnswerTextArea" name="answer@cn"></textarea>
 		<input type="radio" name="answerTrue@question.id" value="@cn">
-		}else{
-		<label for="answer@question.id">Answer</label><textarea name="answer@question.id" rows="5" cols="10"></textarea>
 		}
 		
 		}
 		</li>
 		}
-		<button type="submit">Submit</button>
+		</ol>
+		}
+		<button style="float: right;" type="submit">Submit</button>
 		</form>
 		}
-		</ul>
-		
+		<hr>
+		</div>
 		}
 	<fieldset>
     <legend>Add question</legend>	
 	<form method="post" action="@routes.Questions.newQuestion(submissionForm.id)">
 	<p>
-	<label for="questionContent">Question</label><textarea name="questionContent" rows="5" cols="10"></textarea>
+	<label for="questionContent">Question</label>
+	<textarea class="questionAnswerTextArea" name="questionContent" rows="5" cols="10"></textarea>
 	</p>
 	<p>
 	<label for="answerType">Answer type</label>
