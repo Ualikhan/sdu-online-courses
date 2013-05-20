@@ -1,18 +1,42 @@
-2013-05-20 00:37:28,249 - [INFO] - from play in main 
+2013-05-20 12:32:43,476 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-05-20 00:37:52,469 - [INFO] - from play in New I/O  worker #1 
+2013-05-20 12:35:05,659 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-20 00:38:23,589 - [INFO] - from play in New I/O  worker #1 
+2013-05-20 12:35:19,426 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-05-20 00:46:49,222 - [ERROR] - from application in New I/O  worker #3 
+2013-05-20 12:38:02,338 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-20 12:38:06,208 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-05-20 12:39:48,581 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-20 12:39:49,389 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-20 12:44:19,250 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-20 12:44:32,687 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-05-20 12:50:03,744 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-05-20 12:50:04,401 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-05-20 12:56:38,198 - [ERROR] - from application in New I/O  worker #3 
 
 
-! @6ebfb9006 - Internal server error, for (GET) [/course/assignments/1] ->
+! @6ebj348f9 - Internal server error, for (GET) [/course/assignments/1] ->
 
-sbt.PlayExceptions$CompilationException: Compilation error[illegal start of simple expression]
+sbt.PlayExceptions$CompilationException: Compilation error[not found: value cn]
 	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
 	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
 	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
@@ -57,107 +81,39 @@ sbt.PlayExceptions$CompilationException: Compilation error[illegal start of simp
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
 	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
 
-2013-05-20 00:47:30,358 - [INFO] - from play in New I/O  worker #3 
+2013-05-20 12:57:54,831 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-20 00:47:31,899 - [INFO] - from play in New I/O  worker #3 
+2013-05-20 12:57:58,691 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 
-2013-05-20 00:53:41,071 - [INFO] - from play in New I/O  worker #2 
+2013-05-20 12:59:01,724 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-20 00:53:45,399 - [INFO] - from play in New I/O  worker #2 
+2013-05-20 12:59:02,476 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 
-2013-05-20 00:56:07,104 - [INFO] - from play in New I/O  worker #1 
+2013-05-20 13:00:02,632 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-20 00:56:07,879 - [INFO] - from play in New I/O  worker #1 
+2013-05-20 13:00:03,415 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-05-20 01:14:39,412 - [ERROR] - from application in New I/O  worker #2 
-
-
-! @6ebff00pl - Internal server error, for (GET) [/course/assignments/1] ->
-
-sbt.PlayExceptions$CompilationException: Compilation error[render(models.User,models.Course,models.SubmissionForm,java.util.List<models.Question>) in views.html.submissionform.questioncreate cannot be applied to (java.lang.Long)]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
-	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
-	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
-	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
-	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
-	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
-	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
-	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
-	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
-	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
-	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
-	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
-	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
-	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
-	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
-	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
-	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
-	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
-	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
-	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
-	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
-	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
-	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
-	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
-	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
-	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
-	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
-	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
-	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
-	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
-	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
-	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
-	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
-	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
-	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-
-2013-05-20 01:15:37,352 - [INFO] - from play in New I/O  worker #2 
+2013-05-20 13:03:03,590 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-20 01:15:41,865 - [INFO] - from play in New I/O  worker #2 
+2013-05-20 13:03:14,347 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-05-20 01:25:46,431 - [INFO] - from play in New I/O  worker #1 
+2013-05-20 13:05:09,423 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-20 01:26:06,185 - [INFO] - from play in New I/O  worker #1 
+2013-05-20 13:05:10,113 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 
-2013-05-20 01:28:27,862 - [INFO] - from play in New I/O  worker #1 
+2013-05-20 13:12:22,895 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-05-20 01:28:35,641 - [INFO] - from play in New I/O  worker #1 
-Application started (Dev)
-
-2013-05-20 01:34:50,786 - [INFO] - from play in New I/O  worker #1 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-20 01:34:54,938 - [INFO] - from play in New I/O  worker #1 
-Application started (Dev)
-
-2013-05-20 01:36:18,075 - [INFO] - from play in New I/O  worker #4 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-20 01:36:18,810 - [INFO] - from play in New I/O  worker #4 
-Application started (Dev)
-
-2013-05-20 01:39:28,308 - [INFO] - from play in New I/O  worker #1 
-database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
-
-2013-05-20 01:39:29,214 - [INFO] - from play in New I/O  worker #1 
+2013-05-20 13:12:23,650 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 

@@ -256,3 +256,13 @@ footer{
 	position: relative;
 	
 }
+
+.questionAnswerTextArea{
+	width:400px;
+	height: 60px;
+}
+
+.questions{
+margin:5px;
+margin-left: 20px;
+}
