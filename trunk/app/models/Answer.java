@@ -15,7 +15,7 @@ public class Answer extends Model{
 	@Column(columnDefinition="TEXT")
 	public String answerContent;
 
-	public boolean isTrueAnswer;
+	public int isTrueAnswer;
 	
 	@ManyToOne
 	public Question question;
@@ -24,6 +24,10 @@ public class Answer extends Model{
 	
 	public static List<Answer> findAll(){
 		return Answer.find.all();
+	}
+	
+	public static List<Answer> findTrueAnswersByQuestion(Long questionId){
+		return Answer.find.where().eq("question.id", questionId).ne("isTrueAnswer", -1).findList();
 	}
 	
 	public static void delete(Long id){

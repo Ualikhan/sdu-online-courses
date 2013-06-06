@@ -1,0 +1,81 @@
+@(user:User,course:Course,assignment: Assignment,questions: List[Question])
+
+@import helper._
+@main(user){
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+    </div>
+    <div class="span8">
+@tutor.aboutcourse(course)
+@tutor.menu(course,"Submissions")
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+
+    </div>
+    <div class="span8">
+      <div class="contentBar">
+		<form id="submitAnswerForm" method="post" action="@routes.Answers.saveStudentAnswers(assignment.id)">
+		<ul>
+		@for(question <- questions){
+		  <li>
+		<p class="">@question.questionContent</p>
+		@if(question.answerType.name.equals("QA") || question.answerType.name.equals("QE")){
+      	<label for="question@{question.id}answerTrue">Your answer:</label>
+		<textarea class="questionAnswerTextArea" name="question@{question.id}"></textarea>
+		<br/>
+		}else{
+		  @if(question.answers.size>0){
+      	<ol type="A">
+		@for(cn <- 1 to question.answers.size){
+		<li>
+		@if(question.answerType.name.equals("MCT")){
+		@question.answers(cn-1).answerContent
+		<input type="hidden" id="question@{question.id}answerTrue@cn" name="question@{question.id}answerTrue@cn" >
+		<input type="checkbox" class="answerCheck" data="question@{question.id}answerTrue@cn">
+		}else{
+		@if(question.answerType.name.equals("SCT")){
+		@question.answers(cn-1).answerContent
+		<input type="radio" name="question@{question.id}answerTrue" value="@cn">
+		}
+		
+		}
+		</li>
+		}
+		</ol>
+		}
+		
+		}
+		  </li>
+		}
+		  </ul>
+		  <button style="margin-left: 70%;" type="submit" class="btn updateAnswerClick">Submit</button>
+		
+		  </form>
+		</div>
+    </div>
+  </div>
+</div>
+}
+
+<script type="text/javascript">
+$(document).ready(function() {
+	
+	$('.answerCheck').on('click',function(){
+		var id=$(this).attr('data');
+		if($(this).is(':checked')){
+			$('#'+id).val('1');
+		}
+		else{
+			$('#'+id).val('');
+		}
+	});
+	
+		   
+		});
+</script>

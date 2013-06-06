@@ -1,0 +1,8 @@
+@(course:Course)
+
+<h3>@course.name</h3>
+By @course.owner.name
+@if(course.owner.company!=null){
+,@course.owner.company
+}
+

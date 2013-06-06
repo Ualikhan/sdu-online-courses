@@ -17,9 +17,16 @@ public class Enums {
 		}
 	
 	public enum AnswerTypes{
+		QE,
 		QA,
 		SCT,
 		MCT
+		}
+	
+	public enum SubmissionTypes{
+		SAVED,
+		SUBMITTED,
+		CHECKED
 		}
 	
 }

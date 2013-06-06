@@ -1,4 +1,4 @@
-@(user:User,course:Course,assignments: List[Assignment],assignment: Assignment)
+@(user:User,course:Course,assignments: List[Assignment],assignment: Assignment,ss:StudentSubmission,submissionType: String)
 
 @import helper._
 @main(user){
@@ -8,19 +8,15 @@
     <div class="span3">
     </div>
     <div class="span8">
-<h3>@course.name</h3>
-By @course.owner.name
-@if(course.owner.company!=null){
-,@course.owner.company
-}
+@tutor.aboutcourse(course)
 <div class="menuBar">
 <ul class="nav nav-pills">
   <li >
     <a href="@routes.Courses.coursePage(course.id)">Home</a>
   </li>
   <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
-  <li class="active"><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
-  <li><a href="@routes.Application.index">Community</a></li>
+<li class="active"><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li> 
+<li><a href="@routes.Application.index">Community</a></li>
 </ul>
 </div>
 </div>
@@ -43,8 +39,7 @@ By @course.owner.name
     </div>
     <div class="span8">
       <div class="contentBar">
-		
-
+<div class="announcements">
 <h3>@assignment.title</h3>
 @if(assignment.description!=null && assignment.description.length()>0 && org.jsoup.Jsoup.parse(assignment.description).text().length()>0){
 <fieldset>
@@ -59,7 +54,26 @@ By @course.owner.name
 @Html(assignment.actionItems)
 </fieldset>
 }
-
+<fieldset>
+<legend>Submissions</legend>
+@if(submissionType.equals("SUBMITTED")){
+You already submit this assignment!Please wait,until tutor marks it! 
+}else{
+@if(submissionType.equals("CHECKED")){
+<a class="btn" href="@routes.StudentSubmissions.getSubmission(ss.id,submissionType)">Show results</a>
+}else{
+@if(new java.util.Date().after(assignment.startDate) && new java.util.Date().before(assignment.deadline)){
+@form(routes.SubmissionForms.newStudentSubmission(assignment.id)){
+<input type="hidden" name="id" value="@assignment.id">
+<button type="submit" class="btn btn-primary">Submit this assignment</button>
+}
+}else{
+Deadline is expired!You can't submit this assignment
+}
+}
+}
+</fieldset>
+</div>
 </div>
     </div>
   </div>

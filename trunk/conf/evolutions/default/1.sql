@@ -15,7 +15,7 @@ create table announcement (
 create table answer (
   id                        bigint auto_increment not null,
   answer_content            TEXT,
-  is_true_answer            tinyint(1) default 0,
+  is_true_answer            integer,
   question_id               bigint,
   constraint pk_answer primary key (id))
 ;
@@ -27,7 +27,8 @@ create table assignment (
   action_items              TEXT,
   start_date                datetime,
   deadline                  datetime,
-  submission_form_id        bigint,
+  assignment_weight         integer,
+  submission_form_created   tinyint(1) default 0,
   course_id                 bigint,
   constraint pk_assignment primary key (id))
 ;
@@ -87,11 +88,12 @@ create table module (
 create table question (
   id                        bigint auto_increment not null,
   question_content          TEXT,
-  answer_type               ENUM('QA','SCT','MCT'),
+  answer_type               ENUM('QE','QA','SCT','MCT'),
   num_of_answers            integer,
   num_of_right_answers      integer,
-  submission_form_id        bigint,
-  constraint ck_question_answer_type check (answer_type in ('QA','SCT','MCT')),
+  question_weight           integer,
+  assignment_id             bigint,
+  constraint ck_question_answer_type check (answer_type in ('QE','QA','SCT','MCT')),
   constraint pk_question primary key (id))
 ;
 
@@ -102,16 +104,23 @@ create table role (
   constraint pk_role primary key (id))
 ;
 
-create table submission_form (
+create table student_submission (
   id                        bigint auto_increment not null,
-  title                     varchar(255),
-  constraint pk_submission_form primary key (id))
+  student_email             varchar(40),
+  grade                     integer,
+  submission_type           ENUM('SAVED','SUBMITTED','CHECKED'),
+  assignment_id             bigint,
+  constraint ck_student_submission_submission_type check (submission_type in ('SAVED','SUBMITTED','CHECKED')),
+  constraint pk_student_submission primary key (id))
 ;
 
 create table submission_item (
-  name                      varchar(255),
-  value                     varchar(255),
-  submission_form_id        bigint)
+  id                        bigint auto_increment not null,
+  question_id               bigint,
+  answer                    TEXT,
+  grade                     integer,
+  student_submission_id     bigint,
+  constraint pk_submission_item primary key (id))
 ;
 
 create table user (
@@ -141,26 +150,30 @@ alter table announcement add constraint fk_announcement_course_1 foreign key (co
 create index ix_announcement_course_1 on announcement (course_id);
 alter table answer add constraint fk_answer_question_2 foreign key (question_id) references question (id) on delete restrict on update restrict;
 create index ix_answer_question_2 on answer (question_id);
-alter table assignment add constraint fk_assignment_submissionForm_3 foreign key (submission_form_id) references submission_form (id) on delete restrict on update restrict;
-create index ix_assignment_submissionForm_3 on assignment (submission_form_id);
-alter table assignment add constraint fk_assignment_course_4 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_assignment_course_4 on assignment (course_id);
-alter table course add constraint fk_course_owner_5 foreign key (owner_email) references user (email) on delete restrict on update restrict;
-create index ix_course_owner_5 on course (owner_email);
-alter table course_description add constraint fk_course_description_course_6 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_course_description_course_6 on course_description (course_id);
-alter table course_information add constraint fk_course_information_course_7 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_course_information_course_7 on course_information (course_id);
-alter table lecture add constraint fk_lecture_course_8 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_lecture_course_8 on lecture (course_id);
-alter table lecture_resource add constraint fk_lecture_resource_lecture_9 foreign key (lecture_id) references lecture (id) on delete restrict on update restrict;
-create index ix_lecture_resource_lecture_9 on lecture_resource (lecture_id);
-alter table question add constraint fk_question_submissionForm_10 foreign key (submission_form_id) references submission_form (id) on delete restrict on update restrict;
-create index ix_question_submissionForm_10 on question (submission_form_id);
-alter table submission_item add constraint fk_submission_item_submissionForm_11 foreign key (submission_form_id) references submission_form (id) on delete restrict on update restrict;
-create index ix_submission_item_submissionForm_11 on submission_item (submission_form_id);
-alter table user add constraint fk_user_role_12 foreign key (role_id) references role (id) on delete restrict on update restrict;
-create index ix_user_role_12 on user (role_id);
+alter table assignment add constraint fk_assignment_course_3 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_assignment_course_3 on assignment (course_id);
+alter table course add constraint fk_course_owner_4 foreign key (owner_email) references user (email) on delete restrict on update restrict;
+create index ix_course_owner_4 on course (owner_email);
+alter table course_description add constraint fk_course_description_course_5 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_course_description_course_5 on course_description (course_id);
+alter table course_information add constraint fk_course_information_course_6 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_course_information_course_6 on course_information (course_id);
+alter table lecture add constraint fk_lecture_course_7 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_lecture_course_7 on lecture (course_id);
+alter table lecture_resource add constraint fk_lecture_resource_lecture_8 foreign key (lecture_id) references lecture (id) on delete restrict on update restrict;
+create index ix_lecture_resource_lecture_8 on lecture_resource (lecture_id);
+alter table question add constraint fk_question_assignment_9 foreign key (assignment_id) references assignment (id) on delete restrict on update restrict;
+create index ix_question_assignment_9 on question (assignment_id);
+alter table student_submission add constraint fk_student_submission_student_10 foreign key (student_email) references user (email) on delete restrict on update restrict;
+create index ix_student_submission_student_10 on student_submission (student_email);
+alter table student_submission add constraint fk_student_submission_assignment_11 foreign key (assignment_id) references assignment (id) on delete restrict on update restrict;
+create index ix_student_submission_assignment_11 on student_submission (assignment_id);
+alter table submission_item add constraint fk_submission_item_question_12 foreign key (question_id) references question (id) on delete restrict on update restrict;
+create index ix_submission_item_question_12 on submission_item (question_id);
+alter table submission_item add constraint fk_submission_item_studentSubmission_13 foreign key (student_submission_id) references student_submission (id) on delete restrict on update restrict;
+create index ix_submission_item_studentSubmission_13 on submission_item (student_submission_id);
+alter table user add constraint fk_user_role_14 foreign key (role_id) references role (id) on delete restrict on update restrict;
+create index ix_user_role_14 on user (role_id);
 
 
 
@@ -200,7 +213,7 @@ drop table role;
 
 drop table role_module;
 
-drop table submission_form;
+drop table student_submission;
 
 drop table submission_item;
 

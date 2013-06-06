@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import play.data.format.*;
+import play.data.validation.*;
 import play.db.ebean.*;
 import play.db.ebean.Model.Finder;
 
@@ -23,14 +25,19 @@ public class Assignment extends Model{
 	@Column(columnDefinition="TEXT")
 	public String actionItems;
 	
+	@Formats.DateTime(pattern="dd/MM/yyyy")
 	public Date startDate;
+	@Formats.DateTime(pattern="dd/MM/yyyy")
 	public Date deadline;	
 	
-	@OneToOne
-	public SubmissionForm submissionForm;
+	public int assignmentWeight;
+
+	public boolean submissionFormCreated;
 	
 	@ManyToOne
 	public Course course;
+	
+	
 	
 
 	public static Finder<Long,Assignment> find=new Finder<Long, Assignment>(Long.class, Assignment.class);
@@ -40,13 +47,17 @@ public class Assignment extends Model{
 	}
 	
 	public static Assignment findLastAssignmentByCourse(Long courseId){
-		return Assignment.find.where().eq("course.id",courseId).orderBy("id desc").setMaxRows(1).findUnique();
+		return find.where().eq("course.id",courseId).orderBy("id desc").setMaxRows(1).findUnique();
 	}
 	
 	
 	public static void delete(Long id){
 		Assignment an=Assignment.find.byId(id);
 		an.delete();
+	}
+	
+	public static Assignment findBySubmissionForm(Long subId){
+		return find.where().eq("submissionForm.id",subId).findUnique();
 	}
 
 

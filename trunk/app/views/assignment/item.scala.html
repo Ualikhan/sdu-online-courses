@@ -8,21 +8,8 @@
     <div class="span3">
     </div>
     <div class="span8">
-<h3>@course.name</h3>
-By @course.owner.name
-@if(course.owner.company!=null){
-,@course.owner.company
-}
-<div class="menuBar">
-<ul class="nav nav-pills">
-  <li >
-    <a href="@routes.Courses.coursePage(course.id)">Home</a>
-  </li>
-  <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
-  <li class="active"><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
-  <li><a href="@routes.Application.index">Community</a></li>
-</ul>
-</div>
+@tutor.aboutcourse(course)
+@tutor.menu(course,"Assignments")
 </div>
 </div>
 </div>
@@ -102,7 +89,10 @@ bkLib.onDomLoaded(function() {
 		   
 		   var assignmentId=''+@assignment.id;
 		   
-	    	 var assignmentdescriptionNicEditor = new nicEditor({fullPanel : true, onSave : function(description, id, instance) {
+	    	 var assignmentdescriptionNicEditor = new nicEditor({
+	    		fullPanel : true,
+	    		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")',	
+	    		onSave : function(description, id, instance) {
 	         $('#assignmentdescriptionAlert').hide();
 	       	 myJsRoutes.controllers.Assignments.updateDescription().ajax({
 	       	 data: {id:assignmentId,value:description},
@@ -120,7 +110,10 @@ bkLib.onDomLoaded(function() {
 				  $('#assignmentdescriptionNicPanel').show();
 				});
 	         
-	         var assignmentactionItemsNicEditor = new nicEditor({fullPanel : true, onSave : function(description, id, instance) {
+	         var assignmentactionItemsNicEditor = new nicEditor({
+	        	fullPanel : true,
+	     		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")',	
+	     		onSave : function(description, id, instance) {
 	         $('#assignmentactionItemsAlert').hide();
 	       	 myJsRoutes.controllers.Assignments.updateActionItems().ajax({
 	       	 data:  {id:assignmentId,value:description},
@@ -176,25 +169,53 @@ Deadline-
 <button style="margin-top:-10px;" id="deadlineButton" type="button" class="btn btn-primary">Change</button>
 <img id="deadlineUpdateSuccess" src="@routes.Assets.at("images/success.jpg")" />
 </form>
-@if(assignment.submissionForm!=null){
+@if(assignment.submissionFormCreated==true){
 @form(routes.SubmissionForms.updateSubmissionForm()){
 <input type="hidden" name="id" value="@assignment.id">
 <button type="submit" class="btn btn-primary">Update submission form</button>
 }
 }else{
-@form(routes.SubmissionForms.newSubmissionForm()){
+<button id="createSubmissionButton" class="btn btn-primary">Create new submission form</button>
+}
+<div id="createSubmissionForm" title="">
+  @form(routes.SubmissionForms.newSubmissionForm()){
+  <h4>Set weight for this assignment</h4>
 <input type="hidden" name="id" value="@assignment.id">
-<button type="submit" class="btn btn-primary">Create new submission form</button>
+<input type="number" name="weight" />
+<button id="hiddenSubmitButton" type="submit" class="btn btn-primary">Create</button>
 }
-}
-
 </div>
+</div>
+
 
 <script type="text/javascript">
 $(document).ready(function(){
 	$('#deadlineUpdateSuccess').hide();
 	$('#startDateUpdateSuccess').hide();
 	$('#removeForm').hide();
+	$('#hiddenSubmitButton').hide();
+	
+	$( "#createSubmissionButton" ).click(function() {
+      $( "#createSubmissionForm" ).dialog( "open" );
+    });
+	
+	$( "#createSubmissionForm" ).dialog({
+	      autoOpen: false,
+	      height: 400,
+	      width: 400,
+	      modal: true,
+	      buttons: {
+	        "Create": function() {
+	        	$('#hiddenSubmitButton').click();
+	        },
+	        Cancel: function() {
+	          $( this ).dialog( "close" );
+	        }
+	      },
+	      close: function() {
+	       
+	      }
+	    });
 	
 	$( "#dialog-form" ).dialog({
 	      autoOpen: false,

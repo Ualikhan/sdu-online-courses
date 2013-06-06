@@ -16,17 +16,19 @@ public class Question extends Model{
 	public String questionContent;
 
 	@Enumerated(EnumType.STRING)
-	@Column(columnDefinition = "ENUM('QA','SCT','MCT')")
+	@Column(columnDefinition = "ENUM('QE','QA','SCT','MCT')")
 	public AnswerTypes answerType;
 	
 	public int numOfAnswers;
 	public int numOfRightAnswers;
 	
+	public int questionWeight;
+	
 	@OneToMany(targetEntity = Answer.class, cascade = CascadeType.ALL)
     public List<Answer> answers;
 	
 	@ManyToOne
-	public SubmissionForm submissionForm;
+	public Assignment assignment;
 	
 	public static Finder<Long,Question> find=new Finder<Long, Question>(Long.class, Question.class);
 	
@@ -39,9 +41,9 @@ public class Question extends Model{
 		an.delete();
 	}
 
-	public static List<Question> findBySubmissionForm(Long submissionFormId) {
+	public static List<Question> findBySubmissionForm(Long id) {
 		// TODO Auto-generated method stub
-		return Question.find.where().eq("submissionForm.id", submissionFormId).findList();
+		return Question.find.where().eq("assignment.id", id).findList();
 	}
 
 

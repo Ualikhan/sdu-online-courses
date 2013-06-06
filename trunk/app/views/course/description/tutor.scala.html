@@ -43,7 +43,10 @@
 <script type="text/javascript">
 
 bkLib.onDomLoaded(function() {
-		 var courseDescriptionNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+		 var courseDescriptionNicEditor = new nicEditor({
+			 fullPanel : true,
+			 iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")',	
+			onSave : function(content, id, instance) {
 			 $('#alert-success'+@courseDescription.id).hide();
 	    	  
 			 myJsRoutes.controllers.CourseDescriptions.updateContent(''+@courseDescription.id).ajax({
@@ -89,18 +92,20 @@ successfully saved
 <br/>
 <fieldset>
 <legend>Add description for course</legend>
+<div class="createForm">
 @form(routes.CourseDescriptions.newCourseDescription()){
 <p>
 <input type="text" name="title" placeholder="Name">
 </p>
 <p>
-<div id="courseDescAddTextAreaNicPanel" style="width: 525px;"></div>
-<textarea style="width: 525px;" id="courseDescAddTextArea"  rows="10" name="content" placeholder="Description"></textarea>
+<div id="courseDescAddTextAreaNicPanel"></div>
+<textarea id="courseDescAddTextArea" rows="10" name="content" placeholder="Description"></textarea>
 </p>
 <p>
 <button class="btn  btn-medium btn-primary" type="submit">Create</button>
 </p>
 }
+</div>
 </fieldset>
 }
 
@@ -109,7 +114,10 @@ $(document).ready(function(){
 	$('.alert-success').hide();
 	$('.nicPanels').hide();
 	
-	var courseDescAddTextAreaNicEditor = new nicEditor({fullPanel : true});
+	var courseDescAddTextAreaNicEditor = new nicEditor({
+		fullPanel : true,
+		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")'	
+	});
 	  courseDescAddTextAreaNicEditor.setPanel('courseDescAddTextAreaNicPanel');
 	  courseDescAddTextAreaNicEditor.addInstance('courseDescAddTextArea');
 	

@@ -44,20 +44,24 @@ By @course.owner.name
     </div>
     <div class="span8">
       <div class="contentBar">  
-<div class="announcements">       
-<h2>New course information</h2>
+<div class="announcements">     
+<fieldset> 
+<legend>New course information</legend>
+<div class="createForm">
 @form(routes.CourseInformations.saveCourseInformation()){
 <p>
 <input type="text" name="title" placeholder="Name">
 </p>
 <p>
-<div id="courseInfoAddTextAreaNicPanel" style="width: 525px;"></div>
-<textarea id="courseInfoAddTextArea" style="width: 525px;" rows="10"  name="content" placeholder="Description"></textarea>
+<div id="courseInfoAddTextAreaNicPanel"></div>
+<textarea id="courseInfoAddTextArea"  rows="10"  name="content" placeholder="Description"></textarea>
 </p>
 <p>
 <button class="btn btn-primary" type="submit">Create</button>
 </p>
 }
+</div>
+</fieldset> 
 </div>
     </div>
   </div>
@@ -69,7 +73,10 @@ By @course.owner.name
 $(document).ready(function(){
 	$('.alert-success').hide();
 	
-	var courseInfoAddTextAreaNicEditor = new nicEditor({fullPanel : true});
+	var courseInfoAddTextAreaNicEditor = new nicEditor({
+		fullPanel : true,
+		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")'	
+	});
 	courseInfoAddTextAreaNicEditor.setPanel('courseInfoAddTextAreaNicPanel');
 	courseInfoAddTextAreaNicEditor.addInstance('courseInfoAddTextArea');
 	
