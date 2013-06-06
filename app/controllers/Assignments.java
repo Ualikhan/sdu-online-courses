@@ -55,7 +55,11 @@ public static Result newAssignment() throws ParseException{
 		assignment.actionItems=filledForm.get().actionItems;
 		SimpleDateFormat sdf2=new SimpleDateFormat("dd/MM/yyyy");
    	 sdf2.setLenient(false);
-       
+       Logger.debug("startDate:"+filledForm.get().startDate);
+       Logger.debug("deadline:"+filledForm.get().deadline);
+      	
+   	
+   	
 		assignment.startDate=sdf2.parse(sdf2.format(filledForm.get().startDate));
 		assignment.deadline=sdf2.parse(sdf2.format(filledForm.get().deadline));
 		assignment.course=course;
@@ -94,12 +98,21 @@ public static Result assignmentPage(Long id) {
 	}
 	else if(Secured.isStudentOf(id)){
 		Assignment lastAssignment=Assignment.findLastAssignmentByCourse(courseId);
+		User student=User.find.where().eq("email", request().username()).findUnique();
+		String submissionType="";
 		if(lastAssignment!=null){
+			StudentSubmission ss=StudentSubmission.isStudentSubmitedAssignment(student.email, lastAssignment.id);
+			if(ss==null)
+				submissionType="NONE";
+			else 
+				submissionType=ss.submissionType.name();
 		return ok(views.html.assignment.student.item.render(
-				User.find.where().eq("email", request().username()).findUnique(),
+				student,
 				Course.find.byId(courseId),
 				Assignment.findAssignmentsByCourse(courseId),
-				lastAssignment
+				lastAssignment,
+				ss,
+				submissionType
 				)
 				);
 		}
@@ -129,17 +142,27 @@ courseId=Long.parseLong(session("course"));
 				);
 	}
 	else if(Secured.isStudentOf(courseId)){
+		String submissionType="";
+		User student=User.find.where().eq("email", request().username()).findUnique();
+		StudentSubmission ss=StudentSubmission.isStudentSubmitedAssignment(student.email, id);
+		if(ss==null)
+			submissionType="NONE";
+		else 
+			submissionType=ss.submissionType.name();
 		return ok(views.html.assignment.student.item.render(
-				User.find.where().eq("email", request().username()).findUnique(),
+				student,
 				Course.find.byId(courseId),
 				Assignment.findAssignmentsByCourse(courseId),
-				Assignment.find.byId(id)
+				Assignment.find.byId(id),
+				ss,
+				submissionType
 				)
 				);
 	}else{
 		return forbidden();
 	}
 }
+
 
 
 public static Result deleteAssignment(Long id) {

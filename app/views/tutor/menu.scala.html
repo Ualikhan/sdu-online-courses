@@ -1,0 +1,41 @@
+@(course:Course, active: String)
+
+<div class="menuBar">
+<ul class="nav nav-pills">
+@if(active.equals("Home")){
+  <li class="active">
+}else{
+<li>
+}
+    <a href="@routes.Courses.coursePage(course.id)">Home</a>
+  </li>
+  @if(active.equals("Lectures")){
+  <li class="active">
+}else{
+<li>
+}
+  <a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li> 
+@if(active.equals("Assignments")){
+  <li class="active">
+}else{
+<li>
+}  
+<a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li> 
+  @if(active.equals("Submissions")){
+  <li class="active dropdown">
+}else{
+<li class="dropdown">
+}
+  <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="#">
+    Submissions
+    <b class="caret"></b>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+    <li role="presentation"><a role="menuitem" href="@routes.StudentSubmissions.unchecked()">Unchecked submissions</a></li>
+ 	 <li role="presentation"><a role="menuitem" href="@routes.StudentSubmissions.checked()">Checked submissions</a></li>
+  <li role="presentation"><a role="menuitem" href="@routes.StudentSubmissions.results()">General results</a></li>
+  </ul>
+	</li>
+  <li><a href="@routes.Application.index">Community</a></li>
+</ul>
+</div>

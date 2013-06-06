@@ -57,7 +57,10 @@ $(document).ready(function(){
 		return(result);
 	});
 	
-    	 var courseInformationNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+    	 var courseInformationNicEditor = new nicEditor({
+    		 fullPanel : true,
+    		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")',	
+    		onSave : function(content, id, instance) {
     		 $('.alert-success').hide();
        	  myJsRoutes.controllers.CourseInformations.updateContent(''+@courseInformation.id).ajax({
        		data: {value:content},

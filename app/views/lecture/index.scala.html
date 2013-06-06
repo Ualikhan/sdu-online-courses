@@ -8,21 +8,8 @@
     <div class="span3">
     </div>
     <div class="span8">
-<h3>@course.name</h3>
-By @course.owner.name
-@if(course.owner.company!=null){
-,@course.owner.company
-}
-<div class="menuBar">
-<ul class="nav nav-pills">
-  <li >
-    <a href="@routes.Courses.coursePage(course.id)">Home</a>
-  </li>
-  <li class="active"><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
-  <li><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
-  <li><a href="@routes.Application.index">Community</a></li>
-</ul>
-</div>
+@tutor.aboutcourse(course)
+@tutor.menu(course,"Lectures")
 </div>
 </div>
 </div>
@@ -46,7 +33,7 @@ By @course.owner.name
     <div class="span8">
       <div class="contentBar">
       <div class="announcements">
-		<h2>Add  new lecture</h2>
+		<h2>New lecture</h2>
 @form(routes.Lectures.newLecture()){
 <input type="text" name="title" placeholder="Name">
 <div class="accordion" id="accordion2">
@@ -117,7 +104,7 @@ By @course.owner.name
   </div>
 </div>
 <p>
-<button type="submit">Create</button>
+<button class="btn" type="submit">Create</button>
 </p>
 }
 </div>
@@ -132,23 +119,38 @@ By @course.owner.name
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	var contentTextAreaNicEditor = new nicEditor({fullPanel : true});
+	var contentTextAreaNicEditor = new nicEditor({
+		fullPanel : true,
+		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")'	
+	});
 	contentTextAreaNicEditor.setPanel('contentNicPanel');
 	contentTextAreaNicEditor.addInstance('content');
 	
-	var keyConceptsTextAreaNicEditor = new nicEditor({fullPanel : true});
+	var keyConceptsTextAreaNicEditor = new nicEditor({
+		fullPanel : true,
+		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")'	
+		});
 	keyConceptsTextAreaNicEditor.setPanel('keyConceptsNicPanel');
 	keyConceptsTextAreaNicEditor.addInstance('keyConcepts');
 	
-	var readingTextAreaNicEditor = new nicEditor({fullPanel : true});
+	var readingTextAreaNicEditor = new nicEditor({
+		fullPanel : true,
+		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")'	
+		});
 	readingTextAreaNicEditor.setPanel('readingNicPanel');
 	readingTextAreaNicEditor.addInstance('reading');
 	
-	var assignmentTextAreaNicEditor = new nicEditor({fullPanel : true});
+	var assignmentTextAreaNicEditor = new nicEditor({
+		fullPanel : true,
+		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")'	
+		});
 	assignmentTextAreaNicEditor.setPanel('assignmentNicPanel');
 	assignmentTextAreaNicEditor.addInstance('assignment');
 	
-	var additionalResourcesTextAreaNicEditor = new nicEditor({fullPanel : true});
+	var additionalResourcesTextAreaNicEditor = new nicEditor({
+		fullPanel : true,
+		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")'	
+		});
 	additionalResourcesTextAreaNicEditor.setPanel('additionalResourcesNicPanel');
 	additionalResourcesTextAreaNicEditor.addInstance('additionalResources');
 	

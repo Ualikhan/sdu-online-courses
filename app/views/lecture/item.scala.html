@@ -20,21 +20,8 @@
     <div class="span3">
     </div>
     <div class="span8">
-<h3>@course.name</h3>
-By @course.owner.name
-@if(course.owner.company!=null){
-,@course.owner.company
-}
-<div class="menuBar">
-<ul class="nav nav-pills">
-  <li >
-    <a href="@routes.Courses.coursePage(course.id)">Home</a>
-  </li>
-  <li class="active"><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
-  <li><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
-  <li><a href="@routes.Application.index">Community</a></li>
-</ul>
-</div>
+@tutor.aboutcourse(course)
+@tutor.menu(course,"Lectures")
 </div>
 </div>
 </div>
@@ -84,7 +71,7 @@ successfully saved
 <input type="hidden" id="flowPlayer" value="@routes.Assets.at("javascripts/flowplayer-5.4.0/flowplayer.swf")">
 <input type="hidden" id="lectureId" value="@lecture.id">
 
-<div id="dialog-form" title="">
+<div id="dialog-form">
   <form>
  <h4>Are you sure to remove this lecture?</h4>
  <input type="hidden" name="id" value="@lecture.id"/>
@@ -205,7 +192,10 @@ bkLib.onDomLoaded(function() {
 		   $('.alert-success').hide();
 		   
 		   var lectureId=''+@lecture.id;
-	    	 var lecturecontentNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+	    	 var lecturecontentNicEditor = new nicEditor({
+	    		 fullPanel : true,
+	    			iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")',	    		
+	    		 onSave : function(content, id, instance) {
 	    		 $('#lecturecontentAlert').hide();
 	       	  myJsRoutes.controllers.Lectures.updateContent().ajax({
 	       		data: {id:lectureId,value:content},
@@ -223,7 +213,10 @@ bkLib.onDomLoaded(function() {
 				  $('#lecturecontentNicPanel').show();
 				});
 	         
-	         var lecturekeyConceptsNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+	         var lecturekeyConceptsNicEditor = new nicEditor({
+	        	 fullPanel : true,
+	     		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")',	
+	     	onSave : function(content, id, instance) {
 	    		 $('#lecturekeyConceptsAlert').hide();
 	       	  myJsRoutes.controllers.Lectures.updateKeyConcepts(''+@lecture.id).ajax({
 	       		data:  {id:lectureId,value:content},
@@ -243,7 +236,10 @@ bkLib.onDomLoaded(function() {
 				});
 			 
 	         
-	         var lecturereadingNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+	         var lecturereadingNicEditor = new nicEditor({
+	        	 fullPanel : true,
+	     		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")',	
+	     	onSave : function(content, id, instance) {
 	    		 $('#lecturereadingAlert').hide();
 	       	  myJsRoutes.controllers.Lectures.updateReading(''+@lecture.id).ajax({
 	       		data:  {id:lectureId,value:content},
@@ -262,7 +258,10 @@ bkLib.onDomLoaded(function() {
 				  $('#lecturereadingNicPanel').show();
 				});
 	         
-	         var lectureassignmentNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+	         var lectureassignmentNicEditor = new nicEditor({
+	        	 fullPanel : true,
+	     		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")',	
+	     	onSave : function(content, id, instance) {
 	    		 $('#lectureassignmentAlert').hide();
 	       	  myJsRoutes.controllers.Lectures.updateAssignment(''+@lecture.id).ajax({
 	       		data:  {id:lectureId,value:content},
@@ -280,7 +279,10 @@ bkLib.onDomLoaded(function() {
 				  $('#lectureassignmentNicPanel').show();
 				});
 	         
-	         var lectureadditionalResourcesNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+	         var lectureadditionalResourcesNicEditor = new nicEditor({
+	        	 fullPanel : true,
+	     		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")',	
+	     	onSave : function(content, id, instance) {
 	    		 $('#lectureadditionalResourcesAlert').hide();
 	       	  myJsRoutes.controllers.Lectures.updateAdditionalResources(''+@lecture.id).ajax({
 	       		data:  {id:lectureId,value:content},

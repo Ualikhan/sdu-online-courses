@@ -1,0 +1,64 @@
+@(user:User,course:Course,assignments: List[Assignment],submissions: List[StudentSubmission],submissionType: String,assignmentId:Long)
+
+@import helper._
+@main(user){
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+    </div>
+    <div class="span8">
+@tutor.aboutcourse(course)
+@tutor.menu(course,"Submissions")
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+     <ul class="nav nav-list sidebar">
+  <li class="nav-header">Assignments</li>
+  @for(assignment<-assignments){
+  @if(assignment.id==assignmentId){
+  <li class="active">
+  }else{
+  <li>
+  }
+  @if(submissionType.equals("CHECKED")){
+  <a id="assignment@assignment.id" href="@routes.StudentSubmissions.getCheckedByAssignment(assignment.id)">@assignment.title</a>
+  }else{
+  <a id="assignment@assignment.id" href="@routes.StudentSubmissions.getUncheckedByAssignment(assignment.id)">@assignment.title</a>
+  }
+  </li>
+  }
+</ul>
+    </div>
+    <div class="span8">
+      <div class="contentBar">
+<div class="announcements">       
+     <ul>
+   @for(submission<-submissions){
+  <li>
+  @if(submissionType.equals("CHECKED")){
+  <a id="submission@submission.id" href="@routes.StudentSubmissions.getSubmission(submission.id,submissionType)">@submission.student.name - @submission.grade</a>
+  }else{
+  <a id="submission@submission.id" href="@routes.StudentSubmissions.getSubmission(submission.id,submissionType)">@submission.student.name</a>
+  }
+  </li>
+  }
+</ul>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+}
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+
+});
+</script>

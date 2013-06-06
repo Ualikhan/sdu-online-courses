@@ -9,21 +9,8 @@
      
     </div>
     <div class="span9">
-<h3>@course.name</h3>
-By @course.owner.name
-@if(course.owner.company!=null){
-,@course.owner.company
-}
-<div class="menuBar">
-<ul style="margin-left:5px;" class="nav nav-pills">
-  <li class="active">
-    <a href="@routes.Courses.coursePage(course.id)">Home</a>
-  </li>
-  <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
-  <li><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
-  <li><a href="@routes.Application.index">Community</a></li>
-</ul>
-</div>
+@tutor.aboutcourse(course)
+@tutor.menu(course,"Home")
 </div>
 </div>
 </div>
@@ -47,13 +34,17 @@ By @course.owner.name
        
 
 <div class="announcements">
+@if(announcements.size()>0){
 <fieldset>
     <legend>Announcements</legend>
 @for(annoncement<-announcements){
 <script type="text/javascript">
 
      bkLib.onDomLoaded(function() {
-    	  var myNicEditor = new nicEditor({fullPanel : true, onSave : function(content, id, instance) {
+    	  var myNicEditor = new nicEditor({
+    		fullPanel : true,
+    		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")',	
+    		onSave : function(content, id, instance) {
     		  $('#alert-success'+@annoncement.id).hide();
     			
         	  myJsRoutes.controllers.Announcements.updateContent(''+@annoncement.id).ajax({
@@ -104,19 +95,25 @@ successfully saved
 
 </div>
 }
-<h4>Add a new announcement</h4>
+</fieldset>
+}
+<fieldset>
+<legend>New announcement</legend>
+<div class="createForm">
 @form(routes.Announcements.newAnnouncement()){
 <p>
 <input type="text" name="title" placeholder="Name">
 </p>
 <p>
-<div id="annAddTextAreaNicPanel" style="width: 525px;"></div>
-<textarea id="annAddTextArea" style="width: 525px;" rows="10"  name="content" placeholder="Description"></textarea>
+<div id="annAddTextAreaNicPanel" ></div>
+<textarea id="annAddTextArea" rows="10"  name="content" placeholder="Description"></textarea>
 </p>
 <p>
 <button class="btn btn-primary"  type="submit">Create</button>
 </p>
 }
+</div>
+</fieldset>
 </div>
 </div>
     </div>
@@ -130,7 +127,10 @@ $(document).ready(function(){
 	$('.alert-success').hide();
 	$('.nicPanels').hide();
 	
-	var annAddTextAreaNicEditor = new nicEditor({fullPanel : true});
+	var annAddTextAreaNicEditor = new nicEditor({
+		fullPanel : true,
+		iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")'	
+	});
 	  annAddTextAreaNicEditor.setPanel('annAddTextAreaNicPanel');
 	  annAddTextAreaNicEditor.addInstance('annAddTextArea');
 	

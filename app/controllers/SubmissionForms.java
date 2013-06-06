@@ -7,7 +7,6 @@ import java.text.SimpleDateFormat;
 
 import models.Assignment;
 import models.Question;
-import models.SubmissionForm;
 import models.Course;
 import models.User;
 import play.data.DynamicForm;
@@ -28,24 +27,25 @@ public static Result newSubmissionForm() throws ParseException{
 	if(Secured.isTutorOf(courseId)){
 		DynamicForm filledForm=form().bindFromRequest();
 		Course course=Course.find.byId(courseId);
-		SubmissionForm submissionForm=new SubmissionForm();	
-		submissionForm.save();
+		
 		Assignment assigment=Assignment.find.byId(Long.parseLong(filledForm.get("id")));
-		assigment.submissionForm=submissionForm;
+		assigment.submissionFormCreated=true;
+		assigment.assignmentWeight=Integer.parseInt(filledForm.get("weight"));
 		assigment.update();
 		
 		return ok(
-				questioncreate.render(
+				index.render(
 						User.find.where().eq("email", request().username()).findUnique(),
 						Course.find.byId(courseId),
-						submissionForm,
-						Question.findBySubmissionForm(submissionForm.id)
+						assigment,
+						Question.findBySubmissionForm(assigment.id)
 						)
 				);
 	}else{
 		return forbidden();
 	}
 }
+
 
 public static Result updateSubmissionForm() throws ParseException{
 	courseId=Long.parseLong(session("course"));
@@ -55,14 +55,32 @@ public static Result updateSubmissionForm() throws ParseException{
 		Course course=Course.find.byId(courseId);
 		
 		Assignment assigment=Assignment.find.byId(Long.parseLong(filledForm.get("id")));
-		SubmissionForm submissionForm=assigment.submissionForm;
 		
 		return ok(
-				questioncreate.render(
+				index.render(
 						User.find.where().eq("email", request().username()).findUnique(),
 						Course.find.byId(courseId),
-						submissionForm,
-						Question.findBySubmissionForm(submissionForm.id)
+						assigment,
+						Question.findBySubmissionForm(assigment.id)
+						)
+				);
+	}else{
+		return forbidden();
+	}
+}
+
+public static Result newStudentSubmission(Long id) throws ParseException{
+	courseId=Long.parseLong(session("course"));
+	
+	if(Secured.isStudentOf(courseId)){
+		Assignment assigment=Assignment.find.byId(id);
+		
+		return ok(
+				studentsubmission.render(
+						User.find.where().eq("email", request().username()).findUnique(),
+						Course.find.byId(courseId),
+						assigment,
+						Question.findBySubmissionForm(id)
 						)
 				);
 	}else{

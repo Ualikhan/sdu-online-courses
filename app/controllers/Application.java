@@ -1,6 +1,8 @@
 package controllers;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 import models.Course;
 import models.Role;
@@ -60,6 +62,26 @@ public class Application extends Controller {
 		        				)
 		        				);
 		
+	}
+	
+	private static Map<String, Object> map = new HashMap<String, Object>();
+
+	// setter
+	public static void setValue(String key, Object value) {
+	    map.put(key, value);
+	}
+
+	// general getter would work well with String, also numeric types (only for displaying purposes! - not for calculations or comparisons!)
+	public static Object getValue(String key) {
+	    return map.get(key);
+	}
+
+	public static Boolean isFalse(String key) {
+	    return Boolean.valueOf(map.get(key).toString());
+	}
+
+	public static Boolean getBoolean(String key) {
+	    return Boolean.valueOf(map.get(key).toString());
 	}
     
     public static Result login() {

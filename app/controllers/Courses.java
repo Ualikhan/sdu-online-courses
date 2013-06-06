@@ -86,6 +86,8 @@ public static Result courseDescription(Long id) {
 	else 
 		accessString="SIGNUP";
 		
+	session("course",id+"");
+	
 	if(Secured.isTutorOf(id)){
 	return ok(
 					views.html.course.description.tutor.render(

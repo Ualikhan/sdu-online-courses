@@ -1,0 +1,187 @@
+@(user:User,course:Course,assignment:Assignment,questions: List[Question])
+
+@import helper._
+@main(user){
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+    </div>
+    <div class="span8">
+@tutor.aboutcourse(course)
+@tutor.menu(course,"Assignments")
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+	<ul class="nav nav-list sidebar">
+  <li>
+  <a href="@routes.Assignments.getAssignment(assignment.id)">Go to assignment</a>
+    </li>
+  <li  style="height: 50px;">
+  @form(action=routes.Questions.index(assignment.id),'style->"padding:10px;"){
+  <button type="submit" class="new"><i class="icon-plus"></i></button>
+  }
+  </li>
+</ul>
+	</div>
+    <div class="span8">
+      <div class="contentBar">
+      <div style="margin: 10px;">
+      <div class="pagination">
+  <ul>
+    @for(counter <- 1 to questions.size){
+  <li>
+  <a id="question@questions.get(counter-1).id" href="@routes.Questions.getQuestion(assignment.id,questions.get(counter-1).id)"><span class="badge">@counter</span></a>
+  </li>
+  }
+    </ul>
+</div>
+
+	<fieldset>
+    <legend>Add question</legend>	
+	<form method="post" action="@routes.Questions.newQuestion(assignment.id)">
+	<p>
+	<label for="questionContent">Question</label>
+	<textarea id="questionContent" class="questionAnswerTextArea" name="questionContent" rows="5" cols="10"></textarea>
+	</p>
+	<p>
+	<label for="answerType">Answer type</label>
+	<select id="answerType" name="answerType">
+	<option value="QE">Question-Explanation</option>
+	<option value="QA">Question-Answer</option>
+	<option value="SCT">Single choice test</option>
+	<option value="MCT">Multiple choice test</option>
+	</select>
+	</p>
+	<p id="questionWeight">
+	<label for="questionWeight">Question weight</label>
+	<input id="questionWeightID" type="number" name="questionWeight" min="1" max="100">
+	<span id="questionWeightError" class="label label-info">Fill this field with numbers from 1 to 100</span>
+	</p>
+	<p id="numOfAnswers">
+	<label for="numOfAnswers">Number of answers</label>
+	<input id="numOfAnswersID" type="number" name="numOfAnswers" min="2" max="10">
+	<span id="numOfAnswersError" class="label label-info">Fill this field with numbers from 2 to 10</span>
+	</p>
+	<p  id="numOfRightAnswers">
+	<label for="numOfRightAnswers">Number of right answers</label>
+	<input  type="number" id="numOfRightAnswersID" min="1" max="6" name="numOfRightAnswers">
+	<span id="numOfRightAnswersError" class="label label-info">Fill this field with numbers from 1 to 6</span>
+	</p>
+	<input id="createQuestionSubmit" type="submit"> 
+	</form>
+	<button id="createQuestionButton" type="button" >Submit</button>
+	
+	</fieldset>
+	</div>
+		</div>
+    </div>
+  </div>
+</div>
+
+}
+<script type="text/javascript">
+$(document).ready(function(){
+
+	$('#createQuestionSubmit').hide();
+	$('#numOfAnswersError').hide();
+	$('#numOfRightAnswersError').hide();
+	$('#questionWeightError').hide();
+	
+	
+	
+$(function() {
+	$('#numOfAnswers').hide();
+	$('#numOfRightAnswers').hide();
+	  	
+	$("#numOfAnswersID").bind("keyup mouseup", function() {
+		$('#numOfRightAnswersID').attr(	'max', parseInt($('#numOfAnswersID').val())-1);
+		$('#numOfRightAnswersID').val('');
+	});
+	
+	$('#createQuestionButton').on('click',function(){
+		var text=$('#questionContent').val();
+		if($.trim(text) == '') {
+			$("#questionContent").addClass('errorTextArea');
+		}
+		else{
+			$("#questionContent").removeClass('errorTextArea');
+		if($.trim($('#questionWeightID').val()) == '') {
+			$('#questionWeightID').addClass('errorTextArea');
+			$('#questionWeightError').show();
+		}
+		else{
+		if($('#answerType').val()=='QE' || $('#answerType').val()=='QA'){
+				$('#createQuestionSubmit').click();
+			}
+			else{
+			if($('#answerType').val()=='SCT'){
+				
+				if($.trim($('#numOfAnswersID').val()) == '') {
+					$('#numOfAnswersID').addClass('errorTextArea');
+					$('#numOfAnswersError').show();
+				}
+				else{
+					$('#numOfAnswersError').hide();
+				$('#numOfAnswersID').removeClass('errorTextArea');
+				$('#createQuestionSubmit').click();
+				}
+			}else{
+				if($('#answerType').val()=='MCT'){
+					if($.trim($('#numOfAnswersID').val()) == '') {
+						$('#numOfAnswersID').addClass('errorTextArea');
+						$('#numOfAnswersError').show();
+					}
+					else{
+						$('#numOfAnswersError').hide();
+					$('#numOfAnswersID').removeClass('errorTextArea');
+					if($.trim($('#numOfRightAnswersID').val()) == '') {
+						$('#numOfRightAnswersID').addClass('errorTextArea');
+						$('#numOfRightAnswersError').show();
+					}
+					else{
+						$('#numOfRightAnswersError').hide();
+					$('#numOfRightAnswersID').removeClass('errorTextArea');
+					if(parseInt($('#numOfRightAnswersID').val())<parseInt($('#numOfAnswersID').val())){
+					$('#createQuestionSubmit').click();
+					}
+					else{
+						$('#numOfRightAnswersID').addClass('errorTextArea');
+					}
+					}
+					}
+				}
+			}
+		}
+		}
+		}
+	});
+
+	
+	$('#answerType').on('change', function() {
+		if($('#answerType').val()=='QE'){
+			  $('#numOfAnswers').hide();
+			  $('#numOfRightAnswers').hide();
+			 }
+		else{
+		if($('#answerType').val()=='QA'){
+			  $('#numOfAnswers').hide();
+			  $('#numOfRightAnswers').hide();
+			 }
+			 else{
+				 if($('#answerType').val()=='SCT'){
+					  $('#numOfAnswers').show();
+					  $('#numOfRightAnswers').hide();
+					 }
+				 else{
+					 $('#numOfAnswers').show();
+					 $('#numOfRightAnswers').show();
+				 }
+			 }
+		}
+		});
+  });
+});
+</script>

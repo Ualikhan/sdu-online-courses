@@ -1,0 +1,81 @@
+@(user:User,course:Course,assignments: List[Assignment],submissions: List[GradeByAssignment])
+
+@import helper._
+
+@main(user){
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+    </div>
+    <div class="span8">
+@tutor.aboutcourse(course)
+@tutor.menu(course,"Submissions")
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+     <ul class="nav nav-list sidebar">
+  <li class="nav-header">Assignments</li>
+  @for(assignment<-assignments){
+  <li>
+  <a id="assignment@assignment.id" href="@routes.StudentSubmissions.getUncheckedByAssignment(assignment.id)">@assignment.title</a>
+  </li>
+  }
+</ul>
+    </div>
+    <div class="span8">
+      <div class="contentBar">
+<div class="announcements">       
+     <table class="resultTable">
+      <th>Students</th>
+      @for(assignment<-assignments){
+	  <th>@assignment.title</th>
+	  }
+	  <th>General</th>
+
+	   @submissions.groupBy(_.student).map {
+	               case (student, submissions) => {
+	               <tr>
+	                <td>@student.name</td>
+	                 @for(cn <- 1 to assignments.size){
+		    <td>
+		    @Application.setValue("yes", false)
+		    @for(subvalue <- submissions){
+		     @if(subvalue.assignmentId==assignments.get(cn-1).id){
+		     @subvalue.grade
+		     @Application.setValue("yes", true)
+		     }
+	        }
+	        @if(!Application.isFalse("yes")){
+	        0
+	        }
+	        </td>
+	        }
+                     <td>
+                     @submissions.get(0).grade
+                     </td> 
+                </tr>
+            }
+	   
+	   }
+      </table>
+  
+</ul>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+}
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+
+});
+</script>

@@ -75,18 +75,32 @@ GET    /course/assignment/:aid/delete   controllers.Assignments.deleteAssignment
 GET    /course/assignments/:aid        controllers.Assignments.assignmentPage(aid: Long)
 GET    /course/assignment/:id           controllers.Assignments.getAssignment(id: Long)
 
-
 #SubmissionForms
 POST   /course/assignment/newSubmission          controllers.SubmissionForms.newSubmissionForm()
 POST   /course/assignment/updateSubmission          controllers.SubmissionForms.updateSubmissionForm()
+POST   /course/submission/newSubmission          controllers.SubmissionForms.newStudentSubmission(id:Long)
+
+#StudentSubmissions
+GET   /course/submissions/unchecked          controllers.StudentSubmissions.unchecked()
+GET   /course/submissions/checked          controllers.StudentSubmissions.checked()
+GET   /course/submissions/results          controllers.StudentSubmissions.results()
+
+GET   /course/submission/:id          controllers.StudentSubmissions.getSubmission(id:Long,st:String)
+GET   /course/submissionCheckedByAssignment/:id          controllers.StudentSubmissions.getCheckedByAssignment(id:Long)
+GET   /course/submissionUncheckedByAssignment/:id          controllers.StudentSubmissions.getUncheckedByAssignment(id:Long)
+POST  /course/submission/confirm			controllers.StudentSubmissions.confirmStudentSubmission()
 
 #Questions
+POST    /course/question/index           controllers.Questions.index(id: Long)
+GET    /course/question/:id           controllers.Questions.getQuestion(sid:Long,id: Long)
+GET    /course/question/:aid/delete   controllers.Questions.deleteQuestion(aid: Long)
 POST   /course/assignment/newQuestion          controllers.Questions.newQuestion(id: Long)
 POST   /course/assignment/updateQuestion          controllers.Questions.updateQuestion(id: Long)
 
 #Answers
 POST   /course/assignment/newAnswer          controllers.Answers.newAnswer()
 POST   /course/assignment/updateAnswer          controllers.Answers.updateAnswer(id: Long)
+POST   /course/submission/saveStudentAnswer          controllers.Answers.saveStudentAnswers(id:Long)
 
 
 #CourseInformation
@@ -102,12 +116,8 @@ POST    /course/courseInformation/updateContent          controllers.CourseInfor
 
 
 #CourseDescription
-GET    /course/courseDescriptions           controllers.CourseDescriptions.index()
 POST    /course/courseDescriptions          controllers.CourseDescriptions.newCourseDescription()
 POST    /course/courseDescription/:aid/delete   controllers.CourseDescriptions.deleteCourseDescription(aid: Long)
-GET    /course/courseDescriptions/:aid        controllers.CourseDescriptions.courseDescriptionPage(aid: Long)
-POST    /course/courseDescriptions/:aid       controllers.CourseDescriptions.updateCourseDescription(aid: Long)
-GET    /course/courseDescription/:id           controllers.CourseDescriptions.getCourseDescription(id: Long)
 POST    /course/courseDescription/updateTitle          controllers.CourseDescriptions.updateTitle()
 POST    /course/courseDescription/updateContent          controllers.CourseDescriptions.updateContent(id:String)
 

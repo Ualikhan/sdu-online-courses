@@ -1,0 +1,160 @@
+@(user:User,course:Course,studentSubmission: StudentSubmission,submissionItems: List[SubmissionItem],submissionType: String)
+
+@import helper._
+@main(user){
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+    </div>
+    <div class="span8">
+@tutor.aboutcourse(course)
+<div class="menuBar">
+<ul class="nav nav-pills">
+  <li >
+    <a href="@routes.Courses.coursePage(course.id)">Home</a>
+  </li>
+  <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
+<li class="active"><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li> 
+<li><a href="@routes.Application.index">Community</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span3">
+	<button class="btn" id="back">Go to assignment</button>
+    </div>
+    <div class="span8">
+      <div class="contentBar">
+<div class="announcements">       
+   
+<input type="hidden" name="submissionID" value="@studentSubmission.id">
+
+		<ul>
+		@for(item <- submissionItems){
+		  <li>
+		<p class="">@item.question.questionContent</p>
+		@if(item.question.answerType.name.equals("QA") || item.question.answerType.name.equals("QE")){
+		@if(item.question.answers!=null && item.question.answers.length>0){
+      	<label>Right answer:</label>
+		<textarea  disabled="disabled" class="questionAnswerTextArea" >@item.question.answers(0).answerContent</textarea>
+		}
+      	<label>Student's answer:</label>
+		<textarea disabled="disabled" class="questionAnswerTextArea" >@item.answer</textarea>
+		@if(item.question.answers!=null && item.question.answers.length>0){
+		@if(item.question.answerType.name.equals("QA")){ 
+		@if(item.question.answers(0).answerContent.equals(item.answer)){
+		<img class="correctAnswers" src="@routes.Assets.at("images/success.jpg")" />
+		}else{
+		<img class="correctAnswers" src="@routes.Assets.at("images/incorrect.jpg")" />
+		}
+		}
+		}
+		<h class="grade">@{item.grade}</h>
+		}else{
+		  @if(item.question.answers.size>0){
+  <table>
+		  <tr>
+		  <td>
+      	<ol type="A">
+		@for(cn <- 1 to item.question.answers.size){
+		<li>
+		@if(item.question.answerType.name.equals("MCT")){
+		<textarea  disabled="disabled" class="questionAnswerTextArea" >
+		@item.question.answers(cn-1).answerContent
+		</textarea>
+		@if(item.question.answers(cn-1).isTrueAnswer>0){
+		<input type="checkbox" checked="checked" readonly="readonly">
+		
+		@if(item.answer.contains(cn+"")){
+		<img class="correctAnswers"  src="@routes.Assets.at("images/success.jpg")" />
+		}else{
+		<img class="correctAnswers"  src="@routes.Assets.at("images/incorrect.jpg")" />
+		}
+		}else{
+		<input type="checkbox" class="answerCheck" readonly="readonly">
+		}
+		
+		}else{
+		@if(item.question.answerType.name.equals("SCT")){
+		<textarea  disabled="disabled" class="questionAnswerTextArea" >
+		@item.question.answers(cn-1).answerContent
+		</textarea>
+		@if(item.question.answers(cn-1).isTrueAnswer>0){
+		<input type="radio" checked="checked" readonly="readonly">
+		
+		@if(item.answer.equals(cn+"")){
+		<img class="correctAnswers"  src="@routes.Assets.at("images/success.jpg")" />
+		}else{
+		<img class="correctAnswers"  src="@routes.Assets.at("images/incorrect.jpg")" />
+		}
+		}else{
+		<input type="radio" readonly="readonly" >
+		}
+		
+		}
+		
+		}
+		
+		</li>
+		}
+		
+		</ol>
+		</td>
+		<td>
+		<h class="grade">
+		@{item.grade}
+		</h>
+		</td>
+		<tr>
+		</table>
+		}
+		
+		}
+		  </li>
+		}
+		  </ul>
+		  <h style="margin-left: 40%;">Total grade:</h><h id="totalGradeShower"></h>
+
+
+</div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+}
+
+<script type="text/javascript">
+$(document).ready(function(){
+	var total=0;
+	function getSum(){
+	total=0;
+	$('.grade').each(function() {
+		total=total+parseInt($(this).html());
+	});
+	
+	$('.gradeChange').each(function() {
+		total=total+parseInt($(this).val());
+	});
+
+	$('#totalGradeShower').html(total);
+	$('#totalGrade').val(total);
+	}
+	
+	getSum();
+	
+	$('.gradeChange').on('change', function() {
+		getSum();
+	});
+	
+	$('#back').on('click', function() {
+		history.back(); 
+	});
+	
+});
+</script>
