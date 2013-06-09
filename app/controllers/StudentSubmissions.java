@@ -34,15 +34,28 @@ public static Result unchecked() {
 	courseId=Long.parseLong(session("course"));
 	if(Secured.isTutorOf(courseId)){
 		Assignment lastAssignment=Assignment.findLastAssignmentByCourse(courseId);
-	return ok(index.render(
-			User.find.where().eq("email", request().username()).findUnique(),
-			Course.find.byId(courseId),
-			Assignment.findAssignmentsByCourse(courseId),
-			StudentSubmission.findUncheckedSubmissionsByAssignment(lastAssignment.id),
-			"SUBMITTED",
-			lastAssignment.id
-			)
-	);
+		if(lastAssignment!=null){
+			return ok(index.render(
+					User.find.where().eq("email", request().username()).findUnique(),
+					Course.find.byId(courseId),
+					Assignment.findAssignmentsByCourse(courseId),
+					StudentSubmission.findUncheckedSubmissionsByAssignment(lastAssignment.id),
+					"SUBMITTED",
+					lastAssignment.id
+					)
+			);
+		}
+		else{
+			return ok(index.render(
+					User.find.where().eq("email", request().username()).findUnique(),
+					Course.find.byId(courseId),
+					Assignment.findAssignmentsByCourse(courseId),
+					null,
+					"SUBMITTED",
+					null
+					)
+			);
+		}
 	}
 	else{
 		return forbidden();
@@ -53,15 +66,28 @@ public static Result checked() {
 	courseId=Long.parseLong(session("course"));
 	if(Secured.isTutorOf(courseId)){
 		Assignment lastAssignment=Assignment.findLastAssignmentByCourse(courseId);
-	return ok(index.render(
-			User.find.where().eq("email", request().username()).findUnique(),
-			Course.find.byId(courseId),
-			Assignment.findAssignmentsByCourse(courseId),
-			StudentSubmission.findCheckedSubmissionsByAssignment(lastAssignment.id),
-			"CHECKED",
-			lastAssignment.id
-			)
-	);
+		if(lastAssignment!=null){
+			return ok(index.render(
+					User.find.where().eq("email", request().username()).findUnique(),
+					Course.find.byId(courseId),
+					Assignment.findAssignmentsByCourse(courseId),
+					StudentSubmission.findCheckedSubmissionsByAssignment(lastAssignment.id),
+					"CHECKED",
+					lastAssignment.id
+					)
+			);
+		}
+		else{
+			return ok(index.render(
+					User.find.where().eq("email", request().username()).findUnique(),
+					Course.find.byId(courseId),
+					Assignment.findAssignmentsByCourse(courseId),
+					null,
+					"SUBMITTED",
+					null
+					)
+			);
+		}
 	}
 	else{
 		return forbidden();

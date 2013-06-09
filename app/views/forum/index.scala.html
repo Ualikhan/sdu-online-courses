@@ -1,0 +1,86 @@
+@(user:User,course:Course,forumType: ForumType,threadsInfo: List[ThreadInfo],userType: String)
+
+@import helper._
+@main(user){
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+    </div>
+    <div class="span10">
+@tutor.aboutcourse(course)
+@if(userType.equals("TUTOR")){
+@tutor.menu(course,"Community")
+}else{
+@student.menu(course,"Community")
+}
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+  <div class="span2">
+    </div>
+    <div class="span10">
+      <div class="contentBar">
+      <div class="announcements">
+      <div>
+      <div class="page-header-menu inline-block">
+      @form(routes.Forums.newThread(forumType.id)){
+	   <button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"><span class="hidden-accessible"> </span></i>Start a New Thread</button>
+	   }
+	   </div>
+	   <h3>@forumType.name</h3>
+      <hr>
+      </div>
+<table class="forum table-bordered table-striped">
+<th>Forum</th>
+<th>Vote(s)</th>
+<th>Replies</th>
+<th>Views</th>
+<th>Last post</th>
+ @for(threadInfo<-threadsInfo){
+<tr>
+<td class="forumDescription">
+      <div class="item-pic-container forum-pic">
+      <a href=""><div class="person-img" style="background-image: url(@routes.Assets.at("uploadImages/"+{threadInfo.thread.author.photo}))"></div></a>
+      </div>
+      <div class="right-of-forum-pic">
+      <h4 class="name inline-block"><a href="@routes.Forums.getThread(threadInfo.thread.id)">@threadInfo.thread.title</a></h4>
+      <div>
+      by @threadInfo.thread.author.name
+      </div>
+      </div>
+</td>
+<td class="counts hidden-phone">
+<span class="badge badge-plus">
+@threadInfo.thread.votes
+</span>
+</td>
+<td class="counts hidden-phone">@threadInfo.replies</td>
+<td class="counts hidden-phonehidden-phone">@threadInfo.thread.views</td>
+<td>
+@if(threadInfo.lastPost!=null){
+<p>
+@{new org.ocpsoft.prettytime.PrettyTime(new java.util.Date()).setLocale(Locale.ENGLISH).format(threadInfo.lastPost.postedDate)}
+</p>
+<p>by @threadInfo.lastPost.author.name</p>
+}
+</td>
+</tr>
+}
+	</table>
+	</div>
+		</div>
+    </div>
+  </div>
+</div>
+
+}
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	
+});
+
+</script>

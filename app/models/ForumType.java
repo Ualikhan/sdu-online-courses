@@ -8,9 +8,10 @@ import play.db.ebean.Model;
 import play.db.ebean.Model.Finder;
 
 @Entity
-public class ForumType{
+public class ForumType extends Model{
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public Long id;
 	
 	public String name;	

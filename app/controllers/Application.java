@@ -1,6 +1,7 @@
 package controllers;
 
 import java.io.File;
+import com.typesafe.plugin.*;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -106,7 +107,20 @@ public class Application extends Controller {
     	}
     	else{
     		User.create(regForm.get().name,regForm.get().email,regForm.get().password,Role.find.where().eq("name", "Student").findUnique());
-    		return redirect(routes.Application.login());
+    		String messageContent="Please go to <a href='http://localhost:9000"+routes.Application.confirm(regForm.get().email)+"'>here</a> to confirm your account";
+    		
+    		MailerAPI mail = play.Play.application().plugin(MailerPlugin.class).email();
+    		mail.setSubject("SDU Online Courses");
+    		mail.addRecipient(regForm.get().name+" <noreply@email.com>",regForm.get().email);
+    		mail.addFrom(request().username()+"<noreply@email.com>");
+    		//sends html
+    		mail.sendHtml("<html>"+messageContent+"</html>" );
+    		 		Logger.debug("mesg: "+messageContent);
+    		
+    		 		return ok(
+    		 				registerSuccess.render(
+    		 						)
+    		 				);
     	}
     }
     
@@ -122,6 +136,15 @@ public class Application extends Controller {
     		session("role",role);
     		return redirect(routes.Application.index());
     	}
+    }
+    
+    public static Result confirm(String email) {
+    	User u=User.find.ref(email);
+    	u.active=true;
+    	u.update();
+    	return redirect(
+				routes.Application.login()
+				);
     }
     
     public static Result logout(){

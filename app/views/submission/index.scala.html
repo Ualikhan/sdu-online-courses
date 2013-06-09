@@ -16,6 +16,7 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
+    @if(assignmentId!=null){ 
      <ul class="nav nav-list sidebar">
   <li class="nav-header">Assignments</li>
   @for(assignment<-assignments){
@@ -32,10 +33,12 @@
   </li>
   }
 </ul>
+}
     </div>
     <div class="span8">
       <div class="contentBar">
-<div class="announcements">       
+<div class="announcements">   
+@if(submissions!=null){    
      <ul>
    @for(submission<-submissions){
   <li>
@@ -47,6 +50,7 @@
   </li>
   }
 </ul>
+}
 </div>
 </div>
     </div>

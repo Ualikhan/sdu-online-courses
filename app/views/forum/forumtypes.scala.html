@@ -1,0 +1,62 @@
+@(user:User,course:Course,forumTypesInfo: List[ForumTypeInfo],userType: String)
+
+@import helper._
+@main(user){
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+    </div>
+    <div class="span10">
+@tutor.aboutcourse(course)
+@if(userType.equals("TUTOR")){
+@tutor.menu(course,"Community")
+}else{
+@student.menu(course,"Community")
+}
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+  <div class="span2">
+  </div>
+    <div class="span10">
+      <div class="contentBar">
+<table class="forum table-bordered table-striped">
+<th>Forum</th>
+<th>Threads</th>
+<th>Posts</th>
+<th>Last Post</th>
+ @for(forumTypeInfo<-forumTypesInfo){
+<tr>
+<td class="forumDescription">
+<p><a href="@routes.Forums.getThreads(forumTypeInfo.forumType.id)">@forumTypeInfo.forumType.name</a></p>
+<p>@forumTypeInfo.forumType.description</p>
+</td>
+<td class="counts hidden-phone">@forumTypeInfo.threads</td>
+<td class="counts hidden-phone">@forumTypeInfo.posts</td>
+<td>
+@if(forumTypeInfo.lastPost!=null){
+<p>
+@{new org.ocpsoft.prettytime.PrettyTime(new java.util.Date()).setLocale(Locale.ENGLISH).format(forumTypeInfo.lastPost.postedDate)}
+</p>
+<p>by @forumTypeInfo.lastPost.author.name</p>
+}
+ </td>
+</tr>
+}
+	</table>
+		</div>
+    </div>
+  </div>
+</div>
+
+}
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	
+});
+
+</script>

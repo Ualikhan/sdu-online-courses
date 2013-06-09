@@ -8,21 +8,9 @@
     <div class="span3">
     </div>
     <div class="span8">
-<h3>@course.name</h3>
-By @course.owner.name
-@if(course.owner.company!=null){
-,@course.owner.company
-}
-<div class="menuBar">
-<ul class="nav nav-pills">
-  <li >
-    <a href="@routes.Courses.coursePage(course.id)">Home</a>
-  </li>
-   <li><a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li>
-   <li class="active"><a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li>
-   <li><a href="@routes.Application.index">Community</a></li>
-</ul>
-</div>
+@tutor.aboutcourse(course)
+@student.menu(course,"Assignments")
+
 </div>
 </div>
 </div>

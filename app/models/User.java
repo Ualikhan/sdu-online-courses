@@ -17,6 +17,7 @@ public class User extends Model{
 	public String position;
 	public String company;
 	public String photo;
+	public boolean active;
 	
 	@ManyToMany(cascade=CascadeType.REMOVE)
 	public List<Course> courses=new ArrayList<Course>();
@@ -29,6 +30,7 @@ public class User extends Model{
 		this.name=name;
 		this.password=password;
 		this.role=role;
+		this.active=false;
 	}
 	
 	public static Finder<String, User> find=new Finder<String, User>(String.class, User.class);
@@ -53,7 +55,7 @@ public class User extends Model{
 	}
 	
 	public static User authenticate(String email,String password){
-		return find.where().eq("email", email).eq("password", password).findUnique();
+		return find.where().eq("active", true).eq("email", email).eq("password", password).findUnique();
 	}
 	
 	public static void create(String name,String email,String password,Role role){
