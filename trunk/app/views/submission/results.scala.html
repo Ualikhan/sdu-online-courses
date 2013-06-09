@@ -36,7 +36,7 @@
 	  }
 	  <th>General</th>
 
-	   @submissions.groupBy(_.student).map {
+	   @submissions.toList.sortWith(_.grade.asInstanceOf[Double] < _.grade.asInstanceOf[Double]).groupBy(_.student).map {
 	               case (student, submissions) => {
 	               <tr>
 	                <td>@student.name</td>

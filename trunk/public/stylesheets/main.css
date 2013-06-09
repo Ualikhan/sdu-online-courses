@@ -1,4 +1,4 @@
-.main{
+main{
 	width: 90%;
 	background-color: #FBFBFB;
 	padding:20px;
@@ -120,6 +120,7 @@ height: 200px;
 	margin: 20px;
 }
 .content{
+	padding:20px;
 	width: 90%;
 	min-height:380px;
 }
@@ -174,7 +175,7 @@ outline: 1px solid #DDDDDD;
 }
 
 .contentBar{
-	background-color: #F5F5F5;
+	background-color: white;
 	border: 1px solid rgba(0, 0, 0, 0.126);
 	min-height: 300px;
 }
@@ -250,7 +251,7 @@ text-decoration: none;
 }
 
 .announcements{
-	margin:5px;
+	margin:20px;
 	min-height: 300px;
 }
 
@@ -332,5 +333,114 @@ margin-left: 20px;
 	padding: 8px;
 	border-style: solid;
 	border-color: #666666;
-	background-color: #e1e7ec;
+	text-align: center;
+}
+
+.postMain{
+	margin-bottom: 25px;
+	padding: 10px 10px 0;
+	background-color: #f5f5f5;
+}
+
+.replies-header {
+border-top: #eee solid 5px;
+background-color: #f5f5f5;
+margin-bottom: 15px;
+min-height: 42px;
+}
+
+.post-container {
+margin-top: 10px;
+}
+
+.align-right {
+text-align: right;
+}
+
+.vote_count {
+font-size: 16px;
+padding-top: 5px;
+padding-bottom: 9px;
+margin-right: 1px;
+}
+
+.post-container .vote_controls {
+margin: 10px 0px 0px 30px;
+font-size: 20px;
+text-align: center;
+color: #777;
+}
+
+.float-left {
+float: left;
+}
+
+.author {
+border-bottom: 1px solid #eee;
+padding-bottom: 2px;
+margin-bottom: 15px;
+}
+
+.item-pic-container.forum-pic {
+float: left;
+width: 32;
+height: 32px;
+}
+
+.person-img {
+width: 32;
+height: 32px;
+background-size: cover;
+background-position: center;
+}
+
+.right-of-forum-pic {
+margin-left: 42px;
+}
+
+.author h4.name {
+margin-top: 0;
+line-height: 16px;
+font-size: 14px;
+}
+
+.hidden-accessible {
+position: absolute !important;
+height: 1px;
+width: 1px;
+overflow: hidden;
+clip: rect(1px 1px 1px 1px);
+clip: rect(1px, 1px, 1px, 1px);
+}
+
+.page-header-menu {
+float: right;
+}
+
+.badge-plus, .vote .badge.badge-plus:hover {
+background-color: #A1E0BD;
+color: #316700;
+}
+
+.counts {
+width: 8%;
+text-align: center;
+}
+td.hidden-phone {
+display: table-cell;
+}
+
+.table-bordered {
+border: 1px solid #dddddd;
+border-left: 0;
+border-collapse: separate;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+}
+
+.forumDescription{
+width: 55%;
+text-align: left;
+padding-left: 20px;
 }

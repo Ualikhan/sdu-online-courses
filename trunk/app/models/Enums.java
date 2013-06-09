@@ -28,5 +28,8 @@ public class Enums {
 		SUBMITTED,
 		CHECKED
 		}
-	
+	public enum PostTypes{
+		THREAD,
+		REPLY
+		}
 }

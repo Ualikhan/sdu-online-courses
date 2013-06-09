@@ -1,349 +1,132 @@
-2013-06-06 13:52:40,276 - [INFO] - from play in main 
+2013-06-09 18:48:15,523 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-06-06 13:53:13,619 - [INFO] - from play in New I/O  worker #1 
+2013-06-09 18:48:52,591 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-06 13:53:30,226 - [INFO] - from play in New I/O  worker #1 
+2013-06-09 18:49:09,098 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-06-06 13:54:20,742 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Guillaume Bort
-
-2013-06-06 13:54:20,743 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Ualikhan Togay
-
-2013-06-06 13:54:20,743 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Guillaume Bort
-
-2013-06-06 13:54:20,744 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Zadrbek Zadrot
-
-2013-06-06 13:54:20,744 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Ualikhan Togay
-
-2013-06-06 13:54:20,745 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Guillaume Bort
-
-2013-06-06 13:54:20,745 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Zadrbek Zadrot
-
-2013-06-06 13:54:20,746 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Guillaume Bort
-
-2013-06-06 13:54:20,747 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Zadrbek Zadrot
-
-2013-06-06 13:54:20,750 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Ualikhan Togay
-
-2013-06-06 13:54:20,750 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Guillaume Bort
-
-2013-06-06 13:54:20,751 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Guillaume Bort
-
-2013-06-06 13:54:20,753 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Ualikhan Togay
-
-2013-06-06 13:54:20,754 - [DEBUG] - from application in play-akka.actor.default-dispatcher-14 
-Ualikhan Togay
-
-2013-06-06 13:54:55,261 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Guillaume Bort
-
-2013-06-06 13:54:55,315 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Ualikhan Togay
-
-2013-06-06 13:54:55,361 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Guillaume Bort
-
-2013-06-06 13:54:55,363 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Zadrbek Zadrot
-
-2013-06-06 13:54:55,365 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Ualikhan Togay
-
-2013-06-06 13:54:55,384 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Guillaume Bort
-
-2013-06-06 13:54:55,400 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Zadrbek Zadrot
-
-2013-06-06 13:54:55,404 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Guillaume Bort
-
-2013-06-06 13:54:55,407 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Zadrbek Zadrot
-
-2013-06-06 13:54:55,441 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Ualikhan Togay
-
-2013-06-06 13:54:55,443 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Guillaume Bort
-
-2013-06-06 13:54:55,445 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Guillaume Bort
-
-2013-06-06 13:54:55,461 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Ualikhan Togay
-
-2013-06-06 13:54:55,464 - [DEBUG] - from application in play-akka.actor.default-dispatcher-13 
-Ualikhan Togay
-
-2013-06-06 13:55:17,696 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Guillaume Bort
-
-2013-06-06 13:55:17,696 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Ualikhan Togay
-
-2013-06-06 13:55:17,698 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Guillaume Bort
-
-2013-06-06 13:55:17,699 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Zadrbek Zadrot
-
-2013-06-06 13:55:17,700 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Ualikhan Togay
-
-2013-06-06 13:55:17,702 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Guillaume Bort
-
-2013-06-06 13:55:17,704 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Zadrbek Zadrot
-
-2013-06-06 13:55:17,705 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Guillaume Bort
-
-2013-06-06 13:55:17,707 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Zadrbek Zadrot
-
-2013-06-06 13:55:17,708 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Ualikhan Togay
-
-2013-06-06 13:55:17,709 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Guillaume Bort
-
-2013-06-06 13:55:17,710 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Guillaume Bort
-
-2013-06-06 13:55:17,712 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Ualikhan Togay
-
-2013-06-06 13:55:17,713 - [DEBUG] - from application in play-akka.actor.default-dispatcher-20 
-Ualikhan Togay
-
-2013-06-06 13:56:55,566 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Guillaume Bort
-
-2013-06-06 13:56:55,656 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Ualikhan Togay
-
-2013-06-06 13:56:55,665 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Guillaume Bort
-
-2013-06-06 13:56:55,667 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Zadrbek Zadrot
-
-2013-06-06 13:56:55,672 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Ualikhan Togay
-
-2013-06-06 13:56:55,673 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Guillaume Bort
-
-2013-06-06 13:56:55,675 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Zadrbek Zadrot
-
-2013-06-06 13:56:55,677 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Guillaume Bort
-
-2013-06-06 13:56:55,679 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Zadrbek Zadrot
-
-2013-06-06 13:56:55,681 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Ualikhan Togay
-
-2013-06-06 13:56:55,683 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Guillaume Bort
-
-2013-06-06 13:56:55,685 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Guillaume Bort
-
-2013-06-06 13:56:55,687 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Ualikhan Togay
-
-2013-06-06 13:56:55,689 - [DEBUG] - from application in play-akka.actor.default-dispatcher-25 
-Ualikhan Togay
-
-2013-06-06 14:03:48,268 - [INFO] - from play in New I/O  worker #4 
+2013-06-09 18:54:56,935 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-06 14:03:54,794 - [INFO] - from play in New I/O  worker #4 
+2013-06-09 18:55:03,834 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 
-2013-06-06 14:04:29,221 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Guillaume Bort
+2013-06-09 18:57:36,195 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-06 14:04:29,226 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Ualikhan Togay
+2013-06-09 18:57:43,644 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
 
-2013-06-06 14:04:29,228 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Guillaume Bort
+2013-06-09 18:59:14,049 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-06 14:04:29,230 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Zadrbek Zadrot
+2013-06-09 18:59:14,842 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
 
-2013-06-06 14:04:29,231 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Ualikhan Togay
+2013-06-09 18:59:26,475 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
+mesg: Please go to <a href=localhost:9000//confirm?email=ualihan_92.92%40mail.ru>here</a> to confirm your account
 
-2013-06-06 14:04:29,233 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Guillaume Bort
+2013-06-09 19:00:35,888 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-06 14:04:29,250 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Zadrbek Zadrot
+2013-06-09 19:00:37,397 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
 
-2013-06-06 14:04:29,252 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Guillaume Bort
+2013-06-09 19:01:24,822 - [DEBUG] - from application in play-akka.actor.default-dispatcher-46 
+mesg: Please go to <a href='localhost:9000/confirm?email=ualihan_92.92%40mail.ru'>here</a> to confirm your account
 
-2013-06-06 14:04:29,253 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Zadrbek Zadrot
+2013-06-09 19:04:18,741 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-06 14:04:29,256 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Ualikhan Togay
+2013-06-09 19:04:22,695 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
 
-2013-06-06 14:04:29,258 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Guillaume Bort
+2013-06-09 19:04:36,967 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
+mesg: Please go to <a href='http://localhost:9000/confirm?email=ualihan_92.92%40mail.ru'>here</a> to confirm your account
 
-2013-06-06 14:04:29,268 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Guillaume Bort
+2013-06-09 19:15:37,775 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-06 14:04:29,270 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Ualikhan Togay
-
-2013-06-06 14:04:29,272 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-Ualikhan Togay
-
-2013-06-06 14:11:48,392 - [ERROR] - from application in New I/O  worker #4 
+2013-06-09 19:15:42,520 - [ERROR] - from application in New I/O  worker #1 
 
 
-! @6egd35dbi - Internal server error, for (GET) [/course/lectures] ->
+! @6ehac88o9 - Internal server error, for (GET) [/register] ->
 
-sbt.PlayExceptions$TemplateCompilationException: Compilation error[Not parsed?]
-	at sbt.PlayCommands$$anonfun$43.apply(PlayCommands.scala:433) ~[na:na]
-	at sbt.PlayCommands$$anonfun$43.apply(PlayCommands.scala:409) ~[na:na]
-	at sbt.Scoped$$anonfun$hf5$1.apply(Structure.scala:581) ~[na:na]
-	at sbt.Scoped$$anonfun$hf5$1.apply(Structure.scala:581) ~[na:na]
-	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:49) ~[scala-library.jar:na]
-	at sbt.Scoped$Reduced$$anonfun$combine$1$$anonfun$apply$12.apply(Structure.scala:311) ~[na:na]
-	at sbt.Scoped$Reduced$$anonfun$combine$1$$anonfun$apply$12.apply(Structure.scala:311) ~[na:na]
-	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:41) ~[na:na]
-	at sbt.std.Transform$$anon$5.work(System.scala:71) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:232) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:232) ~[na:na]
-	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
-	at sbt.Execute.work(Execute.scala:238) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:232) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:232) ~[na:na]
-	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
-	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
-	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source) ~[na:1.7.0_13]
-	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.7.0_13]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) ~[na:1.7.0_13]
-	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source) ~[na:1.7.0_13]
-	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.7.0_13]
+play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:457) ~[play-jdbc_2.10.jar:2.1.0]
+	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:478) ~[play-jdbc_2.10.jar:2.1.0]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:434) ~[play-jdbc_2.10.jar:2.1.0]
+	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:432) ~[play-jdbc_2.10.jar:2.1.0]
+	at scala.collection.immutable.List.foreach(List.scala:309) ~[scala-library.jar:na]
+	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:432) ~[play-jdbc_2.10.jar:2.1.0]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
+	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
+	at scala.collection.immutable.List.foreach(List.scala:309) ~[scala-library.jar:na]
+	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:63) ~[play_2.10.jar:2.1.0]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
+	at play.api.Play$$anonfun$start$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.1.0]
+	at play.api.Play$.start(Play.scala:62) ~[play_2.10.jar:2.1.0]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$1.apply(ApplicationProvider.scala:133) ~[play_2.10.jar:2.1.0]
+	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$1.apply(ApplicationProvider.scala:106) ~[play_2.10.jar:2.1.0]
+	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:106) ~[play_2.10.jar:2.1.0]
+	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:104) ~[play_2.10.jar:2.1.0]
+	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
+	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
+	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
+	at play.core.server.Server$class.getHandlerFor(Server.scala:87) [play_2.10.jar:2.1.0]
+	at play.core.server.NettyServer.getHandlerFor(NettyServer.scala:34) [play_2.10.jar:2.1.0]
+	at play.core.server.netty.PlayDefaultUpstreamHandler.messageReceived(PlayDefaultUpstreamHandler.scala:103) [play_2.10.jar:2.1.0]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:793) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:296) [netty.jar:na]
+	at org.jboss.netty.handler.codec.frame.FrameDecoder.unfoldAndFireMessageReceived(FrameDecoder.java:455) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:538) [netty.jar:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:437) [netty.jar:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:75) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:565) [netty.jar:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:560) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:268) [netty.jar:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:255) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:84) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.processSelectedKeys(AbstractNioWorker.java:472) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.AbstractNioWorker.run(AbstractNioWorker.java:333) [netty.jar:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:35) [netty.jar:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:102) [netty.jar:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:42) [netty.jar:na]
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
 	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
 
-2013-06-06 14:12:02,911 - [ERROR] - from application in New I/O  worker #4 
-
-
-! @6egd36975 - Internal server error, for (GET) [/course/lectures] ->
-
-sbt.PlayExceptions$TemplateCompilationException: Compilation error[Not parsed?]
-	at sbt.PlayCommands$$anonfun$43.apply(PlayCommands.scala:433) ~[na:na]
-	at sbt.PlayCommands$$anonfun$43.apply(PlayCommands.scala:409) ~[na:na]
-	at sbt.Scoped$$anonfun$hf5$1.apply(Structure.scala:581) ~[na:na]
-	at sbt.Scoped$$anonfun$hf5$1.apply(Structure.scala:581) ~[na:na]
-	at scala.Function1$$anonfun$compose$1.apply(Function1.scala:49) ~[scala-library.jar:na]
-	at sbt.Scoped$Reduced$$anonfun$combine$1$$anonfun$apply$12.apply(Structure.scala:311) ~[na:na]
-	at sbt.Scoped$Reduced$$anonfun$combine$1$$anonfun$apply$12.apply(Structure.scala:311) ~[na:na]
-	at sbt.$tilde$greater$$anonfun$$u2219$1.apply(TypeFunctions.scala:41) ~[na:na]
-	at sbt.std.Transform$$anon$5.work(System.scala:71) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:232) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:232) ~[na:na]
-	at sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:18) ~[na:na]
-	at sbt.Execute.work(Execute.scala:238) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:232) ~[na:na]
-	at sbt.Execute$$anonfun$submit$1.apply(Execute.scala:232) ~[na:na]
-	at sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:160) ~[na:na]
-	at sbt.CompletionService$$anon$2.call(CompletionService.scala:30) ~[na:na]
-	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source) ~[na:1.7.0_13]
-	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.7.0_13]
-	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) ~[na:1.7.0_13]
-	at java.util.concurrent.FutureTask$Sync.innerRun(Unknown Source) ~[na:1.7.0_13]
-	at java.util.concurrent.FutureTask.run(Unknown Source) ~[na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) [na:1.7.0_13]
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
-	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
-
-2013-06-06 14:13:00,984 - [INFO] - from play in New I/O  worker #4 
+2013-06-09 19:16:18,435 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-06 14:13:04,907 - [INFO] - from play in New I/O  worker #4 
+2013-06-09 19:16:20,118 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-06-06 14:13:50,343 - [INFO] - from play in New I/O  worker #4 
+2013-06-09 19:17:11,895 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-06 14:13:51,021 - [INFO] - from play in New I/O  worker #4 
+2013-06-09 19:17:12,576 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-06-06 14:22:15,664 - [INFO] - from play in New I/O  worker #1 
+2013-06-09 19:17:30,843 - [DEBUG] - from application in play-akka.actor.default-dispatcher-72 
+mesg: Please go to <a href='http://localhost:9000/confirm?email=ualihan_92.92%40mail.ru'>here</a> to confirm your account
+
+2013-06-09 19:21:38,908 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-06 14:22:16,338 - [INFO] - from play in New I/O  worker #1 
+2013-06-09 19:21:44,122 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
-
-2013-06-06 14:23:41,892 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Guillaume Bort
-
-2013-06-06 14:23:41,896 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Ualikhan Togay
-
-2013-06-06 14:23:41,896 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Ualikhan Togay
-
-2013-06-06 14:23:41,898 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Guillaume Bort
-
-2013-06-06 14:23:41,899 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Zadrbek Zadrot
-
-2013-06-06 14:23:41,900 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Guillaume Bort
-
-2013-06-06 14:23:41,901 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Zadrbek Zadrot
-
-2013-06-06 14:23:41,903 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Guillaume Bort
-
-2013-06-06 14:23:41,906 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Zadrbek Zadrot
-
-2013-06-06 14:23:41,906 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Ualikhan Togay
-
-2013-06-06 14:23:41,907 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Guillaume Bort
-
-2013-06-06 14:23:41,909 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Guillaume Bort
-
-2013-06-06 14:23:41,910 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Ualikhan Togay
-
-2013-06-06 14:23:41,911 - [DEBUG] - from application in play-akka.actor.default-dispatcher-77 
-Ualikhan Togay
 

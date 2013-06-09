@@ -52,6 +52,7 @@ users:
         email:      guillaume@sample.com
         name:       Guillaume Bort
         password:   secret
+        active:   true
         role:       !!models.Role
                        id: 1
         
@@ -60,6 +61,7 @@ users:
         email:      maxime@sample.com
         name:       Maxime Dantec
         password:   secret
+        active:   true
         role:       !!models.Role
                        id: 2
     
@@ -67,6 +69,7 @@ users:
         email:      sadek@sample.com
         name:       Sadek Drobi
         password:   secret
+        active:   true
         role:       !!models.Role
                        id: 3
     
@@ -74,6 +77,7 @@ users:
         email:      erwan@sample.com
         name:       Erwan Loisant
         password:   secret
+        active:   true
         role:       !!models.Role
                        id: 3
 
@@ -108,3 +112,31 @@ announcements:
         createdDate:        2012-07-06
         course:      !!models.Course
                        id: 2
+                
+# ForumTypes
+
+forumtypes:
+
+    - !!models.ForumType
+        name:       Lectures
+        description:     Questions about video lectures and course material.
+
+    - !!models.ForumType
+        name:       Assignments 
+        description:     All about assignments.
+
+    - !!models.ForumType
+        name:       Submissions
+        description:     Questions about submissions and grades.
+
+    - !!models.ForumType
+        name:       General Discussion
+        description:     General discussions about course.
+
+    - !!models.ForumType
+        name:       Technical Questions 
+        description:     Questions about class logistics, platform logistics and technical difficulties with class/platform.
+
+    - !!models.ForumType
+        name:       Meetups
+        description:     Discussions about meet ups.

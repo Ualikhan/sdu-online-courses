@@ -26,9 +26,9 @@ public class Global extends GlobalSettings {
             }
             
             Ebean.save(all.get("courses"));
+            	
+            Ebean.save(all.get("forumtypes"));
 
-
-            
             
         }
     }
