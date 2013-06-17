@@ -7,20 +7,20 @@
 }else{
 <li>
 }
-    <a href="@routes.Courses.coursePage(course.id)">Home</a>
+    <a href="@routes.Courses.coursePage(course.id)"><i class="icon-fixed-width icon-home"></i> Home</a>
   </li>
   @if(active.equals("Lectures")){
   <li class="active">
 }else{
 <li>
 }
-  <a href="@routes.Lectures.lecturePage(course.id)">Lectures</a></li> 
+  <a href="@routes.Lectures.lecturePage(course.id)"><i class="icon-fixed-width icon-book"></i> Lectures</a></li> 
 @if(active.equals("Assignments")){
   <li class="active">
 }else{
 <li>
 }  
-<a href="@routes.Assignments.assignmentPage(course.id)">Assignments</a></li> 
+<a href="@routes.Assignments.assignmentPage(course.id)"><i class="icon-fixed-width icon-pencil"></i> Assignments</a></li> 
   @if(active.equals("Submissions")){
   <li class="active dropdown">
 }else{
@@ -48,8 +48,7 @@
   </a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
     <li role="presentation"><a role="menuitem" href="@routes.Forums.index()">Forum</a></li>
- 	 <li role="presentation"><a role="menuitem" href="@routes.StudentSubmissions.checked()">Checked submissions</a></li>
-  <li role="presentation"><a role="menuitem" href="@routes.StudentSubmissions.results()">General results</a></li>
+ 	 <li role="presentation"><a role="menuitem" href="@routes.Students.getStudents(course.id)">Students</a></li>
   </ul>
 	</li>
 </ul>

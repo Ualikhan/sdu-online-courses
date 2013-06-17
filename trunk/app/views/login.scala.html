@@ -1,9 +1,11 @@
 @(form:Form[Application.Login])
 
 @main(null){
-<div class="row">
+ <div class="row">
   <div class="span4"></div>
   <div class="span4">
+  
+		<div class="announcements">
   
  <ul class="nav nav-tabs">
   <li class="active">
@@ -29,10 +31,11 @@
 <input type="password" name="password" placeholder="Password"/>
 </p>
 <p>
-<button type="submit" >Login</button>
+<button class="btn action-btn btn-success" type="submit" >Login</button>
 <a href="@routes.Application.register">Sign up</a>
 </p>
 }
- </div>
+</div>
+</div>
 </div>
 }

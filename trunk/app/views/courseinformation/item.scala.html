@@ -9,10 +9,10 @@
     <legend>Edit course information</legend>
 
   <div class="row" style="margin-left: 20px;">
-<h4><span class="item courseInformationTitle" id="courseInformationTitle@courseInformation.id">@courseInformation.title</span></h4>
-@helper.form(action=routes.CourseInformations.deleteCourseInformation(courseInformation.id),'class->"res action") {
-<button class="btn btn-mini btn-primary"  type="submit"><i class="icon-remove"></i></button>
-}
+<h4><span class="item courseDescriptionTitle courseInformationTitle" id="courseInformationTitle@courseInformation.id">@courseInformation.title</span></h4>
+<span class="action" style="margin-left:5px;margin-top:0px;">
+<a href="@routes.CourseInformations.deleteCourseInformation(courseInformation.id)"><i class="icon-remove icon-removeRed"></i></a>
+</span>
 <br/>
 <br/>
 <div class="alert alert-success">

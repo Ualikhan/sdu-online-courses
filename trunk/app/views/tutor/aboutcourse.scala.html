@@ -1,8 +1,12 @@
 @(course:Course)
-
-<h3>@course.name</h3>
+<div class="head-course-container">
+<h1>
+<a href="@routes.Courses.coursePage(course.id)">@course.name</a>
+</h1>
+<div class="instructorName">
 By @course.owner.name
 @if(course.owner.company!=null){
 ,@course.owner.company
 }
-
+</div>
+</div>

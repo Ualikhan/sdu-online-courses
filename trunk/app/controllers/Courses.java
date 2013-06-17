@@ -42,7 +42,7 @@ public static Result join(Long course) {
 	User user=User.find.byId(request().username());
 	user.courses.add(Course.find.byId(course));
 	user.update();
-	return redirect(routes.Application.index());
+	return redirect(routes.Courses.coursePage(course));
 	}
 	else
 		return redirect(routes.Application.login());
@@ -144,6 +144,25 @@ public static Result deleteCourse(Long id) {
 					)
 				);
 		
+}
+
+public static Result updateTitle() {
+    DynamicForm bform=form().bindFromRequest();
+    Long id=Long.parseLong(bform.get("id"));
+    String val=bform.get("value");
+    Course lect=Course.find.byId(id);
+    lect.name=val;
+    lect.update();
+	return ok(lect.name);
+}
+public static Result updateContent(String annId) {
+    Long id=Long.parseLong(annId);
+    DynamicForm bform=form().bindFromRequest();
+    String val=bform.get("value");
+    Course lect=Course.find.byId(id);
+    lect.description=val;
+    lect.update();
+	return ok(lect.description);
 }
 
 }

@@ -3,149 +3,161 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
-GET    /login                          controllers.Application.login()
-GET    /confirm                          controllers.Application.confirm(email:String)
-POST    /login                          controllers.Application.authenticate()
-GET		/logout						controllers.Application.logout()
-GET    /register                          controllers.Application.registerForm()
-POST   /register                          controllers.Application.register()
-GET    /list                          controllers.Application.list()
+GET     /                           		controllers.Application.index()
+GET    /login                          		controllers.Application.login()
+GET    /confirm                          	controllers.Application.confirm(email:String)
+POST    /login                         	    controllers.Application.authenticate()
+GET		/logout								controllers.Application.logout()
+GET    /register                          	controllers.Application.registerForm()
+POST   /register                          	controllers.Application.register()
+GET    /list                          		controllers.Application.list()
 
 
 
-GET     /javascriptRoutes     controllers.Application.javascriptRoutes()
+GET     /javascriptRoutes     				controllers.Application.javascriptRoutes()
 
 #Courses
-GET    /courses                          controllers.Courses.index()
-POST    /courses                          controllers.Courses.newCourse()
-POST    /courses/:id/delete                     controllers.Courses.deleteCourse(id: Long)
+GET    /courses                          	controllers.Courses.index()
+POST    /courses                          	controllers.Courses.newCourse()
+GET    /courses/:id/delete                 controllers.Courses.deleteCourse(id: Long)
 
 POST    /courses/:id                        controllers.Courses.updateCourse(id: Long)
 GET    /courses/:id                         controllers.Courses.coursePage(id: Long)
 GET    /courses/:id/description             controllers.Courses.courseDescription(id: Long)
-POST    /                        controllers.Courses.join(course: Long)
+POST    /                        			controllers.Courses.join(course: Long)
+POST    /course/course/updateTitle       	controllers.Courses.updateTitle()
+POST    /course/course/updateContent     	controllers.Courses.updateContent(id:String)
+
 
 #Announcements
-GET    /course/announcements           controllers.Announcements.index()
-POST    /course/announcements          controllers.Announcements.newAnnouncement()
-POST    /course/announcement/:aid/delete   controllers.Announcements.deleteAnnouncement(aid: Long)
-GET    /course/announcements/:aid        controllers.Announcements.announcementPage(aid: Long)
-POST    /course/announcements/:aid       controllers.Announcements.updateAnnouncement(aid: Long)
+GET    /course/announcements           		controllers.Announcements.index()
+POST    /course/announcements          		controllers.Announcements.newAnnouncement()
+POST    /course/announcement/:aid/delete    controllers.Announcements.deleteAnnouncement(aid: Long)
+GET    /course/announcements/:aid        	controllers.Announcements.announcementPage(aid: Long)
+POST    /course/announcements/:aid       	controllers.Announcements.updateAnnouncement(aid: Long)
 
-POST    /course/announcement/updateTitle          controllers.Announcements.updateTitle()
+POST    /course/announcement/updateTitle            controllers.Announcements.updateTitle()
 POST    /course/announcement/updateContent          controllers.Announcements.updateContent(id:String)
 
 
 #Lectures
-GET    /course/lectures           controllers.Lectures.index()
+GET    /course/lectures           			  controllers.Lectures.index()
 
-POST    /course/lectures          controllers.Lectures.newLecture()
+POST    /course/lectures          			  controllers.Lectures.newLecture()
 POST    /course/lecture/:id/addVideo          controllers.Lectures.addVideo(id: Long)
 POST    /course/lecture/:id/addSlide          controllers.Lectures.addSlide(id: Long)
 POST    /course/lecture/:id/editSlide         controllers.Lectures.editSlide(id: Long)
 POST    /course/lecture/:id/editVideo         controllers.Lectures.editVideo(id: Long)
 
 
-POST    /course/lecture/updateTitle          controllers.Lectures.updateTitle()
-POST    /course/lecture/updateContent          controllers.Lectures.updateContent()
-POST    /course/lecture/updateKeyConcepts          controllers.Lectures.updateKeyConcepts()
-POST    /course/lecture/updateReading          controllers.Lectures.updateReading()
-POST    /course/lecture/updateAssignment          controllers.Lectures.updateAssignment()
-POST    /course/lecture/updateAdditionalResources     controllers.Lectures.updateAdditionalResources()
-POST   /course/lecture/upload                         controllers.Lectures.upload()
-POST    /course/lecture/updateResourceTitle          controllers.Lectures.updateResourceTitle()
+POST    /course/lecture/updateTitle          			controllers.Lectures.updateTitle()
+POST    /course/lecture/updateContent          			controllers.Lectures.updateContent()
+POST    /course/lecture/updateKeyConcepts          		controllers.Lectures.updateKeyConcepts()
+POST    /course/lecture/updateReading          			controllers.Lectures.updateReading()
+POST    /course/lecture/updateAssignment          		controllers.Lectures.updateAssignment()
+POST    /course/lecture/updateAdditionalResources       controllers.Lectures.updateAdditionalResources()
+POST   /course/lecture/upload                         	controllers.Lectures.upload()
+POST    /course/lecture/updateResourceTitle         	controllers.Lectures.updateResourceTitle()
 
-GET    /course/lecture/:lid/removeResource    controllers.Lectures.removeResource(rid: Long,lid: Long)
-GET    /course/lecture/:aid/delete   controllers.Lectures.deleteLecture(aid: Long)
-GET    /course/lectures/:aid        controllers.Lectures.lecturePage(aid: Long)
-GET    /course/lecture/:id           controllers.Lectures.getLecture(id: Long)
-POST    /course/lectures/:aid       controllers.Lectures.updateLecture(aid: Long)
+GET    /course/lecture/:lid/removeResource    	controllers.Lectures.removeResource(rid: Long,lid: Long)
+GET    /course/lecture/:aid/delete   			controllers.Lectures.deleteLecture(aid: Long)
+GET    /course/lectures/:aid        			controllers.Lectures.lecturePage(aid: Long)
+GET    /course/lecture/:id           			controllers.Lectures.getLecture(id: Long)
+POST    /course/lectures/:aid       			controllers.Lectures.updateLecture(aid: Long)
 
 
 #Assignments
-GET    /course/assignments           controllers.Assignments.index()
-POST    /course/assignments          controllers.Assignments.newAssignment()
-POST    /course/assignment/updateTitle          controllers.Assignments.updateTitle()
-POST    /course/assignment/updateDescription          controllers.Assignments.updateDescription()
-POST    /course/assignment/updateActionItems          controllers.Assignments.updateActionItems()
-POST    /course/assignment/updateStartDate          controllers.Assignments.updateStartDate()
+GET    /course/assignments           			   controllers.Assignments.index()
+POST    /course/assignments          			   controllers.Assignments.newAssignment()
+POST    /course/assignment/updateTitle             controllers.Assignments.updateTitle()
+POST    /course/assignment/updateDescription       controllers.Assignments.updateDescription()
+POST    /course/assignment/updateActionItems       controllers.Assignments.updateActionItems()
+POST    /course/assignment/updateStartDate         controllers.Assignments.updateStartDate()
 POST    /course/assignment/updateDeadline          controllers.Assignments.updateDeadline()
 
 GET    /course/assignment/:aid/delete   controllers.Assignments.deleteAssignment(aid: Long)
-GET    /course/assignments/:aid        controllers.Assignments.assignmentPage(aid: Long)
+GET    /course/assignments/:aid         controllers.Assignments.assignmentPage(aid: Long)
 GET    /course/assignment/:id           controllers.Assignments.getAssignment(id: Long)
 
 #SubmissionForms
 POST   /course/assignment/newSubmission          controllers.SubmissionForms.newSubmissionForm()
-POST   /course/assignment/updateSubmission          controllers.SubmissionForms.updateSubmissionForm()
+POST   /course/assignment/updateSubmission       controllers.SubmissionForms.updateSubmissionForm()
 POST   /course/submission/newSubmission          controllers.SubmissionForms.newStudentSubmission(id:Long)
 
 #StudentSubmissions
-GET   /course/submissions/unchecked          controllers.StudentSubmissions.unchecked()
+GET   /course/submissions/unchecked        controllers.StudentSubmissions.unchecked()
 GET   /course/submissions/checked          controllers.StudentSubmissions.checked()
 GET   /course/submissions/results          controllers.StudentSubmissions.results()
 
-GET   /course/submission/:id          controllers.StudentSubmissions.getSubmission(id:Long,st:String)
-GET   /course/submissionCheckedByAssignment/:id          controllers.StudentSubmissions.getCheckedByAssignment(id:Long)
-GET   /course/submissionUncheckedByAssignment/:id          controllers.StudentSubmissions.getUncheckedByAssignment(id:Long)
-POST  /course/submission/confirm			controllers.StudentSubmissions.confirmStudentSubmission()
+GET   /course/submission/:id          					controllers.StudentSubmissions.getSubmission(id:Long,st:String)
+GET   /course/submissionCheckedByAssignment/:id         controllers.StudentSubmissions.getCheckedByAssignment(id:Long)
+GET   /course/submissionUncheckedByAssignment/:id       controllers.StudentSubmissions.getUncheckedByAssignment(id:Long)
+POST  /course/submission/confirm						controllers.StudentSubmissions.confirmStudentSubmission()
 
 #Questions
-POST    /course/question/index           controllers.Questions.index(id: Long)
-GET    /course/question/:id           controllers.Questions.getQuestion(sid:Long,id: Long)
-GET    /course/question/:aid/delete   controllers.Questions.deleteQuestion(aid: Long)
-POST   /course/assignment/newQuestion          controllers.Questions.newQuestion(id: Long)
+POST    /course/question/index           		  controllers.Questions.index(id: Long)
+GET    /course/question/:id           			  controllers.Questions.getQuestion(sid:Long,id: Long)
+GET    /course/question/:aid/delete   			  controllers.Questions.deleteQuestion(aid: Long)
+POST   /course/assignment/newQuestion             controllers.Questions.newQuestion(id: Long)
 POST   /course/assignment/updateQuestion          controllers.Questions.updateQuestion(id: Long)
 
 #Answers
-POST   /course/assignment/newAnswer          controllers.Answers.newAnswer()
-POST   /course/assignment/updateAnswer          controllers.Answers.updateAnswer(id: Long)
+POST   /course/assignment/newAnswer          	     controllers.Answers.newAnswer()
+POST   /course/assignment/updateAnswer          	 controllers.Answers.updateAnswer(id: Long)
 POST   /course/submission/saveStudentAnswer          controllers.Answers.saveStudentAnswers(id:Long)
 
 
 #CourseInformation
-GET    /course/courseInformations           controllers.CourseInformations.index()
-GET    /course/courseInformations/new          controllers.CourseInformations.addCourseInformation()
-POST    /course/courseInformations/save          controllers.CourseInformations.saveCourseInformation()
-POST    /course/courseInformation/:aid/delete   controllers.CourseInformations.deleteCourseInformation(aid: Long)
-GET    /course/courseInformations/:aid        controllers.CourseInformations.courseInformationPage(aid: Long)
-POST    /course/courseInformations/:aid       controllers.CourseInformations.updateCourseInformation(aid: Long)
-GET    /course/courseInformation/:id           controllers.CourseInformations.getCourseInformation(id: Long)
-POST    /course/courseInformation/updateTitle          controllers.CourseInformations.updateTitle()
+GET    /course/courseInformations           			 controllers.CourseInformations.index()
+GET    /course/courseInformations/new          			 controllers.CourseInformations.addCourseInformation()
+POST    /course/courseInformations/save          		 controllers.CourseInformations.saveCourseInformation()
+POST    /course/courseInformation/:aid/delete   		 controllers.CourseInformations.deleteCourseInformation(aid: Long)
+GET    /course/courseInformations/:aid        			 controllers.CourseInformations.courseInformationPage(aid: Long)
+POST    /course/courseInformations/:aid       			 controllers.CourseInformations.updateCourseInformation(aid: Long)
+GET    /course/courseInformation/:id           			 controllers.CourseInformations.getCourseInformation(id: Long)
+POST    /course/courseInformation/updateTitle            controllers.CourseInformations.updateTitle()
 POST    /course/courseInformation/updateContent          controllers.CourseInformations.updateContent(id:String)
 
 
 #CourseDescription
-POST    /course/courseDescriptions          controllers.CourseDescriptions.newCourseDescription()
-POST    /course/courseDescription/:aid/delete   controllers.CourseDescriptions.deleteCourseDescription(aid: Long)
-POST    /course/courseDescription/updateTitle          controllers.CourseDescriptions.updateTitle()
-POST    /course/courseDescription/updateContent          controllers.CourseDescriptions.updateContent(id:String)
+POST    /course/courseDescriptions          		controllers.CourseDescriptions.newCourseDescription()
+POST    /course/courseDescription/:aid/delete   	controllers.CourseDescriptions.deleteCourseDescription(aid: Long)
+POST    /course/courseDescription/updateTitle       controllers.CourseDescriptions.updateTitle()
+POST    /course/courseDescription/updateContent     controllers.CourseDescriptions.updateContent(id:String)
 
 #Forums
-GET    /course/forum                       controllers.Forums.index()
-GET    /course/forum/threads                      controllers.Forums.getThreads(id:Long)
-GET    /course/forum/thread/:id               controllers.Forums.getThread(id:Long)
-POST    /course/forum/thread/new               controllers.Forums.newThread(id:Long)
-POST   /course/forum/thread/:id              controllers.Forums.saveThread(id:Long)
-POST   /course/forum/reply/:id              controllers.Forums.newReply(id:Long)
-GET    /course/forum/thread/:id/voteUp      controllers.Forums.voteUp(id:Long,rid:Long)
-GET    /course/forum/thread/:id/voteDown      controllers.Forums.voteDown(id:Long,rid:Long)
-GET    /course/forum/thread/:id/sortByDate      controllers.Forums.sortByDate(id:Long)
-GET    /course/forum/thread/:id/sortByVotes      controllers.Forums.sortByVotes(id:Long)
+GET    /course/forum                             controllers.Forums.index()
+GET    /course/forum/threads                     controllers.Forums.getThreads(id:Long)
+GET    /course/forum/thread/:id                  controllers.Forums.getThread(id:Long)
+POST    /course/forum/thread/new                 controllers.Forums.newThread(id:Long)
+POST   /course/forum/thread/:id                  controllers.Forums.saveThread(id:Long)
+POST   /course/forum/reply/:id                   controllers.Forums.newReply(id:Long)
+GET    /course/forum/thread/:id/voteUp           controllers.Forums.voteUp(id:Long,rid:Long)
+GET    /course/forum/thread/:id/voteDown         controllers.Forums.voteDown(id:Long,rid:Long)
+GET    /course/forum/thread/:id/sortReplies      controllers.Forums.sortReplies(s: String,id:Long)
+
+#Conversations
+GET    /conversation/inbox               controllers.Conversations.index()
+GET    /conversation/sent                controllers.Conversations.sent()
+GET    /conversation/:id          		 controllers.Conversations.getThread(id:Long,ct: String)
+
+POST    /conversation/new                controllers.Conversations.newConversation(email: String)
+POST    /conversation/save               controllers.Conversations.saveConversation()
+POST    /conversation/saveReply          controllers.Conversations.saveReply(id:Long)
 
 
-
-#
+#Students
 GET     /student                         controllers.Students.index()
+GET     /course/:id/students             controllers.Students.getStudents(id:Long)
 
 #Users
-GET    /user/upload                       controllers.Users.upload()
-POST    /user/profile                     controllers.Users.profile()
-GET    /user/profile					  controllers.Users.pro()
+POST    /user/profile                    controllers.Users.upload()
+GET    /user/profile					 controllers.Users.profile(email:String)
+GET    /user/editProfile				 controllers.Users.editProfile()
+GET    /user/editPassword				 controllers.Users.editPassword()
 
-POST    /user/editUser                     controllers.Users.editUser()
-POST    /user/changePassword               controllers.Users.changePassword()
+POST    /user/editUser                   controllers.Users.editUser()
+POST    /user/changePassword             controllers.Users.changePassword()
         
 
 

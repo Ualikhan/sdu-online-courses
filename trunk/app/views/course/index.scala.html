@@ -4,28 +4,81 @@
 
 @import helper._
 @main(user){
-<table class="table table-bordered">
-<th>Course name</th>
-<th>Description</th>
-<th></th>
+
+      <div class="contentBar">  
+<div class="announcements"> 
+@if(courses.size()>0){
+<h3>My Courses</h3>
+<table class="table">
 @for(course<-courses){
 <tr>
-@form(routes.Courses.deleteCourse(course.id)){
-<td><a href="@routes.Courses.coursePage(course.id)">@course.name</a></td>
 <td>
-<div class="description">
+<div id="course@course.id" >
+<script type="text/javascript">
+
+bkLib.onDomLoaded(function() {
+		 var courseNicEditor = new nicEditor({
+			 fullPanel : true,
+			 iconsPath : '@routes.Assets.at("javascripts/nicEdit/nicEditorIcons.gif")',	
+			onSave : function(description, id, instance) {
+			 $('#alert-success'+@course.id).hide();
+	    	  
+			 myJsRoutes.controllers.Courses.updateContent(''+@course.id).ajax({
+        		data: {value:description},
+      		    success : function(data) {
+      		    $('#cdContent'+@course.id).html('');
+      			$('#cdContent'+@course.id).html(data);
+      			$('#alert-success'+@course.id).show();
+      		    }
+      		});
+          } });
+    	  courseNicEditor.setPanel('courseNicPanel'+@course.id);
+    	  courseNicEditor.addInstance('cdContent'+@course.id);
+         
+    	  $('#cdContent'+@course.id).click(function() {
+			  $('#courseNicPanel'+@course.id).show();
+			});
+    	  
+    
+     });
+
+  </script> 
+  <div class="row" style="margin-left: 20px;">
+  <div class="row" style="margin-left: 20px;">
+<h4><span class="courseDescriptionTitle item" id="@course.id">@course.name</span></h4>
+<span class="action" style="margin-left:5px;">
+<a href="@routes.Courses.deleteCourse(course.id)"><i class="icon-remove"></i></a>
+</span>
+</div>
+<br/>
+<div id="alert-success@course.id" class="alert alert-success">
+successfully saved
+</div>
+<div class="nicPanels" id="courseNicPanel@course.id" style="width: 525px;"></div>
+<div id="lecturecontent" class="nicTextContainer">
+<div id="cdContent@course.id" style="width: 525px;">
 @if(course.description!=null){
 @Html(course.description)
 }
 </div>
+</div>
+</div>
+</div>
 </td>
-<td><button type="submit">Delete</button></td>
-}
+<td style="padding: 30px;">
+@form(routes.Courses.coursePage(course.id)) {
+                           <button type="submit" class="btn btn-primary btn-medium courceCellButton">Go to class</button>
+                          
+							}
+</td>
 </tr>
 }
 </table>
+}
 
-<h2>Add a new course</h2>
+<fieldset>
+<legend>Add new course</legend>
+<div class="createForm">
 @form(routes.Courses.newCourse()){
 <p>
 <input type="text" name="name" placeholder="Name">
@@ -34,8 +87,35 @@
 <textarea rows="10" cols="30" class="ckeditor" name="description" placeholder="Description"></textarea>
 </p>
 <p>
-<button type="submit">Create</button>
+<button class="btn btn-primary" type="submit">Create</button>
 </p>
 }
-
+</div>
+</fieldset>
+</div>
+</div>
 }
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.alert-success').hide();
+	$('.nicPanels').hide();
+		
+	$('.courseDescriptionTitle').editable(function(value, settings) {
+			var id=$(this).attr('id');
+			 $('#alert-success'+id).hide();
+				
+			var result=value;
+			myJsRoutes.controllers.Courses.updateTitle().ajax({
+				data: {id:id,value:value},
+			    success : function(data) {
+				$('#'+id).html(data);
+				result=data;
+				$('#alert-success'+id).show();
+			    }
+			});
+			return(result);
+		});
+	
+
+});
+</script>

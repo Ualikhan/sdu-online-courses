@@ -1,8 +1,12 @@
 package models;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
+
+import models.Enums.Gender;
+import models.Enums.ResourceTypes;
 
 import play.db.ebean.Model;
 
@@ -12,11 +16,21 @@ public class User extends Model{
 	@Id
 	@Column(length=40, nullable=false)
 	public String email;
-	public String name;
+	
 	public String password;
+	public String name;
+	public int age;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(columnDefinition = "ENUM('Male','Female')")
+	public Gender gender;
+	
+	public String address;
+	public String photo;	
 	public String position;
 	public String company;
-	public String photo;
+	public Date registeredDate;
+	public Date lastActive;
 	public boolean active;
 	
 	@ManyToMany(cascade=CascadeType.REMOVE)
@@ -24,6 +38,12 @@ public class User extends Model{
 	
 	@ManyToOne
 	public Role role;
+	
+	public User(){
+		registeredDate=new Date();
+		lastActive=new Date();
+		active=false;
+	}
 	
 	public User(String name,String email,String password,Role role){
 		this.email=email;
@@ -60,11 +80,18 @@ public class User extends Model{
 	
 	public static void create(String name,String email,String password,Role role){
 		User newUser=new User(name, email, password,role);
+		newUser.registeredDate=new Date();
+		newUser.lastActive=new Date();
+		
 		newUser.save();
 	}
 	public static void addCourse(User user,Course course){
 		user.courses.add(course);
 		user.update();
+	}
+
+	public static List<User> findStudentsByCourse(Long courseId) {
+		return find.where().in("courses", Course.find.ref(courseId)).findList();
 	}
 	
 }

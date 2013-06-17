@@ -38,9 +38,9 @@ public static Result index() {
 	
 	for(int i=0;i<forumTypes.size();i++){
 		ForumType a=forumTypes.get(i);
-		int b=Post.findThreasByForumType(forumTypes.get(i).id);
-		int c=Post.findPostsByForumType(forumTypes.get(i).id);
-		Post l=Post.findLastPostByForumType(forumTypes.get(i).id);
+		int b=Post.findThreasByForumType(courseId,forumTypes.get(i).id);
+		int c=Post.findPostsByForumType(courseId,forumTypes.get(i).id);
+		Post l=Post.findLastPostByForumType(courseId,forumTypes.get(i).id);
 		ForumTypeInfo fti=new ForumTypeInfo(a, b, c, l);
 		forumTypesInfo.add(fti);
 	}
@@ -132,6 +132,7 @@ public static Result newThread(Long id) {
 		userType="STUDENT";
 	}
 	
+	
 		return ok(
 				addnewthread.render(
 						User.find.where().eq("email", request().username()).findUnique(),
@@ -156,6 +157,9 @@ public static Result saveThread(Long formTypeId) {
 		if(Secured.isStudentOf(courseId)){
 			userType="STUDENT";
 		}
+		
+		user.lastActive=new Date();
+		user.update();
 		
 		return ok(
 				item.render(
@@ -194,6 +198,9 @@ public static Result newReply(Long threadId) {
 			userType="STUDENT";
 		}
 		
+		user.lastActive=new Date();
+		user.update();
+		
 		return ok(
 				item.render(
 						user,
@@ -221,9 +228,13 @@ public static Result voteUp(Long id,Long replyId) {
 		userType="STUDENT";
 	}
 	
+	User user=User.find.where().eq("email", request().username()).findUnique();
+	user.lastActive=new Date();
+	user.update();
+	
 		return ok(
 				item.render(
-						User.find.where().eq("email", request().username()).findUnique(),
+						user,
 						course,
 						post,
 						Post.findReplies(id),
@@ -248,9 +259,13 @@ public static Result voteDown(Long id,Long replyId) {
 		userType="STUDENT";
 	}
 	
+	User user=User.find.where().eq("email", request().username()).findUnique();
+	user.lastActive=new Date();
+	user.update();
+	
 		return ok(
 				item.render(
-						User.find.where().eq("email", request().username()).findUnique(),
+						user,
 						course,
 						post,
 						Post.findReplies(id),
@@ -259,7 +274,7 @@ public static Result voteDown(Long id,Long replyId) {
 				);
 }
 
-public static Result sortByDate(Long id) {
+public static Result sortReplies(String sortBy,Long id) {
 	courseId=Long.parseLong(session("course"));
 	Course course=Course.find.byId(courseId);
 	Post post=Post.find.ref(id);
@@ -271,39 +286,25 @@ public static Result sortByDate(Long id) {
 	if(Secured.isStudentOf(courseId)){
 		userType="STUDENT";
 	}
+	
+	List<Post> sortedList=null;
+	if(sortBy.equals("DATE_POSTED"))
+		sortedList=Post.findRepliesByDatePosted(id);
+	else if(sortBy.equals("MOST_RECENT"))
+		sortedList=Post.findRepliesByMostRecent(id);
+	else 
+		sortedList=Post.findRepliesByVotes(id);
+	
 		return ok(
 				item.render(
 						User.find.where().eq("email", request().username()).findUnique(),
 						course,
 						post,
-						Post.findRepliesByDatePosted(id),
+						sortedList,
 						userType
 						)
 				);
 }
 
-public static Result sortByVotes(Long id) {
-	courseId=Long.parseLong(session("course"));
-	Course course=Course.find.byId(courseId);
-	Post post=Post.find.ref(id);
-	
-	String userType="";
-	if(Secured.isTutorOf(courseId)){
-		userType="TUTOR";
-	}
-	if(Secured.isStudentOf(courseId)){
-		userType="STUDENT";
-	}
-	
-		return ok(
-				item.render(
-						User.find.where().eq("email", request().username()).findUnique(),
-						course,
-						post,
-						Post.findRepliesByVotes(id),
-						userType
-						)
-				);
-}
 
 }

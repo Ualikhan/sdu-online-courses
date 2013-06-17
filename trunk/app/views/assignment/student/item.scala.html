@@ -54,7 +54,7 @@ You already submit this assignment!Please wait,until tutor marks it!
 @if(submissionType.equals("CHECKED")){
 <a class="btn" href="@routes.StudentSubmissions.getSubmission(ss.id,submissionType)">Show results</a>
 }else{
-@if(new java.util.Date().after(assignment.startDate) && new java.util.Date().before(assignment.deadline)){
+@if(assignment.submissionFormCreated && new java.util.Date().after(assignment.startDate) && new java.util.Date().before(assignment.deadline)){
 @form(routes.SubmissionForms.newStudentSubmission(assignment.id)){
 <input type="hidden" name="id" value="@assignment.id">
 <button type="submit" class="btn btn-primary">Submit this assignment</button>

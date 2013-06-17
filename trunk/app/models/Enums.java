@@ -2,6 +2,11 @@ package models;
 
 public class Enums {
 
+	public enum Gender{
+		Male,
+		Female
+	}
+	
 	public enum RoleTypes{
 		Administrator,
 		Tutor,

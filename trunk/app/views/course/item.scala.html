@@ -22,10 +22,10 @@
   @for(courseInformation<-courseInformations){
   <li><a class="courseInformations" id="courseInformation@courseInformation.id" href="#">@courseInformation.title</a></li>
   }
-  <li style="height: 50px;">
-  @form(action=routes.CourseInformations.addCourseInformation(),'style->"padding:10px;"){
-  <button type="submit"  class="new"><i class="icon-plus"></i></button>
-  }
+  <li>
+  @form(routes.CourseInformations.addCourseInformation()){
+	   <button class="btn btn-primary" type="submit"><i class="icon-plus icon-white"><span class="hidden-accessible"> </span></i>New course information</button>
+	   }
   </li>
 </ul>
     </div>
@@ -71,11 +71,12 @@
   </script> 
   <div class="row" style="margin-left: 20px;" id="annItem@annoncement.id">
   <span style="float: left;">
-<h4 style="float: left;"><span class="announcementTitle item" id="announcementTitle@annoncement.id">@annoncement.title</span></h4>
-@form(action=routes.Announcements.deleteAnnouncement(annoncement.id), 'style->"margin-top:10px;", 'class->"action"){
-<button class="btn btn-mini btn-primary"  type="submit"><i class="icon-remove"></i></button>
-}
+<h4 style="float: left;"><span class="courseDescriptionTitle announcementTitle item" id="announcementTitle@annoncement.id">@annoncement.title</span></h4>
+<span class="action" style="margin-left:5px;margin-top:10px;">
+<a href="@routes.Announcements.deleteAnnouncement(annoncement.id)"><i class="icon-remove icon-removeRed"></i></a>
 </span>
+</span>
+
 <p style="float: right;margin:5px;">
 @{new org.ocpsoft.prettytime.PrettyTime(new java.util.Date()).setLocale(Locale.ENGLISH).format(annoncement.createdDate)}
 </p>

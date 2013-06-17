@@ -3,36 +3,43 @@
 
 
 @main(user){
-
- 	
- 	
- 	 @courses.map { course =>
-<div class="row courseCell">
- 	 <div class="span3"></div>
- 	 <div class="media span7">
-       <div class="row-fluid">
- 		<h3><a href="@routes.Courses.courseDescription(course.id)"" >@course.name</a></h3>					
- 		</div>
- 		<div class="row-fluid" style="margin-bottom:10px;margin-top:-5px;">
- 		<span class="instructorName textGray">
- 		
- 		@course.owner.name
- 		@if(course.owner.position!=null){
- 		:@course.owner.position
- 		}
- 		@if(course.owner.company!=null){
- 		,@course.owner.company
- 		}
- 		
- 		</span>				
- 		</div>
- 		<div class="row-fluid courseSummary">
- 		@if(course.description!=null){
- 		<p>@Html(course.description)</p>		
- 		}	
- 		</div>
-  		</div>
-</div>
-                        }
-                        
+<div class="contentBar">
+<div class="announcements">
+	 	 @courses.map { course =>
+	     <div class="row courseCell">
+	 	 <div class="span3">
+	 	 @if(course.owner.photo!=null){
+	 	 <div class="imageContainer" style="margin-left: 20px;">
+	 	 <img class="shadow-picture-container" src="@routes.Assets.at("uploadImages/"+{course.owner.photo})">
+	 	 </div>
+	 	 }
+	 	 </div>
+	 	 <div class="span7">
+	       <div class="row-fluid">
+	 		<h2 class="courseName"><a href="@routes.Courses.courseDescription(course.id)"" >@course.name</a></h2>					
+	 		</div>
+	 		<div class="row-fluid" style="margin-bottom:10px;margin-top:-5px;">
+	 		<span class="instructorName textGray">
+	 		
+	 		@course.owner.name
+	 		@if(course.owner.position!=null){
+	 		:@course.owner.position
+	 		}
+	 		@if(course.owner.company!=null){
+	 		,@course.owner.company
+	 		}
+	 		
+	 		</span>				
+	 		</div>
+	 		<div class="row-fluid courseSummary">
+	 		@if(course.description!=null){
+	 		<p>@Html(course.description)</p>		
+	 		}	
+	 		</div>
+	  		</div>
+			</div>
+	
+	      }
+  </div>	
+  </div>     
  }

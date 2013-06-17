@@ -25,6 +25,7 @@ public class Course extends Model{
 	@ManyToOne
 	public User owner;
 	
+	
 	public Course(String name,String description,User user){
 		this.name=name;
 		this.description=description;

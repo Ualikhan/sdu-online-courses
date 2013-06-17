@@ -5,7 +5,7 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span2">
+    <div class="span1">
     </div>
     <div class="span10">
 @tutor.aboutcourse(course)
@@ -19,11 +19,15 @@
 </div>
 <div class="container-fluid">
   <div class="row-fluid">
-  <div class="span2">
+  <div class="span1">
     </div>
     <div class="span10">
       <div class="contentBar">
       <div class="announcements">
+      <ul class="breadcrumb">
+      <li><a href="@routes.Forums.index()">Forum</a><span class="divider">/</span></li>
+      <li>@forumType.name</li>
+      </ul>
       <div>
       <div class="page-header-menu inline-block">
       @form(routes.Forums.newThread(forumType.id)){
@@ -33,6 +37,7 @@
 	   <h3>@forumType.name</h3>
       <hr>
       </div>
+@if(threadsInfo!=null && threadsInfo.size()>0){
 <table class="forum table-bordered table-striped">
 <th>Forum</th>
 <th>Vote(s)</th>
@@ -43,7 +48,13 @@
 <tr>
 <td class="forumDescription">
       <div class="item-pic-container forum-pic">
-      <a href=""><div class="person-img" style="background-image: url(@routes.Assets.at("uploadImages/"+{threadInfo.thread.author.photo}))"></div></a>
+      <a href="">
+      @if(threadInfo.thread.author.photo!=null){
+      <img class="person-img" src="@routes.Assets.at("uploadImages/"+{threadInfo.thread.author.photo})">
+      }else{
+      <img class="person-img" src="@routes.Assets.at("images/person.png")">
+      }
+      </a>
       </div>
       <div class="right-of-forum-pic">
       <h4 class="name inline-block"><a href="@routes.Forums.getThread(threadInfo.thread.id)">@threadInfo.thread.title</a></h4>
@@ -70,6 +81,7 @@
 </tr>
 }
 	</table>
+}
 	</div>
 		</div>
     </div>

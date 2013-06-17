@@ -76,6 +76,10 @@ public class Post extends Model{
 	}
 
 	public static List<Post> findRepliesByDatePosted(Long id) {
+		return find.where().eq("postType", "REPLY").eq("repliedTo.id", id).orderBy("postedDate asc").findList();
+	}
+	
+	public static List<Post> findRepliesByMostRecent(Long id) {
 		return find.where().eq("postType", "REPLY").eq("repliedTo.id", id).orderBy("postedDate desc").findList();
 	}
 	
@@ -83,16 +87,16 @@ public class Post extends Model{
 		return find.where().eq("postType", "REPLY").eq("repliedTo.id", id).orderBy("votes desc").findList();
 	}
 
-	public static int findThreasByForumType(Long id) {
-		return find.where().eq("postType", "THREAD").eq("forumType.id", id).findRowCount();
+	public static int findThreasByForumType(Long courseId,Long id) {
+		return find.where().eq("course.id", courseId).eq("postType", "THREAD").eq("forumType.id", id).findRowCount();
 	}
 
-	public static int findPostsByForumType(Long id) {
-		return find.where().eq("postType", "REPLY").eq("forumType.id", id).findRowCount();
+	public static int findPostsByForumType(Long courseId,Long id) {
+		return find.where().eq("course.id", courseId).eq("postType", "REPLY").eq("forumType.id", id).findRowCount();
 	}
 
-	public static Post findLastPostByForumType(Long id) {
-		return find.where().eq("forumType.id", id).orderBy("postedDate desc").setMaxRows(1).findUnique();
+	public static Post findLastPostByForumType(Long courseId,Long id) {
+		return find.where().eq("course.id", courseId).eq("forumType.id", id).orderBy("postedDate desc").setMaxRows(1).findUnique();
 	}
 
 	public static int findRepliesCountByThread(Long id) {
@@ -101,6 +105,18 @@ public class Post extends Model{
 
 	public static Post findLastPostByThread(Long id) {
 		return find.where().eq("postType", "REPLY").eq("repliedTo.id", id).orderBy("postedDate desc").setMaxRows(1).findUnique();
+	}
+
+	public static int findUserThreadsNum(User user) {
+		return find.where().eq("postType", "THREAD").eq("author", user).findRowCount();
+	}
+	
+	public static int findUserRepliesNum(User user) {
+		return find.where().eq("postType", "REPLY").eq("author", user).findRowCount();
+	}
+	
+	public static int findUserVotesNum(User user) {
+		return find.where().eq("postType", "THREAD").eq("author", user).findRowCount();
 	}
 	
 	
