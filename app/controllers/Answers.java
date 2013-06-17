@@ -4,6 +4,7 @@ import static play.data.Form.form;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import models.Assignment;
@@ -145,13 +146,16 @@ public static Result updateAnswer(Long questionId) throws ParseException{
 
 public static Result saveStudentAnswers(Long sfId) throws ParseException{
 	courseId=Long.parseLong(session("course"));
-	
+	User user=User.find.where().eq("email", request().username()).findUnique();
+	user.lastActive=new Date();
+	user.update();
 	
 	if(Secured.isStudentOf(courseId)){
 		StudentSubmission studentSubmission=new StudentSubmission();
-		studentSubmission.student=User.find.where().eq("email", request().username()).findUnique();
+		studentSubmission.student=user;
 		studentSubmission.assignment=Assignment.find.ref(sfId);
 		studentSubmission.submissionType=SubmissionTypes.SUBMITTED;
+		studentSubmission.createdDate=new Date();
 		studentSubmission.save();
 		List<Question> questions=Question.findBySubmissionForm(sfId);
 		for(Question question : questions){

@@ -1,81 +1,77 @@
-2013-06-09 18:48:15,523 - [INFO] - from play in main 
+2013-06-17 13:36:20,796 - [INFO] - from play in main 
 Listening for HTTP on /0:0:0:0:0:0:0:0:9000
 
-2013-06-09 18:48:52,591 - [INFO] - from play in New I/O  worker #1 
+2013-06-17 13:36:44,510 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-09 18:49:09,098 - [INFO] - from play in New I/O  worker #1 
+2013-06-17 13:36:57,945 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-06-09 18:54:56,935 - [INFO] - from play in New I/O  worker #3 
+2013-06-17 13:39:44,561 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-09 18:55:03,834 - [INFO] - from play in New I/O  worker #3 
+2013-06-17 13:39:45,637 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 
-2013-06-09 18:57:36,195 - [INFO] - from play in New I/O  worker #4 
+2013-06-17 13:40:35,579 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-09 18:57:43,644 - [INFO] - from play in New I/O  worker #4 
+2013-06-17 13:40:37,741 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-06-09 18:59:14,049 - [INFO] - from play in New I/O  worker #1 
+2013-06-17 13:41:40,556 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-09 18:59:14,842 - [INFO] - from play in New I/O  worker #1 
+2013-06-17 13:41:41,309 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-06-09 18:59:26,475 - [DEBUG] - from application in play-akka.actor.default-dispatcher-35 
-mesg: Please go to <a href=localhost:9000//confirm?email=ualihan_92.92%40mail.ru>here</a> to confirm your account
-
-2013-06-09 19:00:35,888 - [INFO] - from play in New I/O  worker #4 
+2013-06-17 13:43:49,410 - [INFO] - from play in New I/O  worker #1 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-09 19:00:37,397 - [INFO] - from play in New I/O  worker #4 
+2013-06-17 13:43:50,209 - [INFO] - from play in New I/O  worker #1 
 Application started (Dev)
 
-2013-06-09 19:01:24,822 - [DEBUG] - from application in play-akka.actor.default-dispatcher-46 
-mesg: Please go to <a href='localhost:9000/confirm?email=ualihan_92.92%40mail.ru'>here</a> to confirm your account
-
-2013-06-09 19:04:18,741 - [INFO] - from play in New I/O  worker #4 
+2013-06-17 13:44:22,202 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-09 19:04:22,695 - [INFO] - from play in New I/O  worker #4 
+2013-06-17 13:44:23,980 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-06-09 19:04:36,967 - [DEBUG] - from application in play-akka.actor.default-dispatcher-57 
-mesg: Please go to <a href='http://localhost:9000/confirm?email=ualihan_92.92%40mail.ru'>here</a> to confirm your account
-
-2013-06-09 19:15:37,775 - [INFO] - from play in New I/O  worker #1 
+2013-06-17 13:45:22,453 - [INFO] - from play in New I/O  worker #4 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-09 19:15:42,520 - [ERROR] - from application in New I/O  worker #1 
+2013-06-17 13:45:23,180 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-06-17 13:46:02,530 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 13:46:03,259 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-06-17 13:53:26,419 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 13:53:27,315 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-06-17 14:07:14,434 - [ERROR] - from application in New I/O  worker #2 
 
 
-! @6ehac88o9 - Internal server error, for (GET) [/register] ->
+! @6ejf29hek - Internal server error, for (GET) [/courses] ->
 
-play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1$$anonfun$apply$1.apply$mcV$sp(Evolutions.scala:457) ~[play-jdbc_2.10.jar:2.1.0]
-	at play.api.db.evolutions.EvolutionsPlugin.withLock(Evolutions.scala:478) ~[play-jdbc_2.10.jar:2.1.0]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:434) ~[play-jdbc_2.10.jar:2.1.0]
-	at play.api.db.evolutions.EvolutionsPlugin$$anonfun$onStart$1.apply(Evolutions.scala:432) ~[play-jdbc_2.10.jar:2.1.0]
-	at scala.collection.immutable.List.foreach(List.scala:309) ~[scala-library.jar:na]
-	at play.api.db.evolutions.EvolutionsPlugin.onStart(Evolutions.scala:432) ~[play-jdbc_2.10.jar:2.1.0]
-	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at play.api.Play$$anonfun$start$1$$anonfun$apply$mcV$sp$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at scala.collection.immutable.List.foreach(List.scala:309) ~[scala-library.jar:na]
-	at play.api.Play$$anonfun$start$1.apply$mcV$sp(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at play.api.Play$$anonfun$start$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at play.api.Play$$anonfun$start$1.apply(Play.scala:63) ~[play_2.10.jar:2.1.0]
-	at play.utils.Threads$.withContextClassLoader(Threads.scala:18) ~[play_2.10.jar:2.1.0]
-	at play.api.Play$.start(Play.scala:62) ~[play_2.10.jar:2.1.0]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$1.apply(ApplicationProvider.scala:133) ~[play_2.10.jar:2.1.0]
-	at play.core.ReloadableApplication$$anonfun$get$1$$anonfun$1.apply(ApplicationProvider.scala:106) ~[play_2.10.jar:2.1.0]
-	at scala.Option.map(Option.scala:145) ~[scala-library.jar:na]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:106) ~[play_2.10.jar:2.1.0]
-	at play.core.ReloadableApplication$$anonfun$get$1.apply(ApplicationProvider.scala:104) ~[play_2.10.jar:2.1.0]
-	at scala.util.Either$RightProjection.flatMap(Either.scala:523) [scala-library.jar:na]
-	at play.core.ReloadableApplication.get(ApplicationProvider.scala:104) ~[play_2.10.jar:2.1.0]
+sbt.PlayExceptions$CompilationException: Compilation error[illegal start of simple expression]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15$$anonfun$apply$16.apply(PlayReloader.scala:349) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:349) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2$$anonfun$apply$15.apply(PlayReloader.scala:346) ~[na:na]
+	at scala.Option.map(Option.scala:133) ~[scala-library.jar:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:346) ~[na:na]
+	at sbt.PlayReloader$$anon$2$$anonfun$reload$2.apply(PlayReloader.scala:344) ~[na:na]
+	at scala.Either$LeftProjection.map(Either.scala:374) ~[na:na]
+	at sbt.PlayReloader$$anon$2.reload(PlayReloader.scala:344) ~[na:na]
+	at play.core.ReloadableApplication.get(ApplicationProvider.scala:98) ~[play_2.10.jar:2.1.0]
 	at play.core.server.Server$class.sendHandler$1(Server.scala:56) [play_2.10.jar:2.1.0]
 	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:88) [play_2.10.jar:2.1.0]
 	at play.core.server.Server$$anonfun$getHandlerFor$4.apply(Server.scala:87) [play_2.10.jar:2.1.0]
@@ -109,24 +105,126 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) [na:1.7.0_13]
 	at java.lang.Thread.run(Unknown Source) [na:1.7.0_13]
 
-2013-06-09 19:16:18,435 - [INFO] - from play in New I/O  worker #1 
+2013-06-17 14:07:38,327 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-09 19:16:20,118 - [INFO] - from play in New I/O  worker #1 
+2013-06-17 14:07:41,933 - [INFO] - from play in New I/O  worker #2 
 Application started (Dev)
 
-2013-06-09 19:17:11,895 - [INFO] - from play in New I/O  worker #2 
+2013-06-17 14:12:52,283 - [INFO] - from play in New I/O  worker #3 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-09 19:17:12,576 - [INFO] - from play in New I/O  worker #2 
+2013-06-17 14:12:53,153 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 
-2013-06-09 19:17:30,843 - [DEBUG] - from application in play-akka.actor.default-dispatcher-72 
-mesg: Please go to <a href='http://localhost:9000/confirm?email=ualihan_92.92%40mail.ru'>here</a> to confirm your account
-
-2013-06-09 19:21:38,908 - [INFO] - from play in New I/O  worker #2 
+2013-06-17 14:26:43,574 - [INFO] - from play in New I/O  worker #2 
 database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
 
-2013-06-09 19:21:44,122 - [INFO] - from play in New I/O  worker #2 
+2013-06-17 14:26:49,370 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-06-17 14:28:03,936 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 14:28:04,710 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-06-17 14:31:01,473 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 14:31:02,197 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-06-17 14:34:09,104 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 14:34:09,821 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-06-17 14:35:33,507 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 14:35:34,374 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-06-17 14:36:20,646 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 14:36:21,443 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-06-17 14:36:58,638 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 14:36:59,340 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-06-17 14:47:59,127 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 14:48:00,072 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-06-17 14:48:55,590 - [INFO] - from play in New I/O  worker #2 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 14:48:56,353 - [INFO] - from play in New I/O  worker #2 
+Application started (Dev)
+
+2013-06-17 14:49:24,859 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 14:49:25,610 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-06-17 14:51:18,432 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 14:51:19,374 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-06-17 15:02:01,112 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 15:02:01,859 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-06-17 15:02:39,880 - [DEBUG] - from application in play-akka.actor.default-dispatcher-252 
+path: D:\Programming\Eclipse Projects\sdu-online-courses
+
+2013-06-17 15:06:09,454 - [INFO] - from play in New I/O  worker #4 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 15:06:10,600 - [INFO] - from play in New I/O  worker #4 
+Application started (Dev)
+
+2013-06-17 15:09:58,782 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 15:09:59,682 - [INFO] - from play in New I/O  worker #3 
+Application started (Dev)
+
+2013-06-17 15:10:57,331 - [DEBUG] - from application in play-akka.actor.default-dispatcher-282 
+path: D:\Programming\Eclipse Projects\sdu-online-courses
+
+2013-06-17 15:11:42,085 - [DEBUG] - from application in play-akka.actor.default-dispatcher-292 
+path: D:\Programming\Eclipse Projects\sdu-online-courses
+
+2013-06-17 15:15:28,286 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 15:15:29,164 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-06-17 15:17:08,929 - [INFO] - from play in New I/O  worker #1 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 15:17:09,856 - [INFO] - from play in New I/O  worker #1 
+Application started (Dev)
+
+2013-06-17 15:19:11,499 - [INFO] - from play in New I/O  worker #3 
+database [default] connected at jdbc:mysql://localhost/online_courses_clone?characterEncoding=UTF-8
+
+2013-06-17 15:19:12,342 - [INFO] - from play in New I/O  worker #3 
 Application started (Dev)
 

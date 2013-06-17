@@ -6,6 +6,7 @@ main{
 	margin: 10px;
 	margin-left: 40px;
 }
+
 .description{
 	display: inline-block;
 	padding:20px;
@@ -110,9 +111,13 @@ height: 200px;
  height:40px;
  }
  .videoFrameSize{
- width: 100%;
- height: 100%;
+ margin-left:8px;
+ width: 750px;
+ height: 503px;
  }
+ .courseDescriptionTitle{
+color: #9D9573;
+}
 
 .descriptionTextArea{
 	width: 60%;
@@ -120,13 +125,21 @@ height: 200px;
 	margin: 20px;
 }
 .content{
-	padding:20px;
-	width: 90%;
-	min-height:380px;
+	width: 100%;
+	min-height:400px;
 }
+.contentDiv{
+	min-height:400px;
+}
+
 .header{
-	width: 90%;
-	z-index: 1;
+position: relative;
+margin-top: 0px;
+height: 124px;
+clear: both;
+}
+.header-container {
+background-color: #f5f5f5;
 }
 .courseCell{
 padding: 20px 0px 20px 0px;
@@ -136,6 +149,17 @@ margin:20px;
 border: 2px solid #e1e1e1;
 background-color: white;
 }
+.courseCell .span3 {
+width: 169px;
+}
+.courseName {
+font-family: 'Source Sans Pro',sans-serif;
+font-size: 26px;
+letter-spacing: 1px;
+font-weight: normal;
+color: #3A7BB5;
+}
+
 .instructorName{
 	font-family: 'Source Sans Pro', sans-serif;
 font-size: 17px;
@@ -155,6 +179,7 @@ color: #575757;
 }
 .logo{
 	float: left;
+	position:absolute;
 	padding-bottom:10px;
 	padding-left: 50px;
 	padding-top: 20px;
@@ -162,8 +187,8 @@ color: #575757;
 }
 .user{
 	float: right;
-	padding-bottom:10px;
-	padding-top: 20px;
+	padding-top: 8%;
+	padding-right: 4%;
 }
 .menuBar{
 	background-color: #F4F4F4;
@@ -177,7 +202,7 @@ outline: 1px solid #DDDDDD;
 .contentBar{
 	background-color: white;
 	border: 1px solid rgba(0, 0, 0, 0.126);
-	min-height: 300px;
+	min-height: 500px;
 }
 
 .videoListItem{
@@ -252,7 +277,7 @@ text-decoration: none;
 
 .announcements{
 	margin:20px;
-	min-height: 300px;
+	min-height: 400px;
 }
 
 .studentCourseCell{
@@ -265,10 +290,23 @@ text-decoration: none;
 .space{
 	margin-left: 30px;
 }
-footer{
-	background-color:#F5F5F5;
-	position: relative;
-	
+.footer{
+position:relative;
+margin-top: 0px;
+height: 60px;
+clear: both;
+}
+.footer-container {
+	background-color: #f5f5f5;
+	height: 100%;
+}
+.footerText{
+	position:absolute;
+	color:silver;
+	font-size: 24px;
+	text-align:center;
+	margin-top: 15px;
+	margin-left: 45%;
 }
 
 .questionAnswerTextArea{
@@ -323,18 +361,7 @@ margin-left: 20px;
 	font-family: monospace;
 	text-decoration: underline ;
 }
-.resultTable{
-	font-size:15px;	
-	border-width: 1px;	
-	border-collapse: collapse;
-}
-.resultTable  td ,th ,tr {
-	border-width: 1px;
-	padding: 8px;
-	border-style: solid;
-	border-color: #666666;
-	text-align: center;
-}
+
 
 .postMain{
 	margin-bottom: 25px;
@@ -422,6 +449,10 @@ background-color: #A1E0BD;
 color: #316700;
 }
 
+.badge-minus{
+background-color: red;
+}
+
 .counts {
 width: 8%;
 text-align: center;
@@ -443,4 +474,186 @@ border-radius: 4px;
 width: 55%;
 text-align: left;
 padding-left: 20px;
+}
+
+.chatting-thread {
+position: relative;
+padding-top: 20px;
+margin-bottom: 20px;
+border-top-style: solid;
+border-width: 1px;
+border-color: #DDD;
+}
+
+.textGray {
+color: #575757;
+}
+
+.messageContainer {
+margin-top: 4px;
+margin-bottom: 8px;
+}
+
+.messageContent {
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+.subject .as-h4 {
+font-weight: normal;
+}
+
+.profile-picture {
+position: relative;
+text-align: center;
+}
+
+.profile-pic-border {
+display: -moz-inline-stack;
+display: inline-block;
+zoom: 1;
+display: -moz-inline-stack;
+display: inline-block;
+zoom: 1;
+width: 140px;
+height: 140px;
+padding: 8px;
+border: solid 1px #CCC;
+outline: solid 5px #f1f1f1;
+margin-top: 5px;
+}
+
+.pic {
+margin: 0 auto;
+width: 140px;
+height: 140px;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+}
+.hidden-accessible {
+position: absolute !important;
+height: 1px;
+width: 1px;
+overflow: hidden;
+clip: rect(1px 1px 1px 1px);
+clip: rect(1px, 1px, 1px, 1px);
+}
+.name-group {
+margin-bottom: 15px;
+}
+h3.name-row {
+margin-top: 15px;
+text-align: center;
+margin-bottom: 0;
+}
+
+.right-main-side {
+padding-left: 15px;
+}
+.tab-content {
+display: table;
+width: 100%;
+}
+.detail-value {
+padding: 2px 2px;
+color: #0f3654;
+font-weight: bold;
+background-color: #ececef;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+}
+
+.bio-container, .profile-well .statement-container {
+min-height: 20px;
+padding: 19px;
+margin-bottom: 20px;
+margin-top: 15px;
+background-color: whiteSmoke;
+-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+font-size: 14px;
+line-height: 1.4em;
+}
+.little-hr {
+margin: 12px;
+}
+
+.full {
+margin-left: 0px;
+margin-right: 0px;
+}
+.btn-upload {
+position: absolute;
+bottom: 12px;
+left: 50%;
+margin-left: -52px;
+}
+
+
+.modal-header {
+padding: 9px 15px;
+border-bottom: 1px solid #eee;
+}
+
+.modal-body {
+overflow-y: auto;
+max-height: 400px;
+padding: 15px;
+}
+
+.close {
+float: right;
+font-size: 20px;
+font-weight: bold;
+line-height: 18px;
+color: #000000;
+text-shadow: 0 1px 0 #ffffff;
+opacity: 0.2;
+filter: alpha(opacity=20);
+}
+
+ul.activity-list {
+margin-left: 0;
+list-style: none;
+}
+
+.detail-row {
+margin-bottom: 3px;
+}
+
+ .results{
+ font-size:16px;
+ }
+ .results td{
+padding:5px;
+ }
+ .results tr{
+	height:26px;
+ }
+.resultStudent{
+text-align: center;
+}
+.head-course-container {
+height: 76px;
+}
+.head-part {
+margin-left: 20px;
+font-family: 'Source Sans Pro',sans-serif;
+}
+.imageContainer img.shadow-picture-container {
+-moz-border-radius: 5px;
+border-radius: 5px;
+width: 100%;
+}
+.shadow-picture-container {
+-moz-box-shadow: 0px 1px 1px 1px #ccc;
+-webkit-box-shadow: 0px 1px 1px 1px #ccc;
+box-shadow: 0px 1px 1px 1px #ccc;
 }

@@ -1,33 +1,161 @@
-@(user:User,userForm:Form[User])
+@(ownUser:User,user:User,latestSubmissions: List[StudentSubmission],threadNum: Integer,replyNum: Integer,voteNum: Integer)
 @import helper._
 
-@main(user){
-<img src="@routes.Assets.at("uploadImages/"+{user.photo})" width="60px" height="60px" >
- @form(routes.Users.editUser) {
-<p>
-<input type="text" name="name" placeholder="Name"  value="@user.name">
-</p>
-<p>
-<input type="text" name="company" placeholder="Company"  value="@user.company">
-</p>
-<p>
-<input type="text" name="position" placeholder="Position"  value="@user.position">
-</p>
-<p>
-<input type="submit" placeholder="Save changes" >
-</p>
+@main(ownUser){
+<div class="container-fluid">
+  <div class="row-fluid">
+<div class="span12">
+<div class="contentBar">
+<div class="announcements">
+<div class="span3">
+<div class="left-side">
+<div class="profile-picture">
+<div class="profile-pic-border">
+@if(user.photo!=null){
+<div class="pic" style="background-image: url('@routes.Assets.at("uploadImages/"+{user.photo})');"></div>
+}else{
+<div class="pic" style="background-image: url('@routes.Assets.at("images/person.png")');"></div>
 }
-@user.email
+</div>
+@if(session.get("email").equals(user.email)){
+<div class="modal">
+<div class="modal-header">
+<a class="close" data-dismiss="modal">x</a>
+<br>
+<h3>Profile Picture</h3>
+</div>
 
- @form(routes.Users.changePassword) {
-<p>
-<input type="password" placeholder="Password" name="password" >
-</p>
-<p>
-<input type="password" placeholder="Confirm password" name="password2" >
-</p>
-<p>
-<input type="submit" placeholder="Save changes" >
-</p>
+<div class="modal-body">
+<h4>Upload a picture from your computer</h4>
+
+@form(action = routes.Users.upload(), 'enctype -> "multipart/form-data") {
+    <input type="file" name="photo">
+    <p>
+        <button class="btn btn-primary" type="submit" >Upload Picture</button>
+    </p>
 }
+</div>
+</div>
+
+<a href="#" id="pictureModal" class="btn btn-mini btn-upload btn-primary" data-toggle="modal">
+<i class="icon-white icon-upload">
+<span class="hidden-accessible"> </span>
+</i>
+Upload Picture
+</a>
 }
+</div>
+<div class="name-group">
+<h3 class="name-row">
+<a href="">@user.name</a>
+</h3>
+</div>
+
+</div>
+</div>
+<div class="span8">
+<div class="right-main-side">
+<div class="tab-content">
+<div class="pull-right">
+@if(session.get("email").equals(user.email)){
+<div class="btn-group">
+<a class="btn" href="@routes.Users.editProfile()"><i class="icon-dark icon-edit">
+<span class="hidden-accessible"> </span>
+</i>
+Edit Profile
+</a>
+</div>
+}else{
+<div class="btn-group">
+  @form(action=routes.Conversations.newConversation(user.email)){
+<button type="submit" class="btn"><i class="icon-envelope icon-dark">
+<span class="hidden-accessible"> </span>
+</i>
+Contact
+</button>
+}
+</div>
+}
+</div>
+
+<div class="head">
+<h2>@user.name</h2>
+<div class="minor-detail">
+<i class="icon-signal"></i>
+<span>On this platform since 
+<span class="detail-value">
+@{new org.ocpsoft.prettytime.PrettyTime(new java.util.Date()).setLocale(Locale.ENGLISH).format(user.registeredDate)}
+</span> ,last activity 
+<span class="detail-value">
+@{new org.ocpsoft.prettytime.PrettyTime(new java.util.Date()).setLocale(Locale.ENGLISH).format(user.lastActive)}
+</span>
+</span>
+</div>
+@if(user.address!=null && user.address.length()>0){
+<div class="minor-detail">
+<i class="icon-map-marker"></i>
+<span>Lives in
+<span class="detail-value">@user.address</span>
+</span>
+</div>
+}
+@if(user.position!=null && user.position.length()>0){
+<div class="minor-detail">
+<i class="icon-ok-sign"></i>
+<span>
+<span class="detail-value">@user.position</span>
+</span>
+</div>
+}
+</div>
+
+<hr class="little-hr full">
+
+@if(latestSubmissions!=null && latestSubmissions.size()>0){
+<div class="latest-activity">
+<h3>Latest Submissions</h3>
+<ul class="activity-list">
+@for(submission <- latestSubmissions){
+<li>
+<i class="icon-th-large"></i>
+Submitted <a href="@routes.Assignments.getAssignment(submission.assignment.id)">@submission.assignment.title</a>
+</li>
+}
+</ul>
+</div>
+}
+<hr class="little-hr full">
+
+<div class="activity-stats">
+<h3>Community Activities</h3>
+<div class="detail-row">
+<i class="icon-check">
+<span class="hidden-accessible"></span>
+</i>
+Initiated <span class="detail-value">@threadNum</span> threads in the forum,posted <span class="detail-value">@replyNum</span> replies,received <span class="detail-value">@voteNum</span> votes
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+}
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	$('.modal').hide();
+	$( "#pictureModal" ).click(function() {
+		$('.modal').show();
+    });
+	
+	$( ".close" ).click(function() {
+		$('.modal').hide();
+    });
+	
+});
+
+</script>

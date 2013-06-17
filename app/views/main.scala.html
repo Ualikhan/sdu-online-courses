@@ -35,11 +35,16 @@
  
              
     </head>
-    <body>
+    <body style="background: url('@routes.Assets.at("images/bgd.jpg")');">
      <header>
     </header>
     <div class="main">
- 	<div class="header row">
+    <div class="container-fluid" >
+  <div class="row-fluid">
+  <div class="span1"></div>
+    <div class="span10">
+ 	<div class="header" style="background: url('@routes.Assets.at("images/header_bg.png")');">
+ 	<div class="header-container">
  	<span class="logo">
     <a href="@routes.Application.index" id="logo" ><span><img src="@routes.Assets.at("images/sdu.png")" /></span></a>
     
@@ -53,8 +58,10 @@
     <b class="caret"></b>
   </a>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-     <li role="presentation"><a role="menuitem" href="@routes.Users.pro()">Profile</a></li>
-     <li role="presentation"><a role="menuitem" href="@routes.Students.index()">My courses</a></li>
+     <li role="presentation"><a role="menuitem" href="@routes.Users.profile(user.email)">Profile</a></li>
+     <li role="presentation"><a role="menuitem" href="@routes.Conversations.index()">Conversations</a></li>
+      <li role="presentation"><a role="menuitem" href="@routes.Students.index()">My courses</a></li>
+    
     <li role="presentation"><a role="menuitem" href="@routes.Application.logout()">Logout</a></li>
   </ul>
 </div>
@@ -64,20 +71,31 @@
 }
 </span>
 </div>
-<div class="content">
+</div>
+</div>
+</div>
+ <div class="row-fluid contentDiv">
+  <div class="span1"></div>
+    <div class="span10">
+<div class="content" style="background-color: #fbfbfb;">
       @content
 </div>
 </div>
-     <footer>
-     <div class="container-fluid" style="height: ">
-  <div class="row-fluid">
-  <div class="span5"></div>
-    <div class="span4">
+</div>
+</div>
+<div class="row-fluid">
+  <div class="span1"></div>
+    <div class="span10">
+     <div class="footer" style="background: url('@routes.Assets.at("images/header_bg.png")');">
+     <div class="footer-container">
+   <span class="footerText">
      SDU 2013
+     </span>
      </div>
      </div>
      </div>
-     </footer>
+     </div>
+</div>
     </body>
 </html>
 

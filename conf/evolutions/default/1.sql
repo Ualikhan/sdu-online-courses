@@ -33,6 +33,20 @@ create table assignment (
   constraint pk_assignment primary key (id))
 ;
 
+create table conversation (
+  id                        bigint auto_increment not null,
+  title                     varchar(255),
+  description               TEXT,
+  sended_date               datetime,
+  from_user_email           varchar(40),
+  to_user_email             varchar(40),
+  conversation_type         ENUM('THREAD','REPLY'),
+  replied_to_id             bigint,
+  course_id                 bigint,
+  constraint ck_conversation_conversation_type check (conversation_type in ('THREAD','REPLY')),
+  constraint pk_conversation primary key (id))
+;
+
 create table course (
   id                        bigint auto_increment not null,
   name                      varchar(255),
@@ -133,6 +147,7 @@ create table student_submission (
   grade                     integer,
   submission_type           ENUM('SAVED','SUBMITTED','CHECKED'),
   assignment_id             bigint,
+  created_date              datetime,
   constraint ck_student_submission_submission_type check (submission_type in ('SAVED','SUBMITTED','CHECKED')),
   constraint pk_student_submission primary key (id))
 ;
@@ -148,13 +163,19 @@ create table submission_item (
 
 create table user (
   email                     varchar(40) not null,
-  name                      varchar(255),
   password                  varchar(255),
+  name                      varchar(255),
+  age                       integer,
+  gender                    ENUM('Male','Female'),
+  address                   varchar(255),
+  photo                     varchar(255),
   position                  varchar(255),
   company                   varchar(255),
-  photo                     varchar(255),
+  registered_date           datetime,
+  last_active               datetime,
   active                    tinyint(1) default 0,
   role_id                   bigint,
+  constraint ck_user_gender check (gender in ('Male','Female')),
   constraint pk_user primary key (email))
 ;
 
@@ -176,36 +197,44 @@ alter table answer add constraint fk_answer_question_2 foreign key (question_id)
 create index ix_answer_question_2 on answer (question_id);
 alter table assignment add constraint fk_assignment_course_3 foreign key (course_id) references course (id) on delete restrict on update restrict;
 create index ix_assignment_course_3 on assignment (course_id);
-alter table course add constraint fk_course_owner_4 foreign key (owner_email) references user (email) on delete restrict on update restrict;
-create index ix_course_owner_4 on course (owner_email);
-alter table course_description add constraint fk_course_description_course_5 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_course_description_course_5 on course_description (course_id);
-alter table course_information add constraint fk_course_information_course_6 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_course_information_course_6 on course_information (course_id);
-alter table lecture add constraint fk_lecture_course_7 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_lecture_course_7 on lecture (course_id);
-alter table lecture_resource add constraint fk_lecture_resource_lecture_8 foreign key (lecture_id) references lecture (id) on delete restrict on update restrict;
-create index ix_lecture_resource_lecture_8 on lecture_resource (lecture_id);
-alter table post add constraint fk_post_author_9 foreign key (author_email) references user (email) on delete restrict on update restrict;
-create index ix_post_author_9 on post (author_email);
-alter table post add constraint fk_post_forumType_10 foreign key (forum_type_id) references forum_type (id) on delete restrict on update restrict;
-create index ix_post_forumType_10 on post (forum_type_id);
-alter table post add constraint fk_post_repliedTo_11 foreign key (replied_to_id) references post (id) on delete restrict on update restrict;
-create index ix_post_repliedTo_11 on post (replied_to_id);
-alter table post add constraint fk_post_course_12 foreign key (course_id) references course (id) on delete restrict on update restrict;
-create index ix_post_course_12 on post (course_id);
-alter table question add constraint fk_question_assignment_13 foreign key (assignment_id) references assignment (id) on delete restrict on update restrict;
-create index ix_question_assignment_13 on question (assignment_id);
-alter table student_submission add constraint fk_student_submission_student_14 foreign key (student_email) references user (email) on delete restrict on update restrict;
-create index ix_student_submission_student_14 on student_submission (student_email);
-alter table student_submission add constraint fk_student_submission_assignment_15 foreign key (assignment_id) references assignment (id) on delete restrict on update restrict;
-create index ix_student_submission_assignment_15 on student_submission (assignment_id);
-alter table submission_item add constraint fk_submission_item_question_16 foreign key (question_id) references question (id) on delete restrict on update restrict;
-create index ix_submission_item_question_16 on submission_item (question_id);
-alter table submission_item add constraint fk_submission_item_studentSubmission_17 foreign key (student_submission_id) references student_submission (id) on delete restrict on update restrict;
-create index ix_submission_item_studentSubmission_17 on submission_item (student_submission_id);
-alter table user add constraint fk_user_role_18 foreign key (role_id) references role (id) on delete restrict on update restrict;
-create index ix_user_role_18 on user (role_id);
+alter table conversation add constraint fk_conversation_fromUser_4 foreign key (from_user_email) references user (email) on delete restrict on update restrict;
+create index ix_conversation_fromUser_4 on conversation (from_user_email);
+alter table conversation add constraint fk_conversation_toUser_5 foreign key (to_user_email) references user (email) on delete restrict on update restrict;
+create index ix_conversation_toUser_5 on conversation (to_user_email);
+alter table conversation add constraint fk_conversation_repliedTo_6 foreign key (replied_to_id) references conversation (id) on delete restrict on update restrict;
+create index ix_conversation_repliedTo_6 on conversation (replied_to_id);
+alter table conversation add constraint fk_conversation_course_7 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_conversation_course_7 on conversation (course_id);
+alter table course add constraint fk_course_owner_8 foreign key (owner_email) references user (email) on delete restrict on update restrict;
+create index ix_course_owner_8 on course (owner_email);
+alter table course_description add constraint fk_course_description_course_9 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_course_description_course_9 on course_description (course_id);
+alter table course_information add constraint fk_course_information_course_10 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_course_information_course_10 on course_information (course_id);
+alter table lecture add constraint fk_lecture_course_11 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_lecture_course_11 on lecture (course_id);
+alter table lecture_resource add constraint fk_lecture_resource_lecture_12 foreign key (lecture_id) references lecture (id) on delete restrict on update restrict;
+create index ix_lecture_resource_lecture_12 on lecture_resource (lecture_id);
+alter table post add constraint fk_post_author_13 foreign key (author_email) references user (email) on delete restrict on update restrict;
+create index ix_post_author_13 on post (author_email);
+alter table post add constraint fk_post_forumType_14 foreign key (forum_type_id) references forum_type (id) on delete restrict on update restrict;
+create index ix_post_forumType_14 on post (forum_type_id);
+alter table post add constraint fk_post_repliedTo_15 foreign key (replied_to_id) references post (id) on delete restrict on update restrict;
+create index ix_post_repliedTo_15 on post (replied_to_id);
+alter table post add constraint fk_post_course_16 foreign key (course_id) references course (id) on delete restrict on update restrict;
+create index ix_post_course_16 on post (course_id);
+alter table question add constraint fk_question_assignment_17 foreign key (assignment_id) references assignment (id) on delete restrict on update restrict;
+create index ix_question_assignment_17 on question (assignment_id);
+alter table student_submission add constraint fk_student_submission_student_18 foreign key (student_email) references user (email) on delete restrict on update restrict;
+create index ix_student_submission_student_18 on student_submission (student_email);
+alter table student_submission add constraint fk_student_submission_assignment_19 foreign key (assignment_id) references assignment (id) on delete restrict on update restrict;
+create index ix_student_submission_assignment_19 on student_submission (assignment_id);
+alter table submission_item add constraint fk_submission_item_question_20 foreign key (question_id) references question (id) on delete restrict on update restrict;
+create index ix_submission_item_question_20 on submission_item (question_id);
+alter table submission_item add constraint fk_submission_item_studentSubmission_21 foreign key (student_submission_id) references student_submission (id) on delete restrict on update restrict;
+create index ix_submission_item_studentSubmission_21 on submission_item (student_submission_id);
+alter table user add constraint fk_user_role_22 foreign key (role_id) references role (id) on delete restrict on update restrict;
+create index ix_user_role_22 on user (role_id);
 
 
 
@@ -226,6 +255,8 @@ drop table announcement;
 drop table answer;
 
 drop table assignment;
+
+drop table conversation;
 
 drop table course;
 

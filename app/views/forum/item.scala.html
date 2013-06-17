@@ -5,7 +5,7 @@
 
 <div class="container-fluid">
   <div class="row-fluid">
-    <div class="span2">
+    <div class="span1">
     </div>
     <div class="span10">
 @tutor.aboutcourse(course)
@@ -19,7 +19,7 @@
 </div>
 <div class="container-fluid">
   <div class="row-fluid">
-  <div class="span2">
+  <div class="span1">
     </div>
     <div class="span10">
       <div class="contentBar">
@@ -27,7 +27,7 @@
       <ul class="breadcrumb">
       <li><a href="@routes.Forums.index()">Forum</a><span class="divider">/</span></li>
       <li><a href="@routes.Forums.getThreads(thread.forumType.id)">@thread.forumType.name</a><span class="divider">/</span></li>
-      <li class="current"><a href="@routes.Forums.index()">Forum</a></li>
+      <li>@thread.title</li>
       </ul>
       <div class="row-fluid">
         <div class="span1">
@@ -56,10 +56,16 @@
       <div class="postMain span9">
       <div class="author">
       <div class="item-pic-container forum-pic">
-      <a href=""><div class="person-img" style="background-image: url(@routes.Assets.at("uploadImages/"+{thread.author.photo}))"></div></a>
+      <a href="">
+      @if(thread.author.photo!=null){
+      <img class="person-img" src="@routes.Assets.at("uploadImages/"+{thread.author.photo})">
+      }else{
+      <img class="person-img" src="@routes.Assets.at("images/person.png")">
+      }
+      </a>
       </div>
       <div class="right-of-forum-pic">
-      <h4 class="name inline-block"><a href="">@thread.author.name</a></h4>
+      <h4 class="name inline-block"><a href="@routes.Users.profile(thread.author.email)">@thread.author.name</a></h4>
       <div class="post_date">
       @{new org.ocpsoft.prettytime.PrettyTime(new java.util.Date()).setLocale(Locale.ENGLISH).format(thread.postedDate)}
       </div>
@@ -78,10 +84,10 @@
 	   <div class="span5 align-right">
 	   <ul class="nav nav-pills pull-right">
 	   <li>
-	   <a href="@routes.Forums.sortByDate(thread.id)">Data Posted</a>
+	   <a href="@routes.Forums.sortReplies("DATA_POSTED",thread.id)">Data Posted</a>
 	   </li>
-	   <li><a href="">Most Recent</a></li>
-	   <li><a href="@routes.Forums.sortByVotes(thread.id)">Most Voted</a></li>
+	   <li><a href="@routes.Forums.sortReplies("MOST_RECENT",thread.id)">Most Recent</a></li>
+	   <li><a href="@routes.Forums.sortReplies("MOST_VOTED",thread.id)">Most Voted</a></li>
 	   </ul>
 	   </div>
       </div>
@@ -107,10 +113,16 @@
       <div class="postMain span9">
       <div class="author">
       <div class="item-pic-container forum-pic">
-      <a href=""><div class="person-img" style="background-image: url(@routes.Assets.at("uploadImages/"+{reply.author.photo}))"></div></a>
+      <a href="">
+      @if(reply.author.photo!=null){
+      <img class="person-img" src="@routes.Assets.at("uploadImages/"+{reply.author.photo})">
+      }else{
+      <img class="person-img" src="@routes.Assets.at("images/person.png")">
+      }
+      </a>
       </div>
       <div class="right-of-forum-pic">
-      <h4 class="name inline-block"><a href="">@reply.author.name</a></h4>
+      <h4 class="name inline-block"><a href="@routes.Users.profile(reply.author.email)">@reply.author.name</a></h4>
       <div class="post_date">
       @{new org.ocpsoft.prettytime.PrettyTime(new java.util.Date()).setLocale(Locale.ENGLISH).format(reply.postedDate)}
       </div>

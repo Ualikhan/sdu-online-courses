@@ -1,0 +1,67 @@
+@(user:User,course:Course,students: List[User],userType:String)
+
+
+@import helper._
+@main(user){
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span1">
+     
+    </div>
+    <div class="span10">
+@tutor.aboutcourse(course)
+@if(userType.equals("TUTOR")){
+@tutor.menu(course,"Community")
+}else{
+@student.menu(course,"Community")
+}
+</div>
+</div>
+</div>
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span1">
+
+    </div>
+    <div class="span10">
+      <div class="contentBar">
+		<div class="announcements">
+			
+      
+		    @for(student<-students){
+		    <div class="row-fluid">
+		    <div style="position:relative;margin-bottom:5px;min-height:95px;">
+		    <div style="width:90px;float:left;overflow:hidden;height:95px">
+		    @if(student.photo!=null){
+		    <img src="@routes.Assets.at("uploadImages/"+{student.photo})" style="width:100%">
+		    }else{
+		    <img src="@routes.Assets.at("images/person.png")" style="width:100%">
+		    }
+		    </div>
+		    <div style="padding-left:100px;">
+		    <h4 style="margin-bottom:10px;">
+		     <a href="@routes.Users.profile(student.email)">@student.name</a>
+		    </h4>
+		     @if(student.address!=null){
+		   <div style="margin-bottom:10px;">
+		   <i class="icon-home"></i>
+		   Lives in <span class="detail-value">@student.address</span>
+		   </div>
+		   }
+		    @if(student.position!=null){
+		   <div style="margin-bottom:10px;">
+		   <i class="icon-ok-sign"></i>
+		   <span class="detail-value">@student.position</span>
+		   </div>
+		   }
+		    </div>
+		    </div>
+		    </div>
+		    }
+		    
+		    </div>
+</div>    
+    </div>
+    </div>
+    </div>
+}

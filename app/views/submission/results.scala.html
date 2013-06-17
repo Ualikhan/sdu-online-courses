@@ -17,19 +17,12 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span3">
-     <ul class="nav nav-list sidebar">
-  <li class="nav-header">Assignments</li>
-  @for(assignment<-assignments){
-  <li>
-  <a id="assignment@assignment.id" href="@routes.StudentSubmissions.getUncheckedByAssignment(assignment.id)">@assignment.title</a>
-  </li>
-  }
-</ul>
+
     </div>
     <div class="span8">
       <div class="contentBar">
 <div class="announcements">       
-     <table class="resultTable">
+     <table class="results table-bordered table-striped">
       <th>Students</th>
       @for(assignment<-assignments){
 	  <th>@assignment.title</th>
@@ -39,13 +32,16 @@
 	   @submissions.toList.sortWith(_.grade.asInstanceOf[Double] < _.grade.asInstanceOf[Double]).groupBy(_.student).map {
 	               case (student, submissions) => {
 	               <tr>
-	                <td>@student.name</td>
+	                <td class="resultStudent">@student.name</td>
 	                 @for(cn <- 1 to assignments.size){
-		    <td>
+		    <td class="counts hidden-phone">
 		    @Application.setValue("yes", false)
 		    @for(subvalue <- submissions){
 		     @if(subvalue.assignmentId==assignments.get(cn-1).id){
-		     @subvalue.grade
+		     
+		     <span class="badge">
+						 @subvalue.grade
+						</span>
 		     @Application.setValue("yes", true)
 		     }
 	        }
@@ -54,8 +50,10 @@
 	        }
 	        </td>
 	        }
-                     <td>
-                     @submissions.get(0).grade
+                     <td class="counts hidden-phone">
+                     <span class="badge badge-plus">
+						 @submissions.get(submissions.size()-1).grade
+						</span>
                      </td> 
                 </tr>
             }

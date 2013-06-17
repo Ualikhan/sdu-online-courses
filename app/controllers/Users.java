@@ -23,7 +23,49 @@ import views.html.user.*;
 @Security.Authenticated(Secured.class)
 public class Users extends Controller {
 	
-	public static Result profile() throws IOException{
+	public static Result profile(String email){
+		
+		User ownUser=User.find.where().eq("email", request().username()).findUnique();
+		User user=User.find.where().eq("email", email).findUnique();
+		int threadNum=Post.findUserThreadsNum(user);
+		int repliesNum=Post.findUserRepliesNum(user);
+		int votesNum=Post.findUserVotesNum(user);
+		
+		return ok(
+				views.html.user.profile.render(
+					ownUser,
+					user,
+	       		    StudentSubmission.findSubmissionsOfUser(user),
+	       		    threadNum,
+	       		    repliesNum,
+	       		    votesNum
+	       		   )
+	       		);
+	}
+	
+public static Result editProfile(){
+		
+		User ownUser=User.find.where().eq("email", request().username()).findUnique();
+		
+		return ok(
+				views.html.user.editprofile.render(
+					ownUser
+	       		   )
+	       		);
+	}
+
+public static Result editPassword(){
+	
+	User ownUser=User.find.where().eq("email", request().username()).findUnique();
+	
+	return ok(
+			views.html.user.editpassword.render(
+				ownUser
+       		   )
+       		);
+}
+	
+	public static Result upload() throws IOException{
 		
 		 MultipartFormData body = request().body().asMultipartFormData();
 	     FilePart picture = body.getFile("photo");
@@ -41,44 +83,35 @@ public class Users extends Controller {
 	     	               150, 150, Scalr.OP_ANTIALIAS);
 	       ImageIO.write(thumbnail, "png",uniqueFile);
 	       
+	       User user=User.find.ref(request().username());
+	       user.photo=uniqueFile.getName();
+	       user.update();
 	       
+	       return redirect(routes.Users.profile(request().username())); 
 	       
-	       User user= User.find.where().eq("email", request().username()).findUnique();
-           user.photo=uniqueFile.getName();
-           user.update();
-           Form<User> loginForm = form(User.class);  
-           
-          return ok(views.html.user.profile.render(user,loginForm));
 	     }
     	 else {
     	    flash("error", "Missing file");
     	    return redirect(routes.Application.index());    
     	  }
-    	}
-    
-    public static Result pro() {
-    Form<User> loginForm = form(User.class);  
-    User user= User.find.where().eq("email", request().username()).findUnique();
-    
-   return ok(views.html.user.profile.render(user,loginForm));
-    }
-    
-    public static Result upload() {
-  
-  	      return ok(views.html.user.upload.render());
-  	 
-  	}
+    	}  
+ 
     
     public static Result editUser() {
     	Form<User> loginForm = form(User.class).bindFromRequest();
         
         User user= User.find.byId(request().username());
         user.name=loginForm.get().name;
+        user.age=loginForm.get().age;
+        user.gender=loginForm.get().gender;
+        user.address=loginForm.get().address;
         user.company=loginForm.get().company;
         user.position=loginForm.get().position;
         
         user.update();		
-       return ok(views.html.user.profile.render(user,loginForm));
+        
+        return redirect(routes.Users.profile(request().username())); 
+	       
         }
     
     public static Result changePassword() {
@@ -87,8 +120,9 @@ public class Users extends Controller {
     	Form<User> loginForm = form(User.class);
         
     	if(passwordForm.hasErrors()){
-        	return ok(views.html.user.profile.render(user,loginForm));
-            
+    		
+    		 return redirect(routes.Users.profile(request().username())); 
+  	                   
         }
         else{
     	 user.password=passwordForm.get().password;

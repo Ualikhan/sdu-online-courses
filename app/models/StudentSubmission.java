@@ -1,5 +1,6 @@
 package models;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.*;
@@ -28,6 +29,8 @@ public class StudentSubmission extends Model{
 	
 	@ManyToOne
 	public Assignment assignment;
+	
+	public Date createdDate;
 
 	public static Finder<Long,StudentSubmission> find=new Finder<Long, StudentSubmission>(Long.class, StudentSubmission.class);
 		
@@ -58,6 +61,10 @@ public class StudentSubmission extends Model{
 
 	public static StudentSubmission isStudentSubmitedAssignment(String email,Long assignmentId) {
 		return find.where().eq("student.email", email).eq("assignment.id", assignmentId).findUnique();
+	}
+
+	public static List<StudentSubmission> findSubmissionsOfUser(User user) {
+		return find.where().eq("student", user).orderBy("createdDate desc").setMaxRows(10).findList();
 	}
 
 }

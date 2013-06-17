@@ -3,6 +3,8 @@
 @import helper._
 @main(user){
 
+<div class="contentBar">
+<div class="announcements">
 <div style="margin-left: 20px;">
 	<h2>@course.name</h2>
 	<h3>Instructor:</h3>
@@ -23,16 +25,16 @@
 </p>
 	@if(enrollment.equals("ENROLLED")){
 		@form(routes.Courses.coursePage(course.id)) {
-		<button class="btn btn-primary btn-medium" type="submit">Go to class</button>
+		<button class="btn action-btn btn-success" type="submit">Go to class</button>
 		}
 	}else{
 	@if(enrollment.equals("OWNER")){
 		@form(routes.Courses.coursePage(course.id)) {
-		<button class="btn btn-primary btn-medium" type="submit">Edit course</button>
+		<button class="btn action-btn btn-success" type="submit">Edit course</button>
 		}
 	}else{
 		@form(routes.Courses.join(course.id)){
-		<button class="btn btn-primary btn-medium" type="submit">Sign up</button>
+		<button class="btn action-btn btn-success" type="submit">Sign up</button>
 		}
 	}
 }
@@ -71,11 +73,12 @@ bkLib.onDomLoaded(function() {
 
   </script> 
   <div class="row" style="margin-left: 20px;">
+  <div class="row" style="margin-left: 20px;">
 <h4><span class="courseDescriptionTitle item" id="@courseDescription.id">@courseDescription.title</span></h4>
-@helper.form(action=routes.CourseDescriptions.deleteCourseDescription(courseDescription.id),'class->"res action") {
-<button class="btn btn-mini btn-primary"  type="submit"><i class="icon-remove"></i></button>
-}
-<br/>
+<span class="action" style="margin-left:5px;">
+<a href="@routes.CourseDescriptions.deleteCourseDescription(courseDescription.id)"><i class="icon-remove"></i></a>
+</span>
+</div>
 <br/>
 <div id="alert-success@courseDescription.id" class="alert alert-success">
 successfully saved
@@ -108,6 +111,8 @@ successfully saved
 }
 </div>
 </fieldset>
+</div>
+</div>
 }
 
 <script type="text/javascript">
